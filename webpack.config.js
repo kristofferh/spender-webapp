@@ -46,7 +46,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    modules: [path.resolve("./src/client/scripts/"), "node_modules"],
+    modules: [path.resolve("./src/"), "node_modules"],
     extensions: [".js", ".css", ".scss"]
   }
 };
