@@ -1,5 +1,10 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-const Hi = () => <div>Hi</div>;
+const App = () => (
+  <Router>
+    <div>Hi</div>
+  </Router>
+);
 
-export default Hi;
+export default App;
