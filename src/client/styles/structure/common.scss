@@ -2,6 +2,7 @@
   min-height: 100vh;
   animation: fade-in 1s ease forwards;
   flex: 1;
+  margin: 20px;
 }
 
 .keyboard-shortcut {
@@ -60,41 +61,4 @@
       transform: translateX(-3px);
     }
   }
-}
-
-.album-cover {
-  width: 50px;
-  height: 50px;
-  background-size: cover;
-}
-
-.track-details {
-  margin-left: 10px;
-}
-
-.artist {
-  font-weight: $font-weight-bold;
-  font-size: $font-size-x-small;
-  text-transform: uppercase;
-}
-
-.track-name {
-  font-size: $font-size-small;
-}
-
-.album-name {
-  font-size: $font-size-small;
-}
-
-.play-button {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background: rgba($white, 0.5);
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 0 25px 0px rgba($black, 0.1);
 }
