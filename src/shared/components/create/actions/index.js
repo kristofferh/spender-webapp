@@ -26,7 +26,7 @@ export const makeRequest = search => {
   });
 };
 
-export const fetchResults = search => dispatch => {
+export const addItem = search => dispatch => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
   dispatch(addItemRequest());
