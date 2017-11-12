@@ -13,15 +13,23 @@ export default (
   action
 ) => {
   switch (action.type) {
-    case REQUEST_RESULTS:
-      return Object.assign({}, state, {
+    case ADD_ITEM_REQUEST:
+      return {
+        ...state,
         isFetching: true
-      });
-    case RECEIVE_RESULTS:
-      return Object.assign({}, state, {
+      };
+    case ADD_ITEM_SUCCESS:
+      return {
+        ...state,
         isFetching: false,
-        tracks: action.tracks
-      });
+        item: action.item
+      };
+    case ADD_ITEM_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        errors: action.errors
+      };
     default:
       return state;
   }

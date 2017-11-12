@@ -33,10 +33,11 @@ export const fetchResults = search => dispatch => {
 
   makeRequest(search)
     .then(json => {
-      // Second dispatch: return results
+      // Second dispatch: return results.
       return dispatch(addItemSuccess(json));
     })
     .catch(errors => {
+      // Or dispatch errors.
       return dispatch(addItemFailure(errors));
     });
 };
