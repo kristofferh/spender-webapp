@@ -20,18 +20,26 @@ export const addItemFailure = errors => ({
 
 // Make call to the API.
 // @todo: move this to utils.
-export const makeRequest = search => {
-  return fetch(`http://localhost:3000?query=${search}`).then(response => {
+export const makeRequest = query => {
+  return fetch("http://localhost:3000", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: query
+  }).then(response => {
     return response.json();
   });
 };
 
-export const addItem = search => dispatch => {
+export const addItem = data => dispatch => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
   dispatch(addItemRequest());
-
-  makeRequest(search)
+  const query =
+    "mutation ($date: String, $amount: Float!, $description: String!) { addItem(date: $date, amount: $amount, description: $description) { id }}";
+  makeRequest(JSON.stringify({ query: query, variables: data }))
     .then(json => {
       // Second dispatch: return results.
       return dispatch(addItemSuccess(json));
