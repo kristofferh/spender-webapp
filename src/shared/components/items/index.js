@@ -1,19 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { RouteWithSubRoutes } from "shared/utils";
+import { connect } from "react-redux";
+import Create from "shared/components/create";
 
-const Items = ({ routes }) => {
-  return (
-    <div>
-      Items
-      <Link to="/items/create">Create</Link>
-    </div>
-  );
-};
+export class Items extends Component {
+  componentDidMount() {}
+  render() {
+    return (
+      <div>
+        Items
+        <Create />
+      </div>
+    );
+  }
+}
 
 Items.propTypes = {
   routes: PropTypes.array
 };
 
-export default Items;
+const mapStateToProps = state => {
+  console.log(state);
+  return state;
+};
+
+export default connect(mapStateToProps)(Items);

@@ -8,7 +8,7 @@ export default (
   state = {
     isFetching: false,
     item: {},
-    errors: []
+    errors: {}
   },
   action
 ) => {
