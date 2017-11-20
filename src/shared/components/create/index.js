@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { addItem } from "./actions";
-import "./styles";
+import "./styles/index.scss";
 
 export class Create extends Component {
   constructor(props) {

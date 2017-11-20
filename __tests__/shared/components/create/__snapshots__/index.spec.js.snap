@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create snapshot should render and match the snapshot 1`] = `
+<div>
+  <h1>
+    Create
+  </h1>
+  <form
+    onChange={[Function]}
+    onSubmit={[Function]}
+  >
+    <label
+      className="form-group form-group--vertical"
+    >
+      <span
+        className="form-group-label-text"
+      >
+        Date
+      </span>
+      <input
+        name="date"
+        type="date"
+      />
+    </label>
+    <label
+      className="form-group form-group--vertical"
+    >
+      <span
+        className="form-group-label-text"
+      >
+        Amount
+      </span>
+      <input
+        name="amount"
+        step="any"
+        type="number"
+      />
+    </label>
+    <label
+      className="form-group form-group--vertical"
+    >
+      <span
+        className="form-group-label-text"
+      >
+        Description
+      </span>
+      <textarea
+        name="description"
+      />
+    </label>
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

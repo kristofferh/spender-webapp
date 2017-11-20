@@ -1,6 +1,6 @@
 # Framework Webapp
 
-Boilerplate Web APP using Webpack, React, Redux, and React Router.
+Boilerplate Web APP using Webpack, React, Redux, React Router, and Jest for testing.
 
 ## Usage
 
@@ -16,3 +16,7 @@ yarn build
 yarn start
 ```
 
+Test:
+```
+yarn test
+```
