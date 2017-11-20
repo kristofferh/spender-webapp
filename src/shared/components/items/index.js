@@ -3,25 +3,53 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Create from "shared/components/create";
 
+import { fetchItems } from "./actions";
+
 export class Items extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.fetchItems({ order: "date" });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.add !== this.props.add) {
+      this.props.fetchItems({ order: "date" });
+    }
+  }
+
   render() {
     return (
       <div>
-        Items
+        <h1>Items</h1>
+        {this.props.items.map(item => (
+          <div key={item.id}>
+            <span className="date">{item.date}</span>
+            <span className="amount">${item.amount}</span>
+            {item.description}
+          </div>
+        ))}
         <Create />
       </div>
     );
   }
 }
 
+Items.defaultProps = {
+  items: []
+};
+
 Items.propTypes = {
-  routes: PropTypes.array
+  routes: PropTypes.array,
+  fetchItems: PropTypes.func,
+  items: PropTypes.array,
+  add: PropTypes.object
 };
 
 const mapStateToProps = state => {
-  console.log(state);
-  return state;
+  const { list, create } = state;
+  return {
+    add: create.item,
+    items: list.items
+  };
 };
 
-export default connect(mapStateToProps)(Items);
+export default connect(mapStateToProps, { fetchItems })(Items);
