@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 import Create from "shared/components/create";
 
 import { fetchItems } from "./actions";
@@ -21,11 +23,11 @@ export class Items extends Component {
       <div>
         <h1>Items</h1>
         {this.props.items.map(item => (
-          <div key={item.id}>
+          <Link to={`/items/${item.id}`} key={item.id}>
             <span className="date">{item.date}</span>
             <span className="amount">${item.amount}</span>
             {item.description}
-          </div>
+          </Link>
         ))}
         <Create />
       </div>
