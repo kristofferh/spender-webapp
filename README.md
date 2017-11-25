@@ -1,6 +1,6 @@
-# Framework Webapp
+# Spender Webapp
 
-Boilerplate Web APP using Webpack, React, Redux, React Router, and Jest for testing.
+Spender Web App using Webpack, React, Redux, React Router, and Jest for testing.
 
 ## Usage
 
