@@ -1,6 +1,6 @@
 import Home from "shared/components/home";
 import Items from "shared/components/items";
-import Create from "shared/components/create";
+import Edit from "shared/containers/edit";
 
 // APP Routes
 const routes = [
@@ -20,13 +20,13 @@ const routes = [
     name: "create",
     path: "/items/create",
     exact: true,
-    component: Create
+    component: Edit
   },
   {
     name: "Item",
     path: "/items/:id",
     exact: true,
-    component: Create
+    component: Edit
   }
 ];
 

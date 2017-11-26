@@ -3,19 +3,11 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import Create from "shared/components/create";
-
 import { fetchItems } from "./actions";
 
 export class Items extends Component {
   componentDidMount() {
     this.props.fetchItems({ order: "date" });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.add !== this.props.add) {
-      this.props.fetchItems({ order: "date" });
-    }
   }
 
   render() {
@@ -29,7 +21,6 @@ export class Items extends Component {
             {item.description}
           </Link>
         ))}
-        <Create />
       </div>
     );
   }
@@ -42,14 +33,12 @@ Items.defaultProps = {
 Items.propTypes = {
   routes: PropTypes.array,
   fetchItems: PropTypes.func,
-  items: PropTypes.array,
-  add: PropTypes.object
+  items: PropTypes.array
 };
 
 const mapStateToProps = state => {
-  const { list, create } = state;
+  const { list } = state;
   return {
-    add: create.item,
     items: list.items
   };
 };
