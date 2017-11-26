@@ -3,10 +3,9 @@
 exports[`Create snapshot should render and match the snapshot 1`] = `
 <div>
   <h1>
-    Create
+    Edit
   </h1>
   <form
-    onChange={[Function]}
     onSubmit={[Function]}
   >
     <label
@@ -19,7 +18,13 @@ exports[`Create snapshot should render and match the snapshot 1`] = `
       </span>
       <input
         name="date"
-        type="date"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        type="datetime-local"
+        value=""
       />
     </label>
     <label
@@ -32,8 +37,14 @@ exports[`Create snapshot should render and match the snapshot 1`] = `
       </span>
       <input
         name="amount"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
         step="any"
         type="number"
+        value=""
       />
     </label>
     <label
@@ -46,6 +57,12 @@ exports[`Create snapshot should render and match the snapshot 1`] = `
       </span>
       <textarea
         name="description"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        value=""
       />
     </label>
     <button
