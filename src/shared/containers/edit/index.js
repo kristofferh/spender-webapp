@@ -13,6 +13,8 @@ export class Edit extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {}
+
   handleSubmit(values) {
     this.props.addItem(values);
   }
