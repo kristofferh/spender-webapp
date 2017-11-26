@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import EditForm from "shared/components/edit-form";
 
 import { addItem } from "./actions";
-import "./styles/index.scss";
 
 export class Edit extends Component {
   constructor(props) {

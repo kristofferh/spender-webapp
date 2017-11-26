@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
 
+import "./styles/index.scss";
+
 const EditForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <label className="form-group form-group--vertical">
