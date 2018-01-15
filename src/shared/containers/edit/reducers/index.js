@@ -1,7 +1,10 @@
 import {
-  ADD_ITEM_REQUEST,
-  ADD_ITEM_SUCCESS,
-  ADD_ITEM_FAILURE
+  UPSERT_ITEM_REQUEST,
+  UPSERT_ITEM_SUCCESS,
+  UPSERT_ITEM_FAILURE,
+  FETCH_ITEM_REQUEST,
+  FETCH_ITEM_SUCCESS,
+  FETCH_ITEM_FAILURE
 } from "../constants";
 
 export default (
@@ -13,18 +16,35 @@ export default (
   action
 ) => {
   switch (action.type) {
-    case ADD_ITEM_REQUEST:
+    case UPSERT_ITEM_REQUEST:
       return {
         ...state,
         isFetching: true
       };
-    case ADD_ITEM_SUCCESS:
+    case UPSERT_ITEM_SUCCESS:
       return {
         ...state,
         isFetching: false,
         item: action.item
       };
-    case ADD_ITEM_FAILURE:
+    case UPSERT_ITEM_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        errors: action.errors
+      };
+    case FETCH_ITEM_REQUEST:
+      return {
+        ...state,
+        isFetching: true
+      };
+    case FETCH_ITEM_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        item: action.item
+      };
+    case FETCH_ITEM_FAILURE:
       return {
         ...state,
         isFetching: false,
