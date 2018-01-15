@@ -1,5 +1,5 @@
 import Home from "shared/components/home";
-import Items from "shared/components/items";
+import Items from "shared/containers/items";
 import Upsert from "shared/containers/upsert";
 
 // APP Routes
