@@ -26,7 +26,7 @@ export class Upsert extends Component {
   render() {
     return (
       <div>
-        <h1>Edit</h1>
+        <h1>{this.props.id ? "Edit" : "Add"}</h1>
         <EditForm
           onSubmit={this.handleSubmit}
           initialValues={this.props.initialValues}
@@ -48,7 +48,7 @@ Upsert.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   const { edit: { item: initialValues, errors } } = state;
-  const { match: { params: { id = {} } } } = ownProps;
+  const { match: { params: { id = undefined } } } = ownProps;
   return {
     ...state,
     initialValues,
