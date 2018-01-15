@@ -10,6 +10,7 @@ import {
 export default (
   state = {
     isFetching: false,
+    isSubmitting: false,
     item: {},
     errors: {}
   },
@@ -19,18 +20,18 @@ export default (
     case UPSERT_ITEM_REQUEST:
       return {
         ...state,
-        isFetching: true
+        isSubmitting: true
       };
     case UPSERT_ITEM_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isSubmitting: false,
         item: action.item
       };
     case UPSERT_ITEM_FAILURE:
       return {
         ...state,
-        isFetching: false,
+        isSubmitting: false,
         errors: action.errors
       };
     case FETCH_ITEM_REQUEST:

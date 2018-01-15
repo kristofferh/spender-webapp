@@ -1,6 +1,6 @@
 import Home from "shared/components/home";
 import Items from "shared/components/items";
-import Edit from "shared/containers/edit";
+import Upsert from "shared/containers/upsert";
 
 // APP Routes
 const routes = [
@@ -20,13 +20,13 @@ const routes = [
     name: "create",
     path: "/items/create",
     exact: true,
-    component: Edit
+    component: Upsert
   },
   {
     name: "Item",
     path: "/items/:id",
     exact: true,
-    component: Edit
+    component: Upsert
   }
 ];
 

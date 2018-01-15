@@ -138,7 +138,6 @@ export const upsertItem = data => dispatch => {
     .then(json => {
       // Second dispatch: return results.
       const { addItem, editItem } = json;
-      console.log(addItem, editItem);
       return dispatch(upsertItemSuccess(addItem || editItem));
     })
     .catch(errors => {

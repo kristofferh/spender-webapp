@@ -6,7 +6,7 @@ import EditForm from "shared/components/edit-form";
 
 import { upsertItem, fetchItem } from "./actions";
 
-export class Edit extends Component {
+export class Upsert extends Component {
   constructor(props) {
     super(props);
 
@@ -14,15 +14,13 @@ export class Edit extends Component {
   }
 
   componentDidMount() {
-    const { match: { params: { id } } } = this.props;
-    if (id) {
-      this.props.fetchItem(id);
+    if (this.props.id) {
+      this.props.fetchItem(this.props.id);
     }
   }
 
   handleSubmit(values) {
-    const { match: { params: { id = {} } } } = this.props;
-    this.props.upsertItem({ ...values, id });
+    this.props.upsertItem({ ...values, id: this.props.id });
   }
 
   render() {
@@ -39,21 +37,24 @@ export class Edit extends Component {
   }
 }
 
-Edit.propTypes = {
+Upsert.propTypes = {
   upsertItem: PropTypes.func,
   fetchItem: PropTypes.func,
   match: PropTypes.object,
   initialValues: PropTypes.object,
-  errors: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+  errors: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   const { edit: { item: initialValues, errors } } = state;
+  const { match: { params: { id = {} } } } = ownProps;
   return {
     ...state,
     initialValues,
-    errors
+    errors,
+    id
   };
 };
 
-export default connect(mapStateToProps, { upsertItem, fetchItem })(Edit);
+export default connect(mapStateToProps, { upsertItem, fetchItem })(Upsert);
