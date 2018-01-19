@@ -3,31 +3,44 @@ import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
 import moment from "moment";
 
+import { required, number } from "shared/utils/validators";
+
+import { Input, Textarea } from "shared/components/form-controls";
+
 import "./styles/index.scss";
 
 const EditForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <label className="form-group form-group--vertical">
-      <span className="form-group-label-text">Date</span>
       <Field
         name="date"
-        component="input"
+        component={Input}
         type="datetime-local"
         format={value => {
-          //console.log("parse", value, moment(value).format());
           return value
             ? moment(value).format(moment.HTML5_FMT.DATETIME_LOCAL)
             : "";
         }}
+        label="Date"
       />
     </label>
     <label className="form-group form-group--vertical">
-      <span className="form-group-label-text">Amount</span>
-      <Field name="amount" component="input" type="number" step="any" />
+      <Field
+        name="amount"
+        component={Input}
+        type="number"
+        attributes={{ step: "any" }}
+        label="Amount"
+        validate={[required, number]}
+      />
     </label>
     <label className="form-group form-group--vertical">
-      <span className="form-group-label-text">Description</span>
-      <Field name="description" component="textarea" />
+      <Field
+        name="description"
+        component={Textarea}
+        label="Description"
+        validate={required}
+      />
     </label>
     <button type="submit">Submit</button>
   </form>
