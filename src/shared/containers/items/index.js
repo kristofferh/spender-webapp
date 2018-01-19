@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import numeral from "numeral";
 
 import { fetchItems } from "./actions";
 
@@ -28,7 +29,6 @@ export class Items extends Component {
                 {moment(item.date).format("MMMM D, YYYY")}
               </span>
               <div className="item-list-item-details">
-                <span className="items-list-item-amount">${item.amount}</span>
                 <span className="items-list-item-description">
                   {item.description}
                 </span>
@@ -38,6 +38,9 @@ export class Items extends Component {
                       <span className="items-list-item-tag">{tag.name}</span>;
                     })}
                 </div>
+                <span className="items-list-item-description">
+                  {numeral(item.amount).format("$0,0.00")}
+                </span>
               </div>
             </Link>
           ))}
