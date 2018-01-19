@@ -28,7 +28,7 @@ const FormWrapper = WrappedComponent => {
         })}
       >
         <label
-          className={classNames({
+          className={classNames("label-form-control", {
             "required-asterisk": required,
             [`${labelClassName}`]: labelClassName
           })}
