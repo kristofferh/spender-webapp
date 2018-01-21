@@ -12,7 +12,7 @@ module.exports = {
     filename: "[name]-min.js",
     publicPath: "/"
   },
-  devtool: "eval-source-map",
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -57,7 +57,8 @@ module.exports = {
         screw_ie8: true,
         dead_code: true
       },
-      comments: false
+      comments: false,
+      sourceMap: true
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.ejs",
