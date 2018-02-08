@@ -12,20 +12,27 @@
     "build": "webpack --colors --progress --config ./webpack.config.prod.js",
     "local-dev": "webpack-dev-server --public local.dev:8080 --host 0.0.0.0"
   },
-  "browserslist": ["last 2 versions"],
+  "browserslist": [
+    "last 2 versions"
+  ],
   "jest": {
     "testEnvironment": "node",
     "verbose": true,
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
-    "roots": ["__tests__/"],
-    "modulePaths": ["src"],
+    "roots": [
+      "__tests__/"
+    ],
+    "modulePaths": [
+      "src"
+    ],
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy"
     }
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
     "moment": "^2.20.1",
     "numeral": "^2.0.6",
@@ -35,6 +42,7 @@
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
     "react-select": "^1.0.1",
     "redux": "^3.7.2",
     "redux-form": "^7.1.2",

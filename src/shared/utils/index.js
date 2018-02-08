@@ -34,10 +34,10 @@ export const makeRequest = query => {
     method: "POST",
     body: query
   }).then(json => {
-    if (json.data) {
-      return json.data;
-    } else if (json.errors) {
+    if (json.errors) {
       throw json.errors;
+    } else if (json.data) {
+      return json.data;
     }
   });
 };
