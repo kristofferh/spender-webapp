@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { reduxForm } from "redux-form";
 
 import EditForm from "shared/components/edit-form";
 
 import { upsertItem, fetchItem } from "./actions";
+
+const EditWrapper = reduxForm({
+  form: "Edit",
+  enableReinitialize: true
+})(EditForm);
 
 export class Upsert extends Component {
   constructor(props) {
@@ -27,7 +33,7 @@ export class Upsert extends Component {
     return (
       <div>
         <h1>{this.props.id ? "Edit" : "Add"}</h1>
-        <EditForm
+        <EditWrapper
           onSubmit={this.handleSubmit}
           initialValues={this.props.initialValues}
           errors={this.props.errors}

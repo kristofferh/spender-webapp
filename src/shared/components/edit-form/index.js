@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Field, reduxForm } from "redux-form";
+import { Field } from "redux-form";
 import moment from "moment";
 
 import { required, number } from "shared/utils/validators";
@@ -50,9 +50,4 @@ EditForm.propTypes = {
   handleSubmit: PropTypes.func
 };
 
-const EditWrapper = reduxForm({
-  form: "Edit",
-  enableReinitialize: true
-})(EditForm);
-
-export default EditWrapper;
+export default EditForm;
