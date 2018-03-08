@@ -36,7 +36,8 @@ module.exports = {
             }
           },
           "postcss-loader",
-          "sass-loader"
+          "sass-loader",
+          "./webpack.loader.global"
         ]
       }
     ]
