@@ -7,12 +7,14 @@ import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 // App Imports
 import upsert from "shared/containers/upsert/reducers";
 import items from "shared/containers/items/reducers";
+import requestToken from "shared/containers/request-token/reducers";
 
 // Root Reducer
 export const rootReducer = combineReducers({
   upsert,
   form: formReducer,
-  list: items
+  list: items,
+  requestToken
 });
 
 // Store

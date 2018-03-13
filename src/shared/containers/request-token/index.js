@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import SignupForm from "shared/components/signup-form";
 
+import { requestToken } from "./actions";
+
 const SignupWrapper = reduxForm({
-  form: "Edit",
+  form: "RequestToken",
   enableReinitialize: true
 })(SignupForm);
 
@@ -16,7 +20,7 @@ export class RequestToken extends Component {
   }
 
   handleSubmit(values) {
-    //this.props.upsertItem({ ...values, id: this.props.id });
+    this.props.requestToken({ delivery: values.email, deliveryType: "email" });
   }
 
   render() {
@@ -24,4 +28,8 @@ export class RequestToken extends Component {
   }
 }
 
-export default RequestToken;
+RequestToken.propTypes = {
+  requestToken: PropTypes.func
+};
+
+export default connect(null, { requestToken })(RequestToken);
