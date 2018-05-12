@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     app: "./src/client/scripts/app.js"
   },
+  mode: "development",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
