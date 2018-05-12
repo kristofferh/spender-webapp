@@ -6,17 +6,10 @@ module.exports = {
   entry: {
     app: "./src/client/scripts/app.js"
   },
-  mode: "development",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
     publicPath: "/"
-  },
-  devtool: "eval-source-map",
-  devServer: {
-    contentBase: "./dist",
-    hot: true,
-    historyApiFallback: true
   },
   module: {
     rules: [
