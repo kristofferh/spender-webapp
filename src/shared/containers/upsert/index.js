@@ -53,8 +53,14 @@ Upsert.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const { upsert: { item: initialValues, errors } } = state;
-  const { match: { params: { id = undefined } } } = ownProps;
+  const {
+    upsert: { item: initialValues, errors }
+  } = state;
+  const {
+    match: {
+      params: { id = undefined }
+    }
+  } = ownProps;
   return {
     ...state,
     initialValues,
