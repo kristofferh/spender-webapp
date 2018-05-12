@@ -10,7 +10,8 @@
     "test": "eslint src && jest",
     "dev": "webpack-dev-server --open --config ./webpack.config.dev.js",
     "build": "webpack --colors --progress --config ./webpack.config.prod.js",
-    "local-dev": "webpack-dev-server --public local.dev:8080 --host 0.0.0.0"
+    "local-dev":
+      "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js"
   },
   "browserslist": ["last 2 versions"],
   "jest": {
