@@ -34,6 +34,12 @@ const routes = [
     path: "/login",
     exact: true,
     component: RequestToken
+  },
+  {
+    name: "verify",
+    path: "/verify",
+    exact: true,
+    component: RequestToken
   }
 ];
 
