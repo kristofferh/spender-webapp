@@ -5,9 +5,10 @@
     "node": true,
     "jest": true
   },
+  "parser": "babel-eslint",
   "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 2017,
+    "ecmaVersion": 9,
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
       "jsx": true

@@ -2,6 +2,7 @@ import Home from "shared/components/home";
 import Items from "shared/containers/items";
 import Upsert from "shared/containers/upsert";
 import RequestToken from "shared/containers/request-token";
+import Verify from "shared/containers/verify";
 
 // APP Routes
 const routes = [
@@ -39,7 +40,7 @@ const routes = [
     name: "verify",
     path: "/verify",
     exact: true,
-    component: RequestToken
+    component: Verify
   }
 ];
 

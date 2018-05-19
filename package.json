@@ -56,6 +56,7 @@
     "@babel/preset-react": "^7.0.0-beta.46",
     "babel-cli": "^6.26.0",
     "babel-core": "^7.0.0-0",
+    "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.3",
     "babel-loader": "^babel-loader@^8.0.0-beta",
     "css-loader": "^0.28.7",

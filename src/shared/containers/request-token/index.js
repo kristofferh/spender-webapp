@@ -13,23 +13,30 @@ const SignupWrapper = reduxForm({
 })(SignupForm);
 
 export class RequestToken extends Component {
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    requestToken: PropTypes.func,
+    success: PropTypes.bool,
+    isRequesting: PropTypes.bool,
+    errors: PropTypes.object
+  };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(values) {
-    this.props.requestToken({ delivery: values.email, deliveryType: "email" });
-  }
+  handleSubmit = values => {
+    this.props.requestToken({ delivery: values.email, deliveryType: "test" });
+  };
 
   render() {
-    return <SignupWrapper onSubmit={this.handleSubmit} />;
+    const { success, errors } = this.props;
+    return success ? (
+      <div>Cool</div>
+    ) : (
+      <SignupWrapper errors={errors} onSubmit={this.handleSubmit} />
+    );
   }
 }
 
-RequestToken.propTypes = {
-  requestToken: PropTypes.func
+const mapStateToProps = state => {
+  const { requestToken } = state;
+  return { ...requestToken };
 };
 
-export default connect(null, { requestToken })(RequestToken);
+export default connect(mapStateToProps, { requestToken })(RequestToken);
