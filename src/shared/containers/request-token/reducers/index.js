@@ -7,7 +7,7 @@ import {
 export default (
   state = {
     isRequesting: false,
-    errors: {},
+    errors: [],
     success: false
   },
   action

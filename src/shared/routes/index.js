@@ -34,13 +34,15 @@ const routes = [
     name: "signup",
     path: "/login",
     exact: true,
-    component: RequestToken
+    component: RequestToken,
+    public: true
   },
   {
     name: "verify",
     path: "/verify",
     exact: true,
-    component: Verify
+    component: Verify,
+    public: true
   }
 ];
 

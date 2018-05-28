@@ -1,15 +1,26 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
+import Cookies from "js-cookie";
 
 // Wrap <Route> and use this everywhere instead, then when
 // sub routes are added to any route it'll work
 export const RouteWithSubRoutes = route => (
   <Route
     path={route.path}
-    render={props => (
+    render={props => {
+      if (route.public || Cookies.get("spender-session")) {
+        return <route.component {...props} routes={route.routes} />;
+      } else {
+        return (
+          <Redirect
+            to={{
+              pathname: "/login"
+            }}
+          />
+        );
+      }
       // pass the sub-routes down to keep nesting
-      <route.component {...props} routes={route.routes} />
-    )}
+    }}
   />
 );
 
@@ -29,10 +40,21 @@ export const fetchWrapper = (url, params) => {
   return fetch(url, mergedParams).then(handleResponse);
 };
 
-export const makeRequest = query => {
+export const makeRequest = (query, authorize) => {
+  let headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json"
+  };
+  if (authorize) {
+    headers = {
+      ...headers,
+      Authorization: `Bearer ${Cookies.get("spender-session")}`
+    };
+  }
   return fetchWrapper("http://localhost:3000", {
     method: "POST",
-    body: query
+    body: query,
+    headers
   }).then(json => {
     if (json.errors) {
       throw json.errors;

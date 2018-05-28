@@ -17,7 +17,7 @@ export class RequestToken extends Component {
     requestToken: PropTypes.func,
     success: PropTypes.bool,
     isRequesting: PropTypes.bool,
-    errors: PropTypes.object
+    errors: PropTypes.array
   };
 
   handleSubmit = values => {
