@@ -32,13 +32,14 @@ export const verifyToken = data => dispatch => {
     }
   `;
 
-  makeRequest(JSON.stringify({ query: query, variables: data }))
+  return makeRequest(JSON.stringify({ query: query, variables: data }))
     .then(data => {
       // Second dispatch: return results.
       return dispatch(verifyTokenSuccess(data.verifyToken));
     })
     .catch(errors => {
       // Or dispatch errors.
-      return dispatch(verifyTokenFailure(errors));
+      dispatch(verifyTokenFailure(errors));
+      throw errors;
     });
 };

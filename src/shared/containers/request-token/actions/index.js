@@ -27,7 +27,6 @@ export const requestToken = data => dispatch => {
     mutation requestToken($delivery:String!, $deliveryType:String) {
       requestNewToken(delivery: $delivery, deliveryType: $deliveryType) {
         success
-        token
       }
     }
   `;

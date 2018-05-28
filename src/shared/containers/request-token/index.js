@@ -21,7 +21,7 @@ export class RequestToken extends Component {
   };
 
   handleSubmit = values => {
-    this.props.requestToken({ delivery: values.email, deliveryType: "test" });
+    this.props.requestToken({ delivery: values.email, deliveryType: "email" });
   };
 
   render() {
