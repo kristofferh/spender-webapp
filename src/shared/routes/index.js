@@ -1,4 +1,5 @@
 import Home from "shared/components/home";
+import Logout from "shared/containers/logout";
 import Items from "shared/containers/items";
 import Upsert from "shared/containers/upsert";
 import RequestToken from "shared/containers/request-token";
@@ -11,6 +12,12 @@ const routes = [
     path: "/",
     exact: true,
     component: Home
+  },
+  {
+    name: "logout",
+    path: "/logout",
+    component: Logout,
+    public: true
   },
   {
     name: "items",
