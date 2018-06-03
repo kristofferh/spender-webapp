@@ -1,9 +1,9 @@
 import Home from "shared/components/home";
-import Logout from "shared/containers/logout";
-import Items from "shared/containers/items";
-import Upsert from "shared/containers/upsert";
-import RequestToken from "shared/containers/request-token";
-import Verify from "shared/containers/verify";
+import Logout from "shared/features/logout";
+import Items from "shared/features/items";
+import Upsert from "shared/features/upsert";
+import RequestToken from "shared/features/request-token";
+import Verify from "shared/features/verify";
 
 // APP Routes
 const routes = [

@@ -4,7 +4,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import renderer from "react-test-renderer";
 
-import { Upsert } from "shared/containers/upsert";
+import { Upsert } from "shared/features/upsert";
 
 const spy = jest.fn();
 const store = createStore(() => ({}));
