@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Cookies from "js-cookie";
 
-import { SESSION_COOKIE } from "shared/constants";
-
 import { userLogout } from "./actions";
 
 export class Logout extends Component {

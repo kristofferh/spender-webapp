@@ -8,7 +8,7 @@ export const RouteWithSubRoutes = route => (
   <Route
     path={route.path}
     render={props => {
-      if (route.public || Cookies.get("spender-session")) {
+      if (route.public || Cookies.get(SESSION_COOKIE)) {
         return <route.component {...props} routes={route.routes} />;
       } else {
         return (
@@ -40,7 +40,7 @@ export const fetchWrapper = (url, params) => {
   return fetch(url, mergedParams).then(handleResponse);
 };
 
-export const makeRequest = (query, authorize) => {
+export const makeRequest = (query, authorize = true) => {
   let headers = {
     Accept: "application/json",
     "Content-Type": "application/json"
@@ -48,10 +48,10 @@ export const makeRequest = (query, authorize) => {
   if (authorize) {
     headers = {
       ...headers,
-      Authorization: `Bearer ${Cookies.get("spender-session")}`
+      Authorization: `Bearer ${Cookies.get(SESSION_COOKIE)}`
     };
   }
-  return fetchWrapper("http://localhost:3000", {
+  return fetchWrapper(API_URL, {
     method: "POST",
     body: query,
     headers

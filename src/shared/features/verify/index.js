@@ -28,10 +28,10 @@ export class Verify extends Component {
       .then(({ token }) => {
         // @todo: add secure token, if we're in prod environment.
         // @todo: set name and expiry in constants / environment variables.
-        Cookies.set("spender-session", token, { secure: false, expires: 7 });
+        Cookies.set(SESSION_COOKIE, token, { secure: SECURE_COOKIE, expires: 7 });
       })
       .catch(() => {
-        Cookies.remove("spender-session");
+        Cookies.remove(SESSION_COOKIE);
       });
   }
 

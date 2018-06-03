@@ -32,7 +32,7 @@ export const verifyToken = data => dispatch => {
     }
   `;
 
-  return makeRequest(JSON.stringify({ query: query, variables: data }))
+  return makeRequest(JSON.stringify({ query: query, variables: data }), false)
     .then(data => {
       // Second dispatch: return results.
       return dispatch(verifyTokenSuccess(data.verifyToken));

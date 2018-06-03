@@ -31,7 +31,7 @@ export const requestToken = data => dispatch => {
     }
   `;
 
-  makeRequest(JSON.stringify({ query: query, variables: data }))
+  makeRequest(JSON.stringify({ query: query, variables: data }), false)
     .then(() => {
       // Second dispatch: return results.
       return dispatch(requestTokenSuccess());
