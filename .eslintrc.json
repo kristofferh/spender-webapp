@@ -22,6 +22,11 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"]
+  },
+  "globals": {
+    "API_URL": true,
+    "SESSION_COOKIE": true,
+    "SECURE_COOKIE": true
   }
 }
 
