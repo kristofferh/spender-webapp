@@ -1,7 +1,9 @@
 import Home from "shared/components/home";
-import Items from "shared/containers/items";
-import Upsert from "shared/containers/upsert";
-import RequestToken from "shared/containers/request-token";
+import Logout from "shared/features/logout";
+import Items from "shared/features/items";
+import Upsert from "shared/features/upsert";
+import RequestToken from "shared/features/request-token";
+import Verify from "shared/features/verify";
 
 // APP Routes
 const routes = [
@@ -10,6 +12,12 @@ const routes = [
     path: "/",
     exact: true,
     component: Home
+  },
+  {
+    name: "logout",
+    path: "/logout",
+    component: Logout,
+    public: true
   },
   {
     name: "items",
@@ -33,7 +41,15 @@ const routes = [
     name: "signup",
     path: "/login",
     exact: true,
-    component: RequestToken
+    component: RequestToken,
+    public: true
+  },
+  {
+    name: "verify",
+    path: "/verify",
+    exact: true,
+    component: Verify,
+    public: true
   }
 ];
 

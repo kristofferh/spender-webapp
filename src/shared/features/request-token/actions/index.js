@@ -27,12 +27,11 @@ export const requestToken = data => dispatch => {
     mutation requestToken($delivery:String!, $deliveryType:String) {
       requestNewToken(delivery: $delivery, deliveryType: $deliveryType) {
         success
-        token
       }
     }
   `;
 
-  makeRequest(JSON.stringify({ query: query, variables: data }))
+  makeRequest(JSON.stringify({ query: query, variables: data }), false)
     .then(() => {
       // Second dispatch: return results.
       return dispatch(requestTokenSuccess());

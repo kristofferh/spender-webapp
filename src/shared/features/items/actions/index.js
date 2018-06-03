@@ -32,7 +32,7 @@ export const fetchItems = data => dispatch => {
       amount
     }
   }`;
-  makeRequest(JSON.stringify({ query: query, variables: data }))
+  makeRequest(JSON.stringify({ query: query, variables: data }), true)
     .then(data => {
       // Second dispatch: return results.
       return dispatch(fetchItemsSuccess(data.items));

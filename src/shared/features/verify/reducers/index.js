@@ -1,28 +1,30 @@
 import {
-  REQUEST_TOKEN_REQUEST,
-  REQUEST_TOKEN_SUCCESS,
-  REQUEST_TOKEN_FAILURE
+  VERIFY_TOKEN_REQUEST,
+  VERIFY_TOKEN_SUCCESS,
+  VERIFY_TOKEN_FAILURE
 } from "../constants";
 
 export default (
   state = {
     isRequesting: false,
-    errors: {}
+    errors: [],
+    token: null
   },
   action
 ) => {
   switch (action.type) {
-    case REQUEST_TOKEN_REQUEST:
+    case VERIFY_TOKEN_REQUEST:
       return {
         ...state,
         isRequesting: true
       };
-    case REQUEST_TOKEN_SUCCESS:
+    case VERIFY_TOKEN_SUCCESS:
       return {
         ...state,
-        isRequesting: false
+        isRequesting: false,
+        token: action.token
       };
-    case REQUEST_TOKEN_FAILURE:
+    case VERIFY_TOKEN_FAILURE:
       return {
         ...state,
         isRequesting: false,

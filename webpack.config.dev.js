@@ -1,3 +1,5 @@
+const webpack = require("webpack");
+
 const base = require("./webpack.config.base");
 
 module.exports = env => {
@@ -7,6 +9,11 @@ module.exports = env => {
       .BundleAnalyzerPlugin;
     plugins.unshift(new BundleAnalyzerPlugin());
   }
+  plugins.unshift(new webpack.DefinePlugin({
+    API_URL: JSON.stringify("http://localhost:3000"),
+    SESSION_COOKIE: JSON.stringify("spender-session"),
+    SECURE_COOKIE: false
+  }))
   return Object.assign({}, base, {
     plugins,
     mode: "development",
