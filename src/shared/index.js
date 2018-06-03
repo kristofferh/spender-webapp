@@ -11,6 +11,7 @@ export default class App extends Component {
         <nav>
           <Link to="/">Home</Link>
           <Link to="/items">Items</Link>
+          <Link to="/logout">Logout</Link>
         </nav>
         <Switch>
           {routes.map((route, i) => {

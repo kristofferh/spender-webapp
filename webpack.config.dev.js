@@ -1,22 +1,21 @@
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const base = require("./webpack.config.base");
 
 module.exports = env => {
-  let plugins = base.plugins;
-  if (env && env.analyze) {
-    const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-      .BundleAnalyzerPlugin;
-    plugins.unshift(new BundleAnalyzerPlugin());
-  }
-  plugins.unshift(
+  let baseParams = base(env);
+  let plugins = baseParams.plugins.concat([
     new webpack.DefinePlugin({
       API_URL: JSON.stringify("http://localhost:3000"),
       SESSION_COOKIE: JSON.stringify("spender-session"),
       SECURE_COOKIE: false
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.ejs"
     })
-  );
-  return Object.assign({}, base, {
+  ]);
+  return Object.assign({}, baseParams, {
     plugins,
     mode: "development",
     devtool: "eval-source-map",

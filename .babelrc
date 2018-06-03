@@ -7,7 +7,8 @@
         },
         "loose": true,
         "useBuiltIns": "usage",
-        "shippedProposals": true
+        "shippedProposals": true,
+        "modules": false
         }
     ],
         "@babel/preset-react"
