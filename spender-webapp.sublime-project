@@ -6,6 +6,7 @@
         "node_modules",
         "cover",
         "coverage",
+        "dist"
       ],
       "file_exclude_patterns": [
         ".coverage"
