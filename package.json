@@ -8,6 +8,8 @@
   "license": "MIT",
   "scripts": {
     "test": "eslint src && jest",
+    "ci:before": "greenkeeper-lockfile-update",
+    "ci:after": "greenkeeper-lockfile-upload",
     "dev": "webpack-dev-server --open --config ./webpack.config.dev.js",
     "build": "webpack --colors --progress --config ./webpack.config.prod.js",
     "local-dev":
