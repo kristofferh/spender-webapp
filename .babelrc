@@ -7,10 +7,24 @@
         },
         "loose": true,
         "useBuiltIns": "usage",
-        "shippedProposals": true
+        "shippedProposals": true,
+        "modules": false
         }
     ],
         "@babel/preset-react"
     ],
-    "plugins": ["@babel/plugin-proposal-class-properties"]
+    "plugins": ["@babel/plugin-proposal-class-properties"],
+    "env": {
+        "test": {
+            "presets": [
+              [
+                "@babel/preset-env", {
+                  "modules": "commonjs",
+                  "useBuiltIns": "usage",
+                  "debug": false
+                }
+              ]
+            ]
+        }
+    }
 }

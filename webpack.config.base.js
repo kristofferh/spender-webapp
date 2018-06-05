@@ -1,15 +1,26 @@
 const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
-module.exports = {
+let base = {
   entry: {
-    app: "./src/client/scripts/app.js"
+    app: ["@babel/polyfill", "./src/client/scripts/app.js"]
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
     publicPath: "/"
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          name: "vendor",
+          chunks: "initial",
+          enforce: true
+        }
+      }
+    }
   },
   module: {
     rules: [
@@ -37,13 +48,24 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.ejs"
-    }),
+    // Only load English locale for moment.js.
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
     modules: [path.resolve("./src/"), "node_modules"],
     extensions: [".js", ".css", ".scss"]
   }
+};
+
+module.exports = env => {
+  let plugins = base.plugins;
+  if (env && env.analyze) {
+    const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+      .BundleAnalyzerPlugin;
+    plugins.unshift(new BundleAnalyzerPlugin());
+  }
+  return Object.assign({}, base, {
+    plugins
+  });
 };
