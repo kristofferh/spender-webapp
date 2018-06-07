@@ -12,6 +12,7 @@
     "ci:after": "greenkeeper-lockfile-upload",
     "dev": "webpack-dev-server --open --config ./webpack.config.dev.js",
     "build": "webpack --colors --progress --config ./webpack.config.prod.js",
+    "build-server": "babel src/index.js -d dist",
     "local-dev":
       "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js"
   },
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "express": "^4.16.3",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
     "js-cookie": "^2.2.0",
@@ -50,12 +52,12 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.49",
     "@babel/core": "^7.0.0-beta.46",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.46",
     "@babel/polyfill": "^7.0.0-beta.49",
     "@babel/preset-env": "^7.0.0-beta.46",
     "@babel/preset-react": "^7.0.0-beta.46",
-    "babel-cli": "^6.26.0",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.3",
