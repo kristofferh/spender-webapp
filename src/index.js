@@ -16,8 +16,8 @@ app.get("*", function(req, res) {
 // Start web server
 app.listen(port, error => {
   if (error) {
-    console.error("ERROR - Unable to start server.");
+    console.error("ERROR - Unable to start server."); // eslint-disable-line no-console
   } else {
-    console.info(`INFO - Server started on port ${port}.`);
+    console.info(`INFO - Server started on port ${port}.`); // eslint-disable-line no-console
   }
 });
