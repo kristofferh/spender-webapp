@@ -15,7 +15,8 @@
     "build-server": "BABEL_ENV=server babel src/index.js -d dist",
     "local-dev":
       "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "heroku-postbuild": "yarn build && yarn build-server"
   },
   "sideEffects": ["@babel/polyfill", "*.scss"],
   "browserslist": ["last 2 versions"],

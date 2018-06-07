@@ -7,7 +7,7 @@ module.exports = env => {
   let baseParams = base(env);
   let plugins = baseParams.plugins.concat([
     new webpack.DefinePlugin({
-      API_URL: JSON.stringify("http://localhost:3000"),
+      API_URL: JSON.stringify("https://spender-dev.herokuapp.com"),
       SESSION_COOKIE: JSON.stringify("spender-session"),
       SECURE_COOKIE: false
     }),
