@@ -13,7 +13,6 @@ module.exports = env => {
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.ejs",
-      hash: true,
       minify: true
     })
   ]);

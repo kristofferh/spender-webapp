@@ -6,7 +6,7 @@ let base = {
     app: ["@babel/polyfill", "./src/client/scripts/app.js"]
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist/public"),
     filename: "[name].js",
     publicPath: "/"
   },

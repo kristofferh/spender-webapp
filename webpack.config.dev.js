@@ -20,7 +20,7 @@ module.exports = env => {
     mode: "development",
     devtool: "eval-source-map",
     devServer: {
-      contentBase: "./dist",
+      contentBase: "./dist/public",
       hot: true,
       historyApiFallback: true
     }
