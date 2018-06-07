@@ -12,9 +12,10 @@
     "ci:after": "greenkeeper-lockfile-upload",
     "dev": "webpack-dev-server --open --config ./webpack.config.dev.js",
     "build": "webpack --colors --progress --config ./webpack.config.prod.js",
-    "build-server": "babel src/index.js -d dist",
+    "build-server": "BABEL_ENV=server babel src/index.js -d dist",
     "local-dev":
-      "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js"
+      "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js",
+    "start": "node dist/index.js"
   },
   "sideEffects": ["@babel/polyfill", "*.scss"],
   "browserslist": ["last 2 versions"],
