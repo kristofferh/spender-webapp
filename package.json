@@ -6,6 +6,9 @@
   "repository": "git@github.com:kristofferh/spender-webapp.git",
   "author": "Kristoffer Hedstrom <kris.hedstrom@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">= 10.0.0"
+  },
   "scripts": {
     "test": "eslint src && jest",
     "ci:before": "greenkeeper-lockfile-update",
