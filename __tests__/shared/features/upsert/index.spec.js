@@ -3,6 +3,7 @@ import { reduxForm } from "redux-form";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import renderer from "react-test-renderer";
+import "jest-styled-components";
 
 import { Upsert } from "shared/features/upsert";
 

@@ -1,4 +1,4 @@
-import { required, number } from "shared/utils/validators";
+import { required, number, email } from "shared/utils/validators";
 
 describe("validation functions", () => {
   describe("required", () => {
@@ -67,6 +67,24 @@ describe("validation functions", () => {
 
     it("should succeed on negative number", () => {
       expect(number(-1)).toBeUndefined();
+    });
+  });
+
+  describe("email", () => {
+    it("should fail when email does not have domain", () => {
+      expect(email("test")).toBeDefined();
+    });
+
+    it("should succeed when email is missing top level domain", () => {
+      expect(email("test@sports")).toBeDefined();
+    });
+
+    it("should succeed when email is valid", () => {
+      expect(email("test@example.org")).toBeUndefined();
+    });
+
+    it("should succeed when email is valid", () => {
+      expect(email("test.brill+1@court.photography")).toBeUndefined();
     });
   });
 });
