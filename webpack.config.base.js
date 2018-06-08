@@ -7,7 +7,8 @@ let base = {
   },
   output: {
     path: path.resolve(__dirname, "dist/public"),
-    filename: "[name].js",
+    filename: "[name].[hash].js",
+    chunkFilename: "[name].[chunkhash].js",
     publicPath: "/"
   },
   optimization: {

@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import compression from "compression";
 
 // Use environment defined port or 3001
 const port = process.env.PORT || 3001;
@@ -8,6 +9,7 @@ const port = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.static(__dirname + "/public"));
+app.use(compression());
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "public/index.html"));

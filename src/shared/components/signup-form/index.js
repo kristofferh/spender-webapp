@@ -35,12 +35,14 @@ const StyledInput = styled(Input)`
   width: 100%;
   padding: 3px 0 5px;
   transition: border-bottom 0.2s ease;
+  border-radius: 0;
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.5);
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     border-bottom-color: #000;
     outline: 0;
   }

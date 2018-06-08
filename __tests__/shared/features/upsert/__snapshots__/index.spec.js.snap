@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
-.c0 {
+.c1 {
   position: relative;
+}
+
+.c0 {
+  display: block;
+  margin-bottom: 15px;
 }
 
 <div>
@@ -13,10 +18,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
     onSubmit={[Function]}
   >
     <label
-      className="form-group form-group--vertical"
+      className="c0"
     >
       <div
-        className="form-group c0"
+        className="form-group c1"
       >
         <div
           className="label-wrapper"
@@ -44,10 +49,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </label>
     <label
-      className="form-group form-group--vertical"
+      className="c0"
     >
       <div
-        className="form-group c0"
+        className="form-group c1"
       >
         <div
           className="label-wrapper"
@@ -76,10 +81,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </label>
     <label
-      className="form-group form-group--vertical"
+      className="c0"
     >
       <div
-        className="form-group c0"
+        className="form-group c1"
       >
         <div
           className="label-wrapper"
@@ -115,8 +120,13 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 `;
 
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
-.c0 {
+.c1 {
   position: relative;
+}
+
+.c0 {
+  display: block;
+  margin-bottom: 15px;
 }
 
 <div>
@@ -127,10 +137,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
     onSubmit={[Function]}
   >
     <label
-      className="form-group form-group--vertical"
+      className="c0"
     >
       <div
-        className="form-group c0"
+        className="form-group c1"
       >
         <div
           className="label-wrapper"
@@ -158,10 +168,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </label>
     <label
-      className="form-group form-group--vertical"
+      className="c0"
     >
       <div
-        className="form-group c0"
+        className="form-group c1"
       >
         <div
           className="label-wrapper"
@@ -190,10 +200,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </label>
     <label
-      className="form-group form-group--vertical"
+      className="c0"
     >
       <div
-        className="form-group c0"
+        className="form-group c1"
       >
         <div
           className="label-wrapper"
