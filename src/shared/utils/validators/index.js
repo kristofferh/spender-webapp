@@ -23,3 +23,9 @@ export const required = value => {
 
 export const number = value =>
   value && isNaN(Number(value)) ? "Must be a number." : undefined;
+
+// A simple email check. This isn't exhaustive, it's meant as a quick check.
+export const email = value =>
+  /(.+)@(.+){2,}\.(.+){2,}/.test(value) !== true
+    ? "Must be a valid email."
+    : undefined;

@@ -1,6 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  position: relative;
+`;
 
 const FormWrapper = WrappedComponent => {
   const _Wrapper = props => {
@@ -40,7 +45,7 @@ const FormWrapper = WrappedComponent => {
     );
 
     return (
-      <div
+      <Wrapper
         className={classNames(groupClassName, {
           "has-error": displayError
         })}
@@ -51,7 +56,7 @@ const FormWrapper = WrappedComponent => {
           (!active &&
             touched &&
             warning && <span className="warning">{warning}</span>)}
-      </div>
+      </Wrapper>
     );
   };
 
