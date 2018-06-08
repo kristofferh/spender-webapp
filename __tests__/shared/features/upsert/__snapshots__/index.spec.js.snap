@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
+.c0 {
+  position: relative;
+}
+
 <div>
   <h1>
     Add
@@ -12,7 +16,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       className="form-group form-group--vertical"
     >
       <div
-        className="form-group"
+        className="form-group c0"
       >
         <div
           className="label-wrapper"
@@ -43,7 +47,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       className="form-group form-group--vertical"
     >
       <div
-        className="form-group"
+        className="form-group c0"
       >
         <div
           className="label-wrapper"
@@ -75,7 +79,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       className="form-group form-group--vertical"
     >
       <div
-        className="form-group"
+        className="form-group c0"
       >
         <div
           className="label-wrapper"
@@ -111,6 +115,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 `;
 
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
+.c0 {
+  position: relative;
+}
+
 <div>
   <h1>
     Edit
@@ -122,7 +130,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       className="form-group form-group--vertical"
     >
       <div
-        className="form-group"
+        className="form-group c0"
       >
         <div
           className="label-wrapper"
@@ -153,7 +161,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       className="form-group form-group--vertical"
     >
       <div
-        className="form-group"
+        className="form-group c0"
       >
         <div
           className="label-wrapper"
@@ -185,7 +193,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       className="form-group form-group--vertical"
     >
       <div
-        className="form-group"
+        className="form-group c0"
       >
         <div
           className="label-wrapper"
