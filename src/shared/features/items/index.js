@@ -18,6 +18,7 @@ export class Items extends Component {
     return (
       <div>
         <h1>Items</h1>
+        <Link to="/items/create">Add</Link>
         <section className="items-list">
           {this.props.items.map(item => (
             <Link
