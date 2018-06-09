@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
-.c1 {
-  position: relative;
-}
-
-.c0 {
+.emotion-2 {
   display: block;
   margin-bottom: 15px;
+}
+
+.emotion-0 {
+  position: relative;
 }
 
 <div>
@@ -18,10 +18,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
     onSubmit={[Function]}
   >
     <label
-      className="c0"
+      className="emotion-2 emotion-3"
     >
       <div
-        className="form-group c1"
+        className="form-group emotion-0 emotion-1"
       >
         <div
           className="label-wrapper"
@@ -49,10 +49,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </label>
     <label
-      className="c0"
+      className="emotion-2 emotion-3"
     >
       <div
-        className="form-group c1"
+        className="form-group emotion-0 emotion-1"
       >
         <div
           className="label-wrapper"
@@ -81,10 +81,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </label>
     <label
-      className="c0"
+      className="emotion-2 emotion-3"
     >
       <div
-        className="form-group c1"
+        className="form-group emotion-0 emotion-1"
       >
         <div
           className="label-wrapper"
@@ -120,13 +120,13 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 `;
 
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
-.c1 {
-  position: relative;
-}
-
-.c0 {
+.emotion-2 {
   display: block;
   margin-bottom: 15px;
+}
+
+.emotion-0 {
+  position: relative;
 }
 
 <div>
@@ -137,10 +137,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
     onSubmit={[Function]}
   >
     <label
-      className="c0"
+      className="emotion-2 emotion-3"
     >
       <div
-        className="form-group c1"
+        className="form-group emotion-0 emotion-1"
       >
         <div
           className="label-wrapper"
@@ -168,10 +168,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </label>
     <label
-      className="c0"
+      className="emotion-2 emotion-3"
     >
       <div
-        className="form-group c1"
+        className="form-group emotion-0 emotion-1"
       >
         <div
           className="label-wrapper"
@@ -200,10 +200,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </label>
     <label
-      className="c0"
+      className="emotion-2 emotion-3"
     >
       <div
-        className="form-group c1"
+        className="form-group emotion-0 emotion-1"
       >
         <div
           className="label-wrapper"

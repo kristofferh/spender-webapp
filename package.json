@@ -33,7 +33,8 @@
     "modulePaths": ["src"],
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy"
-    }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js"
   },
   "dependencies": {
     "babel-plugin-emotion": "^9.2.0",
