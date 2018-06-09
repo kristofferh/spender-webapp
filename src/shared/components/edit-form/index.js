@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Field } from "redux-form";
 import moment from "moment";
-import styled from "styled-components";
+import styled from "react-emotion";
 
 import { required, number } from "shared/utils/validators";
 

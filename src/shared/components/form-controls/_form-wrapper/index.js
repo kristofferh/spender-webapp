@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styled from "styled-components";
+import styled from "react-emotion";
 
 const Wrapper = styled.div`
   position: relative;
