@@ -5,7 +5,7 @@ import { reduxForm } from "redux-form";
 
 import EditForm from "shared/components/edit-form";
 
-import { upsertItem, fetchItem } from "./actions";
+import { upsertItem, fetchItem, fetchTags } from "./actions";
 
 const EditWrapper = reduxForm({
   form: "Edit",
@@ -13,21 +13,32 @@ const EditWrapper = reduxForm({
 })(EditForm);
 
 export class Upsert extends Component {
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    upsertItem: PropTypes.func,
+    fetchItem: PropTypes.func,
+    fetchTags: PropTypes.func,
+    match: PropTypes.object,
+    initialValues: PropTypes.object,
+    errors: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    tags: PropTypes.array
+  };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  static defaultProps = {
+    initialValues: {},
+    tags: []
+  };
 
   componentDidMount() {
     if (this.props.id) {
+      this.props.fetchTags();
       this.props.fetchItem(this.props.id);
     }
   }
 
-  handleSubmit(values) {
+  handleSubmit = values => {
     this.props.upsertItem({ ...values, id: this.props.id });
-  }
+  };
 
   render() {
     return (
@@ -37,24 +48,16 @@ export class Upsert extends Component {
           onSubmit={this.handleSubmit}
           initialValues={this.props.initialValues}
           errors={this.props.errors}
+          tags={this.props.tags}
         />
       </div>
     );
   }
 }
 
-Upsert.propTypes = {
-  upsertItem: PropTypes.func,
-  fetchItem: PropTypes.func,
-  match: PropTypes.object,
-  initialValues: PropTypes.object,
-  errors: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-};
-
 const mapStateToProps = (state, ownProps) => {
   const {
-    upsert: { item: initialValues, errors }
+    upsert: { tags, item: initialValues, errors }
   } = state;
   const {
     match: {
@@ -63,10 +66,13 @@ const mapStateToProps = (state, ownProps) => {
   } = ownProps;
   return {
     ...state,
+    tags,
     initialValues,
     errors,
     id
   };
 };
 
-export default connect(mapStateToProps, { upsertItem, fetchItem })(Upsert);
+export default connect(mapStateToProps, { upsertItem, fetchItem, fetchTags })(
+  Upsert
+);

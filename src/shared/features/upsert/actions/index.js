@@ -44,9 +44,9 @@ export const fetchTagsRequest = () => ({
   type: FETCH_TAGS_REQUEST
 });
 
-export const fetchTagsSuccess = item => ({
+export const fetchTagsSuccess = tags => ({
   type: FETCH_TAGS_SUCCESS,
-  item
+  tags
 });
 
 export const fetchTagsFailure = errors => ({
@@ -118,6 +118,7 @@ export const upsertItem = data => dispatch => {
           tags {
             name
             description
+            color
           }
       }
     }`
@@ -131,6 +132,7 @@ export const upsertItem = data => dispatch => {
           tags {
             name
             description
+            color
           }
       }
     }`;

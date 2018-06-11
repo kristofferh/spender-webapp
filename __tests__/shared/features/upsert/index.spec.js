@@ -3,7 +3,7 @@ import { reduxForm } from "redux-form";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import renderer from "react-test-renderer";
-import "jest-styled-components";
+import "jest-emotion";
 
 import { Upsert } from "shared/features/upsert";
 
@@ -35,6 +35,7 @@ describe("Create snapshot", () => {
             initialValues={{ date: "July 12, 2008", amount: 10 }}
             id={5}
             fetchItem={spy}
+            fetchTags={spy}
           />
         </Provider>
       )

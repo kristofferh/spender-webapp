@@ -14,7 +14,8 @@
     "ci:before": "greenkeeper-lockfile-update",
     "ci:after": "greenkeeper-lockfile-upload",
     "dev": "webpack-dev-server --open --config ./webpack.config.dev.js",
-    "build": "webpack --colors --progress --config ./webpack.config.prod.js",
+    "build":
+      "BABEL_ENV=production webpack --colors --progress --config ./webpack.config.prod.js",
     "build-server": "BABEL_ENV=server babel src/index.js -d dist",
     "local-dev":
       "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js",
@@ -24,7 +25,6 @@
   "sideEffects": ["@babel/polyfill", "*.scss"],
   "browserslist": ["last 2 versions"],
   "jest": {
-    "testEnvironment": "node",
     "verbose": true,
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
@@ -32,11 +32,14 @@
     "modulePaths": ["src"],
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy"
-    }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js"
   },
   "dependencies": {
+    "babel-plugin-emotion": "^9.2.0",
     "classnames": "^2.2.5",
     "compression": "^1.7.2",
+    "emotion": "^9.2.3",
     "express": "^4.16.3",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
@@ -47,15 +50,15 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-emotion": "^9.2.3",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
-    "react-select": "^1.0.1",
+    "react-select": "^2.0.0-beta.6",
     "redux": "^3.7.2",
     "redux-form": "^7.1.2",
-    "redux-thunk": "^2.2.0",
-    "styled-components": "^3.2.6"
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.49",
@@ -66,7 +69,7 @@
     "@babel/preset-react": "^7.0.0-beta.49",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.3",
-    "babel-jest": "^22.4.3",
+    "babel-jest": "^23.0.1",
     "babel-loader": "^babel-loader@^8.0.0-beta",
     "css-loader": "^0.28.7",
     "eslint": "^4.10.0",
@@ -76,9 +79,9 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.4.3",
-    "jest-cli": "^22.4.3",
-    "jest-styled-components": "^5.0.1",
+    "jest": "^23.0.1",
+    "jest-cli": "^23.0.1",
+    "jest-emotion": "^9.2.2",
     "node-sass": "^4.6.0",
     "postcss-loader": "^2.0.8",
     "prettier": "^1.7.4",

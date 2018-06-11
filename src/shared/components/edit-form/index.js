@@ -2,20 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Field } from "redux-form";
 import moment from "moment";
-import styled from "styled-components";
+import styled from "react-emotion";
 
 import { required, number } from "shared/utils/validators";
 
-import { Input, Textarea } from "shared/components/form-controls";
+import { Input, Textarea, Select } from "shared/components/form-controls";
 
-const Label = styled.label`
+const FormGroup = styled.div`
   display: block;
   margin-bottom: 15px;
 `;
 
-const EditForm = ({ handleSubmit }) => (
+const EditForm = ({ handleSubmit, tags }) => (
   <form onSubmit={handleSubmit}>
-    <Label>
+    <FormGroup>
       <Field
         name="date"
         component={Input}
@@ -27,8 +27,8 @@ const EditForm = ({ handleSubmit }) => (
         }}
         label="Date"
       />
-    </Label>
-    <Label>
+    </FormGroup>
+    <FormGroup>
       <Field
         name="amount"
         component={Input}
@@ -37,21 +37,25 @@ const EditForm = ({ handleSubmit }) => (
         label="Amount"
         validate={[required, number]}
       />
-    </Label>
-    <Label>
+    </FormGroup>
+    <FormGroup>
       <Field
         name="description"
         component={Textarea}
         label="Description"
         validate={required}
       />
-    </Label>
+    </FormGroup>
+    <FormGroup>
+      <Field name="tags" options={tags} component={Select} />
+    </FormGroup>
     <button type="submit">Submit</button>
   </form>
 );
 
 EditForm.propTypes = {
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func,
+  tags: PropTypes.array
 };
 
 export default EditForm;
