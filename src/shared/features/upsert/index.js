@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { reduxForm } from "redux-form";
+import { reduxForm, SubmissionError } from "redux-form";
 
 import EditForm from "shared/components/edit-form";
 
@@ -21,7 +21,8 @@ export class Upsert extends Component {
     initialValues: PropTypes.object,
     errors: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    tags: PropTypes.array
+    tags: PropTypes.array,
+    history: PropTypes.object
   };
 
   static defaultProps = {
@@ -37,7 +38,15 @@ export class Upsert extends Component {
   }
 
   handleSubmit = values => {
-    this.props.upsertItem({ ...values, id: this.props.id });
+    return this.props
+      .upsertItem({ ...values, id: this.props.id })
+      .then(() => {
+        this.props.history.push("/items");
+      })
+      .catch(errors => {
+        console.log("something went weird", errors); // eslint-disable-line no-console
+        throw new SubmissionError({ _error: "Something went weird." });
+      });
   };
 
   render() {
@@ -67,7 +76,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     ...state,
     tags,
-    initialValues,
+    initialValues: id ? initialValues : {},
     errors,
     id
   };
