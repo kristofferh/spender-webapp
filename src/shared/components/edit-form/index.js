@@ -13,7 +13,7 @@ const FormGroup = styled.div`
   margin-bottom: 15px;
 `;
 
-const EditForm = ({ handleSubmit, tags }) => (
+const EditForm = ({ handleSubmit, tags, error }) => (
   <form onSubmit={handleSubmit}>
     <FormGroup>
       <Field
@@ -49,13 +49,15 @@ const EditForm = ({ handleSubmit, tags }) => (
     <FormGroup>
       <Field name="tags" options={tags} component={Select} />
     </FormGroup>
+    {error ? <span>{error}</span> : null}
     <button type="submit">Submit</button>
   </form>
 );
 
 EditForm.propTypes = {
   handleSubmit: PropTypes.func,
-  tags: PropTypes.array
+  tags: PropTypes.array,
+  error: PropTypes.string
 };
 
 export default EditForm;

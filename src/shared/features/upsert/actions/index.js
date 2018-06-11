@@ -86,9 +86,7 @@ export const fetchTags = data => dispatch => {
   dispatch(fetchTagsRequest());
   const query = `query fetchTags($limit: Int, $offset: Int, $order: String) {
     tags(limit: $limit, offset: $offset, order: $order) {
-      id
       name
-      description
       color
     }
   }`;
@@ -136,7 +134,8 @@ export const upsertItem = data => dispatch => {
           }
       }
     }`;
-  makeRequest(JSON.stringify({ query: query, variables: data }))
+
+  return makeRequest(JSON.stringify({ query: query, variables: data }))
     .then(json => {
       // Second dispatch: return results.
       const { addItem, editItem } = json;
@@ -144,6 +143,7 @@ export const upsertItem = data => dispatch => {
     })
     .catch(errors => {
       // Or dispatch errors.
-      return dispatch(upsertItemFailure(errors));
+      dispatch(upsertItemFailure(errors));
+      throw errors;
     });
 };
