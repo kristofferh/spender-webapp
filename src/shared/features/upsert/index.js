@@ -31,9 +31,9 @@ export class Upsert extends Component {
 
   componentDidMount() {
     if (this.props.id) {
-      this.props.fetchTags();
       this.props.fetchItem(this.props.id);
     }
+    this.props.fetchTags();
   }
 
   handleSubmit = values => {
