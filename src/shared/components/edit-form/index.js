@@ -8,12 +8,6 @@ import { required, number } from "shared/utils/validators";
 
 import { Input, Textarea, Select } from "shared/components/form-controls";
 
-const options = [
-  { name: "chocolate", label: "chocolate" },
-  { name: "strawberry", label: "strawberry" },
-  { name: "vanilla", label: "Vanilla" }
-];
-
 const FormGroup = styled.div`
   display: block;
   margin-bottom: 15px;

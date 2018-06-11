@@ -4,14 +4,22 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
+import styled from "react-emotion";
 
 import { fetchItems } from "./actions";
 
-import "./styles/index.scss";
+const ListItem = styled(Link)`
+  display: block;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  color: inherit;
+`;
 
 export class Items extends Component {
   componentDidMount() {
-    this.props.fetchItems({ order: "date" });
+    this.props.fetchItems({ order: "reverse:date" });
   }
 
   render() {
@@ -21,11 +29,7 @@ export class Items extends Component {
         <Link to="/items/create">Add</Link>
         <section className="items-list">
           {this.props.items.map(item => (
-            <Link
-              className="items-list-item"
-              to={`/items/${item.id}`}
-              key={item.id}
-            >
+            <ListItem to={`/items/${item.id}`} key={item.id}>
               <span className="items-list-item-date">
                 {moment(item.date).format("MMMM D, YYYY")}
               </span>
@@ -43,7 +47,7 @@ export class Items extends Component {
                   {numeral(item.amount).format("$0,0.00")}
                 </span>
               </div>
-            </Link>
+            </ListItem>
           ))}
         </section>
       </div>
