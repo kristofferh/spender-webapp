@@ -35,6 +35,7 @@ describe("Create snapshot", () => {
             initialValues={{ date: "July 12, 2008", amount: 10 }}
             id={5}
             fetchItem={spy}
+            fetchTags={spy}
           />
         </Provider>
       )
