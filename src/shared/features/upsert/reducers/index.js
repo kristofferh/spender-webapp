@@ -4,10 +4,7 @@ import {
   UPSERT_ITEM_FAILURE,
   FETCH_ITEM_REQUEST,
   FETCH_ITEM_SUCCESS,
-  FETCH_ITEM_FAILURE,
-  FETCH_TAGS_REQUEST,
-  FETCH_TAGS_SUCCESS,
-  FETCH_TAGS_FAILURE
+  FETCH_ITEM_FAILURE
 } from "../constants";
 
 export default (
@@ -54,23 +51,6 @@ export default (
       return {
         ...state,
         isFetching: false,
-        errors: action.errors
-      };
-    case FETCH_TAGS_REQUEST:
-      return {
-        ...state,
-        isFetchingTags: true
-      };
-    case FETCH_TAGS_SUCCESS:
-      return {
-        ...state,
-        isFetchingTags: false,
-        tags: action.tags
-      };
-    case FETCH_TAGS_FAILURE:
-      return {
-        ...state,
-        isFetchingTags: false,
         errors: action.errors
       };
     default:

@@ -5,7 +5,9 @@ import { reduxForm, SubmissionError } from "redux-form";
 
 import EditForm from "shared/components/edit-form";
 
-import { upsertItem, fetchItem, fetchTags } from "./actions";
+import { upsertItem, fetchItem } from "./actions";
+
+import { fetchTags } from "shared/data/tags/actions";
 
 const EditWrapper = reduxForm({
   form: "Edit",
@@ -66,13 +68,15 @@ export class Upsert extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    upsert: { tags, item: initialValues, errors }
+    upsert: { item: initialValues, errors },
+    tags: { tags }
   } = state;
   const {
     match: {
       params: { id = undefined }
     }
   } = ownProps;
+
   return {
     ...state,
     tags,

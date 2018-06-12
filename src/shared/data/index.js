@@ -10,6 +10,7 @@ import upsert from "shared/features/upsert/reducers";
 import items from "shared/features/items/reducers";
 import requestToken from "shared/features/request-token/reducers";
 import verifyToken from "shared/features/verify/reducers";
+import tags from "./tags/reducers";
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
@@ -24,7 +25,8 @@ export const appReducer = combineReducers({
   upsert,
   list: items,
   requestToken,
-  verifyToken
+  verifyToken,
+  tags
 });
 
 const rootReducer = (state, action) => {

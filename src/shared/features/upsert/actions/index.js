@@ -6,10 +6,7 @@ import {
   UPSERT_ITEM_FAILURE,
   FETCH_ITEM_REQUEST,
   FETCH_ITEM_SUCCESS,
-  FETCH_ITEM_FAILURE,
-  FETCH_TAGS_REQUEST,
-  FETCH_TAGS_SUCCESS,
-  FETCH_TAGS_FAILURE
+  FETCH_ITEM_FAILURE
 } from "../constants";
 
 export const upsertItemRequest = () => ({
@@ -40,20 +37,6 @@ export const fetchItemFailure = errors => ({
   errors
 });
 
-export const fetchTagsRequest = () => ({
-  type: FETCH_TAGS_REQUEST
-});
-
-export const fetchTagsSuccess = tags => ({
-  type: FETCH_TAGS_SUCCESS,
-  tags
-});
-
-export const fetchTagsFailure = errors => ({
-  type: FETCH_TAGS_FAILURE,
-  errors
-});
-
 export const fetchItem = id => dispatch => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
@@ -79,25 +62,6 @@ export const fetchItem = id => dispatch => {
     .catch(errors => {
       // Or dispatch errors.
       return dispatch(fetchItemFailure(errors));
-    });
-};
-
-export const fetchTags = data => dispatch => {
-  dispatch(fetchTagsRequest());
-  const query = `query fetchTags($limit: Int, $offset: Int, $order: String) {
-    tags(limit: $limit, offset: $offset, order: $order) {
-      name
-      color
-    }
-  }`;
-  makeRequest(JSON.stringify({ query: query, variables: data }))
-    .then(data => {
-      // Second dispatch: return results.
-      return dispatch(fetchTagsSuccess(data.tags));
-    })
-    .catch(errors => {
-      // Or dispatch errors.
-      return dispatch(fetchTagsFailure(errors));
     });
 };
 
