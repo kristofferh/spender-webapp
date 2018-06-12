@@ -17,6 +17,14 @@ describe("tags reducer", () => {
     };
   });
 
+  it("should return default state for unknown type", () => {
+    expect(reducer(state, { type: "SNAKES" })).toEqual({
+      isFetching: false,
+      tags: [],
+      errors: {}
+    });
+  });
+
   it("should return request state", () => {
     expect(reducer(state, { type: FETCH_TAGS_REQUEST })).toEqual({
       isFetching: true,

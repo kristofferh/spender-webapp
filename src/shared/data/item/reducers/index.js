@@ -10,10 +10,8 @@ import {
 export default (
   state = {
     isFetching: false,
-    isFetchingTags: false,
     isSubmitting: false,
     item: {},
-    tags: [],
     errors: {}
   },
   action
