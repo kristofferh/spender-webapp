@@ -72,7 +72,7 @@
     "babel-jest": "^23.0.1",
     "babel-loader": "^babel-loader@^8.0.0-beta",
     "css-loader": "^0.28.7",
-    "eslint": "^4.10.0",
+    "eslint": "^5.0.0",
     "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
