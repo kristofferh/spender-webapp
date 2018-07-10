@@ -16,6 +16,7 @@ describe("item reducer", () => {
     state = {
       isFetching: false,
       isSubmitting: false,
+      isDeleting: false,
       item: {},
       errors: {}
     };
@@ -25,6 +26,7 @@ describe("item reducer", () => {
     expect(reducer(state, { type: "SNAKES" })).toEqual({
       isFetching: false,
       isSubmitting: false,
+      isDeleting: false,
       item: {},
       errors: {}
     });
@@ -34,6 +36,7 @@ describe("item reducer", () => {
     expect(reducer(state, { type: FETCH_ITEM_REQUEST })).toEqual({
       isFetching: true,
       isSubmitting: false,
+      isDeleting: false,
       item: {},
       errors: {}
     });
@@ -49,6 +52,7 @@ describe("item reducer", () => {
       item: { item: ["hello"] },
       isFetching: false,
       isSubmitting: false,
+      isDeleting: false,
       errors: {}
     });
   });
@@ -62,6 +66,7 @@ describe("item reducer", () => {
     ).toEqual({
       isFetching: false,
       isSubmitting: false,
+      isDeleting: false,
       errors: { error: "text" },
       item: {}
     });
@@ -71,6 +76,7 @@ describe("item reducer", () => {
     expect(reducer(state, { type: UPSERT_ITEM_REQUEST })).toEqual({
       isSubmitting: true,
       isFetching: false,
+      isDeleting: false,
       item: {},
       errors: {}
     });
@@ -86,6 +92,7 @@ describe("item reducer", () => {
       item: { item: ["hello"] },
       isSubmitting: false,
       isFetching: false,
+      isDeleting: false,
       errors: {}
     });
   });
@@ -99,6 +106,7 @@ describe("item reducer", () => {
     ).toEqual({
       isSubmitting: false,
       isFetching: false,
+      isDeleting: false,
       errors: { error: "text" },
       item: {}
     });
