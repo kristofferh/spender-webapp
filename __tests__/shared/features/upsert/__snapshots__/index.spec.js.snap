@@ -551,6 +551,14 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   stroke-width: 0;
 }
 
+.emotion-26 {
+  cursor: pointer;
+  display: block;
+  margin-top: 15px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <div>
   <h1>
     Edit
@@ -786,6 +794,12 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
     >
       Submit
     </button>
+    <a
+      className="emotion-26 emotion-27"
+      onClick={[Function]}
+    >
+      Delete
+    </a>
   </form>
 </div>
 `;

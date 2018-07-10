@@ -6,10 +6,11 @@ import createHistory from "history/createBrowserHistory";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 
 import { USER_LOGOUT } from "shared/features/logout/constants";
-import upsert from "shared/features/upsert/reducers";
 import items from "shared/features/items/reducers";
 import requestToken from "shared/features/request-token/reducers";
 import verifyToken from "shared/features/verify/reducers";
+import item from "./item/reducers";
+import tags from "./tags/reducers";
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
@@ -21,10 +22,11 @@ const middleware = routerMiddleware(history);
 export const appReducer = combineReducers({
   form: formReducer,
   router: routerReducer,
-  upsert,
+  item,
   list: items,
   requestToken,
-  verifyToken
+  verifyToken,
+  tags
 });
 
 const rootReducer = (state, action) => {

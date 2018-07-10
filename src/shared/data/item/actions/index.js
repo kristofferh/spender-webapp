@@ -7,9 +7,9 @@ import {
   FETCH_ITEM_REQUEST,
   FETCH_ITEM_SUCCESS,
   FETCH_ITEM_FAILURE,
-  FETCH_TAGS_REQUEST,
-  FETCH_TAGS_SUCCESS,
-  FETCH_TAGS_FAILURE
+  DELETE_ITEM_REQUEST,
+  DELETE_ITEM_SUCCESS,
+  DELETE_ITEM_FAILURE
 } from "../constants";
 
 export const upsertItemRequest = () => ({
@@ -40,17 +40,17 @@ export const fetchItemFailure = errors => ({
   errors
 });
 
-export const fetchTagsRequest = () => ({
-  type: FETCH_TAGS_REQUEST
+export const deleteItemRequest = () => ({
+  type: DELETE_ITEM_REQUEST
 });
 
-export const fetchTagsSuccess = tags => ({
-  type: FETCH_TAGS_SUCCESS,
-  tags
+export const deleteItemSuccess = item => ({
+  type: DELETE_ITEM_SUCCESS,
+  item
 });
 
-export const fetchTagsFailure = errors => ({
-  type: FETCH_TAGS_FAILURE,
+export const deleteItemFailure = errors => ({
+  type: DELETE_ITEM_FAILURE,
   errors
 });
 
@@ -71,7 +71,7 @@ export const fetchItem = id => dispatch => {
       }
     }
   `;
-  makeRequest(JSON.stringify({ query: query, variables: { id: id } }))
+  return makeRequest(JSON.stringify({ query: query, variables: { id: id } }))
     .then(json => {
       // Second dispatch: return results.
       return dispatch(fetchItemSuccess(json.item));
@@ -79,25 +79,6 @@ export const fetchItem = id => dispatch => {
     .catch(errors => {
       // Or dispatch errors.
       return dispatch(fetchItemFailure(errors));
-    });
-};
-
-export const fetchTags = data => dispatch => {
-  dispatch(fetchTagsRequest());
-  const query = `query fetchTags($limit: Int, $offset: Int, $order: String) {
-    tags(limit: $limit, offset: $offset, order: $order) {
-      name
-      color
-    }
-  }`;
-  makeRequest(JSON.stringify({ query: query, variables: data }))
-    .then(data => {
-      // Second dispatch: return results.
-      return dispatch(fetchTagsSuccess(data.tags));
-    })
-    .catch(errors => {
-      // Or dispatch errors.
-      return dispatch(fetchTagsFailure(errors));
     });
 };
 
@@ -145,5 +126,27 @@ export const upsertItem = data => dispatch => {
       // Or dispatch errors.
       dispatch(upsertItemFailure(errors));
       throw errors;
+    });
+};
+
+export const deleteItem = id => dispatch => {
+  // First dispatch: the app state is updated to inform UI
+  // that the API call is starting.
+  dispatch(deleteItemRequest());
+  const query = `
+    mutation removeItem($id: Int!) {
+      removeItem(id: $id) {
+        id
+      }
+    }
+  `;
+  return makeRequest(JSON.stringify({ query: query, variables: { id: id } }))
+    .then(json => {
+      // Second dispatch: return results.
+      return dispatch(deleteItemSuccess(json.item));
+    })
+    .catch(errors => {
+      // Or dispatch errors.
+      return dispatch(deleteItemFailure(errors));
     });
 };

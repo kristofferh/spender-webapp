@@ -5,18 +5,17 @@ import {
   FETCH_ITEM_REQUEST,
   FETCH_ITEM_SUCCESS,
   FETCH_ITEM_FAILURE,
-  FETCH_TAGS_REQUEST,
-  FETCH_TAGS_SUCCESS,
-  FETCH_TAGS_FAILURE
+  DELETE_ITEM_REQUEST,
+  DELETE_ITEM_SUCCESS,
+  DELETE_ITEM_FAILURE
 } from "../constants";
 
 export default (
   state = {
     isFetching: false,
-    isFetchingTags: false,
     isSubmitting: false,
+    isDeleting: false,
     item: {},
-    tags: [],
     errors: {}
   },
   action
@@ -53,24 +52,24 @@ export default (
     case FETCH_ITEM_FAILURE:
       return {
         ...state,
-        isFetching: false,
+        isDeleting: false,
         errors: action.errors
       };
-    case FETCH_TAGS_REQUEST:
+    case DELETE_ITEM_REQUEST:
       return {
         ...state,
-        isFetchingTags: true
+        isDeleting: true
       };
-    case FETCH_TAGS_SUCCESS:
+    case DELETE_ITEM_SUCCESS:
       return {
         ...state,
-        isFetchingTags: false,
-        tags: action.tags
+        isDeleting: false,
+        item: action.item
       };
-    case FETCH_TAGS_FAILURE:
+    case DELETE_ITEM_FAILURE:
       return {
         ...state,
-        isFetchingTags: false,
+        isDeleting: false,
         errors: action.errors
       };
     default:
