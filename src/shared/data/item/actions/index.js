@@ -6,7 +6,10 @@ import {
   UPSERT_ITEM_FAILURE,
   FETCH_ITEM_REQUEST,
   FETCH_ITEM_SUCCESS,
-  FETCH_ITEM_FAILURE
+  FETCH_ITEM_FAILURE,
+  DELETE_ITEM_REQUEST,
+  DELETE_ITEM_SUCCESS,
+  DELETE_ITEM_FAILURE
 } from "../constants";
 
 export const upsertItemRequest = () => ({
@@ -37,6 +40,20 @@ export const fetchItemFailure = errors => ({
   errors
 });
 
+export const deleteItemRequest = () => ({
+  type: DELETE_ITEM_REQUEST
+});
+
+export const deleteItemSuccess = item => ({
+  type: DELETE_ITEM_SUCCESS,
+  item
+});
+
+export const deleteItemFailure = errors => ({
+  type: DELETE_ITEM_FAILURE,
+  errors
+});
+
 export const fetchItem = id => dispatch => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
@@ -54,7 +71,7 @@ export const fetchItem = id => dispatch => {
       }
     }
   `;
-  makeRequest(JSON.stringify({ query: query, variables: { id: id } }))
+  return makeRequest(JSON.stringify({ query: query, variables: { id: id } }))
     .then(json => {
       // Second dispatch: return results.
       return dispatch(fetchItemSuccess(json.item));
@@ -109,5 +126,27 @@ export const upsertItem = data => dispatch => {
       // Or dispatch errors.
       dispatch(upsertItemFailure(errors));
       throw errors;
+    });
+};
+
+export const deleteItem = id => dispatch => {
+  // First dispatch: the app state is updated to inform UI
+  // that the API call is starting.
+  dispatch(deleteItemRequest());
+  const query = `
+    mutation removeItem($id: Int!) {
+      removeItem(id: $id) {
+        id
+      }
+    }
+  `;
+  return makeRequest(JSON.stringify({ query: query, variables: { id: id } }))
+    .then(json => {
+      // Second dispatch: return results.
+      return dispatch(deleteItemSuccess(json.item));
+    })
+    .catch(errors => {
+      // Or dispatch errors.
+      return dispatch(deleteItemFailure(errors));
     });
 };

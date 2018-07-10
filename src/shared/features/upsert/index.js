@@ -5,7 +5,7 @@ import { reduxForm, SubmissionError } from "redux-form";
 
 import EditForm from "shared/components/edit-form";
 
-import { upsertItem, fetchItem } from "shared/data/item/actions";
+import { upsertItem, fetchItem, deleteItem } from "shared/data/item/actions";
 import { fetchTags } from "shared/data/tags/actions";
 
 const EditWrapper = reduxForm({
@@ -18,6 +18,7 @@ export class Upsert extends Component {
     upsertItem: PropTypes.func,
     fetchItem: PropTypes.func,
     fetchTags: PropTypes.func,
+    deleteItem: PropTypes.func,
     match: PropTypes.object,
     initialValues: PropTypes.object,
     errors: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
@@ -50,6 +51,17 @@ export class Upsert extends Component {
       });
   };
 
+  handleDelete = () => {
+    return this.props
+      .deleteItem(this.props.id)
+      .then(() => {
+        this.props.history.push("/items");
+      })
+      .catch(errors => {
+        console.log("something went weird", errors); // eslint-disable-line no-console
+      });
+  };
+
   render() {
     return (
       <div>
@@ -59,6 +71,8 @@ export class Upsert extends Component {
           initialValues={this.props.initialValues}
           errors={this.props.errors}
           tags={this.props.tags}
+          showDelete={this.props.id ? true : false}
+          deleteCallback={this.handleDelete}
         />
       </div>
     );
@@ -85,6 +99,9 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, { upsertItem, fetchItem, fetchTags })(
-  Upsert
-);
+export default connect(mapStateToProps, {
+  upsertItem,
+  fetchItem,
+  fetchTags,
+  deleteItem
+})(Upsert);
