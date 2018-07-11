@@ -14,29 +14,22 @@
     "ci:before": "greenkeeper-lockfile-update",
     "ci:after": "greenkeeper-lockfile-upload",
     "dev": "webpack-dev-server --open --config ./webpack.config.dev.js",
-    "build": "BABEL_ENV=production webpack --colors --progress --config ./webpack.config.prod.js",
+    "build":
+      "BABEL_ENV=production webpack --colors --progress --config ./webpack.config.prod.js",
     "build-server": "BABEL_ENV=server babel src/index.js -d dist",
-    "local-dev": "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js",
+    "local-dev":
+      "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js",
     "start": "node dist/index.js",
     "heroku-postbuild": "yarn build && yarn build-server"
   },
-  "sideEffects": [
-    "@babel/polyfill",
-    "*.scss"
-  ],
-  "browserslist": [
-    "last 2 versions"
-  ],
+  "sideEffects": ["@babel/polyfill", "*.scss"],
+  "browserslist": ["last 2 versions"],
   "jest": {
     "verbose": true,
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
-    "roots": [
-      "__tests__/"
-    ],
-    "modulePaths": [
-      "src"
-    ],
+    "roots": ["__tests__/"],
+    "modulePaths": ["src"],
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy"
     },
@@ -79,10 +72,10 @@
     "babel-jest": "^23.0.1",
     "babel-loader": "^babel-loader@^8.0.0-beta",
     "css-loader": "^0.28.7",
-    "eslint": "^4.10.0",
-    "eslint-config-prettier": "^2.6.0",
-    "eslint-plugin-prettier": "^2.3.1",
-    "eslint-plugin-react": "^7.4.0",
+    "eslint": "^5.0.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
