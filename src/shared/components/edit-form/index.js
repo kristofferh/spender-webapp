@@ -13,7 +13,20 @@ const FormGroup = styled.div`
   margin-bottom: 15px;
 `;
 
-const EditForm = ({ handleSubmit, tags, error }) => (
+const DeleteLink = styled.a`
+  cursor: pointer;
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+`;
+
+const EditForm = ({
+  handleSubmit,
+  tags,
+  error,
+  showDelete,
+  deleteCallback
+}) => (
   <form onSubmit={handleSubmit}>
     <FormGroup>
       <Field
@@ -51,13 +64,20 @@ const EditForm = ({ handleSubmit, tags, error }) => (
     </FormGroup>
     {error ? <span>{error}</span> : null}
     <button type="submit">Submit</button>
+    {showDelete && <DeleteLink onClick={deleteCallback}>Delete</DeleteLink>}
   </form>
 );
+
+EditForm.defaultProps = {
+  deleteCallback: () => {}
+};
 
 EditForm.propTypes = {
   handleSubmit: PropTypes.func,
   tags: PropTypes.array,
-  error: PropTypes.string
+  error: PropTypes.string,
+  showDelete: PropTypes.bool,
+  deleteCallback: PropTypes.func
 };
 
 export default EditForm;
