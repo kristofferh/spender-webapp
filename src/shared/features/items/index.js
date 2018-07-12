@@ -6,6 +6,8 @@ import moment from "moment";
 import numeral from "numeral";
 import styled from "react-emotion";
 
+import Loader from "shared/components/loader";
+
 import { fetchItems } from "./actions";
 
 const ListItem = styled(Link)`
@@ -25,31 +27,39 @@ export class Items extends Component {
   render() {
     return (
       <div>
-        <h1>Items</h1>
-        <Link to="/items/create">Add</Link>
-        <section className="items-list">
-          {this.props.items.map(item => (
-            <ListItem to={`/items/${item.id}`} key={item.id}>
-              <span className="items-list-item-date">
-                {moment(item.date).format("MMMM D, YYYY")}
-              </span>
-              <div className="item-list-item-details">
-                <span className="items-list-item-description">
-                  {item.description}
-                </span>
-                <div className="items-list-item-tags">
-                  {item.tags &&
-                    item.tags.map(tag => {
-                      <span className="items-list-item-tag">{tag.name}</span>;
-                    })}
-                </div>
-                <span className="items-list-item-description">
-                  {numeral(item.amount).format("$0,0.00")}
-                </span>
-              </div>
-            </ListItem>
-          ))}
-        </section>
+        {this.props.isFetching ? (
+          <Loader color={"#000"} />
+        ) : (
+          <div>
+            <h1>Items</h1>
+            <Link to="/items/create">Add</Link>
+            <section className="items-list">
+              {this.props.items.map(item => (
+                <ListItem to={`/items/${item.id}`} key={item.id}>
+                  <span className="items-list-item-date">
+                    {moment(item.date).format("MMMM D, YYYY")}
+                  </span>
+                  <div className="item-list-item-details">
+                    <span className="items-list-item-description">
+                      {item.description}
+                    </span>
+                    <div className="items-list-item-tags">
+                      {item.tags &&
+                        item.tags.map(tag => {
+                          <span className="items-list-item-tag">
+                            {tag.name}
+                          </span>;
+                        })}
+                    </div>
+                    <span className="items-list-item-description">
+                      {numeral(item.amount).format("$0,0.00")}
+                    </span>
+                  </div>
+                </ListItem>
+              ))}
+            </section>
+          </div>
+        )}
       </div>
     );
   }
@@ -62,13 +72,15 @@ Items.defaultProps = {
 Items.propTypes = {
   routes: PropTypes.array,
   fetchItems: PropTypes.func,
-  items: PropTypes.array
+  items: PropTypes.array,
+  isFetching: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   const { list } = state;
   return {
-    items: list.items
+    items: list.items,
+    isFetching: list.isFetching
   };
 };
 
