@@ -81,7 +81,7 @@ export class Upsert extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    item: { item: initialValues, errors },
+    item: { item: initialValues = {}, errors },
     tags: { tags }
   } = state;
   const {
@@ -90,10 +90,15 @@ const mapStateToProps = (state, ownProps) => {
     }
   } = ownProps;
 
+  const existingTags =
+    initialValues.tags && initialValues.tags.edges
+      ? initialValues.tags.edges.map(tag => tag.node)
+      : [];
+
   return {
     ...state,
     tags,
-    initialValues: id ? initialValues : {},
+    initialValues: id ? { ...initialValues, tags: existingTags } : {},
     errors,
     id
   };

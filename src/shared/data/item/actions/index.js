@@ -65,8 +65,12 @@ export const fetchItem = id => dispatch => {
         date
         amount
         tags {
-          name
-          color
+          edges {
+            node {
+              name
+              color
+            }
+          }
         }
       }
     }
@@ -88,19 +92,25 @@ export const upsertItem = data => dispatch => {
   dispatch(upsertItemRequest());
   const query = data.id
     ? `
-      mutation editItem($id: Int!, $date: String, $amount: Float!, $description: String!, $tags: [TagInput]) {
-        editItem(id: $id, date: $date, amount: $amount, description: $description, tags: $tags) {
-          id
-          date
-          amount
-          description
-          tags {
-            name
+      mutation editItem($input: EditItemInput!) {
+        editItem(input: $input) {
+          item {
+            id
+            date
+            amount
             description
-            color
+            tags {
+              edges {
+                node {
+                  name
+                  description
+                  color
+                }
+              }
+            }
           }
-      }
-    }`
+        }
+      }`
     : `
       mutation addItem($date: String, $amount: Float!, $description: String!, $tags: [TagInput]) {
         addItem(date: $date, amount: $amount, description: $description, tags: $tags) {
@@ -116,7 +126,9 @@ export const upsertItem = data => dispatch => {
       }
     }`;
 
-  return makeRequest(JSON.stringify({ query: query, variables: data }))
+  return makeRequest(
+    JSON.stringify({ query: query, variables: { input: data } })
+  )
     .then(json => {
       // Second dispatch: return results.
       const { addItem, editItem } = json;
