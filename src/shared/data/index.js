@@ -12,7 +12,6 @@ import verifyToken from "shared/features/verify/reducers";
 import item from "./item/reducers";
 import tags from "./tags/reducers";
 
-// Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
 
 // Build the middleware for intercepting and dispatching navigation actions
