@@ -103,7 +103,6 @@ export const upsertItem = data => dispatch => {
               edges {
                 node {
                   name
-                  description
                   color
                 }
               }
@@ -112,19 +111,24 @@ export const upsertItem = data => dispatch => {
         }
       }`
     : `
-      mutation addItem($date: String, $amount: Float!, $description: String!, $tags: [TagInput]) {
-        addItem(date: $date, amount: $amount, description: $description, tags: $tags) {
-          id
-          date
-          amount
-          description
-          tags {
-            name
+      mutation addItem($input: AddItemInput!) {
+        addItem(input: $input) {
+          item {
+            id
+            date
+            amount
             description
-            color
+            tags {
+              edges {
+                node {
+                  name
+                  color
+                }
+              }
+            }
           }
-      }
-    }`;
+        }
+      }`;
 
   return makeRequest(
     JSON.stringify({ query: query, variables: { input: data } })
