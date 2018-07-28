@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 const Container = styled.nav`
   display: flex;
   justify-content: space-between;
+  align-self: flex-start;
+  width: 100%;
 `;
 
 const Nav = ({ authenticated }) => (
