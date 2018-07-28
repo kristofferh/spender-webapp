@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import { Switch, Link } from "react-router-dom";
+import { Switch } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import { RouteWithSubRoutes } from "shared/utils";
 import routes from "shared/routes";
+
+import Nav from "shared/components/nav";
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/items">Items</Link>
-          <Link to="/logout">Logout</Link>
-        </nav>
+        <Nav authenticated={Boolean(Cookies.get(SESSION_COOKIE))} />
         <Switch>
           {routes.map((route, i) => {
             return <RouteWithSubRoutes key={i} {...route} />;
