@@ -19,6 +19,11 @@ const ListItem = styled(Link)`
   color: inherit;
 `;
 
+const ItemsContainer = styled.div`
+  width: 100%;
+  margin: ${({ isLoading }) => (isLoading ? "auto" : null)};
+`;
+
 export class Items extends Component {
   componentDidMount() {
     this.props.fetchItems({ order: "reverse:date" });
@@ -26,7 +31,7 @@ export class Items extends Component {
 
   render() {
     return (
-      <div>
+      <ItemsContainer isLoading={this.props.isFetching}>
         {this.props.isFetching ? (
           <Loader color={"#000"} />
         ) : (
@@ -60,7 +65,7 @@ export class Items extends Component {
             </section>
           </div>
         )}
-      </div>
+      </ItemsContainer>
     );
   }
 }

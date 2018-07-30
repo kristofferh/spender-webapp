@@ -5,7 +5,7 @@ import { routerReducer, routerMiddleware } from "react-router-redux";
 import createHistory from "history/createBrowserHistory";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 
-import { USER_LOGOUT } from "shared/features/logout/constants";
+import { USER_LOGOUT } from "./user/constants";
 import items from "shared/features/items/reducers";
 import requestToken from "shared/features/request-token/reducers";
 import verifyToken from "shared/features/verify/reducers";

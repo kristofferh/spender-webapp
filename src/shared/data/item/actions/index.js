@@ -59,7 +59,7 @@ export const fetchItem = id => dispatch => {
   // that the API call is starting.
   dispatch(fetchItemRequest());
   const query = `
-    query getItem($id: Int!) {
+    query getItem($id: ID!) {
       item(id: $id) {
         description
         date
@@ -150,7 +150,7 @@ export const deleteItem = id => dispatch => {
   // that the API call is starting.
   dispatch(deleteItemRequest());
   const query = `
-    mutation removeItem($id: Int!) {
+    mutation removeItem($id: ID!) {
       removeItem(id: $id) {
         id
       }

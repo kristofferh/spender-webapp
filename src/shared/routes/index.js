@@ -1,4 +1,3 @@
-import Home from "shared/components/home";
 import Logout from "shared/features/logout";
 import Items from "shared/features/items";
 import Upsert from "shared/features/upsert";
@@ -11,7 +10,7 @@ const routes = [
     name: "home",
     path: "/",
     exact: true,
-    component: Home
+    component: Items
   },
   {
     name: "logout",
