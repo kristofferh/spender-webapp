@@ -26,10 +26,11 @@ const ItemsContainer = styled.div`
 
 export class Items extends Component {
   componentDidMount() {
-    this.props.fetchItems({ order: "reverse:date" });
+    this.props.fetchItems({ first: 10 });
   }
 
   render() {
+    const { edges } = this.props.items;
     return (
       <ItemsContainer isLoading={this.props.isFetching}>
         {this.props.isFetching ? (
@@ -39,29 +40,45 @@ export class Items extends Component {
             <h1>Items</h1>
             <Link to="/items/create">Add</Link>
             <section className="items-list">
-              {this.props.items.map(item => (
-                <ListItem to={`/items/${item.id}`} key={item.id}>
-                  <span className="items-list-item-date">
-                    {moment(item.date).format("MMMM D, YYYY")}
-                  </span>
-                  <div className="item-list-item-details">
-                    <span className="items-list-item-description">
-                      {item.description}
-                    </span>
-                    <div className="items-list-item-tags">
-                      {item.tags &&
-                        item.tags.map(tag => {
-                          <span className="items-list-item-tag">
-                            {tag.name}
-                          </span>;
-                        })}
-                    </div>
-                    <span className="items-list-item-description">
-                      {numeral(item.amount).format("$0,0.00")}
-                    </span>
-                  </div>
-                </ListItem>
-              ))}
+              {edges &&
+                edges.map(item => {
+                  const {
+                    id,
+                    date,
+                    description,
+                    amount,
+                    tags: { edges: tagEdges = [] }
+                  } = item.node;
+                  return (
+                    <ListItem to={`/items/${id}`} key={id}>
+                      <span className="items-list-item-date">
+                        {moment(date).format("MMMM D, YYYY")}
+                      </span>
+                      <div className="item-list-item-details">
+                        <span className="items-list-item-description">
+                          {description}
+                        </span>
+                        <span className="items-list-item-description">
+                          {numeral(amount).format("$0,0.00")}
+                        </span>
+                        <div className="items-list-item-tags">
+                          {tagEdges &&
+                            tagEdges.map(tag => {
+                              const { name } = tag.node;
+                              return (
+                                <span
+                                  key={name}
+                                  className="items-list-item-tag"
+                                >
+                                  {name}
+                                </span>
+                              );
+                            })}
+                        </div>
+                      </div>
+                    </ListItem>
+                  );
+                })}
             </section>
           </div>
         )}
@@ -71,13 +88,23 @@ export class Items extends Component {
 }
 
 Items.defaultProps = {
-  items: []
+  items: {
+    edges: []
+  }
 };
 
 Items.propTypes = {
   routes: PropTypes.array,
   fetchItems: PropTypes.func,
-  items: PropTypes.array,
+  items: PropTypes.shape({
+    pageInfo: PropTypes.shape({
+      startCursor: PropTypes.string,
+      endCursor: PropTypes.string,
+      hasNextPage: PropTypes.bool,
+      hasPreviousPage: PropTypes.bool
+    }),
+    edges: PropTypes.array
+  }),
   isFetching: PropTypes.bool
 };
 
