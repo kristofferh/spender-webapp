@@ -7,6 +7,7 @@ import numeral from "numeral";
 import styled from "react-emotion";
 
 import Loader from "shared/components/loader";
+import InfiniteScroll from "shared/components/infinite-scroll";
 
 import { fetchItems } from "./actions";
 
@@ -21,7 +22,6 @@ const ListItem = styled(Link)`
 
 const ItemsContainer = styled.div`
   width: 100%;
-  margin: ${({ isLoading }) => (isLoading ? "auto" : null)};
 `;
 
 export class Items extends Component {
@@ -29,57 +29,73 @@ export class Items extends Component {
     this.props.fetchItems({ first: 10 });
   }
 
+  handleLoadMore = () => {
+    const { endCursor } = this.props.pageInfo;
+    this.props.fetchItems({ first: 10, after: endCursor }, true);
+  };
+
+  paginationLoader() {
+    return <Loader color={"#000"} />;
+  }
+
+  renderItems() {
+    const { items } = this.props;
+    return items.map(item => {
+      const {
+        id,
+        date,
+        description,
+        amount,
+        tags: { edges: tagEdges = [] }
+      } = item.node;
+      return (
+        <ListItem to={`/items/${id}`} key={id}>
+          <span className="items-list-item-date">
+            {moment(date).format("MMMM D, YYYY")}
+          </span>
+          <div className="item-list-item-details">
+            <span className="items-list-item-description">{description}</span>
+            <span className="items-list-item-description">
+              {numeral(amount).format("$0,0.00")}
+            </span>
+            <div className="items-list-item-tags">
+              {tagEdges &&
+                tagEdges.map(tag => {
+                  const { name } = tag.node;
+                  return (
+                    <span key={name} className="items-list-item-tag">
+                      {name}
+                    </span>
+                  );
+                })}
+            </div>
+          </div>
+        </ListItem>
+      );
+    });
+  }
+
   render() {
-    const { edges } = this.props.items;
+    const {
+      isFetching,
+      isPaginating,
+      pageInfo: { hasNextPage }
+    } = this.props;
     return (
-      <ItemsContainer isLoading={this.props.isFetching}>
-        {this.props.isFetching ? (
+      <ItemsContainer>
+        {isFetching ? (
           <Loader color={"#000"} />
         ) : (
           <div>
             <h1>Items</h1>
             <Link to="/items/create">Add</Link>
-            <section className="items-list">
-              {edges &&
-                edges.map(item => {
-                  const {
-                    id,
-                    date,
-                    description,
-                    amount,
-                    tags: { edges: tagEdges = [] }
-                  } = item.node;
-                  return (
-                    <ListItem to={`/items/${id}`} key={id}>
-                      <span className="items-list-item-date">
-                        {moment(date).format("MMMM D, YYYY")}
-                      </span>
-                      <div className="item-list-item-details">
-                        <span className="items-list-item-description">
-                          {description}
-                        </span>
-                        <span className="items-list-item-description">
-                          {numeral(amount).format("$0,0.00")}
-                        </span>
-                        <div className="items-list-item-tags">
-                          {tagEdges &&
-                            tagEdges.map(tag => {
-                              const { name } = tag.node;
-                              return (
-                                <span
-                                  key={name}
-                                  className="items-list-item-tag"
-                                >
-                                  {name}
-                                </span>
-                              );
-                            })}
-                        </div>
-                      </div>
-                    </ListItem>
-                  );
-                })}
-            </section>
+            <InfiniteScroll
+              items={this.renderItems()}
+              loadMore={this.handleLoadMore}
+              loadingMore={isPaginating}
+              hasMore={hasNextPage}
+              loader={this.paginationLoader}
+            />
           </div>
         )}
       </ItemsContainer>
@@ -88,31 +104,33 @@ export class Items extends Component {
 }
 
 Items.defaultProps = {
-  items: {
-    edges: []
-  }
+  items: [],
+  pageInfo: {}
 };
 
 Items.propTypes = {
   routes: PropTypes.array,
   fetchItems: PropTypes.func,
-  items: PropTypes.shape({
-    pageInfo: PropTypes.shape({
-      startCursor: PropTypes.string,
-      endCursor: PropTypes.string,
-      hasNextPage: PropTypes.bool,
-      hasPreviousPage: PropTypes.bool
-    }),
-    edges: PropTypes.array
+  items: PropTypes.array,
+  pageInfo: PropTypes.shape({
+    startCursor: PropTypes.string,
+    endCursor: PropTypes.string,
+    hasNextPage: PropTypes.bool,
+    hasPreviousPage: PropTypes.bool
   }),
-  isFetching: PropTypes.bool
+  isFetching: PropTypes.bool,
+  isPaginating: PropTypes.bool
 };
 
 const mapStateToProps = state => {
-  const { list } = state;
+  const {
+    list: { items, pageInfo, isFetching, isPaginating }
+  } = state;
   return {
-    items: list.items,
-    isFetching: list.isFetching
+    items,
+    pageInfo,
+    isFetching,
+    isPaginating
   };
 };
 
