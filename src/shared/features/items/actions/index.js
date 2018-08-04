@@ -61,7 +61,6 @@ export const fetchItems = (data, pagination) => dispatch => {
   makeRequest(JSON.stringify({ query: query, variables: data }), true)
     .then(data => {
       // Second dispatch: return results.
-      console.log("success", data);
       return dispatch(fetchItemsSuccess(data.user.items, pagination));
     })
     .catch(errors => {

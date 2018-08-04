@@ -11,6 +11,8 @@ import InfiniteScroll from "shared/components/infinite-scroll";
 
 import { fetchItems } from "./actions";
 
+import { Date, Details, Description, Amount } from "./styles";
+
 const ListItem = styled(Link)`
   display: block;
   border-bottom: 1px solid #eee;
@@ -50,14 +52,10 @@ export class Items extends Component {
       } = item.node;
       return (
         <ListItem to={`/items/${id}`} key={id}>
-          <span className="items-list-item-date">
-            {moment(date).format("MMMM D, YYYY")}
-          </span>
-          <div className="item-list-item-details">
-            <span className="items-list-item-description">{description}</span>
-            <span className="items-list-item-description">
-              {numeral(amount).format("$0,0.00")}
-            </span>
+          <Date>{moment(date).format("MMMM D, YYYY")}</Date>
+          <Details>
+            <Description>{description}</Description>
+            <Amount>{numeral(amount).format("$0,0.00")}</Amount>
             <div className="items-list-item-tags">
               {tagEdges &&
                 tagEdges.map(tag => {
@@ -69,7 +67,7 @@ export class Items extends Component {
                   );
                 })}
             </div>
-          </div>
+          </Details>
         </ListItem>
       );
     });
