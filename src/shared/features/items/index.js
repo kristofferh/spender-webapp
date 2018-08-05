@@ -7,8 +7,11 @@ import numeral from "numeral";
 import styled from "react-emotion";
 
 import Loader from "shared/components/loader";
+import InfiniteScroll from "shared/components/infinite-scroll";
 
 import { fetchItems } from "./actions";
+
+import { Date, Details, Description, Amount, Tags, Tag } from "./styles";
 
 const ListItem = styled(Link)`
   display: block;
@@ -21,48 +24,76 @@ const ListItem = styled(Link)`
 
 const ItemsContainer = styled.div`
   width: 100%;
-  margin: ${({ isLoading }) => (isLoading ? "auto" : null)};
 `;
 
 export class Items extends Component {
   componentDidMount() {
-    this.props.fetchItems({ order: "reverse:date" });
+    this.props.fetchItems({ first: 10 });
+  }
+
+  handleLoadMore = () => {
+    const { endCursor } = this.props.pageInfo;
+    this.props.fetchItems({ first: 10, after: endCursor }, true);
+  };
+
+  paginationLoader() {
+    return <Loader color={"#000"} />;
+  }
+
+  renderItems() {
+    const { items } = this.props;
+    return items.map(item => {
+      const {
+        id,
+        date,
+        description,
+        amount,
+        tags: { edges: tagEdges = [] }
+      } = item.node;
+      return (
+        <ListItem to={`/items/${id}`} key={id}>
+          <Date>{moment(date).format("MMMM D, YYYY")}</Date>
+          <Details>
+            <Description>{description}</Description>
+            <Amount>{numeral(amount).format("$0,0.00")}</Amount>
+            <Tags>
+              {tagEdges &&
+                tagEdges.map(tag => {
+                  const { name, color } = tag.node;
+                  return (
+                    <Tag key={name} bgColor={color}>
+                      {name}
+                    </Tag>
+                  );
+                })}
+            </Tags>
+          </Details>
+        </ListItem>
+      );
+    });
   }
 
   render() {
+    const {
+      isFetching,
+      isPaginating,
+      pageInfo: { hasNextPage }
+    } = this.props;
     return (
-      <ItemsContainer isLoading={this.props.isFetching}>
-        {this.props.isFetching ? (
+      <ItemsContainer>
+        {isFetching ? (
           <Loader color={"#000"} />
         ) : (
           <div>
             <h1>Items</h1>
             <Link to="/items/create">Add</Link>
-            <section className="items-list">
-              {this.props.items.map(item => (
-                <ListItem to={`/items/${item.id}`} key={item.id}>
-                  <span className="items-list-item-date">
-                    {moment(item.date).format("MMMM D, YYYY")}
-                  </span>
-                  <div className="item-list-item-details">
-                    <span className="items-list-item-description">
-                      {item.description}
-                    </span>
-                    <div className="items-list-item-tags">
-                      {item.tags &&
-                        item.tags.map(tag => {
-                          <span className="items-list-item-tag">
-                            {tag.name}
-                          </span>;
-                        })}
-                    </div>
-                    <span className="items-list-item-description">
-                      {numeral(item.amount).format("$0,0.00")}
-                    </span>
-                  </div>
-                </ListItem>
-              ))}
-            </section>
+            <InfiniteScroll
+              items={this.renderItems()}
+              loadMore={this.handleLoadMore}
+              loadingMore={isPaginating}
+              hasMore={hasNextPage}
+              loader={this.paginationLoader}
+            />
           </div>
         )}
       </ItemsContainer>
@@ -71,21 +102,33 @@ export class Items extends Component {
 }
 
 Items.defaultProps = {
-  items: []
+  items: [],
+  pageInfo: {}
 };
 
 Items.propTypes = {
   routes: PropTypes.array,
   fetchItems: PropTypes.func,
   items: PropTypes.array,
-  isFetching: PropTypes.bool
+  pageInfo: PropTypes.shape({
+    startCursor: PropTypes.string,
+    endCursor: PropTypes.string,
+    hasNextPage: PropTypes.bool,
+    hasPreviousPage: PropTypes.bool
+  }),
+  isFetching: PropTypes.bool,
+  isPaginating: PropTypes.bool
 };
 
 const mapStateToProps = state => {
-  const { list } = state;
+  const {
+    list: { items, pageInfo, isFetching, isPaginating }
+  } = state;
   return {
-    items: list.items,
-    isFetching: list.isFetching
+    items,
+    pageInfo,
+    isFetching,
+    isPaginating
   };
 };
 
