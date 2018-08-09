@@ -19,15 +19,8 @@ const routes = [
     public: true
   },
   {
-    name: "items",
-    path: "/items",
-    component: Items,
-    exact: true
-  },
-  {
     name: "create",
     path: "/items/create",
-    exact: true,
     component: Upsert
   },
   {

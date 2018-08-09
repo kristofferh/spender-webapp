@@ -43,7 +43,7 @@ export class Upsert extends Component {
     return this.props
       .upsertItem({ ...values, id: this.props.id })
       .then(() => {
-        this.props.history.push("/items");
+        this.props.history.push("/");
       })
       .catch(errors => {
         console.log("something went weird", errors); // eslint-disable-line no-console
@@ -55,7 +55,7 @@ export class Upsert extends Component {
     return this.props
       .deleteItem(this.props.id)
       .then(() => {
-        this.props.history.push("/items");
+        this.props.history.push("/");
       })
       .catch(errors => {
         console.log("something went weird", errors); // eslint-disable-line no-console
