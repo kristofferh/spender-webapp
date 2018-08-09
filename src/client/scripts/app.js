@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 import createHistory from "history/createBrowserHistory";
+import { Route } from "react-router-dom";
 
 import "client/styles/app";
 
@@ -15,7 +16,7 @@ const pageWrapper = document.getElementById("app-root");
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <Route component={App} />
     </ConnectedRouter>
   </Provider>,
   pageWrapper
