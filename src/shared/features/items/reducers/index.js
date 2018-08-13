@@ -12,6 +12,8 @@ export default (
     isPaginating: false,
     items: [],
     pageInfo: {},
+    avg: null,
+    sum: null,
     errors: {}
   },
   action
@@ -34,7 +36,9 @@ export default (
         isFetching: false,
         isPaginating: false,
         items: action.items,
-        pageInfo: action.pageInfo
+        pageInfo: action.pageInfo,
+        sum: action.sum,
+        avg: action.avg
       };
     case FETCH_ITEMS_PAGINATION_SUCCESS:
       return {
