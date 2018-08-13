@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
-.emotion-2 {
+.emotion-6 {
   display: block;
   margin-bottom: 15px;
 }
 
-.emotion-0 {
+.emotion-4 {
   position: relative;
 }
 
-.emotion-21 {
+.emotion-37 {
   position: relative;
   box-sizing: border-box;
 }
 
-.emotion-12 {
+.emotion-28 {
   border: 0;
   -webkit-clip: rect(1px,1px,1px,1px);
   clip: rect(1px,1px,1px,1px);
@@ -27,7 +27,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   width: 1px;
 }
 
-.emotion-20 {
+.emotion-36 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -57,11 +57,11 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-20:hover {
+.emotion-36:hover {
   border-color: hsl(0,0%,70%);
 }
 
-.emotion-15 {
+.emotion-31 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -82,7 +82,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-13 {
+.emotion-29 {
   color: hsl(0,0%,50%);
   margin-left: 2px;
   margin-right: 2px;
@@ -94,7 +94,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-14 {
+.emotion-30 {
   margin: 2px;
   padding-bottom: 2px;
   padding-top: 2px;
@@ -103,7 +103,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-19 {
+.emotion-35 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -121,7 +121,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-16 {
+.emotion-32 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -132,7 +132,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-18 {
+.emotion-34 {
   color: hsl(0,0%,80%);
   display: -webkit-box;
   display: -webkit-flex;
@@ -144,11 +144,11 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-18:hover {
+.emotion-34:hover {
   color: hsl(0,0%,60%);
 }
 
-.emotion-17 {
+.emotion-33 {
   display: inline-block;
   fill: currentColor;
   line-height: 1;
@@ -164,17 +164,18 @@ exports[`Create snapshot should render and match the snapshot for adding an item
     onSubmit={[Function]}
   >
     <div
-      className="emotion-2 emotion-3"
+      className="emotion-6 emotion-7"
     >
       <div
-        className="form-group emotion-0 emotion-1"
+        className="form-group emotion-4 emotion-5"
       >
         <div
-          className="label-wrapper"
+          className="emotion-2 emotion-3"
         >
           <label
-            className="label-form-control"
+            className="emotion-0 emotion-1"
             htmlFor="date"
+            required={false}
           >
             Date
           </label>
@@ -194,17 +195,18 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </div>
     <div
-      className="emotion-2 emotion-3"
+      className="emotion-6 emotion-7"
     >
       <div
-        className="form-group emotion-0 emotion-1"
+        className="form-group emotion-4 emotion-5"
       >
         <div
-          className="label-wrapper"
+          className="emotion-2 emotion-3"
         >
           <label
-            className="label-form-control"
+            className="emotion-0 emotion-1"
             htmlFor="amount"
+            required={false}
           >
             Amount
           </label>
@@ -225,17 +227,18 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </div>
     <div
-      className="emotion-2 emotion-3"
+      className="emotion-6 emotion-7"
     >
       <div
-        className="form-group emotion-0 emotion-1"
+        className="form-group emotion-4 emotion-5"
       >
         <div
-          className="label-wrapper"
+          className="emotion-2 emotion-3"
         >
           <label
-            className="label-form-control"
+            className="emotion-0 emotion-1"
             htmlFor="description"
+            required={false}
           >
             Description
           </label>
@@ -254,47 +257,48 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </div>
     <div
-      className="emotion-2 emotion-3"
+      className="emotion-6 emotion-7"
     >
       <div
-        className="form-group emotion-0 emotion-1"
+        className="form-group emotion-4 emotion-5"
       >
         <div
-          className="label-wrapper"
+          className="emotion-2 emotion-3"
         >
           <label
-            className="label-form-control"
+            className="emotion-0 emotion-1"
             htmlFor="tags"
+            required={false}
           />
         </div>
         <div
-          className="emotion-21"
+          className="emotion-37"
           id="tags"
           onKeyDown={[Function]}
         >
           <span
             aria-atomic="true"
             aria-live="polite"
-            className="emotion-12"
+            className="emotion-28"
             role="status"
           >
             0 results available.
           </span>
           <div
-            className="emotion-20"
+            className="emotion-36"
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
           >
             <div
-              className="emotion-15"
+              className="emotion-31"
             >
               <div
-                className="emotion-13"
+                className="emotion-29"
               >
                 Select...
               </div>
               <div
-                className="emotion-14"
+                className="emotion-30"
               >
                 <div
                   className=""
@@ -355,20 +359,20 @@ exports[`Create snapshot should render and match the snapshot for adding an item
               </div>
             </div>
             <div
-              className="emotion-19"
+              className="emotion-35"
             >
               <span
-                className="emotion-16"
+                className="emotion-32"
                 role="presentation"
               />
               <div
-                className="emotion-18"
+                className="emotion-34"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
                 role="button"
               >
                 <svg
-                  className="emotion-17"
+                  className="emotion-33"
                   focusable="false"
                   height={20}
                   role="presentation"
@@ -396,21 +400,21 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 `;
 
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
-.emotion-2 {
+.emotion-6 {
   display: block;
   margin-bottom: 15px;
 }
 
-.emotion-0 {
+.emotion-4 {
   position: relative;
 }
 
-.emotion-21 {
+.emotion-37 {
   position: relative;
   box-sizing: border-box;
 }
 
-.emotion-12 {
+.emotion-28 {
   border: 0;
   -webkit-clip: rect(1px,1px,1px,1px);
   clip: rect(1px,1px,1px,1px);
@@ -422,7 +426,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   width: 1px;
 }
 
-.emotion-20 {
+.emotion-36 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -452,11 +456,11 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-20:hover {
+.emotion-36:hover {
   border-color: hsl(0,0%,70%);
 }
 
-.emotion-15 {
+.emotion-31 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -477,7 +481,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-13 {
+.emotion-29 {
   color: hsl(0,0%,50%);
   margin-left: 2px;
   margin-right: 2px;
@@ -489,7 +493,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-14 {
+.emotion-30 {
   margin: 2px;
   padding-bottom: 2px;
   padding-top: 2px;
@@ -498,7 +502,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-19 {
+.emotion-35 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -516,7 +520,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-16 {
+.emotion-32 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -527,7 +531,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-18 {
+.emotion-34 {
   color: hsl(0,0%,80%);
   display: -webkit-box;
   display: -webkit-flex;
@@ -539,11 +543,11 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-18:hover {
+.emotion-34:hover {
   color: hsl(0,0%,60%);
 }
 
-.emotion-17 {
+.emotion-33 {
   display: inline-block;
   fill: currentColor;
   line-height: 1;
@@ -551,7 +555,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   stroke-width: 0;
 }
 
-.emotion-26 {
+.emotion-42 {
   cursor: pointer;
   display: block;
   margin-top: 15px;
@@ -567,17 +571,18 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
     onSubmit={[Function]}
   >
     <div
-      className="emotion-2 emotion-3"
+      className="emotion-6 emotion-7"
     >
       <div
-        className="form-group emotion-0 emotion-1"
+        className="form-group emotion-4 emotion-5"
       >
         <div
-          className="label-wrapper"
+          className="emotion-2 emotion-3"
         >
           <label
-            className="label-form-control"
+            className="emotion-0 emotion-1"
             htmlFor="date"
+            required={false}
           >
             Date
           </label>
@@ -597,17 +602,18 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </div>
     <div
-      className="emotion-2 emotion-3"
+      className="emotion-6 emotion-7"
     >
       <div
-        className="form-group emotion-0 emotion-1"
+        className="form-group emotion-4 emotion-5"
       >
         <div
-          className="label-wrapper"
+          className="emotion-2 emotion-3"
         >
           <label
-            className="label-form-control"
+            className="emotion-0 emotion-1"
             htmlFor="amount"
+            required={false}
           >
             Amount
           </label>
@@ -628,17 +634,18 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </div>
     <div
-      className="emotion-2 emotion-3"
+      className="emotion-6 emotion-7"
     >
       <div
-        className="form-group emotion-0 emotion-1"
+        className="form-group emotion-4 emotion-5"
       >
         <div
-          className="label-wrapper"
+          className="emotion-2 emotion-3"
         >
           <label
-            className="label-form-control"
+            className="emotion-0 emotion-1"
             htmlFor="description"
+            required={false}
           >
             Description
           </label>
@@ -657,47 +664,48 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </div>
     <div
-      className="emotion-2 emotion-3"
+      className="emotion-6 emotion-7"
     >
       <div
-        className="form-group emotion-0 emotion-1"
+        className="form-group emotion-4 emotion-5"
       >
         <div
-          className="label-wrapper"
+          className="emotion-2 emotion-3"
         >
           <label
-            className="label-form-control"
+            className="emotion-0 emotion-1"
             htmlFor="tags"
+            required={false}
           />
         </div>
         <div
-          className="emotion-21"
+          className="emotion-37"
           id="tags"
           onKeyDown={[Function]}
         >
           <span
             aria-atomic="true"
             aria-live="polite"
-            className="emotion-12"
+            className="emotion-28"
             role="status"
           >
             0 results available.
           </span>
           <div
-            className="emotion-20"
+            className="emotion-36"
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
           >
             <div
-              className="emotion-15"
+              className="emotion-31"
             >
               <div
-                className="emotion-13"
+                className="emotion-29"
               >
                 Select...
               </div>
               <div
-                className="emotion-14"
+                className="emotion-30"
               >
                 <div
                   className=""
@@ -758,20 +766,20 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
               </div>
             </div>
             <div
-              className="emotion-19"
+              className="emotion-35"
             >
               <span
-                className="emotion-16"
+                className="emotion-32"
                 role="presentation"
               />
               <div
-                className="emotion-18"
+                className="emotion-34"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
                 role="button"
               >
                 <svg
-                  className="emotion-17"
+                  className="emotion-33"
                   focusable="false"
                   height={20}
                   role="presentation"
@@ -795,7 +803,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       Submit
     </button>
     <a
-      className="emotion-26 emotion-27"
+      className="emotion-42 emotion-43"
       onClick={[Function]}
     >
       Delete

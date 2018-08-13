@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import styled from "react-emotion";
 
 const Wrapper = styled.div`
   position: relative;
 `;
+
+const LabelWrapper = styled.div``;
+
+const Label = styled.label``;
 
 const FormWrapper = WrappedComponent => {
   const _Wrapper = props => {
@@ -27,29 +30,19 @@ const FormWrapper = WrappedComponent => {
         : touched && error;
 
     const labelMarkup = (
-      <div
-        className={classNames("label-wrapper", {
-          [`${labelWrapperClassName}`]: labelWrapperClassName
-        })}
-      >
-        <label
-          className={classNames("label-form-control", {
-            "required-asterisk": required,
-            [`${labelClassName}`]: labelClassName
-          })}
+      <LabelWrapper className={labelWrapperClassName}>
+        <Label
+          required={required}
+          className={labelClassName}
           htmlFor={id || input.name}
         >
           {label}
-        </label>
-      </div>
+        </Label>
+      </LabelWrapper>
     );
 
     return (
-      <Wrapper
-        className={classNames(groupClassName, {
-          "has-error": displayError
-        })}
-      >
+      <Wrapper hasError={displayError} className={groupClassName}>
         {!hideLabelWrapper && labelMarkup}
         <WrappedComponent {...props} />
         {(displayError && <span className="required">{error}</span>) ||
