@@ -81,7 +81,10 @@ export class Upsert extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    item: { item: initialValues = {}, errors },
+    item: {
+      user: { item: initialValues = {} },
+      errors
+    },
     tags: { tags }
   } = state;
   const {
