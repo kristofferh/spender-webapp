@@ -35,8 +35,9 @@ export class Upsert extends Component {
   componentDidMount() {
     if (this.props.id) {
       this.props.fetchItem(this.props.id);
+    } else {
+      this.props.fetchTags();
     }
-    this.props.fetchTags();
   }
 
   handleSubmit = values => {
@@ -82,7 +83,7 @@ export class Upsert extends Component {
 const mapStateToProps = (state, ownProps) => {
   const {
     item: {
-      user: { item: initialValues = {} },
+      user: { item: initialValues = {}, tags: itemTags },
       errors
     },
     tags: { tags }
@@ -98,9 +99,16 @@ const mapStateToProps = (state, ownProps) => {
       ? initialValues.tags.edges.map(tag => tag.node)
       : [];
 
+  const availableTags =
+    itemTags && itemTags.edges
+      ? itemTags.edges.map(tag => tag.node)
+      : tags && tags.edges
+        ? tags.edges.map(tag => tag.node)
+        : [];
+
   return {
     ...state,
-    tags,
+    tags: availableTags,
     initialValues: id ? { ...initialValues, tags: existingTags } : {},
     errors,
     id
