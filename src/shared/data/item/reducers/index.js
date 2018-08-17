@@ -16,6 +16,7 @@ export default (
     isSubmitting: false,
     isDeleting: false,
     item: {},
+    user: {},
     errors: {}
   },
   action
@@ -47,7 +48,7 @@ export default (
       return {
         ...state,
         isFetching: false,
-        item: action.item
+        user: action.user
       };
     case FETCH_ITEM_FAILURE:
       return {

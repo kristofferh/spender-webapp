@@ -17,7 +17,7 @@ describe("Create snapshot", () => {
     const tree = renderer
       .create(
         <Provider store={store}>
-          <Decorated onSubmit={spy} fetchTags={spy} />
+          <Decorated fetchItem={spy} onSubmit={spy} />
         </Provider>
       )
       .toJSON();

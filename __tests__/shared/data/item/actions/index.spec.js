@@ -26,11 +26,13 @@ describe("item actions", () => {
   it("should finish request successfully ", () => {
     expect(
       fetchItemSuccess({
-        item: { amount: 10, description: "neat", tags: ["cool"] }
+        user: { item: { amount: 10, description: "neat", tags: ["cool"] } }
       })
     ).toEqual({
       type: FETCH_ITEM_SUCCESS,
-      item: { item: { amount: 10, description: "neat", tags: ["cool"] } }
+      user: {
+        user: { item: { amount: 10, description: "neat", tags: ["cool"] } }
+      }
     });
   });
 

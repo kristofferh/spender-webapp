@@ -4,36 +4,57 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
-import styled from "react-emotion";
 
 import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
 
 import { fetchItems } from "./actions";
 
-import { Date, Details, Description, Amount, Tags, Tag } from "./styles";
-
-const ListItem = styled(Link)`
-  display: block;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  text-decoration: none;
-  color: inherit;
-`;
-
-const ItemsContainer = styled.div`
-  width: 100%;
-`;
+import {
+  Date,
+  Details,
+  Description,
+  Amount,
+  Tags,
+  Tag,
+  ListItem,
+  ItemsContainer,
+  TotalAmount,
+  AvgAmount,
+  AggregateDetails,
+  CurrentMonth
+} from "./styles";
 
 export class Items extends Component {
+  constructor() {
+    super();
+    this.currentMonth = moment().format("Y-MM");
+    this.currentMonthFormatted = moment().format("MMMM Y");
+    this.currentDayOfMonth = moment().format("D");
+    this.endOfMonth = moment()
+      .endOf("month")
+      .format("Y-MM-D");
+  }
+
   componentDidMount() {
-    this.props.fetchItems({ first: 10 });
+    this.props.fetchItems({
+      first: this.props.pageSize,
+      startDate: this.currentMonth,
+      endDate: this.endOfMonth
+    });
   }
 
   handleLoadMore = () => {
     const { endCursor } = this.props.pageInfo;
-    this.props.fetchItems({ first: 10, after: endCursor }, true);
+    this.props.fetchItems(
+      {
+        first: this.props.pageSize,
+        after: endCursor,
+        startDate: this.currentMonth,
+        endDate: this.endOfMonth
+      },
+      true
+    );
   };
 
   paginationLoader() {
@@ -77,7 +98,8 @@ export class Items extends Component {
     const {
       isFetching,
       isPaginating,
-      pageInfo: { hasNextPage }
+      pageInfo: { hasNextPage },
+      sum
     } = this.props;
     return (
       <ItemsContainer>
@@ -85,7 +107,14 @@ export class Items extends Component {
           <Loader color={"#000"} />
         ) : (
           <div>
-            <h1>Items</h1>
+            <AggregateDetails>
+              <CurrentMonth>{this.currentMonthFormatted}</CurrentMonth>
+              <TotalAmount>{numeral(sum).format("$0,0.00")}</TotalAmount>
+              <AvgAmount>
+                {numeral(sum / this.currentDayOfMonth).format("$0,0.00")} per
+                day
+              </AvgAmount>
+            </AggregateDetails>
             <Link to="/items/create">Add</Link>
             <InfiniteScroll
               items={this.renderItems()}
@@ -103,7 +132,8 @@ export class Items extends Component {
 
 Items.defaultProps = {
   items: [],
-  pageInfo: {}
+  pageInfo: {},
+  pageSize: 10
 };
 
 Items.propTypes = {
@@ -117,18 +147,23 @@ Items.propTypes = {
     hasPreviousPage: PropTypes.bool
   }),
   isFetching: PropTypes.bool,
-  isPaginating: PropTypes.bool
+  isPaginating: PropTypes.bool,
+  pageSize: PropTypes.number,
+  avg: PropTypes.number,
+  sum: PropTypes.number
 };
 
 const mapStateToProps = state => {
   const {
-    list: { items, pageInfo, isFetching, isPaginating }
+    list: { items, pageInfo, isFetching, isPaginating, avg, sum }
   } = state;
   return {
     items,
     pageInfo,
     isFetching,
-    isPaginating
+    isPaginating,
+    avg,
+    sum
   };
 };
 

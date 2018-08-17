@@ -16,7 +16,9 @@ export const fetchItemsSuccess = (json, pagination) => {
   return {
     type: pagination ? FETCH_ITEMS_PAGINATION_SUCCESS : FETCH_ITEMS_SUCCESS,
     items: json.edges,
-    pageInfo: json.pageInfo
+    pageInfo: json.pageInfo,
+    sum: json.sum,
+    avg: json.avg
   };
 };
 
@@ -29,15 +31,17 @@ export const fetchItems = (data, pagination) => dispatch => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
   dispatch(fetchItemsRequest(pagination));
-  const query = `query user($first: Int, $after: String) {
+  const query = `query user($first: Int, $after: String, $startDate: String, $endDate: String, $isPaginating: Boolean = false) {
     user {
-      items(first: $first, after: $after) {
+      items(first: $first, after: $after, startDate: $startDate, endDate: $endDate) {
         pageInfo {
           startCursor
           endCursor
           hasNextPage
           hasPreviousPage
         }
+        sum @skip(if: $isPaginating)
+        avg @skip(if: $isPaginating)
         edges {
           node {
             id
@@ -58,7 +62,13 @@ export const fetchItems = (data, pagination) => dispatch => {
       }
     }
   }`;
-  makeRequest(JSON.stringify({ query: query, variables: data }), true)
+  makeRequest(
+    JSON.stringify({
+      query: query,
+      variables: { ...data, isPaginating: pagination }
+    }),
+    true
+  )
     .then(data => {
       // Second dispatch: return results.
       return dispatch(fetchItemsSuccess(data.user.items, pagination));

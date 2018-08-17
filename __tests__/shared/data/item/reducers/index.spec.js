@@ -18,6 +18,7 @@ describe("item reducer", () => {
       isSubmitting: false,
       isDeleting: false,
       item: {},
+      user: {},
       errors: {}
     };
   });
@@ -28,6 +29,7 @@ describe("item reducer", () => {
       isSubmitting: false,
       isDeleting: false,
       item: {},
+      user: {},
       errors: {}
     });
   });
@@ -38,7 +40,8 @@ describe("item reducer", () => {
       isSubmitting: false,
       isDeleting: false,
       item: {},
-      errors: {}
+      errors: {},
+      user: {}
     });
   });
 
@@ -46,10 +49,11 @@ describe("item reducer", () => {
     expect(
       reducer(state, {
         type: FETCH_ITEM_SUCCESS,
-        item: { item: ["hello"] }
+        user: { item: ["hello"] }
       })
     ).toEqual({
-      item: { item: ["hello"] },
+      user: { item: ["hello"] },
+      item: {},
       isFetching: false,
       isSubmitting: false,
       isDeleting: false,
@@ -68,7 +72,8 @@ describe("item reducer", () => {
       isSubmitting: false,
       isDeleting: false,
       errors: { error: "text" },
-      item: {}
+      item: {},
+      user: {}
     });
   });
 
@@ -78,6 +83,7 @@ describe("item reducer", () => {
       isFetching: false,
       isDeleting: false,
       item: {},
+      user: {},
       errors: {}
     });
   });
@@ -93,7 +99,8 @@ describe("item reducer", () => {
       isSubmitting: false,
       isFetching: false,
       isDeleting: false,
-      errors: {}
+      errors: {},
+      user: {}
     });
   });
 
@@ -108,7 +115,8 @@ describe("item reducer", () => {
       isFetching: false,
       isDeleting: false,
       errors: { error: "text" },
-      item: {}
+      item: {},
+      user: {}
     });
   });
 });
