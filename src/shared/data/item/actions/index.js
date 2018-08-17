@@ -69,14 +69,14 @@ export const deleteItemFailure = errors => ({
   errors
 });
 
-export const fetchItem = id => dispatch => {
+export const fetchItem = (id = false) => dispatch => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
   dispatch(fetchItemRequest());
   const query = `
-    query getItem($id: ID!) {
+    query getItem($id: ID!, $withItem: Boolean = false) {
       user {
-        item(id: $id) {
+        item(id: $id) @include(if: $withItem) {
           ...item
           tags {
             edges {
@@ -98,7 +98,12 @@ export const fetchItem = id => dispatch => {
     ${ITEM_FRAGMENT}
     ${TAG_FRAGMENT}
   `;
-  return makeRequest(JSON.stringify({ query: query, variables: { id: id } }))
+  return makeRequest(
+    JSON.stringify({
+      query: query,
+      variables: { id: id, withItem: Boolean(id) }
+    })
+  )
     .then(json => {
       // Second dispatch: return results.
       return dispatch(fetchItemSuccess(json.user));
