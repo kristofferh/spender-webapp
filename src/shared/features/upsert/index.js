@@ -6,7 +6,6 @@ import { reduxForm, SubmissionError } from "redux-form";
 import EditForm from "shared/components/edit-form";
 
 import { upsertItem, fetchItem, deleteItem } from "shared/data/item/actions";
-import { fetchTags } from "shared/data/tags/actions";
 
 const EditWrapper = reduxForm({
   form: "Edit",
@@ -33,11 +32,7 @@ export class Upsert extends Component {
   };
 
   componentDidMount() {
-    if (this.props.id) {
-      this.props.fetchItem(this.props.id);
-    } else {
-      this.props.fetchTags();
-    }
+    this.props.fetchItem(this.props.id);
   }
 
   handleSubmit = values => {
@@ -83,10 +78,9 @@ export class Upsert extends Component {
 const mapStateToProps = (state, ownProps) => {
   const {
     item: {
-      user: { item: initialValues = {}, tags: itemTags },
+      user: { item: initialValues = {}, tags },
       errors
-    },
-    tags: { tags }
+    }
   } = state;
   const {
     match: {
@@ -100,11 +94,7 @@ const mapStateToProps = (state, ownProps) => {
       : [];
 
   const availableTags =
-    itemTags && itemTags.edges
-      ? itemTags.edges.map(tag => tag.node)
-      : tags && tags.edges
-        ? tags.edges.map(tag => tag.node)
-        : [];
+    tags && tags.edges ? tags.edges.map(tag => tag.node) : [];
 
   return {
     ...state,
@@ -118,6 +108,5 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(mapStateToProps, {
   upsertItem,
   fetchItem,
-  fetchTags,
   deleteItem
 })(Upsert);
