@@ -30,6 +30,7 @@ export class Items extends Component {
     super();
     this.currentMonth = moment().format("Y-MM");
     this.currentMonthFormatted = moment().format("MMMM Y");
+    this.currentDayOfMonth = moment().format("D");
     this.endOfMonth = moment()
       .endOf("month")
       .format("Y-MM-D");
@@ -98,7 +99,6 @@ export class Items extends Component {
       isFetching,
       isPaginating,
       pageInfo: { hasNextPage },
-      avg,
       sum
     } = this.props;
     return (
@@ -110,7 +110,10 @@ export class Items extends Component {
             <AggregateDetails>
               <CurrentMonth>{this.currentMonthFormatted}</CurrentMonth>
               <TotalAmount>{numeral(sum).format("$0,0.00")}</TotalAmount>
-              <AvgAmount>{numeral(avg).format("$0,0.00")} per day</AvgAmount>
+              <AvgAmount>
+                {numeral(sum / this.currentDayOfMonth).format("$0,0.00")} per
+                day
+              </AvgAmount>
             </AggregateDetails>
             <Link to="/items/create">Add</Link>
             <InfiniteScroll

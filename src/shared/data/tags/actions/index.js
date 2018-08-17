@@ -22,17 +22,23 @@ export const fetchTagsFailure = errors => ({
 
 export const fetchTags = data => dispatch => {
   dispatch(fetchTagsRequest());
-  const query = `query fetchTags($limit: Int, $offset: Int, $order: String) {
-    tags(limit: $limit, offset: $offset, order: $order) {
-      name
-      color
+  const query = `query fetchTags {
+    user {
+      tags {
+        edges {
+          node {
+            name
+            color
+          }
+        }
+      }
     }
   }`;
 
   return makeRequest(JSON.stringify({ query: query, variables: data }))
     .then(data => {
       // Second dispatch: return results.
-      return dispatch(fetchTagsSuccess(data.tags));
+      return dispatch(fetchTagsSuccess(data.user.tags));
     })
     .catch(errors => {
       // Or dispatch errors.

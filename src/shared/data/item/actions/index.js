@@ -12,6 +12,21 @@ import {
   DELETE_ITEM_FAILURE
 } from "../constants";
 
+const TAG_FRAGMENT = `
+  fragment tag on Tag {
+    name
+    color
+  }
+`;
+
+const ITEM_FRAGMENT = `
+  fragment item on Item {
+    date
+    amount
+    description
+  }
+`;
+
 export const upsertItemRequest = () => ({
   type: UPSERT_ITEM_REQUEST
 });
@@ -30,9 +45,9 @@ export const fetchItemRequest = () => ({
   type: FETCH_ITEM_REQUEST
 });
 
-export const fetchItemSuccess = item => ({
+export const fetchItemSuccess = user => ({
   type: FETCH_ITEM_SUCCESS,
-  item
+  user
 });
 
 export const fetchItemFailure = errors => ({
@@ -60,25 +75,33 @@ export const fetchItem = id => dispatch => {
   dispatch(fetchItemRequest());
   const query = `
     query getItem($id: ID!) {
-      item(id: $id) {
-        description
-        date
-        amount
+      user {
+        item(id: $id) {
+          ...item
+          tags {
+            edges {
+              node {
+                ...tag
+              }
+            }
+          }
+        }
         tags {
           edges {
             node {
-              name
-              color
+              ...tag
             }
           }
         }
       }
     }
+    ${ITEM_FRAGMENT}
+    ${TAG_FRAGMENT}
   `;
   return makeRequest(JSON.stringify({ query: query, variables: { id: id } }))
     .then(json => {
       // Second dispatch: return results.
-      return dispatch(fetchItemSuccess(json.item));
+      return dispatch(fetchItemSuccess(json.user));
     })
     .catch(errors => {
       // Or dispatch errors.
@@ -96,39 +119,39 @@ export const upsertItem = data => dispatch => {
         editItem(input: $input) {
           item {
             id
-            date
-            amount
-            description
+            ...item
             tags {
               edges {
                 node {
-                  name
-                  color
+                  ...tag
                 }
               }
             }
           }
         }
-      }`
+      }
+      ${ITEM_FRAGMENT}
+      ${TAG_FRAGMENT}
+      `
     : `
       mutation addItem($input: AddItemInput!) {
         addItem(input: $input) {
           item {
             id
-            date
-            amount
-            description
+            ...item
             tags {
               edges {
                 node {
-                  name
-                  color
+                  ...tag
                 }
               }
             }
           }
         }
-      }`;
+      }
+      ${ITEM_FRAGMENT}
+      ${TAG_FRAGMENT}
+      `;
 
   return makeRequest(
     JSON.stringify({ query: query, variables: { input: data } })
