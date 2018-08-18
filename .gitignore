@@ -2,6 +2,7 @@
 *.sublime-workspace
 *.code-workspace
 dist
+fonts
 
 # Logs
 logs
