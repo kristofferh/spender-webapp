@@ -35,15 +35,21 @@ let base = {
         exclude: /(node_modules)/,
         use: [
           "style-loader",
-          {
-            loader: "css-loader",
-            query: {
-              url: false
-            }
-          },
+          "css-loader",
           "postcss-loader",
           "sass-loader",
           "./webpack.loader.global"
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]"
+            }
+          }
         ]
       }
     ]
