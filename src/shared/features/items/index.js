@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
 
+import { groupBy } from "shared/utils/arrays";
+
 import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
 
@@ -22,7 +24,9 @@ import {
   TotalAmount,
   AvgAmount,
   AggregateDetails,
-  CurrentMonth
+  CurrentMonth,
+  Container,
+  ItemsList
 } from "./styles";
 
 export class Items extends Component {
@@ -61,35 +65,59 @@ export class Items extends Component {
     return <Loader color={"#000"} />;
   }
 
+  renderItem(item) {
+    const {
+      id,
+      description,
+      amount,
+      tags: { edges: tagEdges = [] }
+    } = item;
+    return (
+      <ListItem to={`/items/${id}`} key={id}>
+        <Details>
+          <Description>{description}</Description>
+          <Amount>{amount}</Amount>
+          <Tags>
+            {tagEdges &&
+              tagEdges.map(tag => {
+                const { name, color } = tag.node;
+                return (
+                  <Tag key={name} bgColor={color}>
+                    {name}
+                  </Tag>
+                );
+              })}
+          </Tags>
+        </Details>
+      </ListItem>
+    );
+  }
+
   renderItems() {
     const { items } = this.props;
-    return items.map(item => {
-      const {
-        id,
-        date,
-        description,
-        amount,
-        tags: { edges: tagEdges = [] }
-      } = item.node;
+
+    if (!items.length) {
+      return null;
+    }
+
+    const itemList = items.map(item => {
+      const { amount, date } = item.node;
+      return {
+        ...item.node,
+        date: moment(date).format("MMMM D, YYYY"),
+        amount: numeral(amount).format("$0,0.00")
+      };
+    });
+    const grouped = groupBy(itemList, "date");
+
+    return Object.keys(grouped).map(group => {
       return (
-        <ListItem to={`/items/${id}`} key={id}>
-          <Date>{moment(date).format("MMMM D, YYYY")}</Date>
-          <Details>
-            <Description>{description}</Description>
-            <Amount>{numeral(amount).format("$0,0.00")}</Amount>
-            <Tags>
-              {tagEdges &&
-                tagEdges.map(tag => {
-                  const { name, color } = tag.node;
-                  return (
-                    <Tag key={name} bgColor={color}>
-                      {name}
-                    </Tag>
-                  );
-                })}
-            </Tags>
-          </Details>
-        </ListItem>
+        <>
+          <Date key={group}>{group}</Date>
+          {grouped[group].map(item => {
+            return this.renderItem(item);
+          })}
+        </>
       );
     });
   }
@@ -106,7 +134,7 @@ export class Items extends Component {
         {isFetching ? (
           <Loader color={"#000"} />
         ) : (
-          <div>
+          <Container>
             <AggregateDetails>
               <CurrentMonth>{this.currentMonthFormatted}</CurrentMonth>
               <TotalAmount>{numeral(sum).format("$0,0.00")}</TotalAmount>
@@ -116,14 +144,16 @@ export class Items extends Component {
               </AvgAmount>
             </AggregateDetails>
             <Link to="/items/create">Add</Link>
-            <InfiniteScroll
-              items={this.renderItems()}
-              loadMore={this.handleLoadMore}
-              loadingMore={isPaginating}
-              hasMore={hasNextPage}
-              loader={this.paginationLoader}
-            />
-          </div>
+            <ItemsList>
+              <InfiniteScroll
+                items={this.renderItems()}
+                loadMore={this.handleLoadMore}
+                loadingMore={isPaginating}
+                hasMore={hasNextPage}
+                loader={this.paginationLoader}
+              />
+            </ItemsList>
+          </Container>
         )}
       </ItemsContainer>
     );
