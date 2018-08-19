@@ -2,7 +2,7 @@
 *.sublime-workspace
 *.code-workspace
 dist
-fonts
+**/fonts/tiempos
 
 # Logs
 logs
