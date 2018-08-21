@@ -15,11 +15,11 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 15px;
 `;
 
 const Content = styled.div`
   width: 100%;
+  position: relative;
   margin: ${({ center }) => (center ? "auto" : null)};
 `;
 

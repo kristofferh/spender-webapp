@@ -43,6 +43,7 @@
     "setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js"
   },
   "dependencies": {
+    "@material-ui/core": "^1.5.1",
     "babel-plugin-emotion": "^9.2.0",
     "classnames": "^2.2.5",
     "compression": "^1.7.2",
