@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
 
@@ -26,7 +25,8 @@ import {
   AggregateDetails,
   CurrentMonth,
   Container,
-  ItemsList
+  ItemsList,
+  MobileAdd
 } from "./styles";
 
 export class Items extends Component {
@@ -143,7 +143,7 @@ export class Items extends Component {
                 day
               </AvgAmount>
             </AggregateDetails>
-            <Link to="/items/create">Add</Link>
+            <MobileAdd to="/items/create">+</MobileAdd>
             <ItemsList>
               <InfiniteScroll
                 items={this.renderItems()}
