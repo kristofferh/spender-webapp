@@ -1,25 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import styled from "react-emotion";
 import PropTypes from "prop-types";
 
-const Container = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-self: flex-start;
-  width: 100%;
-`;
+import { Container, Add } from "./styles";
 
-const Nav = ({ authenticated }) => (
-  <Container>
-    {authenticated ? (
-      <Fragment>
-        <Link to="/">Items</Link>
-        <Link to="/logout">Logout</Link>
-      </Fragment>
-    ) : null}
-  </Container>
-);
+const Nav = ({ authenticated }) =>
+  authenticated ? (
+    <Container>
+      <Link to="/">Items</Link>
+      <Add to="/items/create">Add Item</Add>
+      <Link to="/logout">Logout</Link>
+    </Container>
+  ) : null;
 
 Nav.propTypes = {
   authenticated: PropTypes.bool
