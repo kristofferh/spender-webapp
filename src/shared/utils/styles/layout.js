@@ -14,3 +14,23 @@ export const shadowBox = () => `
   box-shadow: 0 2px 5px rgba(17, 17, 17, 0.1);
   border-radius: ${borderRadiusSubtle};
 `;
+
+export const mainContainer = () => `
+  padding: 0 15px;
+
+  @media (min-width: ${minWidthMd}) {
+    max-width: 960px;
+    margin: 30px auto;
+  }
+`;
+
+export const mainContent = () => `
+  ${mainContainer()};
+  margin: 0;
+  background: ${white};
+
+  @media (min-width: ${minWidthMd}) {
+    ${shadowBox()};
+    padding: 20px 30px;
+  }
+`;
