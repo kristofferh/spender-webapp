@@ -1,4 +1,4 @@
-import { white } from "./colors";
+import { white, bodyGradient } from "./colors";
 
 export const maxWidthSm = "575px";
 export const minWidthSm = "576px";
@@ -32,5 +32,18 @@ export const mainContent = () => `
   @media (min-width: ${minWidthMd}) {
     ${shadowBox()};
     padding: 20px 30px;
+  }
+`;
+
+export const flatInput = () => `
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #888;
+  padding: 5px 0;
+  transition: all 2s ease;
+
+  &:focus {
+    outline: none;
+    border-image: ${bodyGradient} 2;
   }
 `;

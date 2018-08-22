@@ -8,7 +8,10 @@ const Wrapper = styled.div`
 
 const LabelWrapper = styled.div``;
 
-const Label = styled.label``;
+const Label = styled.label`
+  font-weight: bold;
+  display: block;
+`;
 
 const FormWrapper = WrappedComponent => {
   const _Wrapper = props => {

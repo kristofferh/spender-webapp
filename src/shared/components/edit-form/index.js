@@ -2,23 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Field } from "redux-form";
 import moment from "moment";
-import styled from "react-emotion";
 
 import { required, number } from "shared/utils/validators";
 
 import { Input, Textarea, Select } from "shared/components/form-controls";
 
-const FormGroup = styled.div`
-  display: block;
-  margin-bottom: 15px;
-`;
-
-const DeleteLink = styled.a`
-  cursor: pointer;
-  display: block;
-  margin-top: 15px;
-  text-decoration: none;
-`;
+import { FormGroup, DeleteLink, Form } from "./styles";
 
 const EditForm = ({
   handleSubmit,
@@ -27,7 +16,7 @@ const EditForm = ({
   showDelete,
   deleteCallback
 }) => (
-  <form onSubmit={handleSubmit}>
+  <Form onSubmit={handleSubmit}>
     <FormGroup>
       <Field
         name="date"
@@ -65,7 +54,7 @@ const EditForm = ({
     {error ? <span>{error}</span> : null}
     <button type="submit">Submit</button>
     {showDelete && <DeleteLink onClick={deleteCallback}>Delete</DeleteLink>}
-  </form>
+  </Form>
 );
 
 EditForm.defaultProps = {
