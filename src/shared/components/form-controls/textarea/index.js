@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 
 import FormWrapper from "../_form-wrapper";
 
+import { StyledInput } from "./styles";
+
 export const Textarea = ({ attributes, className, input, id, placeholder }) => (
-  <textarea
+  <StyledInput
     {...attributes}
     {...input}
     className={className}

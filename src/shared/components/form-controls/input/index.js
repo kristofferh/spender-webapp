@@ -3,21 +3,25 @@ import PropTypes from "prop-types";
 
 import FormWrapper from "../_form-wrapper";
 
+import { StyledInput } from "./styles";
+
 export const Input = ({
   attributes,
   className,
   input,
   id,
   placeholder,
-  type
+  type,
+  pattern
 }) => (
-  <input
+  <StyledInput
     {...attributes}
     {...input}
     className={className}
     id={id || input.name}
     placeholder={placeholder}
     type={type}
+    pattern={pattern}
   />
 );
 
@@ -34,7 +38,8 @@ Input.propTypes = {
   label: PropTypes.node,
   showPlaceholder: PropTypes.bool,
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  pattern: PropTypes.string
 };
 
 export default FormWrapper(Input);
