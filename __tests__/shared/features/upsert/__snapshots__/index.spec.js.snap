@@ -69,6 +69,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 .emotion-6 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
   width: 100%;
   border: 0;
   border-bottom: 1px solid #888;
@@ -83,6 +87,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 .emotion-26 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
   width: 100%;
   border: 0;
   border-bottom: 1px solid #888;
@@ -561,6 +569,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 .emotion-6 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
   width: 100%;
   border: 0;
   border-bottom: 1px solid #888;
@@ -575,6 +587,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 .emotion-26 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
   width: 100%;
   border: 0;
   border-bottom: 1px solid #888;
