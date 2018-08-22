@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "react-emotion";
 
 import { zIndex1 } from "shared/utils/styles/z-index";
-import { minWidthMd, shadowBox } from "shared/utils/styles/layout";
+import { minWidthMd, mainContent } from "shared/utils/styles/layout";
 import { logan, white } from "shared/utils/styles/colors";
 import {
   fontSizeSubhead,
@@ -13,16 +13,7 @@ import {
 } from "shared/utils/styles";
 
 export const ItemsList = styled.section`
-  margin: 0;
-  padding: 0 15px;
-  background: ${white};
-
-  @media (min-width: ${minWidthMd}) {
-    ${shadowBox};
-    margin: 30px auto;
-    max-width: 960px;
-    padding: 20px 30px;
-  }
+  ${mainContent()};
 `;
 
 export const Date = styled.div`
