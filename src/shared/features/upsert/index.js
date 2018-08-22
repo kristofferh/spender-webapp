@@ -7,6 +7,8 @@ import EditForm from "shared/components/edit-form";
 
 import { upsertItem, fetchItem, deleteItem } from "shared/data/item/actions";
 
+import { Container, Title } from "./styles";
+
 const EditWrapper = reduxForm({
   form: "Edit",
   enableReinitialize: true
@@ -60,8 +62,8 @@ export class Upsert extends Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.props.id ? "Edit" : "Add"}</h1>
+      <Container>
+        <Title>{this.props.id ? "Edit" : "Add"}</Title>
         <EditWrapper
           onSubmit={this.handleSubmit}
           initialValues={this.props.initialValues}
@@ -70,7 +72,7 @@ export class Upsert extends Component {
           showDelete={this.props.id ? true : false}
           deleteCallback={this.handleDelete}
         />
-      </div>
+      </Container>
     );
   }
 }

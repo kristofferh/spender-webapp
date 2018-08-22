@@ -1,4 +1,4 @@
-import { white } from "./colors";
+import { white, bodyGradient } from "./colors";
 
 export const maxWidthSm = "575px";
 export const minWidthSm = "576px";
@@ -13,4 +13,37 @@ export const shadowBox = () => `
   background: ${white};
   box-shadow: 0 2px 5px rgba(17, 17, 17, 0.1);
   border-radius: ${borderRadiusSubtle};
+`;
+
+export const mainContainer = () => `
+  padding: 0 15px;
+
+  @media (min-width: ${minWidthMd}) {
+    max-width: 960px;
+    margin: 30px auto;
+  }
+`;
+
+export const mainContent = () => `
+  ${mainContainer()};
+  margin: 0;
+  background: ${white};
+
+  @media (min-width: ${minWidthMd}) {
+    ${shadowBox()};
+    padding: 20px 30px;
+  }
+`;
+
+export const flatInput = () => `
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #888;
+  padding: 5px 0;
+  transition: all 2s ease;
+
+  &:focus {
+    outline: none;
+    border-image: ${bodyGradient} 2;
+  }
 `;
