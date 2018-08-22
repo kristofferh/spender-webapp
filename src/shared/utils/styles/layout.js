@@ -36,6 +36,8 @@ export const mainContent = () => `
 `;
 
 export const flatInput = () => `
+  appearance: none;
+  border-radius: 0;
   width: 100%;
   border: 0;
   border-bottom: 1px solid #888;
