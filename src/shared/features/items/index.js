@@ -8,6 +8,7 @@ import { groupBy } from "shared/utils/arrays";
 
 import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
+import Chart from "shared/components/chart";
 
 import { fetchItems } from "./actions";
 
@@ -93,13 +94,9 @@ export class Items extends Component {
     );
   }
 
-  renderItems() {
-    const { items } = this.props;
+  calculateDaily() {}
 
-    if (!items.length) {
-      return null;
-    }
-
+  groupItems(items) {
     const itemList = items.map(item => {
       const { amount, date } = item.node;
       return {
@@ -108,8 +105,17 @@ export class Items extends Component {
         amount: numeral(amount).format("$0,0.00")
       };
     });
-    const grouped = groupBy(itemList, "date");
+    return groupBy(itemList, "date");
+  }
 
+  renderItems() {
+    const { items } = this.props;
+
+    if (!items.length) {
+      return null;
+    }
+
+    const grouped = this.groupItems(items);
     return Object.keys(grouped).map(group => {
       return (
         <>
@@ -142,6 +148,7 @@ export class Items extends Component {
                 {numeral(sum / this.currentDayOfMonth).format("$0,0.00")} per
                 day
               </AvgAmount>
+              <Chart width={800} height={400} />
             </AggregateDetails>
             <MobileAdd to="/items/create">+</MobileAdd>
             <ItemsList>
