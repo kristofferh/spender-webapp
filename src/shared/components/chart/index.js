@@ -7,6 +7,8 @@ import { GridRows, GridColumns } from "@vx/grid";
 import { scaleTime, scaleLinear } from "@vx/scale";
 import { extent, max } from "d3-array";
 
+import { Container } from "./styles";
+
 const stock = [
   { date: "2007-04-24T07:00:00.000Z", close: 93.24 },
   { date: "2007-04-25T07:00:00.000Z", close: 95.35 },
@@ -29,7 +31,8 @@ class Area extends Component {
       bottom: PropTypes.number,
       left: PropTypes.number,
       right: PropTypes.number
-    })
+    }),
+    isResponsive: PropTypes.bool
   };
 
   static defaultProps = {
@@ -40,15 +43,34 @@ class Area extends Component {
       left: 0,
       bottom: 0,
       right: 0
+    },
+    isResponsive: true
+  };
+
+  state = {
+    render: !this.props.isResponsive,
+    width: this.props.isResponsive ? null : this.props.width
+  };
+
+  componentDidMount() {
+    if (this.props.isResponsive) {
+      this.handleResize();
+      window.addEventListener("resize", this.handleResize);
+    }
+  }
+
+  handleResize = () => {
+    if (this.container) {
+      const containerSize = this.container.getBoundingClientRect();
+      this.setState({ width: containerSize.width, render: true });
     }
   };
 
   render() {
-    const { width, height, margin } = this.props;
-    if (width < 10) return null;
+    const { height, margin } = this.props;
 
     // bounds
-    const xMax = width - margin.left - margin.right;
+    const xMax = this.state.width - margin.left - margin.right;
     const yMax = height - margin.top - margin.bottom;
 
     // scales
@@ -62,59 +84,67 @@ class Area extends Component {
     });
 
     return (
-      <svg ref={s => (this.svg = s)} width={width} height={height}>
-        <LinearGradient
-          from="#fff"
-          to="#fff"
-          fromOpacity={0.8}
-          toOpacity={1}
-          id="stroke"
-        />
-        <LinearGradient
-          from="#fff"
-          to="#fff"
-          fromOpacity={0.15}
-          toOpacity={0}
-          fromOffset="-10%"
-          toOffset="50%"
-          id="fill"
-        />
-        <GridRows
-          lineStyle={{ pointerEvents: "none" }}
-          scale={yScale}
-          width={xMax}
-          strokeDasharray="2,2"
-          stroke="rgba(255,255,255,0.3)"
-        />
-        <GridColumns
-          lineStyle={{ pointerEvents: "none" }}
-          scale={xScale}
-          height={yMax}
-          strokeDasharray="2,2"
-          stroke="rgba(255,255,255,0.3)"
-        />
-        <AreaClosed
-          data={stock}
-          xScale={xScale}
-          yScale={yScale}
-          x={xStock}
-          y={yStock}
-          strokeWidth={1}
-          stroke={"transparent"}
-          fill={"url(#fill)"}
-          curve={curveMonotoneX}
-        />
-        <LinePath
-          data={stock}
-          xScale={xScale}
-          yScale={yScale}
-          x={xStock}
-          y={yStock}
-          stroke={"url(#stroke)"}
-          strokeWidth={1}
-          curve={curveMonotoneX}
-        />
-      </svg>
+      <Container innerRef={n => (this.container = n)}>
+        {this.state.render ? (
+          <svg
+            ref={s => (this.svg = s)}
+            width={this.state.width}
+            height={height}
+          >
+            <LinearGradient
+              from="#fff"
+              to="#fff"
+              fromOpacity={0.8}
+              toOpacity={1}
+              id="stroke"
+            />
+            <LinearGradient
+              from="#fff"
+              to="#fff"
+              fromOpacity={0.15}
+              toOpacity={0}
+              fromOffset="-10%"
+              toOffset="50%"
+              id="fill"
+            />
+            <GridRows
+              lineStyle={{ pointerEvents: "none" }}
+              scale={yScale}
+              width={xMax}
+              strokeDasharray="2,2"
+              stroke="rgba(255,255,255,0.3)"
+            />
+            <GridColumns
+              lineStyle={{ pointerEvents: "none" }}
+              scale={xScale}
+              height={yMax}
+              strokeDasharray="2,2"
+              stroke="rgba(255,255,255,0.3)"
+            />
+            <AreaClosed
+              data={stock}
+              xScale={xScale}
+              yScale={yScale}
+              x={xStock}
+              y={yStock}
+              strokeWidth={1}
+              stroke={"transparent"}
+              fill={"url(#fill)"}
+              curve={curveMonotoneX}
+            />
+            <LinePath
+              data={stock}
+              xScale={xScale}
+              yScale={yScale}
+              x={xStock}
+              y={yStock}
+              stroke={"url(#stroke)"}
+              strokeWidth={1}
+              curve={curveMonotoneX}
+            />
+          </svg>
+        ) : null}
+      </Container>
     );
   }
 }

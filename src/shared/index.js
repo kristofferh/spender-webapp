@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import Cookies from "js-cookie";
@@ -23,22 +23,18 @@ const Content = styled.div`
   margin: ${({ center }) => (center ? "auto" : null)};
 `;
 
-export class App extends Component {
-  render() {
-    return (
-      <Container>
-        <Nav authenticated={Boolean(Cookies.get(SESSION_COOKIE))} />
-        <Content center={this.props.login}>
-          <Switch>
-            {routes.map((route, i) => {
-              return <RouteWithSubRoutes key={i} {...route} />;
-            })}
-          </Switch>
-        </Content>
-      </Container>
-    );
-  }
-}
+export const App = ({ login }) => (
+  <Container>
+    <Nav authenticated={Boolean(Cookies.get(SESSION_COOKIE))} />
+    <Content center={login}>
+      <Switch>
+        {routes.map((route, i) => {
+          return <RouteWithSubRoutes key={i} {...route} />;
+        })}
+      </Switch>
+    </Content>
+  </Container>
+);
 
 App.propTypes = {
   login: PropTypes.bool
