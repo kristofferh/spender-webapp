@@ -19,31 +19,19 @@ const stock = [
 ];
 
 // accessors
-const xStock = d => new Date(d.date);
+const xValue = d => new Date(d.date);
 const yStock = d => d.close;
 
-class Area extends Component {
+export default class Chart extends Component {
   static propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
-    margin: PropTypes.shape({
-      top: PropTypes.number,
-      bottom: PropTypes.number,
-      left: PropTypes.number,
-      right: PropTypes.number
-    }),
     isResponsive: PropTypes.bool
   };
 
   static defaultProps = {
     width: 800,
     height: 400,
-    margin: {
-      top: 0,
-      left: 0,
-      bottom: 0,
-      right: 0
-    },
     isResponsive: true
   };
 
@@ -67,30 +55,23 @@ class Area extends Component {
   };
 
   render() {
-    const { height, margin } = this.props;
-
-    // bounds
-    const xMax = this.state.width - margin.left - margin.right;
-    const yMax = height - margin.top - margin.bottom;
+    const { height } = this.props;
+    const { width, render } = this.state;
 
     // scales
     const xScale = scaleTime({
-      range: [0, xMax],
-      domain: extent(stock, xStock)
+      range: [0, width],
+      domain: extent(stock, xValue)
     });
     const yScale = scaleLinear({
-      range: [yMax, 0],
-      domain: [0, max(stock, yStock) + yMax / 3]
+      range: [height, 0],
+      domain: [0, max(stock, yStock) + height / 3]
     });
 
     return (
       <Container innerRef={n => (this.container = n)}>
-        {this.state.render ? (
-          <svg
-            ref={s => (this.svg = s)}
-            width={this.state.width}
-            height={height}
-          >
+        {render ? (
+          <svg ref={s => (this.svg = s)} width={width} height={height}>
             <LinearGradient
               from="#fff"
               to="#fff"
@@ -110,14 +91,14 @@ class Area extends Component {
             <GridRows
               lineStyle={{ pointerEvents: "none" }}
               scale={yScale}
-              width={xMax}
+              width={width}
               strokeDasharray="2,2"
               stroke="rgba(255,255,255,0.3)"
             />
             <GridColumns
               lineStyle={{ pointerEvents: "none" }}
               scale={xScale}
-              height={yMax}
+              height={height}
               strokeDasharray="2,2"
               stroke="rgba(255,255,255,0.3)"
             />
@@ -125,7 +106,7 @@ class Area extends Component {
               data={stock}
               xScale={xScale}
               yScale={yScale}
-              x={xStock}
+              x={xValue}
               y={yStock}
               strokeWidth={1}
               stroke={"transparent"}
@@ -136,7 +117,7 @@ class Area extends Component {
               data={stock}
               xScale={xScale}
               yScale={yScale}
-              x={xStock}
+              x={xValue}
               y={yStock}
               stroke={"url(#stroke)"}
               strokeWidth={1}
@@ -148,5 +129,3 @@ class Area extends Component {
     );
   }
 }
-
-export default Area;
