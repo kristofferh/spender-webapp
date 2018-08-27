@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import moment from "moment";
 import numeral from "numeral";
 
-import { groupBy } from "shared/utils/arrays";
+import { groupBy, sum } from "shared/utils/arrays";
+import { toDecimal } from "shared/utils/number";
 
 import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
@@ -39,6 +40,7 @@ export class Items extends Component {
     this.endOfMonth = moment()
       .endOf("month")
       .format("Y-MM-D");
+    this.currencyFormat = "$0,0.00"; // maybe make this a prop?
   }
 
   componentDidMount() {
@@ -77,7 +79,7 @@ export class Items extends Component {
       <ListItem to={`/items/${id}`} key={id}>
         <Details>
           <Description>{description}</Description>
-          <Amount>{amount}</Amount>
+          <Amount>{numeral(amount).format(this.currencyFormat)}</Amount>
           <Tags>
             {tagEdges &&
               tagEdges.map(tag => {
@@ -94,18 +96,25 @@ export class Items extends Component {
     );
   }
 
-  calculateDaily() {}
-
+  // Group items by day.
   groupItems(items) {
     const itemList = items.map(item => {
-      const { amount, date } = item.node;
+      const { date } = item.node;
       return {
         ...item.node,
-        date: moment(date).format("MMMM D, YYYY"),
-        amount: numeral(amount).format("$0,0.00")
+        date: moment(date).format("MMMM D, YYYY")
       };
     });
-    return groupBy(itemList, "date");
+    const grouped = groupBy(itemList, "date");
+    let newObject = {};
+    Object.keys(grouped).forEach(day => {
+      newObject[day] = {};
+      newObject[day]["items"] = grouped[day];
+      newObject[day]["sum"] = toDecimal(
+        sum(grouped[day].map(item => item.amount))
+      );
+    });
+    return newObject;
   }
 
   renderItems() {
@@ -117,10 +126,15 @@ export class Items extends Component {
 
     const grouped = this.groupItems(items);
     return Object.keys(grouped).map(group => {
+      const items = grouped[group]["items"];
+      const sum = grouped[group]["sum"];
       return (
         <>
-          <Date key={group}>{group}</Date>
-          {grouped[group].map(item => {
+          <Date key={group}>
+            {group}
+            <Amount>{numeral(sum).format(this.currencyFormat)}</Amount>
+          </Date>
+          {items.map(item => {
             return this.renderItem(item);
           })}
         </>

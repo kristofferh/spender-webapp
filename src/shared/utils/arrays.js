@@ -25,3 +25,9 @@ export const groupBy = (values, property) => {
     return aggregate;
   }, {});
 };
+
+export const sum = values => {
+  return values.reduce((aggregate, current) => {
+    return aggregate + current;
+  }, 0);
+};
