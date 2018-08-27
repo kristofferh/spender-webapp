@@ -15,10 +15,9 @@ export const fetchItemsRequest = pagination => ({
 export const fetchItemsSuccess = (json, pagination) => {
   return {
     type: pagination ? FETCH_ITEMS_PAGINATION_SUCCESS : FETCH_ITEMS_SUCCESS,
-    items: json.edges,
-    pageInfo: json.pageInfo,
-    sum: json.sum,
-    avg: json.avg
+    items: json.items.edges,
+    pageInfo: json.items.pageInfo,
+    aggregate: json.aggregate
   };
 };
 
@@ -33,6 +32,15 @@ export const fetchItems = (data, pagination) => dispatch => {
   dispatch(fetchItemsRequest(pagination));
   const query = `query user($first: Int, $after: String, $startDate: String, $endDate: String, $isPaginating: Boolean = false) {
     user {
+      aggregate: items(startDate: $startDate, endDate: $endDate) @skip(if: $isPaginating) {
+        sum
+        edges {
+          node {
+            date
+            amount
+          }
+        }
+      }
       items(first: $first, after: $after, startDate: $startDate, endDate: $endDate) {
         pageInfo {
           startCursor
@@ -40,8 +48,6 @@ export const fetchItems = (data, pagination) => dispatch => {
           hasNextPage
           hasPreviousPage
         }
-        sum @skip(if: $isPaginating)
-        avg @skip(if: $isPaginating)
         edges {
           node {
             id
@@ -71,7 +77,7 @@ export const fetchItems = (data, pagination) => dispatch => {
   )
     .then(data => {
       // Second dispatch: return results.
-      return dispatch(fetchItemsSuccess(data.user.items, pagination));
+      return dispatch(fetchItemsSuccess(data.user, pagination));
     })
     .catch(errors => {
       // Or dispatch errors.
