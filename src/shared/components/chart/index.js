@@ -9,30 +9,23 @@ import { extent, max } from "d3-array";
 
 import { Container } from "./styles";
 
-const stock = [
-  { date: "2007-04-24T07:00:00.000Z", close: 93.24 },
-  { date: "2007-04-25T07:00:00.000Z", close: 95.35 },
-  { date: "2007-04-26T07:00:00.000Z", close: 98.84 },
-  { date: "2007-04-27T07:00:00.000Z", close: 99.92 },
-  { date: "2007-04-30T07:00:00.000Z", close: 99.8 },
-  { date: "2007-05-01T07:00:00.000Z", close: 99.47 }
-];
-
 // accessors
 const xValue = d => new Date(d.date);
-const yStock = d => d.close;
+const yValue = d => d.sum;
 
 export default class Chart extends Component {
   static propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
-    isResponsive: PropTypes.bool
+    isResponsive: PropTypes.bool,
+    values: PropTypes.array
   };
 
   static defaultProps = {
     width: 800,
     height: 400,
-    isResponsive: true
+    isResponsive: true,
+    values: []
   };
 
   state = {
@@ -55,17 +48,17 @@ export default class Chart extends Component {
   };
 
   render() {
-    const { height } = this.props;
+    const { height, values } = this.props;
     const { width, render } = this.state;
 
     // scales
     const xScale = scaleTime({
       range: [0, width],
-      domain: extent(stock, xValue)
+      domain: extent(values, xValue)
     });
     const yScale = scaleLinear({
       range: [height, 0],
-      domain: [0, max(stock, yStock) + height / 3]
+      domain: [0, max(values, yValue) + height / 3]
     });
 
     return (
@@ -82,43 +75,28 @@ export default class Chart extends Component {
             <LinearGradient
               from="#fff"
               to="#fff"
-              fromOpacity={0.15}
-              toOpacity={0}
-              fromOffset="-10%"
-              toOffset="50%"
+              fromOpacity={1}
+              toOpacity={0.02}
               id="fill"
             />
-            <GridRows
-              lineStyle={{ pointerEvents: "none" }}
-              scale={yScale}
-              width={width}
-              strokeDasharray="2,2"
-              stroke="rgba(255,255,255,0.3)"
-            />
-            <GridColumns
-              lineStyle={{ pointerEvents: "none" }}
-              scale={xScale}
-              height={height}
-              strokeDasharray="2,2"
-              stroke="rgba(255,255,255,0.3)"
-            />
+
             <AreaClosed
-              data={stock}
+              data={values}
               xScale={xScale}
               yScale={yScale}
               x={xValue}
-              y={yStock}
+              y={yValue}
               strokeWidth={1}
               stroke={"transparent"}
               fill={"url(#fill)"}
               curve={curveMonotoneX}
             />
             <LinePath
-              data={stock}
+              data={values}
               xScale={xScale}
               yScale={yScale}
               x={xValue}
-              y={yStock}
+              y={yValue}
               stroke={"url(#stroke)"}
               strokeWidth={1}
               curve={curveMonotoneX}
