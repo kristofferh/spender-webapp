@@ -17,7 +17,8 @@ export const ItemsList = styled.section`
 `;
 
 export const Date = styled.div`
-  display: block;
+  display: flex;
+  justify-content: space-between;
   font-size: ${fontSizeSubhead};
   text-transform: uppercase;
   font-weight: bold;
