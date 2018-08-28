@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { LinearGradient } from "@vx/gradient";
 import { AreaClosed, LinePath } from "@vx/shape";
 import { curveMonotoneX } from "@vx/curve";
-import { GridRows, GridColumns } from "@vx/grid";
 import { scaleTime, scaleLinear } from "@vx/scale";
 import { extent, max } from "d3-array";
 
@@ -79,7 +78,6 @@ export default class Chart extends Component {
               toOpacity={0.02}
               id="fill"
             />
-
             <AreaClosed
               data={values}
               xScale={xScale}
