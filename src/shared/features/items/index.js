@@ -4,10 +4,12 @@ import { connect } from "react-redux";
 import moment from "moment";
 import numeral from "numeral";
 
-import { groupBy } from "shared/utils/arrays";
+import { groupBy, sum } from "shared/utils/arrays";
+import { toDecimal } from "shared/utils/number";
 
 import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
+import Chart from "shared/components/chart";
 
 import { fetchItems } from "./actions";
 
@@ -38,6 +40,7 @@ export class Items extends Component {
     this.endOfMonth = moment()
       .endOf("month")
       .format("Y-MM-D");
+    this.currencyFormat = "$0,0.00"; // maybe make this a prop?
   }
 
   componentDidMount() {
@@ -76,7 +79,7 @@ export class Items extends Component {
       <ListItem to={`/items/${id}`} key={id}>
         <Details>
           <Description>{description}</Description>
-          <Amount>{amount}</Amount>
+          <Amount>{numeral(amount).format(this.currencyFormat)}</Amount>
           <Tags>
             {tagEdges &&
               tagEdges.map(tag => {
@@ -93,6 +96,27 @@ export class Items extends Component {
     );
   }
 
+  // Group items by day.
+  groupItems(items) {
+    const itemList = items.map(item => {
+      const { date } = item.node;
+      return {
+        ...item.node,
+        date: moment(date).format("MMMM D, YYYY")
+      };
+    });
+    const grouped = groupBy(itemList, "date");
+    let newObject = {};
+    Object.keys(grouped).forEach(day => {
+      newObject[day] = {};
+      newObject[day]["items"] = grouped[day];
+      newObject[day]["sum"] = toDecimal(
+        sum(grouped[day].map(item => item.amount))
+      );
+    });
+    return newObject;
+  }
+
   renderItems() {
     const { items } = this.props;
 
@@ -100,21 +124,17 @@ export class Items extends Component {
       return null;
     }
 
-    const itemList = items.map(item => {
-      const { amount, date } = item.node;
-      return {
-        ...item.node,
-        date: moment(date).format("MMMM D, YYYY"),
-        amount: numeral(amount).format("$0,0.00")
-      };
-    });
-    const grouped = groupBy(itemList, "date");
-
+    const grouped = this.groupItems(items);
     return Object.keys(grouped).map(group => {
+      const items = grouped[group]["items"];
+      const sum = grouped[group]["sum"];
       return (
         <>
-          <Date key={group}>{group}</Date>
-          {grouped[group].map(item => {
+          <Date key={group}>
+            {group}
+            <Amount>{numeral(sum).format(this.currencyFormat)}</Amount>
+          </Date>
+          {items.map(item => {
             return this.renderItem(item);
           })}
         </>
@@ -122,12 +142,39 @@ export class Items extends Component {
     });
   }
 
+  renderAggregateDetails() {
+    const { sum: sumValue, aggregateDetails = [] } = this.props;
+    const aggregateItems = aggregateDetails.map(item => {
+      const { date } = item.node;
+      return {
+        ...item.node,
+        day: moment(date).format("MMMM D, YYYY")
+      };
+    });
+    const groupedItems = groupBy(aggregateItems, "day");
+    const dailySums = Object.keys(groupedItems).map(day => {
+      return {
+        date: day,
+        sum: toDecimal(sum(groupedItems[day].map(item => item.amount)))
+      };
+    });
+    return (
+      <AggregateDetails>
+        <CurrentMonth>{this.currentMonthFormatted}</CurrentMonth>
+        <TotalAmount>{numeral(sumValue).format("$0,0.00")}</TotalAmount>
+        <AvgAmount>
+          {numeral(sumValue / this.currentDayOfMonth).format("$0,0.00")} per day
+        </AvgAmount>
+        <Chart values={dailySums} width={800} height={400} />
+      </AggregateDetails>
+    );
+  }
+
   render() {
     const {
       isFetching,
       isPaginating,
-      pageInfo: { hasNextPage },
-      sum
+      pageInfo: { hasNextPage }
     } = this.props;
     return (
       <ItemsContainer>
@@ -135,14 +182,7 @@ export class Items extends Component {
           <Loader color={"#000"} />
         ) : (
           <Container>
-            <AggregateDetails>
-              <CurrentMonth>{this.currentMonthFormatted}</CurrentMonth>
-              <TotalAmount>{numeral(sum).format("$0,0.00")}</TotalAmount>
-              <AvgAmount>
-                {numeral(sum / this.currentDayOfMonth).format("$0,0.00")} per
-                day
-              </AvgAmount>
-            </AggregateDetails>
+            {this.renderAggregateDetails()}
             <MobileAdd to="/items/create">+</MobileAdd>
             <ItemsList>
               <InfiniteScroll
@@ -179,21 +219,27 @@ Items.propTypes = {
   isFetching: PropTypes.bool,
   isPaginating: PropTypes.bool,
   pageSize: PropTypes.number,
-  avg: PropTypes.number,
-  sum: PropTypes.number
+  sum: PropTypes.number,
+  aggregateDetails: PropTypes.array
 };
 
 const mapStateToProps = state => {
   const {
-    list: { items, pageInfo, isFetching, isPaginating, avg, sum }
+    list: {
+      items,
+      pageInfo,
+      isFetching,
+      isPaginating,
+      aggregate: { sum, edges: aggregateDetails }
+    }
   } = state;
   return {
     items,
     pageInfo,
     isFetching,
     isPaginating,
-    avg,
-    sum
+    sum,
+    aggregateDetails
   };
 };
 
