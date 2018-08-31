@@ -11,7 +11,7 @@ import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
 import Chart from "shared/components/chart";
 
-import { fetchItems } from "./actions";
+import { fetchItems } from "shared/data/items/actions";
 
 import {
   Date,
@@ -39,7 +39,7 @@ export class Items extends Component {
     this.currentDayOfMonth = moment().format("D");
     this.endOfMonth = moment()
       .endOf("month")
-      .format("Y-MM-D");
+      .format("Y-MM-D H:m:s");
     this.currencyFormat = "$0,0.00"; // maybe make this a prop?
   }
 
