@@ -39,7 +39,7 @@ export class Items extends Component {
     this.currentDayOfMonth = moment().format("D");
     this.endOfMonth = moment()
       .endOf("month")
-      .format("Y-MM-D");
+      .format("Y-MM-D H:m:s");
     this.currencyFormat = "$0,0.00"; // maybe make this a prop?
   }
 
