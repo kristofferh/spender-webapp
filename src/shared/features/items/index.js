@@ -11,7 +11,7 @@ import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
 import Chart from "shared/components/chart";
 
-import { fetchItems } from "./actions";
+import { fetchItems } from "shared/data/items/actions";
 
 import {
   Date,
