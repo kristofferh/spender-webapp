@@ -6,10 +6,11 @@ import createHistory from "history/createBrowserHistory";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 
 import { USER_LOGOUT } from "./user/constants";
-import items from "shared/features/items/reducers";
+
 import requestToken from "shared/features/request-token/reducers";
 import verifyToken from "shared/features/verify/reducers";
 import item from "./item/reducers";
+import items from "./items/reducers";
 import tags from "./tags/reducers";
 
 const history = createHistory();
