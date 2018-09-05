@@ -127,7 +127,7 @@ export const MobileAdd = styled(Link)`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #fff;
+  color: ${white};
   font-weight: bold;
   background: linear-gradient(156deg, #a6a8bc 59%, #c7b1ba 99%);
   box-shadow: 0 2px 5px 1px ${hexToRGBA(space, 0.2)};

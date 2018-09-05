@@ -38,6 +38,13 @@ export const fetchItems = (data, pagination) => dispatch => {
           node {
             date
             amount
+            tags {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
           }
         }
       }
