@@ -1,15 +1,21 @@
 import { Link } from "react-router-dom";
 import styled from "react-emotion";
 
-import { zIndex1 } from "shared/utils/styles/z-index";
-import { minWidthMd, mainContent } from "shared/utils/styles/layout";
-import { logan, white } from "shared/utils/styles/colors";
+import { hexToRGBA } from "shared/utils/colors";
+
 import {
+  zIndex1,
+  minWidthMd,
+  mainContent,
   fontSizeSubhead,
   titleOne,
   titleTwo,
   titleThree,
-  fontSizeCaptionTwo
+  fontSizeCaptionTwo,
+  logan,
+  white,
+  black,
+  space
 } from "shared/utils/styles";
 
 export const ItemsList = styled.section`
@@ -22,11 +28,11 @@ export const Date = styled.div`
   font-size: ${fontSizeSubhead};
   text-transform: uppercase;
   font-weight: bold;
-  margin: 0 -15px 10px;
-  padding: 4px 15px;
+  margin: 0 -1rem 10px;
+  padding: 4px 1rem;
   background: #fafafa;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid ${hexToRGBA(black, 0.1)};
+  border-bottom: 1px solid ${hexToRGBA(black, 0.1)};
   position: sticky;
   top: 0;
 
@@ -115,17 +121,16 @@ export const MobileAdd = styled(Link)`
   left: 50%;
   display: flex;
   transform: translateX(-50%);
-  background: cornflowerblue;
   border-radius: 100%;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #fff;
+  color: ${white};
   font-weight: bold;
   background: linear-gradient(156deg, #a6a8bc 59%, #c7b1ba 99%);
-  box-shadow: 0 2px 5px rgba(17, 17, 17, 0.1);
+  box-shadow: 0 2px 5px 1px ${hexToRGBA(space, 0.2)};
   z-index: ${zIndex1};
 
   @media (min-width: ${minWidthMd}) {
