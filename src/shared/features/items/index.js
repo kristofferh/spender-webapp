@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import numeral from "numeral";
 
+import { black } from "shared/utils/styles";
 import { groupBy, sum } from "shared/utils/arrays";
 import { toDecimal } from "shared/utils/number";
 
@@ -65,7 +66,7 @@ export class Items extends Component {
   };
 
   paginationLoader() {
-    return <Loader color={"#000"} />;
+    return <Loader color={black} />;
   }
 
   renderItem(item) {
@@ -144,13 +145,22 @@ export class Items extends Component {
 
   renderAggregateDetails() {
     const { sum: sumValue, aggregateDetails = [] } = this.props;
-    const aggregateItems = aggregateDetails.map(item => {
-      const { date } = item.node;
-      return {
-        ...item.node,
-        day: moment(date).format("MMMM D, YYYY")
-      };
-    });
+    // Filter out rent. @todo: this should be a setting.
+    const aggregateItems = aggregateDetails
+      .map(item => {
+        const { date } = item.node;
+        return {
+          ...item.node,
+          day: moment(date).format("MMMM D, YYYY")
+        };
+      })
+      .filter(item => {
+        const {
+          tags: { edges: tags }
+        } = item;
+        const values = tags.map(({ node: { name } }) => name);
+        return !values.includes("rent");
+      });
     const groupedItems = groupBy(aggregateItems, "day");
     const dailySums = Object.keys(groupedItems).map(day => {
       return {
@@ -158,13 +168,17 @@ export class Items extends Component {
         sum: toDecimal(sum(groupedItems[day].map(item => item.amount)))
       };
     });
+    const dailySansRent = toDecimal(sum(dailySums.map(daily => daily.sum)));
     return (
       <AggregateDetails>
         <CurrentMonth>{this.currentMonthFormatted}</CurrentMonth>
         <TotalAmount>{numeral(sumValue).format("$0,0.00")}</TotalAmount>
         <AvgAmount>
-          {numeral(sumValue / this.currentDayOfMonth).format("$0,0.00")} per day
+          {numeral(sumValue / this.currentDayOfMonth).format("$0,0.00")} / day ·{" "}
+          {numeral(dailySansRent / this.currentDayOfMonth).format("$0,0.00")} /
+          day
         </AvgAmount>
+        <AvgAmount />
         <Chart values={dailySums} width={800} height={400} />
       </AggregateDetails>
     );
