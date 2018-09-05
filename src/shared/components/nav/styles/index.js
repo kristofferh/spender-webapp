@@ -1,23 +1,36 @@
-import styled from "react-emotion";
+import styled, { css } from "react-emotion";
 import { Link } from "react-router-dom";
 
-import { fontSizeSubhead } from "shared/utils/styles";
-import { minWidthMd } from "shared/utils/styles/layout";
-import { white } from "shared/utils/styles/colors";
-import { zIndex10 } from "shared/utils/styles/z-index";
+import { hexToRGBA } from "shared/utils/colors";
+
+import {
+  fontSizeSubhead,
+  minWidthMd,
+  white,
+  logan,
+  zIndex10
+} from "shared/utils/styles";
+
+const flexContainer = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
 
 export const Container = styled.nav`
-  display: none;
+  width: 100%;
+  background: ${logan};
+  padding: 1rem;
+  z-index: ${zIndex10};
+  position: relative;
+  border-bottom: 1px solid ${hexToRGBA(white, 0.1)};
 
   @media (min-width: ${minWidthMd}) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
     background: ${white};
-    box-shadow: rgba(17, 17, 17, 0.1) 0 2px 5px;
     padding: 1rem 2rem;
-    z-index: ${zIndex10};
+    box-shadow: rgba(17, 17, 17, 0.1) 0 2px 5px;
+    border-bottom: 0;
   }
 `;
 
@@ -42,5 +55,21 @@ export const Add = styled(Link)`
   &:active {
     transform: translateY(1px);
     box-shadow: none;
+  }
+`;
+
+export const Mobile = styled.div`
+  ${flexContainer};
+  @media (min-width: ${minWidthMd}) {
+    display: none;
+  }
+`;
+
+export const Desktop = styled.div`
+  ${flexContainer};
+  display: none;
+
+  @media (min-width: ${minWidthMd}) {
+    display: flex;
   }
 `;
