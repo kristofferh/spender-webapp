@@ -65,12 +65,12 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.49",
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.49",
-    "@babel/polyfill": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/preset-react": "^7.0.0-beta.49",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.0.1",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^9.0.0",
@@ -98,7 +98,7 @@
     "sass-loader": "^7.0.3",
     "style-loader": "^0.23.0",
     "webpack": "^4.17.3",
-    "webpack-bundle-analyzer": "^3.0.0",
+    "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.0.2",
     "webpack-dev-server": "^3.1.4"
   }
