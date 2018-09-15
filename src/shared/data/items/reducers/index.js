@@ -13,6 +13,7 @@ export default (
     items: [],
     pageInfo: {},
     aggregate: {},
+    aggregateTags: {},
     errors: {}
   },
   action
@@ -36,7 +37,8 @@ export default (
         isPaginating: false,
         items: action.items,
         pageInfo: action.pageInfo,
-        aggregate: action.aggregate
+        aggregate: action.aggregate,
+        aggregateTags: action.aggregateTags
       };
     case FETCH_ITEMS_PAGINATION_SUCCESS:
       return {

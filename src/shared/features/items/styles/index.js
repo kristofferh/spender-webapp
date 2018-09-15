@@ -137,3 +137,44 @@ export const MobileAdd = styled(Link)`
     display: none;
   }
 `;
+
+export const TagList = styled.div`
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin: auto -50vw;
+`;
+
+export const TagListItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  position: relative;
+  color: ${white};
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: calc(100% - 15px);
+    left: 15px;
+    bottom: 0;
+    border-bottom: 1px solid ${hexToRGBA(white, 0.2)};
+  }
+
+  &:first-child:before {
+    content: "";
+    position: absolute;
+    width: calc(100% - 15px);
+    left: 15px;
+    top: 0;
+    border-top: 1px solid ${hexToRGBA(white, 0.2)};
+  }
+`;
+
+export const TagAmount = styled.div``;
+
+export const TagName = styled.div`
+  text-transform: capitalize;
+`;
