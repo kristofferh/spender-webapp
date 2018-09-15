@@ -1,6 +1,7 @@
 import styled from "react-emotion";
 
 import { Input } from "shared/components/form-controls";
+import { shadowBox } from "shared/utils/styles";
 
 export const Container = styled.div`
   max-width: 430px;
@@ -8,13 +9,32 @@ export const Container = styled.div`
   padding: 15px;
 `;
 
-export const Form = styled.form`
-  background: #fff;
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.1);
+export const InnerContainer = styled.div`
+  ${shadowBox()};
   width: 100%;
+  overflow: hidden;
 `;
+
+export const SlideContainer = styled.div`
+  transform: ${({ success }) =>
+    success ? "translateX(-100%)" : "translateX(0)"};
+  transition: transform 0.2s ease-out;
+  white-space: nowrap;
+`;
+
+export const Slide = styled.div`
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
+  vertical-align: middle;
+  white-space: normal;
+`;
+
+export const Success = styled.div`
+  text-align: center;
+`;
+
+export const Form = styled.form``;
 
 export const Button = styled.button`
   width: 100%;

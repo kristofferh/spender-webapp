@@ -25,12 +25,7 @@ export class RequestToken extends Component {
   };
 
   render() {
-    const { success, errors } = this.props;
-    return success ? (
-      <div>Cool</div>
-    ) : (
-      <SignupWrapper errors={errors} onSubmit={this.handleSubmit} />
-    );
+    return <SignupWrapper {...this.props} onSubmit={this.handleSubmit} />;
   }
 }
 
