@@ -4,25 +4,28 @@ import Cookies from "js-cookie";
 
 // Wrap <Route> and use this everywhere instead, then when
 // sub routes are added to any route it'll work
-export const RouteWithSubRoutes = route => (
-  <Route
-    path={route.path}
-    render={props => {
-      if (route.public || Cookies.get(SESSION_COOKIE)) {
-        return <route.component {...props} routes={route.routes} />;
-      } else {
-        return (
-          <Redirect
-            to={{
-              pathname: "/login"
-            }}
-          />
-        );
-      }
-      // pass the sub-routes down to keep nesting
-    }}
-  />
-);
+export const RouteWithSubRoutes = route => {
+  const { public: publicPath, loggedIn, routes, path } = route;
+  return (
+    <Route
+      path={path}
+      render={props => {
+        if (publicPath || loggedIn) {
+          return <route.component {...props} routes={routes} />;
+        } else {
+          return (
+            <Redirect
+              to={{
+                pathname: "/login"
+              }}
+            />
+          );
+        }
+        // pass the sub-routes down to keep nesting
+      }}
+    />
+  );
+};
 
 export const fetchWrapper = (url, params) => {
   if (!url || typeof url !== "string") {
