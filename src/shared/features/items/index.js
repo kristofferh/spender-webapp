@@ -29,10 +29,38 @@ import {
   CurrentMonth,
   Container,
   ItemsList,
-  MobileAdd
+  MobileAdd,
+  TagList,
+  TagListItem,
+  TagAmount,
+  TagName
 } from "./styles";
 
 export class Items extends Component {
+  static defaultProps = {
+    items: [],
+    pageInfo: {},
+    pageSize: 10
+  };
+
+  static propTypes = {
+    routes: PropTypes.array,
+    fetchItems: PropTypes.func,
+    items: PropTypes.array,
+    pageInfo: PropTypes.shape({
+      startCursor: PropTypes.string,
+      endCursor: PropTypes.string,
+      hasNextPage: PropTypes.bool,
+      hasPreviousPage: PropTypes.bool
+    }),
+    isFetching: PropTypes.bool,
+    isPaginating: PropTypes.bool,
+    pageSize: PropTypes.number,
+    sum: PropTypes.number,
+    aggregateDetails: PropTypes.array,
+    aggregateTags: PropTypes.array
+  };
+
   constructor() {
     super();
     this.currentMonth = moment().format("Y-MM");
@@ -144,7 +172,11 @@ export class Items extends Component {
   }
 
   renderAggregateDetails() {
-    const { sum: sumValue, aggregateDetails = [] } = this.props;
+    const {
+      sum: sumValue,
+      aggregateDetails = [],
+      aggregateTags = []
+    } = this.props;
     // Filter out rent. @todo: this should be a setting.
     const aggregateItems = aggregateDetails
       .map(item => {
@@ -169,6 +201,10 @@ export class Items extends Component {
       };
     });
     const dailySansRent = toDecimal(sum(dailySums.map(daily => daily.sum)));
+    const aggregateTagsList = aggregateTags
+      .sort((a, b) => b.sumItems - a.sumItems)
+      .filter(tag => tag.countItems)
+      .slice(0, 10);
     return (
       <AggregateDetails>
         <CurrentMonth>{this.currentMonthFormatted}</CurrentMonth>
@@ -180,6 +216,20 @@ export class Items extends Component {
         </AvgAmount>
         <AvgAmount />
         <Chart values={dailySums} width={800} height={400} />
+        <TagList>
+          {aggregateTagsList.map(tag => {
+            const {
+              sumItems,
+              node: { name }
+            } = tag;
+            return (
+              <TagListItem key={name}>
+                <TagName>{name}</TagName>
+                <TagAmount>{numeral(sumItems).format("$0,0.00")}</TagAmount>
+              </TagListItem>
+            );
+          })}
+        </TagList>
       </AggregateDetails>
     );
   }
@@ -214,29 +264,6 @@ export class Items extends Component {
   }
 }
 
-Items.defaultProps = {
-  items: [],
-  pageInfo: {},
-  pageSize: 10
-};
-
-Items.propTypes = {
-  routes: PropTypes.array,
-  fetchItems: PropTypes.func,
-  items: PropTypes.array,
-  pageInfo: PropTypes.shape({
-    startCursor: PropTypes.string,
-    endCursor: PropTypes.string,
-    hasNextPage: PropTypes.bool,
-    hasPreviousPage: PropTypes.bool
-  }),
-  isFetching: PropTypes.bool,
-  isPaginating: PropTypes.bool,
-  pageSize: PropTypes.number,
-  sum: PropTypes.number,
-  aggregateDetails: PropTypes.array
-};
-
 const mapStateToProps = state => {
   const {
     list: {
@@ -244,7 +271,8 @@ const mapStateToProps = state => {
       pageInfo,
       isFetching,
       isPaginating,
-      aggregate: { sum, edges: aggregateDetails }
+      aggregate: { sum, edges: aggregateDetails },
+      aggregateTags: { edges: aggregateTags }
     }
   } = state;
   return {
@@ -253,7 +281,8 @@ const mapStateToProps = state => {
     isFetching,
     isPaginating,
     sum,
-    aggregateDetails
+    aggregateDetails,
+    aggregateTags
   };
 };
 

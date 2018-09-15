@@ -17,7 +17,8 @@ export const fetchItemsSuccess = (json, pagination) => {
     type: pagination ? FETCH_ITEMS_PAGINATION_SUCCESS : FETCH_ITEMS_SUCCESS,
     items: json.items.edges,
     pageInfo: json.items.pageInfo,
-    aggregate: json.aggregate
+    aggregate: json.aggregate,
+    aggregateTags: json.aggregateTags
   };
 };
 
@@ -45,6 +46,16 @@ export const fetchItems = (data, pagination) => dispatch => {
                 }
               }
             }
+          }
+        }
+      }
+      aggregateTags: tags(startDate: $startDate, endDate: $endDate) @skip(if: $isPaginating) {
+        edges {
+          sumItems
+          countItems
+          node {
+            description
+            name
           }
         }
       }
