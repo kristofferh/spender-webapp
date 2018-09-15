@@ -193,7 +193,7 @@ export class Items extends Component {
     return (
       <ItemsContainer>
         {isFetching ? (
-          <Loader color={"#000"} />
+          <Loader color={black} />
         ) : (
           <Container>
             {this.renderAggregateDetails()}

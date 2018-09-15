@@ -12,6 +12,7 @@ import verifyToken from "shared/features/verify/reducers";
 import item from "./item/reducers";
 import items from "./items/reducers";
 import tags from "./tags/reducers";
+import user from "./user/reducers";
 
 const history = createHistory();
 
@@ -26,7 +27,8 @@ export const appReducer = combineReducers({
   list: items,
   requestToken,
   verifyToken,
-  tags
+  tags,
+  user
 });
 
 const rootReducer = (state, action) => {

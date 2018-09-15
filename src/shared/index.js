@@ -1,13 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import { Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import Cookies from "js-cookie";
 import styled from "react-emotion";
 import PropTypes from "prop-types";
 
-import { RouteWithSubRoutes } from "shared/utils";
-import routes from "shared/routes";
-import Nav from "shared/components/nav";
+import { RouteWithSubRoutes } from "./utils";
+import routes from "./routes";
+import Nav from "./components/nav";
+
+import { userLoggedIn } from "./data/user/actions";
 
 const Container = styled.div`
   display: flex;
@@ -23,25 +25,39 @@ const Content = styled.div`
   margin: ${({ center }) => (center ? "auto" : null)};
 `;
 
-export const App = ({ login }) => (
-  <Container>
-    <Nav authenticated={Boolean(Cookies.get(SESSION_COOKIE))} />
-    <Content center={login}>
-      <Switch>
-        {routes.map((route, i) => {
-          return <RouteWithSubRoutes key={i} {...route} />;
-        })}
-      </Switch>
-    </Content>
-  </Container>
-);
+export class App extends Component {
+  static propTypes = {
+    loginPage: PropTypes.bool,
+    userLoggedIn: PropTypes.func,
+    loggedIn: PropTypes.bool
+  };
 
-App.propTypes = {
-  login: PropTypes.bool
-};
+  render() {
+    const { loginPage, loggedIn } = this.props;
+    return (
+      <Container>
+        <Nav authenticated={loggedIn} />
+        <Content center={loginPage}>
+          <Switch>
+            {routes.map((route, i) => {
+              return (
+                <RouteWithSubRoutes key={i} loggedIn={loggedIn} {...route} />
+              );
+            })}
+          </Switch>
+        </Content>
+      </Container>
+    );
+  }
+}
 
 const mapStateToProps = state => {
-  return { ...state, login: state.router.location.pathname === "/login" };
+  const { router, user } = state;
+  return {
+    ...state,
+    loginPage: router.location.pathname === "/login",
+    loggedIn: user.loggedIn || Boolean(Cookies.get(SESSION_COOKIE))
+  };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { userLoggedIn })(App);
