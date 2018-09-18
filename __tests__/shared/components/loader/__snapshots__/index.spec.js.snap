@@ -15,8 +15,8 @@ exports[`Create Loader snapshot should render and match the snapshot 1`] = `
 }
 
 .emotion-0 {
-  -webkit-animation: animation-8i1yzj-buttonSpin 0.9s infinite cubic-bezier(0.08,0.03,1,1.04);
-  animation: animation-8i1yzj-buttonSpin 0.9s infinite cubic-bezier(0.08,0.03,1,1.04);
+  -webkit-animation: animation-6bj4oy-buttonSpin 0.9s infinite cubic-bezier(0.08,0.03,1,1.04);
+  animation: animation-6bj4oy-buttonSpin 0.9s infinite cubic-bezier(0.08,0.03,1,1.04);
   display: block;
   position: absolute;
   -webkit-transform: translate(-50%,-50%);
