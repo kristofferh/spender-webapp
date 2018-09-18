@@ -40,7 +40,6 @@
     "@vx/grid": "^0.0.171",
     "@vx/scale": "^0.0.165",
     "@vx/shape": "^0.0.171",
-    "babel-plugin-emotion": "^9.2.0",
     "classnames": "^2.2.5",
     "compression": "^1.7.2",
     "emotion": "^9.2.3",
@@ -52,8 +51,8 @@
     "normalize.css": "^8.0.0",
     "numeral": "^2.0.6",
     "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
     "react-emotion": "^9.2.3",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.6",
@@ -65,6 +64,7 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "babel-plugin-emotion": "^9.2.0",
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.1",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
