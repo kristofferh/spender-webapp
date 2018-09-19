@@ -755,13 +755,13 @@
     classnames "^2.2.5"
     prop-types "^15.5.7"
 
-"@vx/grid@^0.0.171":
-  version "0.0.171"
-  resolved "https://registry.yarnpkg.com/@vx/grid/-/grid-0.0.171.tgz#b7a531de57deeab6dcefa554e3d1da14e051fb73"
+"@vx/grid@^0.0.176":
+  version "0.0.176"
+  resolved "https://registry.yarnpkg.com/@vx/grid/-/grid-0.0.176.tgz#5c28ab94758cb0496b1a63169259b4ba6429c8ae"
   dependencies:
     "@vx/group" "0.0.170"
     "@vx/point" "0.0.165"
-    "@vx/shape" "0.0.171"
+    "@vx/shape" "0.0.176"
     classnames "^2.2.5"
 
 "@vx/group@0.0.170":
@@ -780,7 +780,19 @@
   dependencies:
     d3-scale "^2.0.0"
 
-"@vx/shape@0.0.171", "@vx/shape@^0.0.171":
+"@vx/shape@0.0.176":
+  version "0.0.176"
+  resolved "https://registry.yarnpkg.com/@vx/shape/-/shape-0.0.176.tgz#7dd61518ede1965f720a4532e044f4121c1ca675"
+  dependencies:
+    "@vx/curve" "0.0.165"
+    "@vx/group" "0.0.170"
+    "@vx/point" "0.0.165"
+    classnames "^2.2.5"
+    d3-path "^1.0.5"
+    d3-shape "^1.2.0"
+    prop-types "^15.5.10"
+
+"@vx/shape@^0.0.171":
   version "0.0.171"
   resolved "https://registry.yarnpkg.com/@vx/shape/-/shape-0.0.171.tgz#65226fc7976025a343b40c57fff442eea32ee4c0"
   dependencies:
