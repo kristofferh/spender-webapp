@@ -107,8 +107,11 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, {
-  upsertItem,
-  fetchItem,
-  deleteItem
-})(Upsert);
+export default connect(
+  mapStateToProps,
+  {
+    upsertItem,
+    fetchItem,
+    deleteItem
+  }
+)(Upsert);
