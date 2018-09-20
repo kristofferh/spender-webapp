@@ -66,4 +66,7 @@ const mapStateToProps = state => {
   return { ...verifyToken, userToken: user.token };
 };
 
-export default connect(mapStateToProps, { verifyToken, userLoggedIn })(Verify);
+export default connect(
+  mapStateToProps,
+  { verifyToken, userLoggedIn }
+)(Verify);
