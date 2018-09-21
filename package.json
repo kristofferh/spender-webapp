@@ -62,13 +62,13 @@
     "react-dom": "^16.5.2",
     "react-emotion": "^9.2.10",
     "react-helmet": "^5.2.0",
-    "react-redux": "^5.0.6",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-select": "^2.0.0-beta.6",
-    "redux": "^3.7.2",
+    "redux": "^4.0.0",
     "redux-form": "^7.1.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-plugin-emotion": "^9.2.10",
