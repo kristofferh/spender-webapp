@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import moment from "moment";
 import numeral from "numeral";
+import queryString from "query-string";
 
 import { black } from "shared/utils/styles";
 import { groupBy, sum } from "shared/utils/arrays";
@@ -58,26 +59,38 @@ export class Items extends Component {
     pageSize: PropTypes.number,
     sum: PropTypes.number,
     aggregateDetails: PropTypes.array,
-    aggregateTags: PropTypes.array
+    aggregateTags: PropTypes.array,
+    location: PropTypes.object
   };
 
   constructor() {
     super();
-    this.currentMonth = moment().format("Y-MM");
-    this.currentMonthFormatted = moment().format("MMMM Y");
-    this.currentDayOfMonth = moment().format("D");
-    this.endOfMonth = moment()
-      .endOf("month")
-      .format("Y-MM-D H:m:s");
     this.currencyFormat = "$0,0.00"; // maybe make this a prop?
   }
 
   componentDidMount() {
+    const {
+      location: { search }
+    } = this.props;
+    const params = queryString.parse(search);
+    const { month, year } = params;
+    this.formatDates(month, year);
     this.props.fetchItems({
       first: this.props.pageSize,
       startDate: this.currentMonth,
       endDate: this.endOfMonth
     });
+  }
+
+  formatDates(month, year) {
+    let date = moment();
+    if (month && year) {
+      date = moment(`${year}-${month}`, "Y-MM");
+    }
+    this.currentMonth = date.format("Y-MM");
+    this.currentMonthFormatted = date.format("MMMM Y");
+    this.currentDayOfMonth = date.format("D");
+    this.endOfMonth = date.endOf("month").format("Y-MM-D H:m:s");
   }
 
   handleLoadMore = () => {
