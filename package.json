@@ -58,6 +58,7 @@
     "normalize.css": "^8.0.0",
     "numeral": "^2.0.6",
     "prop-types": "^15.6.0",
+    "query-string": "^6.1.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-emotion": "^9.2.10",
@@ -71,7 +72,6 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "babel-plugin-emotion": "^9.2.10",
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
@@ -83,6 +83,7 @@
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.0.1",
     "babel-loader": "^babel-loader@^8.0.0-beta",
+    "babel-plugin-emotion": "^9.2.10",
     "css-loader": "^1.0.0",
     "cssnano": "^4.0.1",
     "eslint": "^5.6.0",
