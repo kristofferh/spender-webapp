@@ -86,10 +86,12 @@ export class Items extends Component {
     let date = moment();
     if (month && year) {
       date = moment(`${year}-${month}`, "Y-MM");
+      this.currentDayOfMonth = date.endOf("month").format("D");
+    } else {
+      this.currentDayOfMonth = date.format("D");
     }
     this.currentMonth = date.format("Y-MM");
     this.currentMonthFormatted = date.format("MMMM Y");
-    this.currentDayOfMonth = date.format("D");
     this.endOfMonth = date.endOf("month").format("Y-MM-D H:m:s");
   }
 
