@@ -41,7 +41,8 @@ export class Items extends Component {
   static defaultProps = {
     items: [],
     pageInfo: {},
-    pageSize: 10
+    pageSize: 10,
+    currencyFormat: "$0,0.00"
   };
 
   static propTypes = {
@@ -60,13 +61,9 @@ export class Items extends Component {
     sum: PropTypes.number,
     aggregateDetails: PropTypes.array,
     aggregateTags: PropTypes.array,
-    location: PropTypes.object
+    location: PropTypes.object,
+    currencyFormat: PropTypes.string
   };
-
-  constructor() {
-    super();
-    this.currencyFormat = "$0,0.00"; // maybe make this a prop?
-  }
 
   componentDidMount() {
     const {
@@ -123,7 +120,7 @@ export class Items extends Component {
       <ListItem to={`/items/${id}`} key={id}>
         <Details>
           <Description>{description}</Description>
-          <Amount>{numeral(amount).format(this.currencyFormat)}</Amount>
+          <Amount>{numeral(amount).format(this.props.currencyFormat)}</Amount>
           <Tags>
             {tagEdges &&
               tagEdges.map(tag => {
@@ -176,7 +173,7 @@ export class Items extends Component {
         <>
           <Date key={group}>
             {group}
-            <Amount>{numeral(sum).format(this.currencyFormat)}</Amount>
+            <Amount>{numeral(sum).format(this.props.currencyFormat)}</Amount>
           </Date>
           {items.map(item => {
             return this.renderItem(item);
