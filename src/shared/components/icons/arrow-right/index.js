@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Menu = ({ className, color, size, ...svgProps }) => {
+const ArrowRight = ({ className, color, size, ...svgProps }) => {
   return (
     <svg
       className={className}
@@ -11,20 +11,19 @@ const Menu = ({ className, color, size, ...svgProps }) => {
       fill={color}
       {...svgProps}
     >
-      <path d="M0 0h24v24H0z" fill="none" />
-      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
     </svg>
   );
 };
 
-Menu.defaultProps = {
+ArrowRight.defaultProps = {
   size: 24
 };
 
-Menu.propTypes = {
+ArrowRight.propTypes = {
   className: PropTypes.string,
   size: PropTypes.number,
   color: PropTypes.string
 };
 
-export default Menu;
+export default ArrowRight;
