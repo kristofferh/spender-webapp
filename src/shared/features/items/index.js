@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import moment from "moment";
 import numeral from "numeral";
 import queryString from "query-string";
+import { push } from "react-router-redux";
 
-import { black } from "shared/utils/styles";
+import { black, white } from "shared/utils/styles";
 import { groupBy, sum } from "shared/utils/arrays";
 import { toDecimal } from "shared/utils/number";
 
@@ -34,7 +35,10 @@ import {
   TagList,
   TagListItem,
   TagAmount,
-  TagName
+  TagName,
+  TitleContainer,
+  LeftArrow,
+  RightArrow
 } from "./styles";
 
 export class Items extends Component {
@@ -46,6 +50,7 @@ export class Items extends Component {
   };
 
   static propTypes = {
+    push: PropTypes.func,
     routes: PropTypes.array,
     fetchItems: PropTypes.func,
     items: PropTypes.array,
@@ -65,31 +70,58 @@ export class Items extends Component {
     currencyFormat: PropTypes.string
   };
 
+  state = {
+    currentDayOfMonth: "",
+    currentMonth: "",
+    currentMonthFormatted: "",
+    endOfMonth: ""
+  };
+
   componentDidMount() {
     const {
       location: { search }
     } = this.props;
     const params = queryString.parse(search);
     const { month, year } = params;
-    this.formatDates(month, year);
+    const date = this.formatDates(month, year);
+    this.setState(date, () => this.update());
+  }
+
+  update(sync) {
     this.props.fetchItems({
       first: this.props.pageSize,
-      startDate: this.currentMonth,
-      endDate: this.endOfMonth
+      startDate: this.state.currentMonth,
+      endDate: this.state.endOfMonth
     });
+    if (sync) {
+      this.syncURL();
+    }
+  }
+
+  syncURL() {
+    const month = this.state.date.format("M");
+    const year = this.state.date.format("Y");
+    const params = queryString.stringify({ month, year });
+    this.props.push({ search: params });
   }
 
   formatDates(month, year) {
     let date = moment();
+    let currentDayOfMonth = date.format("D");
     if (month && year) {
       date = moment(`${year}-${month}`, "Y-MM");
-      this.currentDayOfMonth = date.endOf("month").format("D");
-    } else {
-      this.currentDayOfMonth = date.format("D");
+      currentDayOfMonth = date.endOf("month").format("D");
     }
-    this.currentMonth = date.format("Y-MM");
-    this.currentMonthFormatted = date.format("MMMM Y");
-    this.endOfMonth = date.endOf("month").format("Y-MM-D H:m:s");
+    const currentMonth = date.format("Y-MM");
+    const currentMonthFormatted = date.format("MMMM Y");
+    const endOfMonth = date.endOf("month").format("Y-MM-D H:m:s");
+    return {
+      date,
+      currentMonth,
+      currentDayOfMonth,
+      currentMonthFormatted,
+      endOfMonth
+    };
   }
 
   handleLoadMore = () => {
@@ -98,8 +130,8 @@ export class Items extends Component {
       {
         first: this.props.pageSize,
         after: endCursor,
-        startDate: this.currentMonth,
-        endDate: this.endOfMonth
+        startDate: this.state.currentMonth,
+        endDate: this.state.endOfMonth
       },
       true
     );
@@ -183,6 +215,25 @@ export class Items extends Component {
     });
   }
 
+  handleNextClick = () => {
+    const nextMonth = moment(this.state.currentMonth, "Y-MM").add(1, "M");
+    const month = nextMonth.format("M");
+    const year = nextMonth.format("Y");
+    const date = this.formatDates(month, year);
+    this.setState(date, () => this.update(true));
+  };
+
+  handlePreviousClick = () => {
+    const previousMonth = moment(this.state.currentMonth, "Y-MM").subtract(
+      1,
+      "M"
+    );
+    const month = previousMonth.format("M");
+    const year = previousMonth.format("Y");
+    const date = this.formatDates(month, year);
+    this.setState(date, () => this.update(true));
+  };
+
   renderAggregateDetails() {
     const {
       sum: sumValue,
@@ -219,12 +270,19 @@ export class Items extends Component {
       .slice(0, 10);
     return (
       <AggregateDetails>
-        <CurrentMonth>{this.currentMonthFormatted}</CurrentMonth>
+        <TitleContainer>
+          <LeftArrow color={white} onClick={this.handlePreviousClick} />
+          <CurrentMonth>{this.state.currentMonthFormatted}</CurrentMonth>
+          <RightArrow color={white} onClick={this.handleNextClick} />
+        </TitleContainer>
         <TotalAmount>{numeral(sumValue).format("$0,0.00")}</TotalAmount>
         <AvgAmount>
-          {numeral(sumValue / this.currentDayOfMonth).format("$0,0.00")} / day ·{" "}
-          {numeral(dailySansRent / this.currentDayOfMonth).format("$0,0.00")} /
-          day
+          {numeral(sumValue / this.state.currentDayOfMonth).format("$0,0.00")} /
+          day ·{" "}
+          {numeral(dailySansRent / this.state.currentDayOfMonth).format(
+            "$0,0.00"
+          )}{" "}
+          / day
         </AvgAmount>
         <AvgAmount />
         <Chart values={dailySums} width={800} height={400} />
@@ -300,5 +358,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchItems }
+  { fetchItems, push }
 )(Items);
