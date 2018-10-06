@@ -106,11 +106,18 @@ export class Items extends Component {
   }
 
   formatDates(month, year) {
-    let date = moment();
-    let currentDayOfMonth = date.format("D");
+    let currentDate = moment();
+    let date;
+    let currentDayOfMonth;
     if (month && year) {
       date = moment(`${year}-${month}`, "Y-MM");
-      currentDayOfMonth = date.endOf("month").format("D");
+      const isCurrentMonth = moment(currentDate).isSame(date, "month");
+      currentDayOfMonth = isCurrentMonth
+        ? currentDate.format("D")
+        : date.endOf("month").format("D");
+    } else {
+      date = currentDate;
+      currentDayOfMonth = date.format("D");
     }
     const currentMonth = date.format("Y-MM");
     const currentMonthFormatted = date.format("MMMM Y");
