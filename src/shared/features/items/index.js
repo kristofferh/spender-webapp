@@ -306,6 +306,7 @@ export class Items extends Component {
 
   render() {
     const {
+      items,
       isFetching,
       isPaginating,
       pageInfo: { hasNextPage }
@@ -319,13 +320,17 @@ export class Items extends Component {
             {this.renderAggregateDetails()}
             <MobileAdd to="/items/create">+</MobileAdd>
             <ItemsList>
-              <InfiniteScroll
-                items={this.renderItems()}
-                loadMore={this.handleLoadMore}
-                loadingMore={isPaginating}
-                hasMore={hasNextPage}
-                loader={this.paginationLoader}
-              />
+              {items.length ? (
+                <InfiniteScroll
+                  items={this.renderItems()}
+                  loadMore={this.handleLoadMore}
+                  loadingMore={isPaginating}
+                  hasMore={hasNextPage}
+                  loader={this.paginationLoader}
+                />
+              ) : (
+                <div>No items yet.</div>
+              )}
             </ItemsList>
           </Container>
         )}
