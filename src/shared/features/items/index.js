@@ -38,7 +38,8 @@ import {
   TagName,
   TitleContainer,
   LeftArrow,
-  RightArrow
+  RightArrow,
+  NoResults
 } from "./styles";
 
 export class Items extends Component {
@@ -336,7 +337,7 @@ export class Items extends Component {
                   loader={this.paginationLoader}
                 />
               ) : (
-                <div>No items yet.</div>
+                <NoResults>No items yet.</NoResults>
               )}
             </ItemsList>
           </Container>

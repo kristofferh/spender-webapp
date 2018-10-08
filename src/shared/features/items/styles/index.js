@@ -207,3 +207,7 @@ export const RightArrow = styled(ArrowRight)`
   ${iconStyles};
   margin-left: 5px;
 `;
+
+export const NoResults = styled.div`
+  padding: 15px 0;
+`;
