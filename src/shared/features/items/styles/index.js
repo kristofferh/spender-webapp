@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import styled from "react-emotion";
+import styled, { css } from "react-emotion";
+
+import { ArrowLeft, ArrowRight } from "shared/components/icons";
 
 import { hexToRGBA } from "shared/utils/colors";
 
@@ -40,8 +42,12 @@ export const Date = styled.div`
     position: relative;
     border-top: 0;
     background: transparent;
-    margin: 0 0 15px;
+    margin: 30px 0 15px;
     padding: 0 0 10px;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 `;
 
@@ -107,6 +113,12 @@ export const AggregateDetails = styled.div`
   background: ${logan};
   padding: 15px 30px 20px;
   text-align: center;
+`;
+
+export const TitleContainer = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const CurrentMonth = styled.h1`
@@ -177,4 +189,21 @@ export const TagAmount = styled.div``;
 
 export const TagName = styled.div`
   text-transform: capitalize;
+`;
+
+export const iconStyles = css`
+  width: 35px;
+  height: 35px;
+  margin-top: -4px;
+  cursor: pointer;
+`;
+
+export const LeftArrow = styled(ArrowLeft)`
+  ${iconStyles};
+  margin-right: 5px;
+`;
+
+export const RightArrow = styled(ArrowRight)`
+  ${iconStyles};
+  margin-left: 5px;
 `;
