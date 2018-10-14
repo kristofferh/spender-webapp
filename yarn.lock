@@ -889,15 +889,16 @@
     classnames "^2.2.5"
     prop-types "^15.5.7"
 
-"@vx/grid@^0.0.171":
-  version "0.0.171"
-  resolved "https://registry.yarnpkg.com/@vx/grid/-/grid-0.0.171.tgz#b7a531de57deeab6dcefa554e3d1da14e051fb73"
-  integrity sha512-upfzo8WVC4Lzjfz4xeKZS5pswrG9A9YweF4rN1mViGjd4UGkIoNVNls09ItshjqtX7OLVOUoiG+rUXCt+4w1BA==
+"@vx/grid@^0.0.179":
+  version "0.0.179"
+  resolved "https://registry.yarnpkg.com/@vx/grid/-/grid-0.0.179.tgz#f4d658762839c6734d7c83679d3ab5b2ff424fef"
+  integrity sha512-S5caoDdEHvr7NfMYVF0DGRx1sD8nJMKQa/Xya+nkWD5PfXCUG7nwp6jAixoHeCQdP781QN/Bgk2GFXphbK3PeQ==
   dependencies:
     "@vx/group" "0.0.170"
     "@vx/point" "0.0.165"
-    "@vx/shape" "0.0.171"
+    "@vx/shape" "0.0.179"
     classnames "^2.2.5"
+    prop-types "^15.6.2"
 
 "@vx/group@0.0.170":
   version "0.0.170"
@@ -911,17 +912,17 @@
   resolved "https://registry.yarnpkg.com/@vx/point/-/point-0.0.165.tgz#7ebde5da3d86954fe31a56f923f31550f0b4b867"
   integrity sha512-spoHilhjcWNgccrSzBUPw+PXV81tYxeyEWBkgr35aGVU4m7YT86Ywvfemwp7AVVGPn+XJHrhB0ujAhDoyqFPoA==
 
-"@vx/scale@^0.0.165":
-  version "0.0.165"
-  resolved "https://registry.yarnpkg.com/@vx/scale/-/scale-0.0.165.tgz#8575880c48296a80c0e9459057f826e8f903bc07"
-  integrity sha512-5jSgXJDU6J/KWIyCbpjHqysPCddp7tG3LbTV7UmtB1Qleb4m4slShTVSE7+EKU+zgiQPDGm0+E2ht4cet+7F7A==
+"@vx/scale@^0.0.179":
+  version "0.0.179"
+  resolved "https://registry.yarnpkg.com/@vx/scale/-/scale-0.0.179.tgz#c7f65974ba80ccb7c90a69f639b982f9df9ea7af"
+  integrity sha512-j40WiGu4VcHZdaSQAl12ig2w5c4Q9EVn7qqYf9PX7uoS5PbxRYNnHeKZ7e5Bf8O6b57iv5jFTfUV7HkpNF4vvg==
   dependencies:
     d3-scale "^2.0.0"
 
-"@vx/shape@0.0.171", "@vx/shape@^0.0.171":
-  version "0.0.171"
-  resolved "https://registry.yarnpkg.com/@vx/shape/-/shape-0.0.171.tgz#65226fc7976025a343b40c57fff442eea32ee4c0"
-  integrity sha512-2LGjCSh+6GklCzzadQkaFR8/k9h+ie7MS0kRNkqEmKJFvuXWO35ZZE/gVxjaaMb/ODrhBgoGVtmkO+oB/1/g/Q==
+"@vx/shape@0.0.179", "@vx/shape@^0.0.179":
+  version "0.0.179"
+  resolved "https://registry.yarnpkg.com/@vx/shape/-/shape-0.0.179.tgz#038c449743d1e05b7b2d20151e9ab6e739f73516"
+  integrity sha512-YHVNx4xGpbjolkW3Lb5pEgJB0+u349vfnLI976DJlinY0hRNa4TZbWXOB4ywLIrYzQEXXPMUR8WtdubNxg6g0w==
   dependencies:
     "@vx/curve" "0.0.165"
     "@vx/group" "0.0.170"
