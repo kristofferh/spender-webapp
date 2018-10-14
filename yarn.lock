@@ -884,10 +884,22 @@
   dependencies:
     d3-scale "^2.0.0"
 
-"@vx/shape@0.0.171", "@vx/shape@^0.0.171":
+"@vx/shape@0.0.171":
   version "0.0.171"
   resolved "https://registry.yarnpkg.com/@vx/shape/-/shape-0.0.171.tgz#65226fc7976025a343b40c57fff442eea32ee4c0"
   integrity sha512-2LGjCSh+6GklCzzadQkaFR8/k9h+ie7MS0kRNkqEmKJFvuXWO35ZZE/gVxjaaMb/ODrhBgoGVtmkO+oB/1/g/Q==
+  dependencies:
+    "@vx/curve" "0.0.165"
+    "@vx/group" "0.0.170"
+    "@vx/point" "0.0.165"
+    classnames "^2.2.5"
+    d3-path "^1.0.5"
+    d3-shape "^1.2.0"
+    prop-types "^15.5.10"
+
+"@vx/shape@^0.0.175":
+  version "0.0.175"
+  resolved "https://registry.yarnpkg.com/@vx/shape/-/shape-0.0.175.tgz#099bcd4fdc890988fa373526b170c11942af2255"
   dependencies:
     "@vx/curve" "0.0.165"
     "@vx/group" "0.0.170"
