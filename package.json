@@ -85,7 +85,7 @@
     "babel-loader": "^babel-loader@^8.0.0-beta",
     "babel-plugin-emotion": "^9.2.10",
     "css-loader": "^1.0.0",
-    "cssnano": "^4.0.1",
+    "cssnano": "^4.1.4",
     "eslint": "^5.6.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-prettier": "^3.0.0",
@@ -108,6 +108,6 @@
     "webpack": "^4.20.2",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.9"
   }
 }
