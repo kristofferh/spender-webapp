@@ -1,23 +1,30 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import { localPoint } from "@vx/event";
 import { LinearGradient } from "@vx/gradient";
 import { AreaClosed, LinePath } from "@vx/shape";
 import { curveMonotoneX } from "@vx/curve";
 import { scaleTime, scaleLinear } from "@vx/scale";
-import { extent, max } from "d3-array";
+import { withTooltip, Tooltip } from "@vx/tooltip";
+import { extent, max /*, bisector */ } from "d3-array";
 
 import { Container } from "./styles";
 
 // accessors
 const xValue = d => new Date(d.date);
 const yValue = d => d.sum;
+// const bisectDate = bisector(d => new Date(d.date)).left;
 
-export default class Chart extends Component {
+export class Chart extends Component {
   static propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     isResponsive: PropTypes.bool,
-    values: PropTypes.array
+    values: PropTypes.array,
+    showTooltip: PropTypes.func,
+    tooltipData: PropTypes.any,
+    tooltipLeft: PropTypes.number,
+    tooltipTop: PropTypes.number
   };
 
   static defaultProps = {
@@ -46,8 +53,20 @@ export default class Chart extends Component {
     }
   };
 
+  handleMouseMove({ event /*, data, xScale */ }) {
+    const { x } = localPoint(this.svg, event);
+
+    // const x0 = xScale.invert(x);
+    //const index = bisectDate(data, x0, 1);
+    this.props.showTooltip({
+      tooltipLeft: x,
+      tooltipTop: 10,
+      tooltipData: "hi"
+    });
+  }
+
   render() {
-    const { height, values } = this.props;
+    const { height, values, tooltipData, tooltipLeft, tooltipTop } = this.props;
     const { width, render } = this.state;
 
     // scales
@@ -88,6 +107,8 @@ export default class Chart extends Component {
               stroke={"transparent"}
               fill={"url(#fill)"}
               curve={curveMonotoneX}
+              onMouseMove={data => event =>
+                this.handleMouseMove({ data, event, xScale, yScale })}
             />
             <LinePath
               data={values}
@@ -101,7 +122,16 @@ export default class Chart extends Component {
             />
           </svg>
         ) : null}
+        {tooltipData && (
+          <Fragment>
+            <Tooltip top={tooltipTop} left={tooltipLeft}>
+              {tooltipData}
+            </Tooltip>
+          </Fragment>
+        )}
       </Container>
     );
   }
 }
+
+export default withTooltip(Chart);
