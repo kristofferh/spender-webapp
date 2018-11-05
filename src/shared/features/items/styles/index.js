@@ -207,3 +207,11 @@ export const RightArrow = styled(ArrowRight)`
   ${iconStyles};
   margin-left: 5px;
 `;
+
+export const NoItems = styled.div`
+  padding: 15px 0;
+
+  @media (min-width: ${minWidthMd}) {
+    padding: 0;
+  }
+`;
