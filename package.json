@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@vx/gradient": "^0.0.165",
-    "@vx/grid": "^0.0.179",
+    "@vx/grid": "^0.0.180",
     "@vx/scale": "^0.0.179",
     "@vx/shape": "^0.0.179",
     "classnames": "^2.2.5",
