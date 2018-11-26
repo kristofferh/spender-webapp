@@ -46,7 +46,7 @@
     "@vx/gradient": "^0.0.165",
     "@vx/grid": "^0.0.179",
     "@vx/scale": "^0.0.179",
-    "@vx/shape": "^0.0.179",
+    "@vx/shape": "^0.0.181",
     "classnames": "^2.2.5",
     "compression": "^1.7.2",
     "emotion": "^9.2.12",
