@@ -43,7 +43,7 @@
     "setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js"
   },
   "dependencies": {
-    "@vx/gradient": "^0.0.165",
+    "@vx/gradient": "^0.0.182",
     "@vx/grid": "^0.0.179",
     "@vx/scale": "^0.0.179",
     "@vx/shape": "^0.0.179",
