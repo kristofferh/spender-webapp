@@ -888,10 +888,10 @@
   dependencies:
     d3-shape "^1.0.6"
 
-"@vx/gradient@^0.0.165":
-  version "0.0.165"
-  resolved "https://registry.yarnpkg.com/@vx/gradient/-/gradient-0.0.165.tgz#0cc0fe873e6acded4943fa274f68601ad5a50a38"
-  integrity sha512-FjRXMTmcy7k0TWsfDzWWXw6T9WXKP+6LS/GRgnguq271pab/P+AdOJThsVxtBgUc8ZOAPbub3/2Gggz9d8tocg==
+"@vx/gradient@^0.0.182":
+  version "0.0.182"
+  resolved "https://registry.yarnpkg.com/@vx/gradient/-/gradient-0.0.182.tgz#cece62afef4d394d1620683f3bb8cee8addfad72"
+  integrity sha512-rE5T4Iu+Yt22dnhTqgKLAVqWkHVhBluI1x7aE6hnu540av8v4Q0VI/CUDloia3xbK+n9HBd+bVSNC2mLbWCWOA==
   dependencies:
     classnames "^2.2.5"
     prop-types "^15.5.7"
