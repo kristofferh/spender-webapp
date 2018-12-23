@@ -15,13 +15,17 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "emotion"],
   "rules": {
     "prettier/prettier": "error",
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "emotion/jsx-import": "error",
+    "emotion/no-vanilla": "error",
+    "emotion/import-from-emotion": "error",
+    "emotion/styled-import": "error"
   },
   "globals": {
     "API_URL": true,
@@ -29,4 +33,3 @@
     "SECURE_COOKIE": true
   }
 }
-
