@@ -1,6 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create Loader snapshot should render and match the snapshot 1`] = `
+@keyframes animation-0 {
+  from {
+    -webkit-transform: translate(-50%,-50%) rotate(0deg);
+    -ms-transform: translate(-50%,-50%) rotate(0deg);
+    transform: translate(-50%,-50%) rotate(0deg);
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+  }
+
+  to {
+    -webkit-transform: translate(-50%,-50%) rotate(360deg);
+    -ms-transform: translate(-50%,-50%) rotate(360deg);
+    transform: translate(-50%,-50%) rotate(360deg);
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+  }
+}
+
 .emotion-4 {
   vertical-align: middle;
   position: relative;
@@ -15,8 +35,8 @@ exports[`Create Loader snapshot should render and match the snapshot 1`] = `
 }
 
 .emotion-0 {
-  -webkit-animation: animation-6bj4oy-buttonSpin 0.9s infinite cubic-bezier(0.08,0.03,1,1.04);
-  animation: animation-6bj4oy-buttonSpin 0.9s infinite cubic-bezier(0.08,0.03,1,1.04);
+  -webkit-animation: animation-0 0.9s infinite cubic-bezier(0.08,0.03,1,1.04);
+  animation: animation-0 0.9s infinite cubic-bezier(0.08,0.03,1,1.04);
   display: block;
   position: absolute;
   -webkit-transform: translate(-50%,-50%);
