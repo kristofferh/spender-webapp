@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import Cookies from "js-cookie";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
 import { RouteWithSubRoutes } from "./utils";

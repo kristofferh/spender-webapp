@@ -31,7 +31,7 @@ import {
   CurrentMonth,
   Container,
   ItemsList,
-  MobileAdd,
+  Add,
   TagList,
   TagListItem,
   TagAmount,
@@ -326,7 +326,7 @@ export class Items extends Component {
         ) : (
           <Container>
             {this.renderAggregateDetails()}
-            <MobileAdd to="/items/create">+</MobileAdd>
+            <Add to="/items/create">+</Add>
             <ItemsList>
               {items.length ? (
                 <InfiniteScroll

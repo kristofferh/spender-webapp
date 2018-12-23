@@ -1,4 +1,4 @@
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 
 import { Input } from "shared/components/form-controls";
 import { shadowBox } from "shared/utils/styles";

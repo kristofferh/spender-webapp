@@ -1,7 +1,6 @@
 import fetch from "jest-fetch-mock";
-import * as emotion from "emotion";
-import { createSerializer } from "jest-emotion";
+import serializer from "jest-emotion";
 
-expect.addSnapshotSerializer(createSerializer(emotion));
+expect.addSnapshotSerializer(serializer);
 
 global.fetch = fetch;
