@@ -61,7 +61,7 @@ export default class Chart extends Component {
     });
 
     return (
-      <Container innerRef={n => (this.container = n)}>
+      <Container ref={n => (this.container = n)}>
         {render ? (
           <svg ref={s => (this.svg = s)} width={width} height={height}>
             <LinearGradient

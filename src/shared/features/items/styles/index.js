@@ -128,7 +128,7 @@ export const CurrentMonth = styled.h1`
   margin: 0 0 0.25em;
 `;
 
-export const MobileAdd = styled(Link)`
+export const Add = styled(Link)`
   position: fixed;
   bottom: 15px;
   left: 50%;
@@ -145,10 +145,6 @@ export const MobileAdd = styled(Link)`
   background: linear-gradient(156deg, #a6a8bc 59%, #c7b1ba 99%);
   box-shadow: 0 2px 5px 1px ${hexToRGBA(space, 0.2)};
   z-index: ${zIndex1};
-
-  @media (min-width: ${minWidthMd}) {
-    display: none;
-  }
 `;
 
 export const TagList = styled.div`
