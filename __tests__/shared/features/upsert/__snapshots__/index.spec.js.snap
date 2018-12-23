@@ -606,6 +606,14 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   border-image: linear-gradient(156deg,#e1cad3 6%,#a6a8bc 96%) 2;
 }
 
+.emotion-50 {
+  cursor: pointer;
+  display: block;
+  margin-top: 15px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .emotion-45 {
   position: relative;
   box-sizing: border-box;
@@ -750,14 +758,6 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   line-height: 1;
   stroke: currentColor;
   stroke-width: 0;
-}
-
-.emotion-50 {
-  cursor: pointer;
-  display: block;
-  margin-top: 15px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 <div

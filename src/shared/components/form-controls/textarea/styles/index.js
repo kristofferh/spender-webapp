@@ -1,4 +1,4 @@
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 
 import { flatInput } from "shared/utils/styles/layout";
 
