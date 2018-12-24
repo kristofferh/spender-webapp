@@ -49,9 +49,9 @@ const FormWrapper = WrappedComponent => {
         {!hideLabelWrapper && labelMarkup}
         <WrappedComponent {...props} />
         {(displayError && <span className="required">{error}</span>) ||
-          (!active &&
-            touched &&
-            warning && <span className="warning">{warning}</span>)}
+          (!active && touched && warning && (
+            <span className="warning">{warning}</span>
+          ))}
       </Wrapper>
     );
   };
