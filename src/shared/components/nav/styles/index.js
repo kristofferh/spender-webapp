@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+import { Menu } from "shared/components/icons";
+
 import { hexToRGBA } from "shared/utils/colors";
 
 import { white, logan, zIndex10 } from "shared/utils/styles";
@@ -18,4 +20,8 @@ export const Inner = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+`;
+
+export const MenuItem = styled(Menu)`
+  position: absolute;
 `;
