@@ -110,7 +110,7 @@ export const AvgAmount = styled.h3`
   margin: 0;
 `;
 
-export const AggregateDetails = styled.div`
+export const AggregateDetails = styled.section`
   background: ${logan};
   padding: 15px 30px 20px;
   text-align: center;
@@ -146,6 +146,8 @@ export const Add = styled(Link)`
   box-shadow: 0 2px 5px 1px ${hexToRGBA(space, 0.2)};
   z-index: ${zIndex1};
 `;
+
+export const ChartContainer = styled.div``;
 
 export const TagList = styled.div`
   position: relative;

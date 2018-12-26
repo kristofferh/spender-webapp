@@ -39,7 +39,8 @@ import {
   TitleContainer,
   LeftArrow,
   RightArrow,
-  NoItems
+  NoItems,
+  ChartContainer
 } from "./styles";
 
 export class Items extends Component {
@@ -292,22 +293,23 @@ export class Items extends Component {
           )}{" "}
           / day
         </AvgAmount>
-        <AvgAmount />
-        <Chart values={dailySums} width={800} height={400} />
-        <TagList>
-          {aggregateTagsList.map(tag => {
-            const {
-              sumItems,
-              node: { name }
-            } = tag;
-            return (
-              <TagListItem key={name}>
-                <TagName>{name}</TagName>
-                <TagAmount>{numeral(sumItems).format("$0,0.00")}</TagAmount>
-              </TagListItem>
-            );
-          })}
-        </TagList>
+        <ChartContainer>
+          <Chart values={dailySums} width={800} height={400} />
+          <TagList>
+            {aggregateTagsList.map(tag => {
+              const {
+                sumItems,
+                node: { name }
+              } = tag;
+              return (
+                <TagListItem key={name}>
+                  <TagName>{name}</TagName>
+                  <TagAmount>{numeral(sumItems).format("$0,0.00")}</TagAmount>
+                </TagListItem>
+              );
+            })}
+          </TagList>
+        </ChartContainer>
       </AggregateDetails>
     );
   }
