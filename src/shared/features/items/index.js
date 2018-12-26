@@ -13,12 +13,14 @@ import { toDecimal } from "shared/utils/number";
 import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
 import Chart from "shared/components/chart";
+import ChartOverlay from "shared/components/chart-overlay";
 
 import { fetchItems } from "shared/data/items/actions";
 
 import {
   Date,
   Details,
+  DetailsContainer,
   Description,
   Amount,
   Tags,
@@ -278,36 +280,39 @@ export class Items extends Component {
       .slice(0, 10);
     return (
       <AggregateDetails>
-        <TitleContainer>
-          <LeftArrow color={white} onClick={this.handlePreviousClick} />
-          <CurrentMonth>{this.state.currentMonthFormatted}</CurrentMonth>
-          <RightArrow color={white} onClick={this.handleNextClick} />
-        </TitleContainer>
-        <TotalAmount>{numeral(sumValue).format("$0,0.00")}</TotalAmount>
-        <AvgAmount>
-          {numeral(sumValue / this.state.currentDayOfMonth).format("$0,0.00")} /
-          day ·{" "}
-          {numeral(dailySansRent / this.state.currentDayOfMonth).format(
-            "$0,0.00"
-          )}{" "}
-          / day
-        </AvgAmount>
-        <AvgAmount />
-        <Chart values={dailySums} width={800} height={400} />
-        <TagList>
-          {aggregateTagsList.map(tag => {
-            const {
-              sumItems,
-              node: { name }
-            } = tag;
-            return (
-              <TagListItem key={name}>
-                <TagName>{name}</TagName>
-                <TagAmount>{numeral(sumItems).format("$0,0.00")}</TagAmount>
-              </TagListItem>
-            );
-          })}
-        </TagList>
+        <DetailsContainer>
+          <TitleContainer>
+            <LeftArrow color={white} onClick={this.handlePreviousClick} />
+            <CurrentMonth>{this.state.currentMonthFormatted}</CurrentMonth>
+            <RightArrow color={white} onClick={this.handleNextClick} />
+          </TitleContainer>
+          <TotalAmount>{numeral(sumValue).format("$0,0.00")}</TotalAmount>
+          <AvgAmount>
+            {numeral(sumValue / this.state.currentDayOfMonth).format("$0,0.00")}{" "}
+            / day ·{" "}
+            {numeral(dailySansRent / this.state.currentDayOfMonth).format(
+              "$0,0.00"
+            )}{" "}
+            / day
+          </AvgAmount>
+        </DetailsContainer>
+        <ChartOverlay>
+          <Chart values={dailySums} width={800} height={400} />
+          <TagList>
+            {aggregateTagsList.map(tag => {
+              const {
+                sumItems,
+                node: { name }
+              } = tag;
+              return (
+                <TagListItem key={name}>
+                  <TagName>{name}</TagName>
+                  <TagAmount>{numeral(sumItems).format("$0,0.00")}</TagAmount>
+                </TagListItem>
+              );
+            })}
+          </TagList>
+        </ChartOverlay>
       </AggregateDetails>
     );
   }
