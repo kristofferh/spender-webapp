@@ -8,6 +8,7 @@ import { hexToRGBA } from "shared/utils/colors";
 
 import {
   zIndex1,
+  zIndex2,
   minWidthMd,
   mainContent,
   fontSizeSubhead,
@@ -110,13 +111,18 @@ export const AvgAmount = styled.h3`
   margin: 0;
 `;
 
-export const AggregateDetails = styled.section`
+export const AggregateDetails = styled.header`
   background: ${logan};
-  padding: 15px 30px 20px;
   text-align: center;
+  position: relative;
+  z-index: ${zIndex2};
 `;
 
-export const TitleContainer = styled.header`
+export const DetailsContainer = styled.div`
+  padding: 15px 30px;
+`;
+
+export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

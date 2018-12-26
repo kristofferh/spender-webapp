@@ -13,12 +13,14 @@ import { toDecimal } from "shared/utils/number";
 import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
 import Chart from "shared/components/chart";
+import ChartOverlay from "shared/components/chart-overlay";
 
 import { fetchItems } from "shared/data/items/actions";
 
 import {
   Date,
   Details,
+  DetailsContainer,
   Description,
   Amount,
   Tags,
@@ -39,8 +41,7 @@ import {
   TitleContainer,
   LeftArrow,
   RightArrow,
-  NoItems,
-  ChartContainer
+  NoItems
 } from "./styles";
 
 export class Items extends Component {
@@ -279,21 +280,23 @@ export class Items extends Component {
       .slice(0, 10);
     return (
       <AggregateDetails>
-        <TitleContainer>
-          <LeftArrow color={white} onClick={this.handlePreviousClick} />
-          <CurrentMonth>{this.state.currentMonthFormatted}</CurrentMonth>
-          <RightArrow color={white} onClick={this.handleNextClick} />
-        </TitleContainer>
-        <TotalAmount>{numeral(sumValue).format("$0,0.00")}</TotalAmount>
-        <AvgAmount>
-          {numeral(sumValue / this.state.currentDayOfMonth).format("$0,0.00")} /
-          day ·{" "}
-          {numeral(dailySansRent / this.state.currentDayOfMonth).format(
-            "$0,0.00"
-          )}{" "}
-          / day
-        </AvgAmount>
-        <ChartContainer>
+        <DetailsContainer>
+          <TitleContainer>
+            <LeftArrow color={white} onClick={this.handlePreviousClick} />
+            <CurrentMonth>{this.state.currentMonthFormatted}</CurrentMonth>
+            <RightArrow color={white} onClick={this.handleNextClick} />
+          </TitleContainer>
+          <TotalAmount>{numeral(sumValue).format("$0,0.00")}</TotalAmount>
+          <AvgAmount>
+            {numeral(sumValue / this.state.currentDayOfMonth).format("$0,0.00")}{" "}
+            / day ·{" "}
+            {numeral(dailySansRent / this.state.currentDayOfMonth).format(
+              "$0,0.00"
+            )}{" "}
+            / day
+          </AvgAmount>
+        </DetailsContainer>
+        <ChartOverlay>
           <Chart values={dailySums} width={800} height={400} />
           <TagList>
             {aggregateTagsList.map(tag => {
@@ -309,7 +312,7 @@ export class Items extends Component {
               );
             })}
           </TagList>
-        </ChartContainer>
+        </ChartOverlay>
       </AggregateDetails>
     );
   }
