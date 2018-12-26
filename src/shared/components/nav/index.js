@@ -1,17 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Menu } from "shared/components/icons";
+import Logo from "shared/components/logo";
 
 import { white } from "shared/utils/styles";
 
-import { Container, Inner } from "./styles";
+import { Container, Inner, MenuItem } from "./styles";
 
 const Nav = ({ authenticated }) =>
   authenticated ? (
     <Container>
       <Inner>
-        <Menu color={white} />
+        <MenuItem color={white} />
+        <Logo />
       </Inner>
     </Container>
   ) : null;
