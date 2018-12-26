@@ -19,7 +19,7 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Content = styled.div`
+const Content = styled.main`
   width: 100%;
   position: relative;
   margin: ${({ center }) => (center ? "auto" : null)};
