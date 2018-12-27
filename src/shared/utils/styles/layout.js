@@ -1,4 +1,4 @@
-import { white, bodyGradient } from "./colors";
+import { white, inputGradient } from "./colors";
 
 export const maxWidthSm = "575px";
 export const minWidthSm = "576px";
@@ -42,10 +42,10 @@ export const flatInput = () => `
   border: 0;
   border-bottom: 1px solid #888;
   padding: 5px 0;
-  transition: all 2s ease;
+  min-height: 40px;
 
   &:focus {
     outline: none;
-    border-image: ${bodyGradient} 2;
+    border-image: ${inputGradient} 2;
   }
 `;

@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
-.emotion-52 {
+.emotion-51 {
   padding: 0 15px;
 }
 
 @media (min-width:768px) {
-  .emotion-52 {
+  .emotion-51 {
     max-width: 960px;
     margin: 30px auto;
   }
 }
 
 @media (max-width:767px) {
-  .emotion-52 {
+  .emotion-51 {
     padding: 15px;
   }
 }
@@ -25,21 +25,21 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   margin-top: 0;
 }
 
-.emotion-50 {
+.emotion-49 {
   padding: 0 15px;
   margin: 0;
   background: #ffffff;
 }
 
 @media (min-width:768px) {
-  .emotion-50 {
+  .emotion-49 {
     max-width: 960px;
     margin: 30px auto;
   }
 }
 
 @media (min-width:768px) {
-  .emotion-50 {
+  .emotion-49 {
     background: #ffffff;
     box-shadow: 0 2px 5px rgba(17,17,17,0.1);
     border-radius: 2px;
@@ -48,7 +48,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 @media (max-width:767px) {
-  .emotion-50 {
+  .emotion-49 {
     margin: 0 -15px;
     padding: 15px;
   }
@@ -77,58 +77,25 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   border: 0;
   border-bottom: 1px solid #888;
   padding: 5px 0;
-  -webkit-transition: all 2s ease;
-  transition: all 2s ease;
+  min-height: 40px;
 }
 
 .emotion-6:focus {
   outline: none;
-  border-image: linear-gradient(156deg,#e1cad3 6%,#a6a8bc 96%) 2;
+  border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
 }
 
-.emotion-26 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid #888;
-  padding: 5px 0;
-  -webkit-transition: all 2s ease;
-  transition: all 2s ease;
-  height: 30px;
-  resize: none;
-}
-
-.emotion-26:focus {
-  outline: none;
-  border-image: linear-gradient(156deg,#e1cad3 6%,#a6a8bc 96%) 2;
-}
-
-.emotion-45 {
+.emotion-44 {
   position: relative;
   box-sizing: border-box;
 }
 
-.emotion-36 {
-  border: 0;
-  -webkit-clip: rect(1px,1px,1px,1px);
-  clip: rect(1px,1px,1px,1px);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.emotion-44 {
+.emotion-43 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: hsl(0,0%,98%);
+  background-color: hsl(0,0%,100%);
   border-color: hsl(0,0%,80%);
   border-radius: 4px;
   border-style: solid;
@@ -153,11 +120,11 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-44:hover {
+.emotion-43:hover {
   border-color: hsl(0,0%,70%);
 }
 
-.emotion-39 {
+.emotion-38 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -175,10 +142,11 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   padding: 2px 8px;
   -webkit-overflow-scrolling: touch;
   position: relative;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-.emotion-37 {
+.emotion-36 {
   color: hsl(0,0%,50%);
   margin-left: 2px;
   margin-right: 2px;
@@ -190,16 +158,16 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-38 {
+.emotion-37 {
   margin: 2px;
   padding-bottom: 2px;
   padding-top: 2px;
   visibility: visible;
-  color: #222;
+  color: hsl(0,0%,20%);
   box-sizing: border-box;
 }
 
-.emotion-43 {
+.emotion-42 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -217,7 +185,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-40 {
+.emotion-39 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -228,7 +196,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-42 {
+.emotion-41 {
   color: hsl(0,0%,80%);
   display: -webkit-box;
   display: -webkit-flex;
@@ -240,11 +208,11 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-42:hover {
+.emotion-41:hover {
   color: hsl(0,0%,60%);
 }
 
-.emotion-41 {
+.emotion-40 {
   display: inline-block;
   fill: currentColor;
   line-height: 1;
@@ -253,7 +221,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 <div
-  className="emotion-52 emotion-53"
+  className="emotion-51 emotion-52"
 >
   <h1
     className="emotion-0 emotion-1"
@@ -261,7 +229,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
     Add
   </h1>
   <form
-    className="emotion-50 emotion-51"
+    className="emotion-49 emotion-50"
     onSubmit={[Function]}
   >
     <div
@@ -344,8 +312,8 @@ exports[`Create snapshot should render and match the snapshot for adding an item
             Description
           </label>
         </div>
-        <textarea
-          className="form-control emotion-26 emotion-27"
+        <input
+          className="form-control emotion-6 emotion-7"
           id="description"
           name="description"
           onBlur={[Function]}
@@ -353,6 +321,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
+          type="text"
           value=""
         />
       </div>
@@ -370,36 +339,30 @@ exports[`Create snapshot should render and match the snapshot for adding an item
             className="emotion-2 emotion-3"
             htmlFor="tags"
             required={false}
-          />
+          >
+            Tags
+          </label>
         </div>
         <div
-          className="emotion-45"
+          className="emotion-44"
           id="tags"
           onKeyDown={[Function]}
         >
-          <span
-            aria-atomic="true"
-            aria-live="polite"
-            className="emotion-36"
-            role="status"
-          >
-            0 results available.
-          </span>
           <div
-            className="emotion-44"
+            className="emotion-43"
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
           >
             <div
-              className="emotion-39"
+              className="emotion-38"
             >
               <div
-                className="emotion-37"
+                className="emotion-36"
               >
                 Select...
               </div>
               <div
-                className="emotion-38"
+                className="emotion-37"
               >
                 <div
                   className=""
@@ -411,9 +374,6 @@ exports[`Create snapshot should render and match the snapshot for adding an item
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-busy={false}
-                    aria-expanded={false}
-                    aria-haspopup={false}
                     autoCapitalize="none"
                     autoComplete="off"
                     autoCorrect="off"
@@ -422,7 +382,6 @@ exports[`Create snapshot should render and match the snapshot for adding an item
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
-                    role="combobox"
                     spellCheck="false"
                     style={
                       Object {
@@ -460,23 +419,22 @@ exports[`Create snapshot should render and match the snapshot for adding an item
               </div>
             </div>
             <div
-              className="emotion-43"
+              className="emotion-42"
             >
               <span
-                className="emotion-40"
-                role="presentation"
+                className="emotion-39"
               />
               <div
-                className="emotion-42"
+                aria-hidden="true"
+                className="emotion-41"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
-                role="button"
               >
                 <svg
-                  className="emotion-41"
+                  aria-hidden="true"
+                  className="emotion-40"
                   focusable="false"
                   height={20}
-                  role="presentation"
                   viewBox="0 0 20 20"
                   width={20}
                 >
@@ -487,7 +445,12 @@ exports[`Create snapshot should render and match the snapshot for adding an item
               </div>
             </div>
           </div>
-          <div />
+          <div>
+            <input
+              name="tags"
+              type="hidden"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -501,19 +464,19 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 `;
 
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
-.emotion-54 {
+.emotion-53 {
   padding: 0 15px;
 }
 
 @media (min-width:768px) {
-  .emotion-54 {
+  .emotion-53 {
     max-width: 960px;
     margin: 30px auto;
   }
 }
 
 @media (max-width:767px) {
-  .emotion-54 {
+  .emotion-53 {
     padding: 15px;
   }
 }
@@ -525,21 +488,21 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   margin-top: 0;
 }
 
-.emotion-52 {
+.emotion-51 {
   padding: 0 15px;
   margin: 0;
   background: #ffffff;
 }
 
 @media (min-width:768px) {
-  .emotion-52 {
+  .emotion-51 {
     max-width: 960px;
     margin: 30px auto;
   }
 }
 
 @media (min-width:768px) {
-  .emotion-52 {
+  .emotion-51 {
     background: #ffffff;
     box-shadow: 0 2px 5px rgba(17,17,17,0.1);
     border-radius: 2px;
@@ -548,7 +511,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 @media (max-width:767px) {
-  .emotion-52 {
+  .emotion-51 {
     margin: 0 -15px;
     padding: 15px;
   }
@@ -577,36 +540,15 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   border: 0;
   border-bottom: 1px solid #888;
   padding: 5px 0;
-  -webkit-transition: all 2s ease;
-  transition: all 2s ease;
+  min-height: 40px;
 }
 
 .emotion-6:focus {
   outline: none;
-  border-image: linear-gradient(156deg,#e1cad3 6%,#a6a8bc 96%) 2;
+  border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
 }
 
-.emotion-26 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid #888;
-  padding: 5px 0;
-  -webkit-transition: all 2s ease;
-  transition: all 2s ease;
-  height: 30px;
-  resize: none;
-}
-
-.emotion-26:focus {
-  outline: none;
-  border-image: linear-gradient(156deg,#e1cad3 6%,#a6a8bc 96%) 2;
-}
-
-.emotion-50 {
+.emotion-49 {
   cursor: pointer;
   display: block;
   margin-top: 15px;
@@ -614,29 +556,17 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   text-decoration: none;
 }
 
-.emotion-45 {
+.emotion-44 {
   position: relative;
   box-sizing: border-box;
 }
 
-.emotion-36 {
-  border: 0;
-  -webkit-clip: rect(1px,1px,1px,1px);
-  clip: rect(1px,1px,1px,1px);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.emotion-44 {
+.emotion-43 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: hsl(0,0%,98%);
+  background-color: hsl(0,0%,100%);
   border-color: hsl(0,0%,80%);
   border-radius: 4px;
   border-style: solid;
@@ -661,11 +591,11 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-44:hover {
+.emotion-43:hover {
   border-color: hsl(0,0%,70%);
 }
 
-.emotion-39 {
+.emotion-38 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -683,10 +613,11 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   padding: 2px 8px;
   -webkit-overflow-scrolling: touch;
   position: relative;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-.emotion-37 {
+.emotion-36 {
   color: hsl(0,0%,50%);
   margin-left: 2px;
   margin-right: 2px;
@@ -698,16 +629,16 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-38 {
+.emotion-37 {
   margin: 2px;
   padding-bottom: 2px;
   padding-top: 2px;
   visibility: visible;
-  color: #222;
+  color: hsl(0,0%,20%);
   box-sizing: border-box;
 }
 
-.emotion-43 {
+.emotion-42 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -725,7 +656,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-40 {
+.emotion-39 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -736,7 +667,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-42 {
+.emotion-41 {
   color: hsl(0,0%,80%);
   display: -webkit-box;
   display: -webkit-flex;
@@ -748,11 +679,11 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-42:hover {
+.emotion-41:hover {
   color: hsl(0,0%,60%);
 }
 
-.emotion-41 {
+.emotion-40 {
   display: inline-block;
   fill: currentColor;
   line-height: 1;
@@ -761,7 +692,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 <div
-  className="emotion-54 emotion-55"
+  className="emotion-53 emotion-54"
 >
   <h1
     className="emotion-0 emotion-1"
@@ -769,7 +700,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
     Edit
   </h1>
   <form
-    className="emotion-52 emotion-53"
+    className="emotion-51 emotion-52"
     onSubmit={[Function]}
   >
     <div
@@ -852,8 +783,8 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
             Description
           </label>
         </div>
-        <textarea
-          className="form-control emotion-26 emotion-27"
+        <input
+          className="form-control emotion-6 emotion-7"
           id="description"
           name="description"
           onBlur={[Function]}
@@ -861,6 +792,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
+          type="text"
           value=""
         />
       </div>
@@ -878,36 +810,30 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
             className="emotion-2 emotion-3"
             htmlFor="tags"
             required={false}
-          />
+          >
+            Tags
+          </label>
         </div>
         <div
-          className="emotion-45"
+          className="emotion-44"
           id="tags"
           onKeyDown={[Function]}
         >
-          <span
-            aria-atomic="true"
-            aria-live="polite"
-            className="emotion-36"
-            role="status"
-          >
-            0 results available.
-          </span>
           <div
-            className="emotion-44"
+            className="emotion-43"
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
           >
             <div
-              className="emotion-39"
+              className="emotion-38"
             >
               <div
-                className="emotion-37"
+                className="emotion-36"
               >
                 Select...
               </div>
               <div
-                className="emotion-38"
+                className="emotion-37"
               >
                 <div
                   className=""
@@ -919,9 +845,6 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-busy={false}
-                    aria-expanded={false}
-                    aria-haspopup={false}
                     autoCapitalize="none"
                     autoComplete="off"
                     autoCorrect="off"
@@ -930,7 +853,6 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
-                    role="combobox"
                     spellCheck="false"
                     style={
                       Object {
@@ -968,23 +890,22 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
               </div>
             </div>
             <div
-              className="emotion-43"
+              className="emotion-42"
             >
               <span
-                className="emotion-40"
-                role="presentation"
+                className="emotion-39"
               />
               <div
-                className="emotion-42"
+                aria-hidden="true"
+                className="emotion-41"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
-                role="button"
               >
                 <svg
-                  className="emotion-41"
+                  aria-hidden="true"
+                  className="emotion-40"
                   focusable="false"
                   height={20}
-                  role="presentation"
                   viewBox="0 0 20 20"
                   width={20}
                 >
@@ -995,7 +916,12 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
               </div>
             </div>
           </div>
-          <div />
+          <div>
+            <input
+              name="tags"
+              type="hidden"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -1005,7 +931,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       Submit
     </button>
     <a
-      className="emotion-50 emotion-51"
+      className="emotion-49 emotion-50"
       onClick={[Function]}
     >
       Delete
