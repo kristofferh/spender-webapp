@@ -13,6 +13,7 @@ export const Overlay = styled.div`
 export const Container = styled.div`
   height: ${({ height }) => `${height}px`};
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   transition: height 0.2s ease;
   padding: 0 0 40px;
 `;

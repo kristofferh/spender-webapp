@@ -97,9 +97,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   align-items: center;
   background-color: hsl(0,0%,100%);
   border-color: hsl(0,0%,80%);
-  border-radius: 4px;
+  border-radius: 0;
   border-style: solid;
   border-width: 1px;
+  box-shadow: none;
   cursor: default;
   display: -webkit-box;
   display: -webkit-flex;
@@ -112,16 +113,26 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  min-height: 38px;
+  min-height: 40px;
   outline: 0 !important;
   position: relative;
   -webkit-transition: all 100ms;
   transition: all 100ms;
   box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid #888;
+  padding: 5px 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .emotion-43:hover {
   border-color: hsl(0,0%,70%);
+}
+
+.emotion-43:hover {
+  border-bottom: 1px solid #888;
 }
 
 .emotion-38 {
@@ -139,7 +150,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 2px 8px;
+  padding: 0;
   -webkit-overflow-scrolling: touch;
   position: relative;
   overflow: hidden;
@@ -568,9 +579,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   align-items: center;
   background-color: hsl(0,0%,100%);
   border-color: hsl(0,0%,80%);
-  border-radius: 4px;
+  border-radius: 0;
   border-style: solid;
   border-width: 1px;
+  box-shadow: none;
   cursor: default;
   display: -webkit-box;
   display: -webkit-flex;
@@ -583,16 +595,26 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  min-height: 38px;
+  min-height: 40px;
   outline: 0 !important;
   position: relative;
   -webkit-transition: all 100ms;
   transition: all 100ms;
   box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid #888;
+  padding: 5px 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .emotion-43:hover {
   border-color: hsl(0,0%,70%);
+}
+
+.emotion-43:hover {
+  border-bottom: 1px solid #888;
 }
 
 .emotion-38 {
@@ -610,7 +632,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 2px 8px;
+  padding: 0;
   -webkit-overflow-scrolling: touch;
   position: relative;
   overflow: hidden;

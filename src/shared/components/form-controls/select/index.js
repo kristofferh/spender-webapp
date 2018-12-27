@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Creatable } from "react-select";
 
+import { gray, inputGradient } from "shared/utils/styles";
+
 import FormWrapper from "../_form-wrapper";
 
 const isValidNewOption = (inputValue, selectValue, selectOptions) => {
@@ -12,6 +14,29 @@ const isValidNewOption = (inputValue, selectValue, selectOptions) => {
     return false;
   }
   return true;
+};
+
+const customStyles = {
+  control: (styles, { selectProps: { menuIsOpen } }) => ({
+    ...styles,
+    border: 0,
+    borderBottom: `1px solid ${gray}`,
+    padding: "5px 0",
+    minHeight: 40,
+    appearance: "none",
+    borderRadius: 0,
+    boxShadow: "none",
+    borderImage: menuIsOpen ? `${inputGradient} 2` : null,
+    ":hover": {
+      borderBottom: `1px solid ${gray}`
+    }
+  }),
+  valueContainer: styles => {
+    return {
+      ...styles,
+      padding: 0
+    };
+  }
 };
 
 // @todo: check if https://github.com/JedWatson/react-select/pull/2659/files
@@ -32,6 +57,7 @@ export const Select = ({ attributes, input, id, placeholder, options }) => (
     id={id || input.name}
     placeholder={placeholder}
     options={options}
+    styles={customStyles}
   />
 );
 
