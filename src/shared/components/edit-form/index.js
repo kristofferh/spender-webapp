@@ -5,7 +5,7 @@ import moment from "moment";
 
 import { required, number } from "shared/utils/validators";
 
-import { Input, Textarea, Select } from "shared/components/form-controls";
+import { Input, Select } from "shared/components/form-controls";
 
 import { FormGroup, DeleteLink, Form } from "./styles";
 
@@ -43,13 +43,13 @@ const EditForm = ({
     <FormGroup>
       <Field
         name="description"
-        component={Textarea}
+        component={Input}
         label="Description"
         validate={required}
       />
     </FormGroup>
     <FormGroup>
-      <Field name="tags" options={tags} component={Select} />
+      <Field label="Tags" name="tags" options={tags} component={Select} />
     </FormGroup>
     {error ? <span>{error}</span> : null}
     <button type="submit">Submit</button>

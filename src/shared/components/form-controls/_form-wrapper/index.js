@@ -57,7 +57,6 @@ const FormWrapper = WrappedComponent => {
   };
 
   _Wrapper.defaultProps = {
-    groupClassName: "form-group",
     required: false,
     displayErrorOnInactive: true
   };
