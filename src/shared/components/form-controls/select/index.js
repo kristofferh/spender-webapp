@@ -31,12 +31,17 @@ const customStyles = {
       borderBottom: `1px solid ${gray}`
     }
   }),
-  valueContainer: styles => {
+  menu: styles => {
     return {
       ...styles,
-      padding: 0
+      borderRadius: 2,
+      boxShadow: "0 1px 1px 1px rgba(17, 17, 17, 0.2)"
     };
-  }
+  },
+  valueContainer: styles => ({
+    ...styles,
+    padding: 0
+  })
 };
 
 // @todo: check if https://github.com/JedWatson/react-select/pull/2659/files
