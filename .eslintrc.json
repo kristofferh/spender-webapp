@@ -31,5 +31,11 @@
     "API_URL": true,
     "SESSION_COOKIE": true,
     "SECURE_COOKIE": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "16.7"
+    }
   }
 }
