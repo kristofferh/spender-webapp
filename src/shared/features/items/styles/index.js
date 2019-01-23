@@ -70,17 +70,6 @@ export const Tags = styled.div`
   margin: 5px 0;
 `;
 
-export const Tag = styled.span`
-  text-transform: uppercase;
-  background: ${({ bgColor }) => (bgColor ? bgColor : "#aaa")};
-  padding: 4px 7px 5px;
-  border-radius: 2px;
-  color: ${white};
-  margin-right: 4px;
-  font-size: ${fontSizeCaptionTwo};
-  font-weight: bold;
-`;
-
 export const ListItem = styled(Link)`
   display: block;
   padding-bottom: 10px;
