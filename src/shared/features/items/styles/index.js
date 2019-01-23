@@ -15,7 +15,6 @@ import {
   titleOne,
   titleTwo,
   titleThree,
-  fontSizeCaptionTwo,
   logan,
   white,
   black,
