@@ -1,12 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Container, Remove } from "./styles";
+import { white } from "shared/utils/styles";
+import { Close } from "shared/components/icons";
+
+import { Container, Inner, Remove } from "./styles";
 
 const Label = ({ children, isRemovable, removeCallback }) => (
   <Container>
-    <span>{children}</span>
-    {isRemovable && <Remove onClick={removeCallback}>x</Remove>}
+    <Inner>{children}</Inner>
+    {isRemovable && (
+      <Remove onClick={removeCallback}>
+        <Close size={14} color={white} />
+      </Remove>
+    )}
   </Container>
 );
 
