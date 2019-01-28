@@ -62,6 +62,7 @@ export const Description = styled.span`
 
 export const Amount = styled.span`
   display: block;
+  font-variant-numeric: tabular-nums;
 `;
 
 export const Tags = styled.div`
@@ -178,7 +179,9 @@ export const TagListItem = styled.div`
   }
 `;
 
-export const TagAmount = styled.div``;
+export const TagAmount = styled.div`
+  font-variant-numeric: tabular-nums;
+`;
 
 export const TagName = styled.div`
   text-transform: capitalize;
