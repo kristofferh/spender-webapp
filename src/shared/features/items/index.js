@@ -14,6 +14,7 @@ import Loader from "shared/components/loader";
 import InfiniteScroll from "shared/components/infinite-scroll";
 import Chart from "shared/components/chart";
 import ChartOverlay from "shared/components/chart-overlay";
+import Label from "shared/components/label";
 
 import { fetchItems } from "shared/data/items/actions";
 
@@ -24,7 +25,6 @@ import {
   Description,
   Amount,
   Tags,
-  Tag,
   ListItem,
   ItemsContainer,
   TotalAmount,
@@ -168,9 +168,9 @@ export class Items extends Component {
               tagEdges.map(tag => {
                 const { name, color } = tag.node;
                 return (
-                  <Tag key={name} bgColor={color}>
+                  <Label key={name} bgColor={color}>
                     {name}
-                  </Tag>
+                  </Label>
                 );
               })}
           </Tags>

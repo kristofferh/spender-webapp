@@ -15,7 +15,6 @@ import {
   titleOne,
   titleTwo,
   titleThree,
-  fontSizeCaptionTwo,
   logan,
   white,
   black,
@@ -63,22 +62,12 @@ export const Description = styled.span`
 
 export const Amount = styled.span`
   display: block;
+  font-variant-numeric: tabular-nums;
 `;
 
 export const Tags = styled.div`
   display: block;
   margin: 5px 0;
-`;
-
-export const Tag = styled.span`
-  text-transform: uppercase;
-  background: ${({ bgColor }) => (bgColor ? bgColor : "#aaa")};
-  padding: 4px 7px 5px;
-  border-radius: 2px;
-  color: ${white};
-  margin-right: 4px;
-  font-size: ${fontSizeCaptionTwo};
-  font-weight: bold;
 `;
 
 export const ListItem = styled(Link)`
@@ -190,7 +179,9 @@ export const TagListItem = styled.div`
   }
 `;
 
-export const TagAmount = styled.div``;
+export const TagAmount = styled.div`
+  font-variant-numeric: tabular-nums;
+`;
 
 export const TagName = styled.div`
   text-transform: capitalize;
