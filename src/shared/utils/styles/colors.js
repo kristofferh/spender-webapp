@@ -1,5 +1,6 @@
 // Colors
 export const white = "#ffffff";
+export const darkGray = "#aaa";
 export const gray = "#888";
 export const lightGray = "#f8f8f8";
 export const highlightBlue = "#b3d4fc";
