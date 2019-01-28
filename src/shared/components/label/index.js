@@ -6,25 +6,21 @@ import { Close } from "shared/components/icons";
 
 import { Container, Inner, Remove } from "./styles";
 
-const Label = ({ children, isRemovable, removeCallback }) => (
+const Label = ({ children, isRemovable, removeProps }) => (
   <Container>
     <Inner>{children}</Inner>
     {isRemovable && (
-      <Remove onClick={removeCallback}>
+      <Remove {...removeProps}>
         <Close size={14} color={white} />
       </Remove>
     )}
   </Container>
 );
 
-Label.defaultProps = {
-  removeCallback: () => {}
-};
-
 Label.propTypes = {
   children: PropTypes.any,
   isRemovable: PropTypes.bool,
-  removeCallback: PropTypes.func
+  removeProps: PropTypes.object
 };
 
 export default Label;

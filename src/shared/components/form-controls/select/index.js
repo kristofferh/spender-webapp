@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Creatable } from "react-select";
 
+import Label from "shared/components/label";
+
 import { gray, inputGradient } from "shared/utils/styles";
 
 import FormWrapper from "../_form-wrapper";
@@ -44,6 +46,28 @@ const customStyles = {
   })
 };
 
+const MultiValue = props => {
+  const {
+    data: { name, color },
+    removeProps
+  } = props;
+  return (
+    <Label
+      isRemovable={true}
+      bgColor={color}
+      {...props}
+      removeProps={removeProps}
+    >
+      {name}
+    </Label>
+  );
+};
+
+MultiValue.propTypes = {
+  data: PropTypes.object,
+  removeProps: PropTypes.object
+};
+
 // @todo: check if https://github.com/JedWatson/react-select/pull/2659/files
 // has been merged. After that isValidNewOption and getNewOptionData can
 // probably be deleted.
@@ -51,6 +75,9 @@ export const Select = ({ attributes, input, id, placeholder, options }) => (
   <Creatable
     {...attributes}
     {...input}
+    components={{
+      MultiValue
+    }}
     isValidNewOption={isValidNewOption}
     getNewOptionData={(inputValue, optionLabel) => ({
       name: optionLabel
