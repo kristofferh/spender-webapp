@@ -6,8 +6,8 @@ import { Close } from "shared/components/icons";
 
 import { Container, Inner, Remove } from "./styles";
 
-const Label = ({ children, isRemovable, removeProps }) => (
-  <Container>
+const Label = ({ children, bgColor, isRemovable, removeProps }) => (
+  <Container bgColor={bgColor}>
     <Inner>{children}</Inner>
     {isRemovable && (
       <Remove {...removeProps}>
@@ -19,6 +19,7 @@ const Label = ({ children, isRemovable, removeProps }) => (
 
 Label.propTypes = {
   children: PropTypes.any,
+  bgColor: PropTypes.string,
   isRemovable: PropTypes.bool,
   removeProps: PropTypes.object
 };
