@@ -5,9 +5,9 @@ import moment from "moment";
 
 import { required, number } from "shared/utils/validators";
 
-import { Input, Select } from "shared/components/form-controls";
+import { ActionButtons, Input, Select } from "shared/components/form-controls";
 
-import { FormGroup, DeleteLink, Form } from "./styles";
+import { FormGroup, Form } from "./styles";
 
 const EditForm = ({
   handleSubmit,
@@ -51,9 +51,13 @@ const EditForm = ({
     <FormGroup>
       <Field label="Tags" name="tags" options={tags} component={Select} />
     </FormGroup>
-    {error ? <span>{error}</span> : null}
-    <button type="submit">Submit</button>
-    {showDelete && <DeleteLink onClick={deleteCallback}>Delete</DeleteLink>}
+    <ActionButtons
+      secondaryAction={showDelete}
+      secondaryActionLabel="Delete"
+      secondaryActionCallback={deleteCallback}
+    >
+      {error ? <span>{error}</span> : null}
+    </ActionButtons>
   </Form>
 );
 
