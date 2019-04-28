@@ -1,43 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "@emotion/styled";
-import { keyframes } from "@emotion/core";
 
-const buttonSpin = keyframes`
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-    transform-origin: center center;
-  }
-
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-    transform-origin: center center;
-  }
-`;
-
-const LoaderOuterContainer = styled.div`
-  vertical-align: middle;
-  position: relative;
-`;
-
-const Container = styled.div`
-  margin: 10px auto;
-  border: ${({ borderWidth }) => borderWidth}px solid
-    ${({ backgroundColor }) => backgroundColor};
-  border-radius: 50%;
-  width: ${({ containerSize }) => containerSize}px;
-  height: ${({ containerSize }) => containerSize}px;
-`;
-
-const Circle = styled.svg`
-  animation: ${buttonSpin} 0.9s infinite cubic-bezier(0.08, 0.03, 1, 1.04);
-  display: block;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  left: 50%;
-  top: 50%;
-`;
+import { Circle, Container, LoaderOuterContainer } from "./styles";
 
 const Loader = ({ color, style, size, borderWidth, backgroundColor }) => {
   return (
