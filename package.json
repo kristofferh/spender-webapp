@@ -10,18 +10,22 @@
     "node": ">= 10.0.0"
   },
   "scripts": {
-    "test": "eslint src && jest",
+    "eslint": "eslint src",
+    "test": "yarn eslint && yarn types && yarn jstest",
+    "jstest": "jest",
+    "jstest:watch": "yarn jstest --watch",
     "ci:before": "greenkeeper-lockfile-update",
     "ci:after": "greenkeeper-lockfile-upload",
+    "types": "tsc --noEmit",
+    "types:watch": "yarn types -- --watch",
     "dev": "webpack-dev-server --open --config ./webpack.config.dev.js",
     "build": "BABEL_ENV=production webpack --colors --progress --config ./webpack.config.prod.js",
-    "build-server": "BABEL_ENV=server babel src/index.js -d dist",
-    "local-dev": "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js",
+    "build:server": "BABEL_ENV=server babel src/index.js -d dist",
+    "local:dev": "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js",
     "start": "node dist/index.js",
-    "heroku-postbuild": "yarn build && yarn build-server"
+    "heroku-postbuild": "yarn build && yarn build:server"
   },
   "sideEffects": [
-    "@babel/polyfill",
     "*.scss"
   ],
   "browserslist": [
@@ -82,6 +86,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
@@ -109,6 +114,7 @@
     "redux-devtools-extension": "^2.13.7",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "typescript": "^3.4.5",
     "webpack": "^4.30.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.1",
