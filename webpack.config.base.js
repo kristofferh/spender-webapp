@@ -26,7 +26,7 @@ let base = {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.(ts|js)x?$/,
         exclude: /(node_modules)/,
         use: "babel-loader"
       },
@@ -61,7 +61,7 @@ let base = {
   ],
   resolve: {
     modules: [path.resolve("./src/"), "node_modules"],
-    extensions: [".js", ".css", ".scss"]
+    extensions: [".ts", ".tsx", ".js", ".css", ".scss"]
   }
 };
 
