@@ -7,9 +7,9 @@ const port = process.env.PORT || 3001;
 
 // Create express server
 const app = express();
+app.use(compression());
 
 app.use(express.static(__dirname + "/public"));
-app.use(compression());
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "public/index.html"));
