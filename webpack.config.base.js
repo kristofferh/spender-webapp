@@ -3,7 +3,7 @@ const path = require("path");
 
 let base = {
   entry: {
-    app: ["@babel/polyfill", "./src/client/scripts/app.js"]
+    app: ["./src/client/scripts/app.js"]
   },
   output: {
     path: path.resolve(__dirname, "dist/public"),

@@ -14,4 +14,6 @@ export const TextLink = styled.a`
   cursor: pointer;
   display: block;
   text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
 `;
