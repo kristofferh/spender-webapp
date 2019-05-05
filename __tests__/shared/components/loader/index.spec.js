@@ -1,6 +1,5 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import "jest-emotion";
 
 import Loader from "shared/components/loader";
 

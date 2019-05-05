@@ -3,10 +3,10 @@ import React, { ReactNode } from "react";
 import { Container, PrimaryBtn, TextLink } from "./styles";
 
 export interface ActionButtonsProps {
-  primaryActionLabel: ReactNode;
-  secondaryAction: boolean;
-  secondaryActionLabel: ReactNode;
-  secondaryActionCallback: () => void;
+  primaryActionLabel?: ReactNode;
+  secondaryAction?: boolean;
+  secondaryActionLabel?: ReactNode;
+  secondaryActionCallback?: () => void;
 }
 
 const ActionButtons = ({

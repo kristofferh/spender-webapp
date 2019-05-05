@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": true,
@@ -15,6 +16,6 @@
     "strict": true,
     "jsx": "react"
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "__tests__/**/*"],
   "exclude": ["node_modules", "dist"]
 }
