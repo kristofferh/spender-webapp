@@ -16,7 +16,7 @@
     "jstest:watch": "yarn jstest --watch",
     "ci:before": "greenkeeper-lockfile-update",
     "ci:after": "greenkeeper-lockfile-upload",
-    "types": "tsc --noEmit",
+    "types": "tsc",
     "types:watch": "yarn types -- --watch",
     "dev": "webpack-dev-server --open --config ./webpack.config.dev.js",
     "build": "BABEL_ENV=production webpack --colors --progress --config ./webpack.config.prod.js",

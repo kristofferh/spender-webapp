@@ -1,14 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactNode } from "react";
 
 import { Container, PrimaryBtn, TextLink } from "./styles";
 
+export interface ActionButtonsProps {
+  primaryActionLabel: ReactNode;
+  secondaryAction: boolean;
+  secondaryActionLabel: ReactNode;
+  secondaryActionCallback: () => void;
+}
+
 const ActionButtons = ({
-  primaryActionLabel,
+  primaryActionLabel = "Submit",
   secondaryAction,
-  secondaryActionLabel,
-  secondaryActionCallback
-}) => (
+  secondaryActionCallback,
+  secondaryActionLabel
+}: ActionButtonsProps) => (
   <Container>
     {secondaryAction && (
       <TextLink onClick={secondaryActionCallback}>
@@ -18,16 +24,5 @@ const ActionButtons = ({
     <PrimaryBtn type="submit">{primaryActionLabel}</PrimaryBtn>
   </Container>
 );
-
-ActionButtons.defaultProps = {
-  primaryActionLabel: "Submit"
-};
-
-ActionButtons.propTypes = {
-  primaryActionLabel: PropTypes.node,
-  secondaryAction: PropTypes.bool,
-  secondaryActionLabel: PropTypes.node,
-  secondaryActionCallback: PropTypes.func
-};
 
 export default ActionButtons;
