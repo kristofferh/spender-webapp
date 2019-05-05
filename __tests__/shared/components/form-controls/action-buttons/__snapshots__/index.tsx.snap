@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create ActionButtons snapshot should render and match a secondary action snapshot 1`] = `
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 {
+  margin-left: auto;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+.emotion-0 {
+  cursor: pointer;
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+<footer
+  className="emotion-4 emotion-5"
+>
+  <a
+    className="emotion-0 emotion-1"
+  >
+    Delete
+  </a>
+   
+  <button
+    className="emotion-2 emotion-3"
+    type="submit"
+  >
+    Submit
+  </button>
+</footer>
+`;
+
+exports[`Create ActionButtons snapshot should render and match no props snapshot 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  margin-left: auto;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+<footer
+  className="emotion-2 emotion-3"
+>
+   
+  <button
+    className="emotion-0 emotion-1"
+    type="submit"
+  >
+    Submit
+  </button>
+</footer>
+`;
+
+exports[`Create ActionButtons snapshot should render and match non-default primary label snapshot 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  margin-left: auto;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+<footer
+  className="emotion-2 emotion-3"
+>
+   
+  <button
+    className="emotion-0 emotion-1"
+    type="submit"
+  >
+    Next
+  </button>
+</footer>
+`;
