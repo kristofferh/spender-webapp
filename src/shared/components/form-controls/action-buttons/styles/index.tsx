@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { fontSizeSubhead } from "shared/utils/styles";
 
 export const Container = styled.footer`
   display: flex;
@@ -11,6 +12,7 @@ export const PrimaryBtn = styled.button`
 `;
 
 export const TextLink = styled.a`
+  font-size: ${fontSizeSubhead};
   cursor: pointer;
   display: block;
   text-decoration: none;
