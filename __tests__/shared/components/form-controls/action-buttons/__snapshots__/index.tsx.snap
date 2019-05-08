@@ -20,6 +20,7 @@ exports[`Create ActionButtons snapshot should render and match a secondary actio
 }
 
 .emotion-0 {
+  font-size: 15px;
   cursor: pointer;
   display: block;
   -webkit-text-decoration: none;
