@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
-.emotion-55 {
+.emotion-57 {
   padding: 0 15px;
 }
 
 @media (min-width:768px) {
-  .emotion-55 {
+  .emotion-57 {
     max-width: 960px;
     margin: 30px auto;
   }
 }
 
 @media (max-width:767px) {
-  .emotion-55 {
+  .emotion-57 {
     padding: 15px;
   }
 }
@@ -25,21 +25,21 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   margin-top: 0;
 }
 
-.emotion-53 {
+.emotion-55 {
   padding: 0 15px;
   margin: 0;
   background: #ffffff;
 }
 
 @media (min-width:768px) {
-  .emotion-53 {
+  .emotion-55 {
     max-width: 960px;
     margin: 30px auto;
   }
 }
 
 @media (min-width:768px) {
-  .emotion-53 {
+  .emotion-55 {
     background: #ffffff;
     box-shadow: 0 2px 5px rgba(17,17,17,0.1);
     border-radius: 2px;
@@ -48,7 +48,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 @media (max-width:767px) {
-  .emotion-53 {
+  .emotion-55 {
     margin: 0 -15px;
     padding: 15px;
   }
@@ -250,7 +250,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 <div
-  className="emotion-55 emotion-56"
+  className="emotion-57 emotion-58"
 >
   <h1
     className="emotion-0 emotion-1"
@@ -258,7 +258,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
     Add
   </h1>
   <form
-    className="emotion-53 emotion-54"
+    className="emotion-55 emotion-56"
     onSubmit={[Function]}
   >
     <div
@@ -484,34 +484,37 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </div>
     <footer
-      className="emotion-51 emotion-52"
+      className="emotion-53 emotion-54"
     >
-       
-      <button
-        className="emotion-49 emotion-50"
-        type="submit"
+      <div
+        className="emotion-51 emotion-52"
       >
-        Submit
-      </button>
+        <button
+          className="emotion-49 emotion-50"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
     </footer>
   </form>
 </div>
 `;
 
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
-.emotion-57 {
+.emotion-59 {
   padding: 0 15px;
 }
 
 @media (min-width:768px) {
-  .emotion-57 {
+  .emotion-59 {
     max-width: 960px;
     margin: 30px auto;
   }
 }
 
 @media (max-width:767px) {
-  .emotion-57 {
+  .emotion-59 {
     padding: 15px;
   }
 }
@@ -523,21 +526,21 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   margin-top: 0;
 }
 
-.emotion-55 {
+.emotion-57 {
   padding: 0 15px;
   margin: 0;
   background: #ffffff;
 }
 
 @media (min-width:768px) {
-  .emotion-55 {
+  .emotion-57 {
     max-width: 960px;
     margin: 30px auto;
   }
 }
 
 @media (min-width:768px) {
-  .emotion-55 {
+  .emotion-57 {
     background: #ffffff;
     box-shadow: 0 2px 5px rgba(17,17,17,0.1);
     border-radius: 2px;
@@ -546,7 +549,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 @media (max-width:767px) {
-  .emotion-55 {
+  .emotion-57 {
     margin: 0 -15px;
     padding: 15px;
   }
@@ -602,6 +605,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 .emotion-49 {
+  font-size: 15px;
   cursor: pointer;
   display: block;
   -webkit-text-decoration: none;
@@ -757,7 +761,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 <div
-  className="emotion-57 emotion-58"
+  className="emotion-59 emotion-60"
 >
   <h1
     className="emotion-0 emotion-1"
@@ -765,7 +769,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
     Edit
   </h1>
   <form
-    className="emotion-55 emotion-56"
+    className="emotion-57 emotion-58"
     onSubmit={[Function]}
   >
     <div
@@ -991,21 +995,24 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </div>
     <footer
-      className="emotion-53 emotion-54"
+      className="emotion-55 emotion-56"
     >
-      <a
-        className="emotion-49 emotion-50"
-        onClick={[Function]}
+      <div
+        className="emotion-53 emotion-54"
       >
-        Delete
-      </a>
-       
-      <button
-        className="emotion-51 emotion-52"
-        type="submit"
-      >
-        Submit
-      </button>
+        <a
+          className="emotion-49 emotion-50"
+          onClick={[Function]}
+        >
+          Delete
+        </a>
+        <button
+          className="emotion-51 emotion-52"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
     </footer>
   </form>
 </div>
