@@ -14,6 +14,8 @@ export const fontSizeTitleTwo = "22px";
 export const fontSizeTitleOne = "28px";
 export const fontSizeLargeTitle = "34px";
 
+export const fontWeightBold = "bold";
+
 export const titleOne = () => `
   font-family: ${fontFamilySerifSemiboldHeadline};
   font-size: ${fontSizeTitleOne};
@@ -30,4 +32,15 @@ export const titleThree = () => `
   font-family: ${fontFamilySerifSemiboldHeadline};
   font-size: ${fontSizeTitleThree};
   line-height: 1.25;
+`;
+
+export const boldText = () => `
+  font-weight: ${fontWeightBold};
+  font-size: ${fontSizeCallout};
+`;
+
+export const subHead = () => `
+  font-weight: ${fontWeightBold};
+  font-size: ${fontSizeSubhead};
+  text-transform: uppercase;  
 `;

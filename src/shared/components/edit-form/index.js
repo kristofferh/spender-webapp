@@ -38,6 +38,9 @@ const EditForm = ({
         attributes={{ step: "any" }}
         label="Amount"
         validate={[required, number]}
+        parse={value => {
+          return value ? Number(value) : null;
+        }}
       />
     </FormGroup>
     <FormGroup>
@@ -55,9 +58,8 @@ const EditForm = ({
       secondaryAction={showDelete}
       secondaryActionLabel="Delete"
       secondaryActionCallback={deleteCallback}
-    >
-      {error ? <span>{error}</span> : null}
-    </ActionButtons>
+      error={error ? error : null}
+    />
   </Form>
 );
 

@@ -1,8 +1,15 @@
 import React, { ReactNode } from "react";
 
-import { Container, PrimaryBtn, TextLink } from "./styles";
+import {
+  Container,
+  ButtonContainer,
+  ErrorContainer,
+  PrimaryBtn,
+  TextLink
+} from "./styles";
 
 export interface ActionButtonsProps {
+  error?: ReactNode;
   primaryActionLabel?: ReactNode;
   secondaryAction?: boolean;
   secondaryActionLabel?: ReactNode;
@@ -13,15 +20,19 @@ const ActionButtons = ({
   primaryActionLabel = "Submit",
   secondaryAction,
   secondaryActionCallback,
-  secondaryActionLabel
+  secondaryActionLabel,
+  error
 }: ActionButtonsProps) => (
   <Container>
-    {secondaryAction && (
-      <TextLink onClick={secondaryActionCallback}>
-        {secondaryActionLabel}
-      </TextLink>
-    )}{" "}
-    <PrimaryBtn type="submit">{primaryActionLabel}</PrimaryBtn>
+    {error && <ErrorContainer>{error}</ErrorContainer>}
+    <ButtonContainer>
+      {secondaryAction && (
+        <TextLink onClick={secondaryActionCallback}>
+          {secondaryActionLabel}
+        </TextLink>
+      )}
+      <PrimaryBtn type="submit">{primaryActionLabel}</PrimaryBtn>
+    </ButtonContainer>
   </Container>
 );
 
