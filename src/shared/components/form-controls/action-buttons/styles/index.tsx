@@ -12,7 +12,6 @@ export const Container = styled.footer``;
 export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
-  text-decoration: underline;
 `;
 
 export const ErrorContainer = styled.div`
@@ -22,6 +21,7 @@ export const ErrorContainer = styled.div`
   background: ${danger};
   border-radius: ${borderRadiusSubtle};
   color: ${white};
+  text-decoration: underline;
 `;
 
 export const PrimaryBtn = styled.button`
