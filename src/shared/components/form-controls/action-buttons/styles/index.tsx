@@ -1,9 +1,26 @@
 import styled from "@emotion/styled";
-import { fontSizeSubhead } from "shared/utils/styles";
+import {
+  fontSizeSubhead,
+  danger,
+  borderRadiusSubtle,
+  boldText,
+  white
+} from "shared/utils/styles";
 
-export const Container = styled.footer`
+export const Container = styled.footer``;
+
+export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const ErrorContainer = styled.div`
+  ${boldText()};
+  margin: 0 0 10px;
+  padding: 5px 10px;
+  background: ${danger};
+  border-radius: ${borderRadiusSubtle};
+  color: ${white};
 `;
 
 export const PrimaryBtn = styled.button`
