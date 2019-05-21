@@ -20,6 +20,7 @@ const Container = styled.div`
 `;
 
 const Content = styled.main`
+  background: red;
   width: 100%;
   position: relative;
   margin: ${({ center }) => (center ? "auto" : null)};
