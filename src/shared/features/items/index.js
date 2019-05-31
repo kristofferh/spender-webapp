@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import moment from "moment";
 import numeral from "numeral";
-import queryString from "query-string";
-import { push } from "react-router-redux";
 
 import { black, white } from "shared/utils/styles";
 import { groupBy, sum } from "shared/utils/arrays";
@@ -53,7 +51,6 @@ export class Items extends Component {
   };
 
   static propTypes = {
-    push: PropTypes.func,
     routes: PropTypes.array,
     fetchItems: PropTypes.func,
     items: PropTypes.array,
@@ -69,6 +66,7 @@ export class Items extends Component {
     sum: PropTypes.number,
     aggregateDetails: PropTypes.array,
     aggregateTags: PropTypes.array,
+    history: PropTypes.object,
     location: PropTypes.object,
     currencyFormat: PropTypes.string
   };
@@ -81,13 +79,25 @@ export class Items extends Component {
   };
 
   componentDidMount() {
+    this.updateDates();
+  }
+
+  updateDates() {
     const {
       location: { search }
     } = this.props;
-    const params = queryString.parse(search);
-    const { month, year } = params;
+    const params = new URLSearchParams(search);
+    const month = params.get("month");
+    const year = params.get("year");
     const date = this.formatDates(month, year);
     this.setState(date, () => this.update());
+  }
+
+  componentDidUpdate(prevProps) {
+    const locationChanged = this.props.location !== prevProps.location;
+    if (locationChanged) {
+      this.updateDates();
+    }
   }
 
   update(sync) {
@@ -102,10 +112,15 @@ export class Items extends Component {
   }
 
   syncURL() {
+    const {
+      history: { push }
+    } = this.props;
     const month = this.state.date.format("M");
     const year = this.state.date.format("Y");
-    const params = queryString.stringify({ month, year });
-    this.props.push({ search: params });
+    const params = new URLSearchParams();
+    params.set("month", month);
+    params.set("year", year);
+    push(`?${params.toString()}`);
   }
 
   formatDates(month, year) {
@@ -230,7 +245,7 @@ export class Items extends Component {
     const month = nextMonth.format("M");
     const year = nextMonth.format("Y");
     const date = this.formatDates(month, year);
-    this.setState(date, () => this.update(true));
+    this.setState(date, () => this.syncURL());
   };
 
   handlePreviousClick = () => {
@@ -241,7 +256,7 @@ export class Items extends Component {
     const month = previousMonth.format("M");
     const year = previousMonth.format("Y");
     const date = this.formatDates(month, year);
-    this.setState(date, () => this.update(true));
+    this.setState(date, () => this.syncURL());
   };
 
   renderAggregateDetails() {
@@ -376,5 +391,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchItems, push }
+  { fetchItems }
 )(Items);
