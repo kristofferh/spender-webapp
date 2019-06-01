@@ -25,8 +25,7 @@ export const appReducer = combineReducers({
 
 const rootReducer = (state, action) => {
   if (action.type === USER_LOGOUT) {
-    const { router } = state;
-    state = { router };
+    state = {};
   }
   return appReducer(state, action);
 };
