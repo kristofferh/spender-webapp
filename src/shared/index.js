@@ -33,11 +33,11 @@ export class App extends Component {
   };
 
   render() {
-    const { loginPage, loggedIn } = this.props;
+    const { loggedIn } = this.props;
     return (
       <Container>
         <Nav authenticated={loggedIn} />
-        <Content center={loginPage}>
+        <Content>
           <Switch>
             {routes.map((route, i) => {
               return (
@@ -52,10 +52,9 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { router, user } = state;
+  const { user } = state;
   return {
     ...state,
-    loginPage: router.location.pathname === "/login",
     loggedIn: user.loggedIn || Boolean(Cookies.get(SESSION_COOKIE))
   };
 };
