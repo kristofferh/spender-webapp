@@ -17,7 +17,8 @@ export const shadowBox = () => `
 
 export const mainContainer = () => `
   padding: 0 15px;
-
+  width: 100%;
+  
   @media (min-width: ${minWidthMd}) {
     max-width: 960px;
     margin: 30px auto;

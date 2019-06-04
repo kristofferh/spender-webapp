@@ -4,6 +4,7 @@ import { mainContent, maxWidthMd } from "shared/utils/styles/layout";
 
 export const Form = styled.form`
   ${mainContent()};
+  width: auto;
 
   @media (max-width: ${maxWidthMd}) {
     margin: 0 -15px;
