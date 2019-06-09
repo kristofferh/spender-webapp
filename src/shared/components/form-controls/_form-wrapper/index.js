@@ -1,17 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "@emotion/styled";
 
-const Wrapper = styled.div`
-  position: relative;
-`;
-
-const LabelWrapper = styled.div``;
-
-const Label = styled.label`
-  font-weight: bold;
-  display: block;
-`;
+import { Wrapper, LabelWrapper, Label } from "./styles";
 
 const FormWrapper = WrappedComponent => {
   const _Wrapper = props => {
