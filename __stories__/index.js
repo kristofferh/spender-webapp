@@ -7,6 +7,9 @@ import { Input } from "../src/shared/components/form-controls/input";
 import Loader from "../src/shared/components/loader";
 
 storiesOf("Form Controls", module)
+  .addParameters({
+    jest: ["components/form-controls/action-buttons/index.tsx"]
+  })
   .add("Action Buttons", () => {
     const primaryActionLabel = text("primaryActionLabel", "Send");
     const secondaryAction = boolean("secondaryAction", false);

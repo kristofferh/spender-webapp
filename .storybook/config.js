@@ -1,5 +1,8 @@
 import { configure, addDecorator } from "@storybook/react";
 import { withKnobs } from "@storybook/addon-knobs";
+import { withTests } from "@storybook/addon-jest";
+
+import results from "../jest-test-results.json";
 import "./styles.css";
 
 function loadStories() {
@@ -7,4 +10,9 @@ function loadStories() {
 }
 
 addDecorator(withKnobs);
+addDecorator(
+  withTests({
+    results
+  })
+);
 configure(loadStories, module);
