@@ -19,15 +19,8 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Content = styled.main`
-  width: 100%;
-  position: relative;
-  margin: ${({ center }) => (center ? "auto" : null)};
-`;
-
 export class App extends Component {
   static propTypes = {
-    loginPage: PropTypes.bool,
     userLoggedIn: PropTypes.func,
     loggedIn: PropTypes.bool
   };
@@ -37,15 +30,13 @@ export class App extends Component {
     return (
       <Container>
         <Nav authenticated={loggedIn} />
-        <Content>
-          <Switch>
-            {routes.map((route, i) => {
-              return (
-                <RouteWithSubRoutes key={i} loggedIn={loggedIn} {...route} />
-              );
-            })}
-          </Switch>
-        </Content>
+        <Switch>
+          {routes.map((route, i) => {
+            return (
+              <RouteWithSubRoutes key={i} loggedIn={loggedIn} {...route} />
+            );
+          })}
+        </Switch>
       </Container>
     );
   }

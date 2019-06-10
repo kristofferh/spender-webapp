@@ -3,6 +3,7 @@
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
 .emotion-57 {
   padding: 0 15px;
+  width: 100%;
 }
 
 @media (min-width:768px) {
@@ -27,8 +28,10 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 
 .emotion-55 {
   padding: 0 15px;
+  width: 100%;
   margin: 0;
   background: #ffffff;
+  width: auto;
 }
 
 @media (min-width:768px) {
@@ -505,6 +508,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
 .emotion-59 {
   padding: 0 15px;
+  width: 100%;
 }
 
 @media (min-width:768px) {
@@ -529,8 +533,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 
 .emotion-57 {
   padding: 0 15px;
+  width: 100%;
   margin: 0;
   background: #ffffff;
+  width: auto;
 }
 
 @media (min-width:768px) {
