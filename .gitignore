@@ -1,3 +1,6 @@
+# Specific files
+jest-test-results.json 
+
 # Misc.
 *.sublime-workspace
 *.code-workspace
