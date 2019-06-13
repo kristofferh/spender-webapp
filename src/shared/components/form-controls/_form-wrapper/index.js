@@ -10,24 +10,20 @@ const FormWrapper = WrappedComponent => {
       hideLabelWrapper,
       labelClassName,
       labelWrapperClassName,
-      displayErrorOnInactive,
       id,
       label,
       required,
-      input,
-      meta: { touched, error, active, warning }
+      field: { name },
+      form: { touched, error }
     } = props;
-    const displayError =
-      displayErrorOnInactive === true
-        ? touched && error && !active
-        : touched && error;
+    const displayError = touched && error;
 
     const labelMarkup = (
       <LabelWrapper className={labelWrapperClassName}>
         <Label
           required={required}
           className={labelClassName}
-          htmlFor={id || input.name}
+          htmlFor={id || name}
         >
           {label}
         </Label>
@@ -38,10 +34,7 @@ const FormWrapper = WrappedComponent => {
       <Wrapper hasError={displayError} className={groupClassName}>
         {!hideLabelWrapper && labelMarkup}
         <WrappedComponent {...props} />
-        {(displayError && <span className="required">{error}</span>) ||
-          (!active && touched && warning && (
-            <span className="warning">{warning}</span>
-          ))}
+        {displayError && <span className="required">{error}</span>}
       </Wrapper>
     );
   };
@@ -56,11 +49,11 @@ const FormWrapper = WrappedComponent => {
     hideLabelWrapper: PropTypes.bool,
     labelClassName: PropTypes.string,
     labelWrapperClassName: PropTypes.string,
-    input: PropTypes.object.isRequired,
+    field: PropTypes.object.isRequired,
     displayErrorOnInactive: PropTypes.bool,
     id: PropTypes.string,
     label: PropTypes.node,
-    meta: PropTypes.object,
+    form: PropTypes.object,
     required: PropTypes.bool.isRequired // required is required 😎
   };
 
