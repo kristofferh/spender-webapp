@@ -14,9 +14,9 @@ const FormWrapper = WrappedComponent => {
       label,
       required,
       field: { name },
-      form: { touched, error }
+      form: { touched, errors }
     } = props;
-    const displayError = touched && error;
+    const displayError = touched[name] && errors[name];
 
     const labelMarkup = (
       <LabelWrapper className={labelWrapperClassName}>
@@ -34,14 +34,13 @@ const FormWrapper = WrappedComponent => {
       <Wrapper hasError={displayError} className={groupClassName}>
         {!hideLabelWrapper && labelMarkup}
         <WrappedComponent {...props} />
-        {displayError && <span className="required">{error}</span>}
+        {displayError && <span className="required">{errors[name]}</span>}
       </Wrapper>
     );
   };
 
   _Wrapper.defaultProps = {
-    required: false,
-    displayErrorOnInactive: true
+    required: false
   };
 
   _Wrapper.propTypes = {
@@ -50,7 +49,6 @@ const FormWrapper = WrappedComponent => {
     labelClassName: PropTypes.string,
     labelWrapperClassName: PropTypes.string,
     field: PropTypes.object.isRequired,
-    displayErrorOnInactive: PropTypes.bool,
     id: PropTypes.string,
     label: PropTypes.node,
     form: PropTypes.object,

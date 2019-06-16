@@ -3,8 +3,9 @@ import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import { Field } from "formik";
 import { FormikFormDecorator } from "./_decorators";
+import { required } from "../src/shared/utils/validators";
 import ActionButtons from "../src/shared/components/form-controls/action-buttons";
-import { Input } from "../src/shared/components/form-controls/input";
+import Input from "../src/shared/components/form-controls/input";
 import Loader from "../src/shared/components/loader";
 
 storiesOf("Form Controls", module)
@@ -27,6 +28,20 @@ storiesOf("Form Controls", module)
   .addDecorator(
     FormikFormDecorator({ mapPropsToValues: () => ({ input: "" }) })
   )
-  .add("Input", () => <Field name="input" component={Input} />);
+  .add("Input", () => {
+    const label = text("label", "Label");
+    const require = boolean("required", true);
+    const placeholder = text("placeholder", "Type something here");
+    return (
+      <Field
+        name="input"
+        component={Input}
+        required={require}
+        label={label}
+        placeholder={placeholder}
+        validate={required}
+      />
+    );
+  });
 
 storiesOf("Loader", module).add("Loader", () => <Loader />);
