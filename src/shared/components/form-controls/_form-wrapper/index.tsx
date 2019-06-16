@@ -1,10 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactType } from "react";
 
 import { Wrapper, LabelWrapper, Label } from "./styles";
 
-const FormWrapper = WrappedComponent => {
-  const _Wrapper = props => {
+export type WrapperProps = {
+  groupClassName?: string;
+  hideLabelWrapper?: boolean;
+  labelClassName?: string;
+  labelWrapperClassName?: string;
+  id?: string;
+  label?: string;
+  required?: boolean;
+  field: { name: string };
+  form: {
+    touched: { [prop: string]: boolean };
+    errors: { [prop: string]: string };
+  };
+};
+
+const FormWrapper = (WrappedComponent: ReactType) => {
+  const _Wrapper = (props: WrapperProps) => {
     const {
       groupClassName,
       hideLabelWrapper,
@@ -16,7 +30,7 @@ const FormWrapper = WrappedComponent => {
       field: { name },
       form: { touched, errors }
     } = props;
-    const displayError = touched[name] && errors[name];
+    const displayError = Boolean(touched[name] && errors[name]);
 
     const labelMarkup = (
       <LabelWrapper className={labelWrapperClassName}>
@@ -37,22 +51,6 @@ const FormWrapper = WrappedComponent => {
         {displayError && <span className="required">{errors[name]}</span>}
       </Wrapper>
     );
-  };
-
-  _Wrapper.defaultProps = {
-    required: false
-  };
-
-  _Wrapper.propTypes = {
-    groupClassName: PropTypes.string,
-    hideLabelWrapper: PropTypes.bool,
-    labelClassName: PropTypes.string,
-    labelWrapperClassName: PropTypes.string,
-    field: PropTypes.object.isRequired,
-    id: PropTypes.string,
-    label: PropTypes.node,
-    form: PropTypes.object,
-    required: PropTypes.bool.isRequired // required is required 😎
   };
 
   return _Wrapper;

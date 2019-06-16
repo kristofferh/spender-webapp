@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import FormWrapper from "../_form-wrapper";
 import { StyledInput } from "./styles";
 
-type InputProps = {
+export type InputProps = {
   attributes?: object;
   className?: string;
   field: {
