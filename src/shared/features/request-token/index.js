@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { reduxForm } from "redux-form";
+import { withFormik } from "formik";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -7,7 +7,7 @@ import SignupForm from "shared/components/signup-form";
 
 import { requestToken } from "./actions";
 
-const SignupWrapper = reduxForm({
+const SignupWrapper = withFormik({
   form: "RequestToken",
   enableReinitialize: true
 })(SignupForm);
