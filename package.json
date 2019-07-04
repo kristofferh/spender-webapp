@@ -26,7 +26,9 @@
     "local:dev": "webpack-dev-server --public local.dev:8080 --host 0.0.0.0 --config ./webpack.config.dev.js",
     "start": "node dist/index.js",
     "heroku-postbuild": "yarn build && yarn build:server",
-    "storybook": "yarn jstest:output && start-storybook"
+    "storybook": "yarn jstest:output && start-storybook",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "sideEffects": [
     "*.scss"
@@ -80,7 +82,8 @@
     "redux": "^4.0.0",
     "redux-form": "^7.4.0",
     "redux-thunk": "^2.3.0",
-    "regenerator-runtime": "^0.13.2"
+    "regenerator-runtime": "^0.13.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -128,5 +131,6 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1"
-  }
+  },
+  "snyk": true
 }
