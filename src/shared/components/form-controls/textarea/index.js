@@ -5,12 +5,12 @@ import FormWrapper from "../_form-wrapper";
 
 import { StyledInput } from "./styles";
 
-export const Textarea = ({ attributes, className, input, id, placeholder }) => (
+export const Textarea = ({ attributes, className, field, id, placeholder }) => (
   <StyledInput
     {...attributes}
-    {...input}
+    {...field}
     className={className}
-    id={id || input.name}
+    id={id || field.name}
     placeholder={placeholder}
   />
 );
@@ -23,7 +23,7 @@ Textarea.defaultProps = {
 Textarea.propTypes = {
   attributes: PropTypes.object,
   className: PropTypes.string,
-  input: PropTypes.object.isRequired,
+  field: PropTypes.object.isRequired,
   id: PropTypes.string,
   label: PropTypes.node,
   showPlaceholder: PropTypes.bool,
