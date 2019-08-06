@@ -11,9 +11,9 @@ import { FormGroup, Form } from "./styles";
 const EditForm = ({
   handleSubmit,
   tags,
-  error,
   showDelete,
-  deleteCallback
+  deleteCallback,
+  status
 }) => (
   <Form onSubmit={handleSubmit}>
     <FormGroup>
@@ -44,7 +44,7 @@ const EditForm = ({
       secondaryAction={showDelete}
       secondaryActionLabel="Delete"
       secondaryActionCallback={deleteCallback}
-      error={error ? error : null}
+      error={status ? status : null}
     />
   </Form>
 );
@@ -56,9 +56,9 @@ EditForm.defaultProps = {
 EditForm.propTypes = {
   handleSubmit: PropTypes.func,
   tags: PropTypes.array,
-  error: PropTypes.string,
   showDelete: PropTypes.bool,
-  deleteCallback: PropTypes.func
+  deleteCallback: PropTypes.func,
+  status: PropTypes.string
 };
 
 export default EditForm;

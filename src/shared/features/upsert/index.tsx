@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withFormik } from "formik";
-import { SubmissionError } from "redux-form";
 import moment from "moment";
+
+import { omit } from "shared/utils/object";
 
 import EditForm from "shared/components/edit-form";
 
@@ -16,7 +17,7 @@ type Tag = {
 };
 
 type FormValues = {
-  date: string;
+  date?: string;
   amount: string | number;
   description: string;
   tags: Tag[];
@@ -51,8 +52,18 @@ const EditWrapper = withFormik<FormProps, FormValues>({
     }
     return { ...initialValues, date };
   },
-  handleSubmit: (values: FormValues, { props: { onSubmit } }) => {
-    onSubmit(values);
+  handleSubmit: async (
+    values: FormValues,
+    { setStatus, props: { onSubmit } }
+  ) => {
+    if (values.date === "") {
+      values = omit(values, "date");
+    }
+    try {
+      await onSubmit(values);
+    } catch {
+      setStatus("Something went weird.");
+    }
   }
 })(EditForm);
 
@@ -62,15 +73,9 @@ export class Upsert extends Component<Props> {
   }
 
   handleSubmit = (values: any) => {
-    return this.props
-      .upsertItem({ ...values, id: this.props.id })
-      .then(() => {
-        this.props.history.push("/");
-      })
-      .catch(errors => {
-        console.log("something went weird", errors); // eslint-disable-line no-console
-        throw new SubmissionError({ _error: "Something went weird." });
-      });
+    return this.props.upsertItem({ ...values, id: this.props.id }).then(() => {
+      this.props.history.push("/");
+    });
   };
 
   handleDelete = () => {

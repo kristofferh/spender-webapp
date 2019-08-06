@@ -21,7 +21,6 @@ export const ErrorContainer = styled.div`
   background: ${danger};
   border-radius: ${borderRadiusSubtle};
   color: ${white};
-  text-decoration: underline;
 `;
 
 export const PrimaryBtn = styled.button`
