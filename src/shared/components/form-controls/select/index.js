@@ -71,10 +71,17 @@ MultiValue.propTypes = {
 // @todo: check if https://github.com/JedWatson/react-select/pull/2659/files
 // has been merged. After that isValidNewOption and getNewOptionData can
 // probably be deleted.
-export const Select = ({ attributes, input, id, placeholder, options }) => (
+export const Select = ({
+  attributes,
+  field,
+  form,
+  id,
+  placeholder,
+  options
+}) => (
   <Creatable
     {...attributes}
-    {...input}
+    {...field}
     components={{
       MultiValue
     }}
@@ -84,9 +91,10 @@ export const Select = ({ attributes, input, id, placeholder, options }) => (
     })}
     getOptionValue={option => option.name}
     getOptionLabel={option => option.name}
-    onBlur={() => input.onBlur(input.value.value)}
+    onBlur={() => form.setFieldTouched(field.name, true)}
+    onChange={value => form.setFieldValue(field.name, value)}
     isMulti
-    id={id || input.name}
+    id={id || field.name}
     placeholder={placeholder}
     options={options}
     styles={customStyles}
@@ -94,7 +102,8 @@ export const Select = ({ attributes, input, id, placeholder, options }) => (
 );
 
 Select.propTypes = {
-  input: PropTypes.object.isRequired,
+  field: PropTypes.object.isRequired,
+  form: PropTypes.object,
   options: PropTypes.array.isRequired,
   attributes: PropTypes.object,
   className: PropTypes.string,

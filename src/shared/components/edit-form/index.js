@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Field } from "redux-form";
-import moment from "moment";
+import { Field } from "formik";
 
-import { required, number } from "shared/utils/validators";
+import { composedValidators, required, number } from "shared/utils/validators";
 
 import { ActionButtons, Input, Select } from "shared/components/form-controls";
 
@@ -18,17 +17,7 @@ const EditForm = ({
 }) => (
   <Form onSubmit={handleSubmit}>
     <FormGroup>
-      <Field
-        name="date"
-        component={Input}
-        type="datetime-local"
-        format={value => {
-          return value
-            ? moment(value).format(moment.HTML5_FMT.DATETIME_LOCAL)
-            : "";
-        }}
-        label="Date"
-      />
+      <Field name="date" component={Input} type="datetime-local" label="Date" />
     </FormGroup>
     <FormGroup>
       <Field
@@ -37,10 +26,7 @@ const EditForm = ({
         type="number"
         attributes={{ step: "any" }}
         label="Amount"
-        validate={[required, number]}
-        parse={value => {
-          return value ? Number(value) : null;
-        }}
+        validate={composedValidators(required, number)}
       />
     </FormGroup>
     <FormGroup>

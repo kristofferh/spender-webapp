@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import FormWrapper from "../_form-wrapper";
 import { StyledInput } from "./styles";
 
-export type InputProps = {
+type Props = {
   attributes?: object;
   className?: string;
   field: {
@@ -16,7 +16,7 @@ export type InputProps = {
   pattern?: string;
 };
 
-export const Input = ({
+export const Input: React.FC<Props> = ({
   attributes,
   className = "form-control",
   field,
@@ -24,7 +24,7 @@ export const Input = ({
   placeholder,
   type = "text",
   pattern
-}: InputProps) => (
+}) => (
   <StyledInput
     {...attributes}
     {...field}
