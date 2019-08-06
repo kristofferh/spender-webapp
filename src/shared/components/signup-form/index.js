@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Field } from "formik";
 
-import { required, email } from "shared/utils/validators";
+import { composedValidators, required, email } from "shared/utils/validators";
 import { black } from "shared/utils/styles";
 
 import Loader from "shared/components/loader";
@@ -32,7 +32,7 @@ const SignupForm = ({ handleSubmit, invalid, success, isRequesting }) => (
                 component={StyledInput}
                 name="email"
                 type="email"
-                validate={[required, email]}
+                validate={composedValidators(required, email)}
               />
               <Button type="submit" disabled={invalid}>
                 Go

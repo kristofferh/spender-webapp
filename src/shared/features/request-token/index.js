@@ -8,8 +8,13 @@ import SignupForm from "shared/components/signup-form";
 import { requestToken } from "./actions";
 
 const SignupWrapper = withFormik({
-  form: "RequestToken",
-  enableReinitialize: true
+  enableReinitialize: true,
+  mapPropsToValues: () => ({
+    email: ""
+  }),
+  handleSubmit: (values, { props: { onSubmit } }) => {
+    onSubmit(values);
+  }
 })(SignupForm);
 
 export class RequestToken extends Component {

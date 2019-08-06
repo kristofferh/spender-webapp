@@ -1,4 +1,4 @@
-// Validation functions to be used with Redux-Form.
+// Validation functions to be used with Redux-Form / Formik.
 // If the value is valid, the validation function should return undefined.
 // If the value is invalid, the validation function should return an error. This
 // is usually a string, but it does not have to be.
@@ -29,3 +29,13 @@ export const email = value =>
   /(.+)@(.+){2,}\.(.+){2,}/.test(value) !== true
     ? "Must be a valid email."
     : undefined;
+
+export const composedValidators = (...args) => value => {
+  for (let validator of args) {
+    const result = validator(value);
+    if (result) {
+      return result;
+    }
+  }
+  return undefined;
+};
