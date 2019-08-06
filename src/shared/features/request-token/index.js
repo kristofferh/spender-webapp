@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { reduxForm } from "redux-form";
+import { withFormik } from "formik";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -7,9 +7,14 @@ import SignupForm from "shared/components/signup-form";
 
 import { requestToken } from "./actions";
 
-const SignupWrapper = reduxForm({
-  form: "RequestToken",
-  enableReinitialize: true
+const SignupWrapper = withFormik({
+  enableReinitialize: true,
+  mapPropsToValues: () => ({
+    email: ""
+  }),
+  handleSubmit: (values, { props: { onSubmit } }) => {
+    onSubmit(values);
+  }
 })(SignupForm);
 
 export class RequestToken extends Component {

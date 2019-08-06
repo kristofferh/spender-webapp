@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 import { mainContainer, maxWidthMd } from "shared/utils/styles/layout";
 import { titleOne } from "shared/utils/styles";
 

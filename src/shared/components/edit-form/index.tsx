@@ -1,34 +1,31 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Field } from "redux-form";
-import moment from "moment";
+import { Field, FormikProps } from "formik";
 
-import { required, number } from "shared/utils/validators";
+import { Tag, FormValues } from "shared/features/upsert";
+
+import { composedValidators, required, number } from "shared/utils/validators";
 
 import { ActionButtons, Input, Select } from "shared/components/form-controls";
 
 import { FormGroup, Form } from "./styles";
 
-const EditForm = ({
+export type Props = {
+  tags: Tag[];
+  showDelete: boolean;
+  deleteCallback: () => void;
+  status?: string;
+};
+
+const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
   handleSubmit,
   tags,
-  error,
   showDelete,
-  deleteCallback
+  deleteCallback,
+  status
 }) => (
   <Form onSubmit={handleSubmit}>
     <FormGroup>
-      <Field
-        name="date"
-        component={Input}
-        type="datetime-local"
-        format={value => {
-          return value
-            ? moment(value).format(moment.HTML5_FMT.DATETIME_LOCAL)
-            : "";
-        }}
-        label="Date"
-      />
+      <Field name="date" component={Input} type="datetime-local" label="Date" />
     </FormGroup>
     <FormGroup>
       <Field
@@ -37,10 +34,7 @@ const EditForm = ({
         type="number"
         attributes={{ step: "any" }}
         label="Amount"
-        validate={[required, number]}
-        parse={value => {
-          return value ? Number(value) : null;
-        }}
+        validate={composedValidators(required, number)}
       />
     </FormGroup>
     <FormGroup>
@@ -58,21 +52,13 @@ const EditForm = ({
       secondaryAction={showDelete}
       secondaryActionLabel="Delete"
       secondaryActionCallback={deleteCallback}
-      error={error ? error : null}
+      error={status ? status : null}
     />
   </Form>
 );
 
 EditForm.defaultProps = {
   deleteCallback: () => {}
-};
-
-EditForm.propTypes = {
-  handleSubmit: PropTypes.func,
-  tags: PropTypes.array,
-  error: PropTypes.string,
-  showDelete: PropTypes.bool,
-  deleteCallback: PropTypes.func
 };
 
 export default EditForm;
