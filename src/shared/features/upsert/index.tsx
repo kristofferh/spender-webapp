@@ -5,18 +5,18 @@ import moment from "moment";
 
 import { omit } from "shared/utils/object";
 
-import EditForm from "shared/components/edit-form";
+import EditForm, { Props as EditFormProps } from "shared/components/edit-form";
 
 import { upsertItem, fetchItem, deleteItem } from "shared/data/item/actions";
 
 import { Container, Title } from "./styles";
 
-type Tag = {
+export type Tag = {
   name: string;
   color?: string;
 };
 
-type FormValues = {
+export type FormValues = {
   date?: string;
   amount: string | number;
   description: string;
@@ -43,7 +43,7 @@ type FormProps = {
   onSubmit: (values: FormValues) => Promise<any>;
 };
 
-const EditWrapper = withFormik<FormProps, FormValues>({
+const EditWrapper = withFormik<FormProps & EditFormProps, FormValues>({
   enableReinitialize: true,
   mapPropsToValues: ({ initialValues }) => {
     let { date } = initialValues;
@@ -91,13 +91,12 @@ export class Upsert extends Component<Props> {
   };
 
   render() {
-    const { id, errors, tags, initialValues } = this.props;
+    const { id, tags, initialValues } = this.props;
     return (
       <Container>
         <Title>{id ? "Edit" : "Add"}</Title>
         <EditWrapper
           onSubmit={this.handleSubmit}
-          errors={errors}
           tags={tags}
           showDelete={id ? true : false}
           deleteCallback={this.handleDelete}

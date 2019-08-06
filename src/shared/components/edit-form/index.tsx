@@ -1,6 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Field } from "formik";
+import { Field, FormikProps } from "formik";
+
+import { Tag, FormValues } from "shared/features/upsert";
 
 import { composedValidators, required, number } from "shared/utils/validators";
 
@@ -8,7 +9,14 @@ import { ActionButtons, Input, Select } from "shared/components/form-controls";
 
 import { FormGroup, Form } from "./styles";
 
-const EditForm = ({
+export type Props = {
+  tags: Tag[];
+  showDelete: boolean;
+  deleteCallback: () => void;
+  status?: string;
+};
+
+const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
   handleSubmit,
   tags,
   showDelete,
@@ -51,14 +59,6 @@ const EditForm = ({
 
 EditForm.defaultProps = {
   deleteCallback: () => {}
-};
-
-EditForm.propTypes = {
-  handleSubmit: PropTypes.func,
-  tags: PropTypes.array,
-  showDelete: PropTypes.bool,
-  deleteCallback: PropTypes.func,
-  status: PropTypes.string
 };
 
 export default EditForm;
