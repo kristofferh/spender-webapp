@@ -1,5 +1,4 @@
-// Omit properties from object
-export function omit(obj: any, ...keysToOmit: string[]) {
+export function omit(obj: any, ...keysToOmit: any) {
   return Object.keys(obj).reduce(
     (acc, key) => {
       if (keysToOmit.indexOf(key) === -1) {

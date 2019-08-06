@@ -52,12 +52,9 @@ const EditWrapper = withFormik<FormProps, FormValues>({
     }
     return { ...initialValues, date };
   },
-  handleSubmit: async (
-    values: FormValues,
-    { setStatus, props: { onSubmit } }
-  ) => {
+  handleSubmit: async (values, { setStatus, props: { onSubmit } }) => {
     if (values.date === "") {
-      values = omit(values, "date");
+      values = omit(values, "date") as FormValues;
     }
     try {
       await onSubmit(values);
@@ -68,6 +65,10 @@ const EditWrapper = withFormik<FormProps, FormValues>({
 })(EditForm);
 
 export class Upsert extends Component<Props> {
+  static defaultProps = {
+    tags: []
+  };
+
   componentDidMount() {
     this.props.fetchItem(this.props.id);
   }
@@ -128,11 +129,11 @@ const mapStateToProps = (state: any, ownProps: any) => {
 
   const existingTags =
     initialValues.tags && initialValues.tags.edges
-      ? initialValues.tags.edges.map(tag => tag.node)
+      ? initialValues.tags.edges.map((tag: any) => tag.node)
       : [];
 
   const availableTags =
-    tags && tags.edges ? tags.edges.map(tag => tag.node) : [];
+    tags && tags.edges ? tags.edges.map((tag: any) => tag.node) : [];
 
   return {
     ...state,
