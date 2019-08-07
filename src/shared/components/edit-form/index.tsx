@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, FormikProps } from "formik";
+import moment from "moment";
 
 import { Tag, FormValues } from "shared/features/upsert";
 
@@ -21,11 +22,25 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
   tags,
   showDelete,
   deleteCallback,
-  status
+  status,
+  setFieldValue
 }) => (
   <Form onSubmit={handleSubmit}>
     <FormGroup>
-      <Field name="date" component={Input} type="datetime-local" label="Date" />
+      <Field
+        name="date"
+        component={Input}
+        type="datetime-local"
+        label="Date"
+        onChange={(value: any) => {
+          if (value) {
+            setFieldValue(
+              "date",
+              moment(value).format(moment.HTML5_FMT.DATETIME_LOCAL)
+            );
+          }
+        }}
+      />
     </FormGroup>
     <FormGroup>
       <Field

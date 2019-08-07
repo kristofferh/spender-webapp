@@ -74,9 +74,15 @@ export class Upsert extends Component<Props> {
   }
 
   handleSubmit = (values: any) => {
-    return this.props.upsertItem({ ...values, id: this.props.id }).then(() => {
-      this.props.history.push("/");
-    });
+    return this.props
+      .upsertItem({
+        ...values,
+        amount: Number(values.amount),
+        id: this.props.id
+      })
+      .then(() => {
+        this.props.history.push("/");
+      });
   };
 
   handleDelete = () => {
