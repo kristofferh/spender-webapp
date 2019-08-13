@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Input snapshot should render and match snapshot 1`] = `
+.emotion-6 {
+  position: relative;
+  color: inherit;
+}
+
+.emotion-0 {
+  font-weight: bold;
+  display: block;
+}
+
+.emotion-0:after {
+  content: '';
+}
+
+.emotion-4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #888;
+  padding: 5px 0;
+  min-height: 40px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.emotion-4:focus {
+  outline: none;
+  border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
+}
+
+<div
+  className="emotion-6 emotion-7"
+>
+  <div
+    className="emotion-2 emotion-3"
+  >
+    <label
+      className="emotion-0 emotion-1"
+      htmlFor="test"
+    />
+  </div>
+  <input
+    className="form-control emotion-4 emotion-5"
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="text"
+  />
+</div>
+`;

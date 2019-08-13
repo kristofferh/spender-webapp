@@ -1,4 +1,9 @@
-import { required, number, email } from "shared/utils/validators";
+import {
+  composedValidators,
+  required,
+  number,
+  email
+} from "shared/utils/validators";
 
 describe("validation functions", () => {
   describe("required", () => {
@@ -85,6 +90,20 @@ describe("validation functions", () => {
 
     it("should succeed when email is valid", () => {
       expect(email("test.brill+1@court.photography")).toBeUndefined();
+    });
+  });
+
+  describe("composedValidators", () => {
+    it("fails on empty string", () => {
+      expect(composedValidators(required, email)("")).toEqual(
+        "This field is required."
+      );
+    });
+
+    it("fails on invalid email", () => {
+      expect(composedValidators(required, email)("kris")).toEqual(
+        "Must be a valid email."
+      );
     });
   });
 });
