@@ -44,6 +44,8 @@ export const flatInput = () => `
   border-bottom: 1px solid ${gray};
   padding: 5px 0;
   min-height: 40px;
+  font-family: inherit;
+  font-size: inherit;
 
   &:focus {
     outline: none;
