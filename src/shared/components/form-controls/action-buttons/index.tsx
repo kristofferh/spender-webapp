@@ -8,13 +8,13 @@ import {
   TextLink
 } from "./styles";
 
-export interface ActionButtonsProps {
+type ActionButtonsProps = {
   error?: ReactNode;
   primaryActionLabel?: ReactNode;
   secondaryAction?: boolean;
   secondaryActionLabel?: ReactNode;
   secondaryActionCallback?: () => void;
-}
+};
 
 const ActionButtons = ({
   primaryActionLabel = "Submit",

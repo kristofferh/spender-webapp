@@ -19,4 +19,5 @@ export const inputGradient = `linear-gradient(45deg, ${havelockBlue}, ${grayishR
 export const bodyGradient = "linear-gradient(156deg, #e1cad3 6%, #a6a8bc 96%)";
 
 // Aliases
+export const error = punch;
 export const danger = punch;

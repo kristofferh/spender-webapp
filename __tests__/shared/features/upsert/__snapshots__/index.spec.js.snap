@@ -64,11 +64,16 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 
 .emotion-8 {
   position: relative;
+  color: inherit;
 }
 
 .emotion-2 {
   font-weight: bold;
   display: block;
+}
+
+.emotion-2:after {
+  content: '';
 }
 
 .emotion-6 {
@@ -81,6 +86,8 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   border-bottom: 1px solid #888;
   padding: 5px 0;
   min-height: 40px;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .emotion-6:focus {
@@ -276,7 +283,6 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           <label
             className="emotion-2 emotion-3"
             htmlFor="date"
-            required={false}
           >
             Date
           </label>
@@ -287,11 +293,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           name="date"
           onBlur={[Function]}
           onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
           type="datetime-local"
-          value=""
         />
       </div>
     </div>
@@ -307,7 +309,6 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           <label
             className="emotion-2 emotion-3"
             htmlFor="amount"
-            required={false}
           >
             Amount
           </label>
@@ -318,12 +319,8 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           name="amount"
           onBlur={[Function]}
           onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
           step="any"
           type="number"
-          value=""
         />
       </div>
     </div>
@@ -339,7 +336,6 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           <label
             className="emotion-2 emotion-3"
             htmlFor="description"
-            required={false}
           >
             Description
           </label>
@@ -350,11 +346,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           name="description"
           onBlur={[Function]}
           onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
           type="text"
-          value=""
         />
       </div>
     </div>
@@ -370,7 +362,6 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           <label
             className="emotion-2 emotion-3"
             htmlFor="tags"
-            required={false}
           >
             Tags
           </label>
@@ -569,11 +560,16 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 
 .emotion-8 {
   position: relative;
+  color: inherit;
 }
 
 .emotion-2 {
   font-weight: bold;
   display: block;
+}
+
+.emotion-2:after {
+  content: '';
 }
 
 .emotion-6 {
@@ -586,6 +582,8 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   border-bottom: 1px solid #888;
   padding: 5px 0;
   min-height: 40px;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .emotion-6:focus {
@@ -791,7 +789,6 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           <label
             className="emotion-2 emotion-3"
             htmlFor="date"
-            required={false}
           >
             Date
           </label>
@@ -802,11 +799,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           name="date"
           onBlur={[Function]}
           onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
           type="datetime-local"
-          value=""
         />
       </div>
     </div>
@@ -822,7 +815,6 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           <label
             className="emotion-2 emotion-3"
             htmlFor="amount"
-            required={false}
           >
             Amount
           </label>
@@ -833,12 +825,8 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           name="amount"
           onBlur={[Function]}
           onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
           step="any"
           type="number"
-          value=""
         />
       </div>
     </div>
@@ -854,7 +842,6 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           <label
             className="emotion-2 emotion-3"
             htmlFor="description"
-            required={false}
           >
             Description
           </label>
@@ -865,11 +852,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           name="description"
           onBlur={[Function]}
           onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
           type="text"
-          value=""
         />
       </div>
     </div>
@@ -885,7 +868,6 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           <label
             className="emotion-2 emotion-3"
             htmlFor="tags"
-            required={false}
           >
             Tags
           </label>
