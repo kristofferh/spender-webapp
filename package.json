@@ -121,10 +121,10 @@
     "prettier": "^1.17.0",
     "react-test-renderer": "^16.8.6",
     "redux-devtools-extension": "^2.13.7",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "typescript": "^3.5.3",
-    "webpack": "^4.30.0",
+    "webpack": "^4.36.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1"
