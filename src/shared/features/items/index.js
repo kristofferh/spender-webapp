@@ -389,7 +389,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchItems }
-)(Items);
+export default connect(mapStateToProps, { fetchItems })(Items);
