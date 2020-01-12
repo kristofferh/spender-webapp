@@ -39,7 +39,4 @@ const mapStateToProps = state => {
   return { ...requestToken };
 };
 
-export default connect(
-  mapStateToProps,
-  { requestToken }
-)(RequestToken);
+export default connect(mapStateToProps, { requestToken })(RequestToken);
