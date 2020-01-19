@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { RouteWithSubRoutes } from "./utils";
 import routes from "./routes";
 import Nav from "./components/nav";
-
+import Panel from "./components/panel";
 import { userLoggedIn } from "./data/user/actions";
 
 const Container = styled.div`
@@ -30,6 +30,7 @@ export class App extends Component {
     return (
       <Container>
         <Nav authenticated={loggedIn} />
+        <Panel show={true}>There could be stuff here</Panel>
         <Switch>
           {routes.map((route, i) => {
             return (
