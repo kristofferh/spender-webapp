@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import Logo from "shared/components/logo";
 
@@ -7,7 +6,11 @@ import { white } from "shared/utils/styles";
 
 import { Container, Inner, MenuItem } from "./styles";
 
-const Nav = ({ authenticated }) =>
+type Props = {
+  authenticated: boolean;
+};
+
+const Nav: React.FC<Props> = ({ authenticated }) =>
   authenticated ? (
     <Container>
       <Inner>
@@ -16,9 +19,5 @@ const Nav = ({ authenticated }) =>
       </Inner>
     </Container>
   ) : null;
-
-Nav.propTypes = {
-  authenticated: PropTypes.bool
-};
 
 export default Nav;
