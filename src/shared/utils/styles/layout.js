@@ -1,4 +1,4 @@
-import { white, gray, inputGradient } from "./colors";
+import { gray, inputGradient, white } from "./colors";
 
 export const maxWidthSm = "575px";
 export const minWidthSm = "576px";
@@ -14,6 +14,10 @@ export const shadowBox = () => `
   box-shadow: 0 2px 5px rgba(17, 17, 17, 0.1);
   border-radius: ${borderRadiusSubtle};
 `;
+
+export const elevation = () => `
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1), 
+  0 1px 10px 0 rgba(0, 0, 0, 0.1);`;
 
 export const mainContainer = () => `
   padding: 0 15px;

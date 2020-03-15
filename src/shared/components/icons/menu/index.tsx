@@ -1,7 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const Menu = ({ className, color, size, ...svgProps }) => {
+type Props = {
+  className?: string;
+  size?: number;
+  color?: string;
+};
+
+const Menu: React.FC<Props> = ({ className, color, size, ...svgProps }) => {
   return (
     <svg
       className={className}
@@ -19,12 +24,6 @@ const Menu = ({ className, color, size, ...svgProps }) => {
 
 Menu.defaultProps = {
   size: 24
-};
-
-Menu.propTypes = {
-  className: PropTypes.string,
-  size: PropTypes.number,
-  color: PropTypes.string
 };
 
 export default Menu;

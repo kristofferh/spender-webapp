@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 import { fontFamilySerifSemiboldHeadline, white } from "shared/utils/styles";
 
 export const Container = styled.span`
@@ -7,5 +6,5 @@ export const Container = styled.span`
   font-family: ${fontFamilySerifSemiboldHeadline};
   font-size: 25px;
   margin: auto;
-  padding: 0 25px;
+  padding: 0 50px 0 25px;
 `;
