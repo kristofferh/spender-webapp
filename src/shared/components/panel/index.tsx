@@ -1,6 +1,4 @@
-import classNames from "classnames";
 import React, { useEffect, useRef, useState } from "react";
-
 import { Container } from "./styles";
 
 type Props = {
@@ -8,6 +6,7 @@ type Props = {
   show?: boolean;
   className?: string;
   onClose?: () => void;
+  maxWidth?: number | string;
 };
 
 const Panel: React.FC<Props> = ({
@@ -15,7 +14,8 @@ const Panel: React.FC<Props> = ({
   direction,
   show,
   className,
-  onClose
+  onClose,
+  maxWidth
 }) => {
   const [render, setRender] = useState(show);
   const panelRef = useRef(null);
@@ -36,16 +36,14 @@ const Panel: React.FC<Props> = ({
       }
     }
   };
-
   return render ? (
     <Container
       slideDirection={direction}
       ref={panelRef}
       onAnimationEnd={handleAnimationEnd}
-      className={classNames("panel", className, {
-        in: show,
-        out: !show
-      })}
+      show={show}
+      maxWidth={maxWidth}
+      className={className}
     >
       {children}
     </Container>

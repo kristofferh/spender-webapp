@@ -12,5 +12,8 @@
     "**/node_modules": true,
     "**/dist": true
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  }
 }
