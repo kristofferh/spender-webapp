@@ -1,15 +1,13 @@
-import React, { Component } from "react";
-import { Switch } from "react-router-dom";
-import { connect } from "react-redux";
-import Cookies from "js-cookie";
 import styled from "@emotion/styled";
+import Cookies from "js-cookie";
 import PropTypes from "prop-types";
-
-import { RouteWithSubRoutes } from "./utils";
-import routes from "./routes";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Switch } from "react-router-dom";
 import Nav from "./components/nav";
-
 import { userLoggedIn } from "./data/user/actions";
+import routes from "./routes";
+import { RouteWithSubRoutes } from "./utils";
 
 const Container = styled.div`
   display: flex;
