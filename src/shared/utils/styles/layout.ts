@@ -20,12 +20,12 @@ export const elevation = () => `
   0 1px 10px 0 rgba(0, 0, 0, 0.1);`;
 
 export const mainContainer = () => `
-  padding: 0 15px;
+  padding: 0 16px;
   width: 100%;
   
   @media (min-width: ${minWidthMd}) {
     max-width: 960px;
-    margin: 30px auto;
+    margin: 32px auto;
   }
 `;
 
@@ -36,7 +36,7 @@ export const mainContent = () => `
 
   @media (min-width: ${minWidthMd}) {
     ${shadowBox()};
-    padding: 20px 30px;
+    padding: 24px 32px;
   }
 `;
 
