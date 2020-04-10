@@ -53,7 +53,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.5",
     "@emotion/styled": "^10.0.5",
-    "@vx/gradient": "^0.0.165",
+    "@vx/gradient": "^0.0.195",
     "@vx/grid": "^0.0.179",
     "@vx/scale": "^0.0.179",
     "@vx/shape": "^0.0.179",

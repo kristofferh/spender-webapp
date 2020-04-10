@@ -1865,12 +1865,12 @@
   dependencies:
     d3-shape "^1.0.6"
 
-"@vx/gradient@^0.0.165":
-  version "0.0.165"
-  resolved "https://registry.yarnpkg.com/@vx/gradient/-/gradient-0.0.165.tgz#0cc0fe873e6acded4943fa274f68601ad5a50a38"
-  integrity sha512-FjRXMTmcy7k0TWsfDzWWXw6T9WXKP+6LS/GRgnguq271pab/P+AdOJThsVxtBgUc8ZOAPbub3/2Gggz9d8tocg==
+"@vx/gradient@^0.0.195":
+  version "0.0.195"
+  resolved "https://registry.yarnpkg.com/@vx/gradient/-/gradient-0.0.195.tgz#a795a26c7b080e177154f271cffbc2a3a40d0606"
+  integrity sha512-d3enF/y6P994+5R31hyqP7d578WMPNFFQSnVTL0YPzCwzY4BZIaWqitK7omU7ws1XL2QWOZak7bVUhU1zoTp0A==
   dependencies:
-    classnames "^2.2.5"
+    "@types/react" "*"
     prop-types "^15.5.7"
 
 "@vx/grid@^0.0.179":
