@@ -1,17 +1,11 @@
+import { FieldProps } from "formik";
 import React, { ReactNode } from "react";
-
 import FormWrapper from "../_form-wrapper";
 import { StyledInput } from "./styles";
 
-type Props = {
+interface Props extends FieldProps {
   attributes?: object;
   className?: string;
-  field: {
-    name: string;
-  };
-  form: {
-    setFieldValue: (key: string, value: any) => void;
-  };
   id?: string;
   label?: ReactNode;
   showPlaceholder?: boolean;
@@ -19,7 +13,7 @@ type Props = {
   type: string;
   pattern?: string;
   onChange?: (value: string) => void;
-};
+}
 
 export const Input: React.FC<Props> = ({
   attributes,
