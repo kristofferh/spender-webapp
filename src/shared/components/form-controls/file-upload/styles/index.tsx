@@ -34,19 +34,6 @@ export const outlinePulseError = keyframes`
     }
 `;
 
-const dragState = (props: ContainerProps) => {
-  if (props.isDragAccept) {
-    return "#00e676";
-  }
-  if (props.isDragReject) {
-    return "#ff1744";
-  }
-  if (props.isDragActive) {
-    return "#2196f3";
-  }
-  return "#eeeeee";
-};
-
 export const Container = styled.div<ContainerProps>`
   ${shadowBox()};
   padding: 16px;

@@ -10,4 +10,5 @@ const Profile: React.FC = () => {
     </Container>
   );
 };
+
 export default Profile;
