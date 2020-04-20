@@ -1,14 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
 import { withFormik } from "formik";
 import moment from "moment";
-
-import { omit } from "shared/utils/object";
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import EditForm, { Props as EditFormProps } from "shared/components/edit-form";
-
-import { upsertItem, fetchItem, deleteItem } from "shared/data/item/actions";
-
+import { deleteItem, fetchItem, upsertItem } from "shared/data/item/actions";
+import { omit } from "shared/utils/object";
 import { Container, Title } from "./styles";
 
 export type Tag = {
@@ -73,27 +69,22 @@ export class Upsert extends Component<Props> {
     this.props.fetchItem(this.props.id);
   }
 
-  handleSubmit = (values: any) => {
-    return this.props
-      .upsertItem({
-        ...values,
-        amount: Number(values.amount),
-        id: this.props.id
-      })
-      .then(() => {
-        this.props.history.push("/");
-      });
+  handleSubmit = async (values: FormValues) => {
+    await this.props.upsertItem({
+      ...values,
+      amount: Number(values.amount),
+      id: this.props.id
+    });
+    this.props.history.push("/");
   };
 
-  handleDelete = () => {
-    return this.props
-      .deleteItem(this.props.id)
-      .then(() => {
-        this.props.history.push("/");
-      })
-      .catch(errors => {
-        console.log("something went weird", errors); // eslint-disable-line no-console
-      });
+  handleDelete = async () => {
+    try {
+      await this.props.deleteItem(this.props.id);
+      this.props.history.push("/");
+    } catch (errors) {
+      console.log("something went weird", errors); // eslint-disable-line no-console
+    }
   };
 
   render() {
@@ -149,11 +140,8 @@ const mapStateToProps = (state: any, ownProps: any) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-    upsertItem,
-    fetchItem,
-    deleteItem
-  }
-)(Upsert);
+export default connect(mapStateToProps, {
+  upsertItem,
+  fetchItem,
+  deleteItem
+})(Upsert);

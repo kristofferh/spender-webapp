@@ -1,70 +1,39 @@
 import { Field, FormikProps } from "formik";
-import moment from "moment";
 import React from "react";
-import { ActionButtons, Input, Select } from "shared/components/form-controls";
-import { FormValues, Tag } from "shared/features/upsert";
-import { composedValidators, number, required } from "shared/utils/validators";
+import {
+  ActionButtons,
+  FileUpload,
+  Input
+} from "shared/components/form-controls";
+import { FormValues } from "shared/features/profile";
 import { Form, FormGroup } from "./styles";
 
 export type Props = {
-  tags: Tag[];
-  showDelete: boolean;
-  deleteCallback: () => void;
+  onDrop?: (files: any) => void;
   status?: string;
 };
 
 const ProfileForm: React.FC<Props & FormikProps<FormValues>> = ({
   handleSubmit,
-  tags,
-  showDelete,
-  deleteCallback,
   status,
+  onDrop,
   setFieldValue
 }) => (
   <Form onSubmit={handleSubmit}>
     <FormGroup>
       <Field
-        name="date"
-        component={Input}
-        type="datetime-local"
-        label="Date"
-        onChange={(value: any) => {
-          if (value) {
-            setFieldValue(
-              "date",
-              moment(value).format(moment.HTML5_FMT.DATETIME_LOCAL)
-            );
-          }
-        }}
+        name="avatar"
+        component={FileUpload}
+        label="Avatar"
+        accept="image/*"
+        onDrop={onDrop}
       />
     </FormGroup>
     <FormGroup>
-      <Field
-        name="amount"
-        component={Input}
-        type="number"
-        attributes={{ step: "any" }}
-        label="Amount"
-        validate={composedValidators(required, number)}
-      />
-    </FormGroup>
-    <FormGroup>
-      <Field
-        name="description"
-        component={Input}
-        label="Description"
-        validate={required}
-      />
-    </FormGroup>
-    <FormGroup>
-      <Field label="Tags" name="tags" options={tags} component={Select} />
+      <Field name="firstName" component={Input} label="First name" />
     </FormGroup>
     <ActionButtons error={status ? status : null} />
   </Form>
 );
-
-ProfileForm.defaultProps = {
-  deleteCallback: () => {}
-};
 
 export default ProfileForm;

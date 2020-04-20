@@ -2,13 +2,15 @@ import { FieldProps } from "formik";
 import React, { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import FormWrapper from "shared/components/form-controls/_form-wrapper";
+import { fileUpload } from "shared/utils";
 import {
   Container,
   Label,
   Preview,
   PreviewImg,
   PreviewText,
-  Prompt
+  Prompt,
+  Reject
 } from "./styles";
 
 interface Props extends FieldProps {
@@ -25,6 +27,11 @@ interface Props extends FieldProps {
   preview?: (files: any) => React.ReactNode;
   prompt?: () => React.ReactNode;
   reject?: () => React.ReactNode;
+  onDrop?: (files: any) => void;
+  directUpload?: boolean;
+  onUploadStart?: () => void;
+  onUploadComplete?: (keys: string[]) => void;
+  onUploadError?: () => void;
 }
 
 let urls = new WeakMap();
@@ -48,10 +55,19 @@ export const DefaultPreview: React.FC<{ files: any }> = ({ files = [] }) => {
   ));
 };
 
+export const DefaultReject: React.FC<{ files: any }> = ({ files = [] }) => {
+  return files.map((_: any, index: number) => (
+    <Reject key={index}>
+      <PreviewText>Oops. It looks we don’t support that file type.</PreviewText>
+      <Prompt>Give it another shot. Click here.</Prompt>
+    </Reject>
+  ));
+};
+
 export const ImagePreview: React.FC<{ files: any }> = ({ files = [] }) => {
   useEffect(
     () => () => {
-      // Cleanup old files.
+      // Cleanup old files to not have memory leaks.
       files.forEach((file: any) => URL.revokeObjectURL(file.preview));
     },
     [files]
@@ -74,18 +90,36 @@ const DefaultPrompt: React.FC = () => {
 export const FileUpload: React.FC<Props> = ({
   field,
   accept,
-  multiple,
+  directUpload = true,
+  multiple = false, // TODO: Deal with multiple uploads.
   preview = (files: any) => <ImagePreview files={files} />,
-  prompt = () => <DefaultPrompt />
+  reject = (files: any) => <DefaultReject files={files} />,
+  prompt = () => <DefaultPrompt />,
+  onDrop: onDropCallback,
+  onUploadStart,
+  onUploadComplete,
+  onUploadError
 }) => {
   const [acceptedFiles, setAcceptedFiles] = useState([]);
-  //const [rejectedFiles, setRejectedFiles] = useState([]);
-  const onDrop = useCallback((accepted, rejected) => {
-    console.log("accepted files", accepted);
-    console.log("rejected files", rejected);
+  const [rejectedFiles, setRejectedFiles] = useState([]);
+  const onDrop = useCallback(async (accepted, rejected) => {
+    if (onUploadStart) {
+      onUploadStart();
+    }
+
+    if (directUpload && accepted.length) {
+      const fileuploadKey = await fileUpload(accepted[0]);
+      if (onUploadComplete) {
+        onUploadComplete([fileuploadKey]);
+      }
+    }
+
+    if (onDropCallback && accepted.length) {
+      onDropCallback(accepted);
+    }
 
     setAcceptedFiles(accepted);
-    //setRejectedFiles(rejected);
+    setRejectedFiles(rejected);
   }, []);
 
   const {
@@ -103,7 +137,11 @@ export const FileUpload: React.FC<Props> = ({
   return (
     <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
       <input {...field} {...getInputProps()} />
-      {acceptedFiles.length ? preview(acceptedFiles) : prompt()}
+      {acceptedFiles.length
+        ? preview(acceptedFiles)
+        : rejectedFiles.length
+        ? reject(rejectedFiles)
+        : prompt()}
     </Container>
   );
 };
