@@ -1,12 +1,13 @@
-import React from "react";
 import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import { Field } from "formik";
-import { FormikFormDecorator } from "./_decorators";
-import { required } from "../src/shared/utils/validators";
-import ActionButtons from "../src/shared/components/form-controls/action-buttons";
+import React from "react";
 import { Input, Textarea } from "../src/shared/components/form-controls";
+import ActionButtons from "../src/shared/components/form-controls/action-buttons";
 import Loader from "../src/shared/components/loader";
+import Portal from "../src/shared/components/portal";
+import { required } from "../src/shared/utils/validators";
+import { FormikFormDecorator } from "./_decorators";
 
 storiesOf("Form Controls", module)
   .addParameters({
@@ -69,3 +70,5 @@ storiesOf("Form Controls", module)
   });
 
 storiesOf("Loader", module).add("Loader", () => <Loader />);
+
+storiesOf("Portal", module).add("Portal", () => <Portal>Portal</Portal>);

@@ -18,7 +18,8 @@ export const cssToJs = css =>
     .split(";")
     .reduce((ruleMap, ruleString) => {
       const [key, value] = ruleString.split(":");
-      ruleMap[kebabToCamel(key.trim())] = value.trim();
-
+      if (key && value) {
+        ruleMap[kebabToCamel(key.trim())] = value.trim();
+      }
       return ruleMap;
     }, {});

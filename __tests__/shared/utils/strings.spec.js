@@ -15,7 +15,7 @@ describe("string utilities", () => {
     });
 
     it("should convert kebab string to camel with duplicate dashes", () => {
-      expect(kebabToCamel("hello--you")).toEqual("helloYou");
+      expect(kebabToCamel("Hello--you-hI")).toEqual("helloYouHi");
     });
 
     it("should convert kebab string to camel with dashes and underscore", () => {
@@ -34,14 +34,15 @@ describe("string utilities", () => {
   describe("cssToJS", () => {
     const css = `
       position: absolute;
-      color:#888;
+      color:#888; box-shadow: 0 0 1px 1px (0, 0, 0, 0.2);
       background-color: blue;
     `;
 
     const js = {
       color: "#888",
       backgroundColor: "blue",
-      position: "absolute"
+      position: "absolute",
+      boxShadow: "0 0 1px 1px (0, 0, 0, 0.2)"
     };
 
     it("should convert a CSS string to a JS object", () => {
