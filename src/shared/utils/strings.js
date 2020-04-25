@@ -1,10 +1,24 @@
 export const kebabToCamel = string =>
-  string.toLowerCase().replace(/-([a-z])/g, g => g[1].toUpperCase());
+  string
+    .trim()
+    .toLowerCase()
+    .replace(/(-|_|\s)+/g, "-")
+    .replace(/-$/, "")
+    .replace(/-([a-z])/g, (_, $1, pos) => {
+      if (pos === 0) {
+        return $1;
+      }
+      return $1.toUpperCase();
+    });
 
 export const cssToJs = css =>
-  css.split(";").reduce(function(ruleMap, ruleString) {
-    var rulePair = ruleString.split(":");
-    ruleMap[kebabToCamel(rulePair[0].trim())] = rulePair[1].trim();
+  css
+    .trim()
+    .replace(/;$/, "")
+    .split(";")
+    .reduce((ruleMap, ruleString) => {
+      const [key, value] = ruleString.split(":");
+      ruleMap[kebabToCamel(key.trim())] = value.trim();
 
-    return ruleMap;
-  }, {});
+      return ruleMap;
+    }, {});
