@@ -1,4 +1,4 @@
-import { cssToJs, kebabToCamel } from "shared/utils/strings";
+import { cssToJs, htmlIdGenerator, kebabToCamel } from "shared/utils/strings";
 
 describe("string utilities", () => {
   describe("kebabToCamel", () => {
@@ -47,6 +47,21 @@ describe("string utilities", () => {
 
     it("should convert a CSS string to a JS object", () => {
       expect(cssToJs(css)).toEqual(js);
+    });
+  });
+
+  describe("htmlIdGenerator", () => {
+    it("should be a string", () => {
+      const type = htmlIdGenerator();
+      expect(typeof type).toBe("string");
+    });
+
+    it("should match default prefix", () => {
+      expect(htmlIdGenerator()).toMatch(/^id_/);
+    });
+
+    it("should match prefix", () => {
+      expect(htmlIdGenerator("hi")).toMatch(/^hi_/);
     });
   });
 });

@@ -2,14 +2,14 @@
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
 .emotion-57 {
-  padding: 0 15px;
+  padding: 0 16px;
   width: 100%;
 }
 
 @media (min-width:768px) {
   .emotion-57 {
     max-width: 960px;
-    margin: 30px auto;
+    margin: 48px auto;
   }
 }
 
@@ -27,7 +27,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 .emotion-55 {
-  padding: 0 15px;
+  padding: 0 16px;
   width: 100%;
   margin: 0;
   background: #ffffff;
@@ -37,7 +37,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 @media (min-width:768px) {
   .emotion-55 {
     max-width: 960px;
-    margin: 30px auto;
+    margin: 48px auto;
   }
 }
 
@@ -46,7 +46,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
     background: #ffffff;
     box-shadow: 0 2px 5px rgba(17,17,17,0.1);
     border-radius: 2px;
-    padding: 20px 30px;
+    padding: 32px 48px;
   }
 }
 
@@ -498,14 +498,14 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
 .emotion-59 {
-  padding: 0 15px;
+  padding: 0 16px;
   width: 100%;
 }
 
 @media (min-width:768px) {
   .emotion-59 {
     max-width: 960px;
-    margin: 30px auto;
+    margin: 48px auto;
   }
 }
 
@@ -523,7 +523,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 .emotion-57 {
-  padding: 0 15px;
+  padding: 0 16px;
   width: 100%;
   margin: 0;
   background: #ffffff;
@@ -533,7 +533,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 @media (min-width:768px) {
   .emotion-57 {
     max-width: 960px;
-    margin: 30px auto;
+    margin: 48px auto;
   }
 }
 
@@ -542,7 +542,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
     background: #ffffff;
     box-shadow: 0 2px 5px rgba(17,17,17,0.1);
     border-radius: 2px;
-    padding: 20px 30px;
+    padding: 32px 48px;
   }
 }
 

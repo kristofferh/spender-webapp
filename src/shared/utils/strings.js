@@ -1,3 +1,11 @@
+import { v1 } from "uuid";
+
+export const htmlIdGenerator = (prefix = "") => {
+  const uuid = v1();
+  const idPrefix = `${prefix !== "" ? `${prefix}_` : "id_"}`;
+  return `${idPrefix}${uuid}`;
+};
+
 export const kebabToCamel = string =>
   string
     .trim()

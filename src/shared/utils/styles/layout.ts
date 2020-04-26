@@ -1,5 +1,10 @@
 import { gray, inputGradient, white } from "./colors";
 
+export const size = 16;
+export const sizePx = sizeToPx(size);
+export const doubleSize = size * 2;
+export const tripleSize = size * 3;
+export const halfSize = size / 2;
 export const maxWidthSm = "575px";
 export const minWidthSm = "576px";
 export const maxWidthMd = "767px";
@@ -8,6 +13,10 @@ export const maxWitdhLg = "991px";
 export const minWidthLg = "992px";
 
 export const borderRadiusSubtle = "2px";
+
+export function sizeToPx(size: number) {
+  return `${size}px`;
+}
 
 export const shadowBox = () => `
   background: ${white};
@@ -20,12 +29,12 @@ export const elevation = () => `
   0 1px 10px 0 rgba(0, 0, 0, 0.1);`;
 
 export const mainContainer = () => `
-  padding: 0 15px;
+  padding: 0 ${sizeToPx(size)};
   width: 100%;
   
   @media (min-width: ${minWidthMd}) {
     max-width: 960px;
-    margin: 30px auto;
+    margin: ${sizeToPx(tripleSize)} auto;
   }
 `;
 
@@ -36,7 +45,7 @@ export const mainContent = () => `
 
   @media (min-width: ${minWidthMd}) {
     ${shadowBox()};
-    padding: 20px 30px;
+    padding: ${doubleSize}px ${tripleSize}px;
   }
 `;
 
