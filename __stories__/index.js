@@ -8,6 +8,7 @@ import Loader from "../src/shared/components/loader";
 import Portal from "../src/shared/components/portal";
 import ToolTip from "../src/shared/components/tooltip";
 import { required } from "../src/shared/utils/validators";
+import { ResizeObserverExample } from "./shared/components/observer/resize";
 import { FormikFormDecorator } from "./_decorators";
 
 storiesOf("Form Controls", module)
@@ -76,4 +77,8 @@ storiesOf("Portal", module).add("Portal", () => <Portal>Portal</Portal>);
 
 storiesOf("ToolTip", module).add("ToolTip", () => (
   <ToolTip content="hi">hover me</ToolTip>
+));
+
+storiesOf("Observer", module).add("ResizeObserver", () => (
+  <ResizeObserverExample />
 ));
