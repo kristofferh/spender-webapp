@@ -10,28 +10,30 @@ import { findOverlayPosition, OverlayPlacement } from "shared/utils/dom";
 import { htmlIdGenerator } from "shared/utils/strings";
 import { ResizeObserverClass as ResizeObserver } from "../observer/resize";
 import Portal from "../portal";
-import { Content } from "./styles";
+import { Anchor, Content } from "./styles";
 
 type Props = {
   content?: ReactNode;
   position: OverlayPlacement;
-  align?: OverlayPlacement;
   anchorClassName?: string;
   id?: string;
+  forcePosition?: boolean;
 };
 
 const ToolTip: React.FC<Props> = ({
   children,
   content,
   position = "top",
-  align,
   id = htmlIdGenerator(),
-  anchorClassName
+  anchorClassName,
+  forcePosition
 }) => {
   const anchorRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLElement>(null);
   const [showToolTip, setShowToolTip] = useState(false);
   const [hasFocus, setFocus] = useState(false);
+  const [tooltipStyles, setTooltipStyles] = useState<React.CSSProperties>();
+  const [animateFrom, setAnimateFrom] = useState<OverlayPlacement>(position);
 
   const handleMouseEnter = () => {
     setFocus(false);
@@ -57,11 +59,11 @@ const ToolTip: React.FC<Props> = ({
   const child = isValidElement(children) ? (
     children
   ) : (
-    <span tabIndex={0}>{children}</span>
+    <Anchor tabIndex={0}>{children}</Anchor>
   );
 
   const anchor = (
-    <span
+    <Anchor
       ref={anchorRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -72,7 +74,7 @@ const ToolTip: React.FC<Props> = ({
         onBlur: handleBlur,
         ...(showToolTip && { "aria-describedby": id })
       })}
-    </span>
+    </Anchor>
   );
 
   const handleResize = () => {
@@ -82,12 +84,27 @@ const ToolTip: React.FC<Props> = ({
       containerRef &&
       containerRef.current
     ) {
-      findOverlayPosition({
+      const { position: actualPosition, left, top } = findOverlayPosition({
         anchor: anchorRef.current,
         overlay: containerRef.current,
         position,
-        align
+        offset: 8,
+        forcePosition
       });
+
+      const windowWidth =
+        document.documentElement.clientWidth || window.innerWidth;
+      const useRightValue = windowWidth / 2 < left;
+
+      const toolTipStyles = {
+        top,
+        left: useRightValue ? "auto" : left,
+        right: useRightValue
+          ? windowWidth - left - containerRef.current.offsetWidth
+          : "auto"
+      };
+      setAnimateFrom(actualPosition);
+      setTooltipStyles(toolTipStyles);
     }
   };
 
@@ -99,7 +116,9 @@ const ToolTip: React.FC<Props> = ({
           className="tooltip-content"
           id={id}
           role="tooltip"
+          animationDirection={animateFrom}
           ref={containerRef}
+          style={tooltipStyles}
         >
           <ResizeObserver onResize={handleResize}>
             {resizeRef => <div ref={resizeRef}>{content}</div>}

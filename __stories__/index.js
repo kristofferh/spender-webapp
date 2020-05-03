@@ -83,11 +83,42 @@ storiesOf("ToolTip", module).add("ToolTip", () => {
     left: "left"
   };
   const position = select("position", placements, "top");
-  const align = select("align", { ...{ none: undefined }, ...placements });
+  const forcePosition = boolean("force position", false);
   return (
-    <ToolTip content="hi" position={position} align={align}>
-      hover me
-    </ToolTip>
+    <>
+      <div style={{ margin: 10 }}>
+        <ToolTip
+          forcePosition={forcePosition}
+          content={"Great stuff"}
+          position={position}
+        >
+          Tight
+        </ToolTip>
+      </div>
+      <div style={{ margin: 100 }}>
+        <ToolTip
+          forcePosition={forcePosition}
+          content={
+            <div>
+              Amazing <br /> awesome
+            </div>
+          }
+          position={position}
+        >
+          hover me
+        </ToolTip>
+        <div>
+          is this good?{" "}
+          <ToolTip
+            forcePosition={forcePosition}
+            content={"cool"}
+            position={position}
+          >
+            <div>hover me too</div>
+          </ToolTip>
+        </div>
+      </div>
+    </>
   );
 });
 
