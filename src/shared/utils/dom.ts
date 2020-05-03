@@ -171,3 +171,37 @@ export function getVisibleFit(
 
   return intersectionArea / contentArea;
 }
+
+/**
+ * Calculate the available content space between anchor and container
+ */
+export function getAvailableSpace(
+  anchorBoundingBox: DOMRect,
+  containerBoundingBox: DOMRect,
+  buffer: number,
+  offset: number,
+  offsetSide: OverlayPlacement
+) {
+  return {
+    top:
+      anchorBoundingBox.top -
+      containerBoundingBox.top -
+      buffer -
+      (offsetSide === "top" ? offset : 0),
+    right:
+      containerBoundingBox.right -
+      anchorBoundingBox.right -
+      buffer -
+      (offsetSide === "right" ? offset : 0),
+    bottom:
+      containerBoundingBox.bottom -
+      anchorBoundingBox.bottom -
+      buffer -
+      (offsetSide === "bottom" ? offset : 0),
+    left:
+      anchorBoundingBox.left -
+      containerBoundingBox.left -
+      buffer -
+      (offsetSide === "left" ? offset : 0)
+  };
+}
