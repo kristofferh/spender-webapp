@@ -8,4 +8,5 @@ export const Content = styled.span`
   background: ${space};
   color: ${white};
   box-shadow: 0 2px 3px ${rgba(space, 0.1)};
+  display: inline-flex;
 `;

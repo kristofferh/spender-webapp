@@ -1,4 +1,4 @@
-import { boolean, text } from "@storybook/addon-knobs";
+import { boolean, select, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import { Field } from "formik";
 import React from "react";
@@ -75,9 +75,21 @@ storiesOf("Loader", module).add("Loader", () => <Loader />);
 
 storiesOf("Portal", module).add("Portal", () => <Portal>Portal</Portal>);
 
-storiesOf("ToolTip", module).add("ToolTip", () => (
-  <ToolTip content="hi">hover me</ToolTip>
-));
+storiesOf("ToolTip", module).add("ToolTip", () => {
+  const placements = {
+    top: "top",
+    right: "right",
+    bottom: "bottom",
+    left: "left"
+  };
+  const position = select("position", placements, "top");
+  const align = select("align", { ...{ none: undefined }, ...placements });
+  return (
+    <ToolTip content="hi" position={position} align={align}>
+      hover me
+    </ToolTip>
+  );
+});
 
 storiesOf("Observer", module).add("ResizeObserver", () => (
   <ResizeObserverExample />
