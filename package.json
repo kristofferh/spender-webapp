@@ -67,6 +67,7 @@
     "moment": "^2.20.1",
     "normalize.css": "^8.0.1",
     "numeral": "^2.0.6",
+    "polished": "^3.5.2",
     "prop-types": "^15.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -76,7 +77,8 @@
     "react-select": "^2.3.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "regenerator-runtime": "^0.13.2"
+    "regenerator-runtime": "^0.13.2",
+    "uuid": "^7.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
