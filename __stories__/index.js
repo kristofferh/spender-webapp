@@ -6,6 +6,7 @@ import { Input, Textarea } from "../src/shared/components/form-controls";
 import ActionButtons from "../src/shared/components/form-controls/action-buttons";
 import Loader from "../src/shared/components/loader";
 import Portal from "../src/shared/components/portal";
+import { ProgressButton } from "../src/shared/components/progress-button";
 import ToolTip from "../src/shared/components/tooltip";
 import { required } from "../src/shared/utils/validators";
 import { ResizeObserverExample } from "./shared/components/observer/resize";
@@ -72,6 +73,10 @@ storiesOf("Form Controls", module)
   });
 
 storiesOf("Loader", module).add("Loader", () => <Loader />);
+
+storiesOf("Progress Button", module).add("Progress Button", () => (
+  <ProgressButton>Progress</ProgressButton>
+));
 
 storiesOf("Portal", module).add("Portal", () => <Portal>Portal</Portal>);
 
