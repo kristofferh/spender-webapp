@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
-.emotion-57 {
+.emotion-60 {
   padding: 0 16px;
   width: 100%;
 }
 
 @media (min-width:768px) {
-  .emotion-57 {
+  .emotion-60 {
     max-width: 960px;
     margin: 48px auto;
   }
 }
 
 @media (max-width:767px) {
-  .emotion-57 {
+  .emotion-60 {
     padding: 15px;
   }
 }
@@ -26,7 +26,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   margin-top: 0;
 }
 
-.emotion-55 {
+.emotion-58 {
   padding: 0 16px;
   width: 100%;
   margin: 0;
@@ -35,14 +35,14 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 @media (min-width:768px) {
-  .emotion-55 {
+  .emotion-58 {
     max-width: 960px;
     margin: 48px auto;
   }
 }
 
 @media (min-width:768px) {
-  .emotion-55 {
+  .emotion-58 {
     background: #ffffff;
     box-shadow: 0 2px 5px rgba(17,17,17,0.1);
     border-radius: 2px;
@@ -51,7 +51,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 @media (max-width:767px) {
-  .emotion-55 {
+  .emotion-58 {
     margin: 0 -15px;
     padding: 15px;
   }
@@ -95,7 +95,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
 }
 
-.emotion-51 {
+.emotion-54 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -106,11 +106,53 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   align-items: center;
 }
 
-.emotion-49 {
+.emotion-52 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 40px;
+  width: 100%;
+  border: 0;
+  background-color: #101010;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.2s ease,box-shadow 0.3s ease;
+  transition: background-color 0.2s ease,box-shadow 0.3s ease;
+  cursor: default;
+  font-family: 'tiempos-semibold',georgia,serif;
+  font-size: inherit;
   margin-left: auto;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: auto;
+  padding: 0 40px;
+}
+
+.emotion-52:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #66afe965;
+}
+
+.emotion-49 {
+  width: 20px;
+  height: 20px;
+  margin-right: -30px;
+  margin-left: 10px;
 }
 
 .emotion-44 {
@@ -260,7 +302,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 }
 
 <div
-  className="emotion-57 emotion-58"
+  className="emotion-60 emotion-61"
 >
   <h1
     className="emotion-0 emotion-1"
@@ -268,7 +310,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
     Add
   </h1>
   <form
-    className="emotion-55 emotion-56"
+    className="emotion-58 emotion-59"
     onSubmit={[Function]}
   >
     <div
@@ -479,16 +521,18 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </div>
     <footer
-      className="emotion-53 emotion-54"
+      className="emotion-56 emotion-57"
     >
       <div
-        className="emotion-51 emotion-52"
+        className="emotion-54 emotion-55"
       >
         <button
-          className="emotion-49 emotion-50"
-          type="submit"
+          className="emotion-51 emotion-52 emotion-53"
         >
           Submit
+          <div
+            className="emotion-49 emotion-50"
+          />
         </button>
       </div>
     </footer>
@@ -497,20 +541,20 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 `;
 
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
-.emotion-59 {
+.emotion-62 {
   padding: 0 16px;
   width: 100%;
 }
 
 @media (min-width:768px) {
-  .emotion-59 {
+  .emotion-62 {
     max-width: 960px;
     margin: 48px auto;
   }
 }
 
 @media (max-width:767px) {
-  .emotion-59 {
+  .emotion-62 {
     padding: 15px;
   }
 }
@@ -522,7 +566,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   margin-top: 0;
 }
 
-.emotion-57 {
+.emotion-60 {
   padding: 0 16px;
   width: 100%;
   margin: 0;
@@ -531,14 +575,14 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 @media (min-width:768px) {
-  .emotion-57 {
+  .emotion-60 {
     max-width: 960px;
     margin: 48px auto;
   }
 }
 
 @media (min-width:768px) {
-  .emotion-57 {
+  .emotion-60 {
     background: #ffffff;
     box-shadow: 0 2px 5px rgba(17,17,17,0.1);
     border-radius: 2px;
@@ -547,7 +591,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 @media (max-width:767px) {
-  .emotion-57 {
+  .emotion-60 {
     margin: 0 -15px;
     padding: 15px;
   }
@@ -591,7 +635,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
 }
 
-.emotion-53 {
+.emotion-56 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -602,11 +646,53 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   align-items: center;
 }
 
-.emotion-51 {
+.emotion-54 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 40px;
+  width: 100%;
+  border: 0;
+  background-color: #101010;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.2s ease,box-shadow 0.3s ease;
+  transition: background-color 0.2s ease,box-shadow 0.3s ease;
+  cursor: default;
+  font-family: 'tiempos-semibold',georgia,serif;
+  font-size: inherit;
   margin-left: auto;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: auto;
+  padding: 0 40px;
+}
+
+.emotion-54:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #66afe965;
+}
+
+.emotion-51 {
+  width: 20px;
+  height: 20px;
+  margin-right: -30px;
+  margin-left: 10px;
 }
 
 .emotion-49 {
@@ -766,7 +852,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 }
 
 <div
-  className="emotion-59 emotion-60"
+  className="emotion-62 emotion-63"
 >
   <h1
     className="emotion-0 emotion-1"
@@ -774,7 +860,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
     Edit
   </h1>
   <form
-    className="emotion-57 emotion-58"
+    className="emotion-60 emotion-61"
     onSubmit={[Function]}
   >
     <div
@@ -985,10 +1071,10 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </div>
     <footer
-      className="emotion-55 emotion-56"
+      className="emotion-58 emotion-59"
     >
       <div
-        className="emotion-53 emotion-54"
+        className="emotion-56 emotion-57"
       >
         <a
           className="emotion-49 emotion-50"
@@ -997,10 +1083,12 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           Delete
         </a>
         <button
-          className="emotion-51 emotion-52"
-          type="submit"
+          className="emotion-53 emotion-54 emotion-55"
         >
           Submit
+          <div
+            className="emotion-51 emotion-52"
+          />
         </button>
       </div>
     </footer>

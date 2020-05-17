@@ -74,9 +74,19 @@ storiesOf("Form Controls", module)
 
 storiesOf("Loader", module).add("Loader", () => <Loader />);
 
-storiesOf("Progress Button", module).add("Progress Button", () => (
-  <ProgressButton>Progress</ProgressButton>
-));
+storiesOf("Progress Button", module).add("Progress Button", () => {
+  const state = select("state", {
+    "": "default",
+    loading: "loading",
+    error: "error",
+    success: "success"
+  });
+  return (
+    <div style={{ width: 200 }}>
+      <ProgressButton state={state}>Progress</ProgressButton>
+    </div>
+  );
+});
 
 storiesOf("Portal", module).add("Portal", () => <Portal>Portal</Portal>);
 

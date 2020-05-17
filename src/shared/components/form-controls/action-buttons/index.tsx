@@ -1,8 +1,7 @@
 import React, { ReactNode } from "react";
-
 import {
-  Container,
   ButtonContainer,
+  Container,
   ErrorContainer,
   PrimaryBtn,
   TextLink
@@ -31,7 +30,7 @@ const ActionButtons = ({
           {secondaryActionLabel}
         </TextLink>
       )}
-      <PrimaryBtn type="submit">{primaryActionLabel}</PrimaryBtn>
+      <PrimaryBtn>{primaryActionLabel}</PrimaryBtn>
     </ButtonContainer>
   </Container>
 );
