@@ -14,6 +14,8 @@ export const grayishRed = "#c6aeab";
 export const havelockBlue = "#4A90E2";
 export const punch = "#dc3545";
 
+export const outlineFormControl = "#66afe965";
+
 // Gradients
 export const inputGradient = `linear-gradient(45deg, ${havelockBlue}, ${grayishRed})`;
 export const bodyGradient = "linear-gradient(156deg, #e1cad3 6%, #a6a8bc 96%)";
