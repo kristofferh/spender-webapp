@@ -3,10 +3,12 @@ import { Loader } from "shared/components/loader";
 import { white } from "shared/utils/styles";
 import { Button, StateContainer } from "./styles";
 
-interface Props {
+export type ButtonState = "loading" | "error" | "success" | "";
+
+export interface Props {
   className?: string;
   children: any;
-  state?: "loading" | "error" | "success" | "";
+  state?: ButtonState;
 }
 
 export const ProgressButton: React.FC<Props> = ({

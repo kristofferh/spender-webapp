@@ -1,9 +1,5 @@
 import styled from "@emotion/styled";
-import {
-  fontFamilySerifSemibold,
-  outlineFormControl,
-  space
-} from "shared/utils/styles";
+import { black, outlineFormControl, space, white } from "shared/utils/styles";
 
 interface ButtonProps {
   disabled?: boolean;
@@ -19,13 +15,20 @@ export const Button = styled.button<ButtonProps>`
   border: 0;
   background-color: ${({ disabled }) =>
     disabled ? "rgba(0, 0, 0, 0.1)" : space};
-  color: #fff;
+  color: ${white};
   padding: 10px 20px;
   border-radius: 4px;
-  transition: background-color 0.2s ease, box-shadow 0.3s ease;
-  cursor: ${({ state }) => (state === "loading" ? "wait" : "default")};
-  font-family: ${fontFamilySerifSemibold};
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
+  cursor: ${({ state }) => (state === "loading" ? "wait" : "pointer")};
+  font-family: inherit;
   font-size: inherit;
+  pointer-events: ${({ state }) => (state === "loading" ? "none" : "all")};
+
+  &:active,
+  &:hover {
+    background-color: ${black};
+    color: ${white};
+  }
 
   &:focus {
     outline: none;

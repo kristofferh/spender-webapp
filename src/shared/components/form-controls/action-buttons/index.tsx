@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { ButtonState } from "shared/components/progress-button";
 import {
   ButtonContainer,
   Container,
@@ -13,6 +14,7 @@ type ActionButtonsProps = {
   secondaryAction?: boolean;
   secondaryActionLabel?: ReactNode;
   secondaryActionCallback?: () => void;
+  buttonState?: ButtonState;
 };
 
 const ActionButtons = ({
@@ -20,7 +22,8 @@ const ActionButtons = ({
   secondaryAction,
   secondaryActionCallback,
   secondaryActionLabel,
-  error
+  error,
+  buttonState = ""
 }: ActionButtonsProps) => (
   <Container>
     {error && <ErrorContainer>{error}</ErrorContainer>}
@@ -30,7 +33,7 @@ const ActionButtons = ({
           {secondaryActionLabel}
         </TextLink>
       )}
-      <PrimaryBtn>{primaryActionLabel}</PrimaryBtn>
+      <PrimaryBtn state={buttonState}>{primaryActionLabel}</PrimaryBtn>
     </ButtonContainer>
   </Container>
 );

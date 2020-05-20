@@ -29,7 +29,7 @@ export const PrimaryBtn = styled(ProgressButton)`
   order: 1;
   display: inline-flex;
   width: auto;
-  padding: 0 40px;
+  padding: 0 50px;
 `;
 
 export const TextLink = styled.a`
