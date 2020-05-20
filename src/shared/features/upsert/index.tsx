@@ -89,7 +89,6 @@ export class Upsert extends Component<Props> {
   };
 
   render() {
-    console.log(this.props);
     const { id, tags, initialValues, isSubmitting } = this.props;
     return (
       <Container>

@@ -29,14 +29,15 @@ exports[`Create ActionButtons snapshot should render and match a secondary actio
   width: 100%;
   border: 0;
   background-color: #101010;
-  color: #fff;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 4px;
-  -webkit-transition: background-color 0.2s ease,box-shadow 0.3s ease;
-  transition: background-color 0.2s ease,box-shadow 0.3s ease;
-  cursor: default;
-  font-family: 'tiempos-semibold',georgia,serif;
+  -webkit-transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
+  transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
+  cursor: pointer;
+  font-family: inherit;
   font-size: inherit;
+  pointer-events: all;
   margin-left: auto;
   -webkit-order: 1;
   -ms-flex-order: 1;
@@ -46,7 +47,13 @@ exports[`Create ActionButtons snapshot should render and match a secondary actio
   display: -ms-inline-flexbox;
   display: inline-flex;
   width: auto;
-  padding: 0 40px;
+  padding: 0 50px;
+}
+
+.emotion-5:active,
+.emotion-5:hover {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .emotion-5:focus {
@@ -123,14 +130,15 @@ exports[`Create ActionButtons snapshot should render and match no props snapshot
   width: 100%;
   border: 0;
   background-color: #101010;
-  color: #fff;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 4px;
-  -webkit-transition: background-color 0.2s ease,box-shadow 0.3s ease;
-  transition: background-color 0.2s ease,box-shadow 0.3s ease;
-  cursor: default;
-  font-family: 'tiempos-semibold',georgia,serif;
+  -webkit-transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
+  transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
+  cursor: pointer;
+  font-family: inherit;
   font-size: inherit;
+  pointer-events: all;
   margin-left: auto;
   -webkit-order: 1;
   -ms-flex-order: 1;
@@ -140,7 +148,13 @@ exports[`Create ActionButtons snapshot should render and match no props snapshot
   display: -ms-inline-flexbox;
   display: inline-flex;
   width: auto;
-  padding: 0 40px;
+  padding: 0 50px;
+}
+
+.emotion-3:active,
+.emotion-3:hover {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .emotion-3:focus {
@@ -202,14 +216,15 @@ exports[`Create ActionButtons snapshot should render and match non-default prima
   width: 100%;
   border: 0;
   background-color: #101010;
-  color: #fff;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 4px;
-  -webkit-transition: background-color 0.2s ease,box-shadow 0.3s ease;
-  transition: background-color 0.2s ease,box-shadow 0.3s ease;
-  cursor: default;
-  font-family: 'tiempos-semibold',georgia,serif;
+  -webkit-transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
+  transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
+  cursor: pointer;
+  font-family: inherit;
   font-size: inherit;
+  pointer-events: all;
   margin-left: auto;
   -webkit-order: 1;
   -ms-flex-order: 1;
@@ -219,7 +234,13 @@ exports[`Create ActionButtons snapshot should render and match non-default prima
   display: -ms-inline-flexbox;
   display: inline-flex;
   width: auto;
-  padding: 0 40px;
+  padding: 0 50px;
+}
+
+.emotion-3:active,
+.emotion-3:hover {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .emotion-3:focus {
