@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
 import { keyframes } from "@emotion/core";
+import styled from "@emotion/styled";
 
 export const buttonSpin = keyframes`
   from {
@@ -18,7 +18,13 @@ export const LoaderOuterContainer = styled.div`
   position: relative;
 `;
 
-export const Container = styled.div`
+interface ContainerProps {
+  borderWidth?: number;
+  backgroundColor?: string;
+  containerSize?: number;
+}
+
+export const Container = styled.div<ContainerProps>`
   margin: 10px auto;
   border: ${({ borderWidth }) => borderWidth}px solid
     ${({ backgroundColor }) => backgroundColor};
