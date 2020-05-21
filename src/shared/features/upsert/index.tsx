@@ -32,6 +32,7 @@ type Props = {
   history: {
     push: (path: string) => void;
   };
+  isSubmitting?: boolean;
 };
 
 type FormProps = {
@@ -88,7 +89,7 @@ export class Upsert extends Component<Props> {
   };
 
   render() {
-    const { id, tags, initialValues } = this.props;
+    const { id, tags, initialValues, isSubmitting } = this.props;
     return (
       <Container>
         <Title>{id ? "Edit" : "Add"}</Title>
@@ -98,6 +99,7 @@ export class Upsert extends Component<Props> {
           showDelete={id ? true : false}
           deleteCallback={this.handleDelete}
           initialValues={initialValues}
+          isSubmitting={isSubmitting}
         />
       </Container>
     );

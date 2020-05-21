@@ -1,9 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import React, { CSSProperties } from "react";
 import { Circle, Container, LoaderOuterContainer } from "./styles";
 
-const Loader = ({ color, style, size, borderWidth, backgroundColor }) => {
+interface Props {
+  backgroundColor?: string;
+  borderWidth?: number;
+  color?: string;
+  size?: number;
+  style?: CSSProperties;
+}
+
+export const Loader: React.FC<Props> = ({
+  color,
+  style,
+  size,
+  borderWidth,
+  backgroundColor
+}) => {
   return (
     <LoaderOuterContainer>
       <Container
@@ -30,14 +42,6 @@ Loader.defaultProps = {
   borderWidth: 6,
   color: "#53b3d4",
   size: 40
-};
-
-Loader.propTypes = {
-  backgroundColor: PropTypes.string.isRequired,
-  borderWidth: PropTypes.number,
-  color: PropTypes.string.isRequired,
-  size: PropTypes.number,
-  style: PropTypes.object
 };
 
 export default Loader;
