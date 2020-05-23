@@ -97,8 +97,7 @@ export const FileUpload: React.FC<Props> = ({
   prompt = () => <DefaultPrompt />,
   onDrop: onDropCallback,
   onUploadStart,
-  onUploadComplete,
-  onUploadError
+  onUploadComplete
 }) => {
   const [acceptedFiles, setAcceptedFiles] = useState([]);
   const [rejectedFiles, setRejectedFiles] = useState([]);
@@ -110,7 +109,7 @@ export const FileUpload: React.FC<Props> = ({
     if (directUpload && accepted.length) {
       const fileuploadKey = await fileUpload(accepted[0]);
       if (onUploadComplete) {
-        onUploadComplete([fileuploadKey]);
+        onUploadComplete(fileuploadKey);
       }
     }
 
@@ -133,10 +132,16 @@ export const FileUpload: React.FC<Props> = ({
     multiple,
     onDrop
   });
-
+  const { name, onBlur, onChange } = field;
   return (
     <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
-      <input {...field} {...getInputProps()} />
+      <input
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        value=""
+        {...getInputProps()}
+      />
       {acceptedFiles.length
         ? preview(acceptedFiles)
         : rejectedFiles.length

@@ -27,10 +27,14 @@ const ProfileForm: React.FC<Props & FormikProps<FormValues>> = ({
         label="Avatar"
         accept="image/*"
         onDrop={onDrop}
+        onUploadComplete={(key: string) => setFieldValue("avatar", key)}
       />
     </FormGroup>
     <FormGroup>
       <Field name="firstName" component={Input} label="First name" />
+    </FormGroup>
+    <FormGroup>
+      <Field name="lastName" component={Input} label="Last name" />
     </FormGroup>
     <ActionButtons error={status ? status : null} />
   </Form>
