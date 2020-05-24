@@ -26,7 +26,6 @@ const ProfileForm: React.FC<Props & FormikProps<FormValues>> = ({
         component={FileUpload}
         label="Avatar"
         accept="image/*"
-        onDrop={onDrop}
         onUploadComplete={(key: string) => setFieldValue("avatar", key)}
       />
     </FormGroup>

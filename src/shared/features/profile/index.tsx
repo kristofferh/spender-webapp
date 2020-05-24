@@ -34,29 +34,19 @@ const ProfileWrapper = withFormik<FormProps & ProfileFormProps, FormValues>({
 
 const Profile: React.FC = () => {
   const { profile } = useSelector((state: any) => state.profile);
-  console.log(profile);
   const dispatch = useDispatch();
   const handleSubmit = async (values: FormValues) => {
     dispatch(updateProfile(values));
   };
 
-  const handleDrop = (files: any) => {
-    console.log("handleDrop", files);
-  };
-
   useEffect(() => {
-    console.log("dispatch");
     dispatch(fetchProfile());
   }, []);
 
   return (
     <Container>
       <Title>Profile</Title>
-      <ProfileWrapper
-        onDrop={handleDrop}
-        onSubmit={handleSubmit}
-        initialValues={profile}
-      />
+      <ProfileWrapper onSubmit={handleSubmit} initialValues={profile} />
     </Container>
   );
 };
