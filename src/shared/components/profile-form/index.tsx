@@ -16,7 +16,6 @@ export type Props = {
 const ProfileForm: React.FC<Props & FormikProps<FormValues>> = ({
   handleSubmit,
   status,
-  onDrop,
   setFieldValue
 }) => (
   <Form onSubmit={handleSubmit}>
