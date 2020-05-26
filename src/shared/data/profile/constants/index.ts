@@ -7,6 +7,7 @@ export const FETCH_PROFILE_FAILURE = "FETCH_PROFILE_FAILURE";
 
 export type ProfileType = {
   avatar?: string;
+  avatarUrl?: string;
   firstName?: string;
   lastName?: string;
 };

@@ -1,4 +1,5 @@
 import { asyncCatch as __, makeRequest } from "shared/utils";
+import { omit } from "shared/utils/object";
 import {
   FETCH_PROFILE_FAILURE,
   FETCH_PROFILE_REQUEST,
@@ -12,6 +13,7 @@ import {
 const PROFILE_FRAGMENT = `
   fragment profile on User {
     avatar
+    avatarUrl
     lastName
     firstName
   }
@@ -129,7 +131,12 @@ export const updateProfile = (profile: ProfileType) => async (
   `;
 
   const [data, errors] = await __(
-    makeRequest(JSON.stringify({ query: query, variables: { input: profile } }))
+    makeRequest(
+      JSON.stringify({
+        query: query,
+        variables: { input: omit(profile, "avatarUrl") }
+      })
+    )
   );
 
   if (errors) {

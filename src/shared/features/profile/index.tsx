@@ -9,6 +9,7 @@ import { Container, Title } from "./styles";
 
 export type FormValues = {
   avatar?: string;
+  avatarUrl?: string;
   firstName?: string;
   lastName?: string;
 };

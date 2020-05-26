@@ -32,6 +32,7 @@ interface Props extends FieldProps {
   onUploadStart?: () => void;
   onUploadComplete?: (keys: string[]) => void;
   onUploadError?: () => void;
+  previewFiles?: any;
 }
 
 let urls = new WeakMap();
@@ -72,11 +73,11 @@ export const ImagePreview: React.FC<{ files: any }> = ({ files = [] }) => {
     },
     [files]
   );
-
   return files.map((file: any, index: number) => {
+    const url = typeof file === "string" ? file : blobUrl(file);
     return (
       <Preview key={index}>
-        <PreviewImg src={blobUrl(file)} size={80} />
+        <PreviewImg src={url} size={80} />
         <Prompt>Not the right file? Try again.</Prompt>
       </Preview>
     );
@@ -97,9 +98,10 @@ export const FileUpload: React.FC<Props> = ({
   prompt = () => <DefaultPrompt />,
   onDrop: onDropCallback,
   onUploadStart,
-  onUploadComplete
+  onUploadComplete,
+  previewFiles = []
 }) => {
-  const [acceptedFiles, setAcceptedFiles] = useState([]);
+  const [acceptedFiles, setAcceptedFiles] = useState(previewFiles);
   const [rejectedFiles, setRejectedFiles] = useState([]);
   const onDrop = useCallback(async (accepted, rejected) => {
     if (onUploadStart) {
@@ -146,6 +148,8 @@ export const FileUpload: React.FC<Props> = ({
         ? preview(acceptedFiles)
         : rejectedFiles.length
         ? reject(rejectedFiles)
+        : previewFiles.length
+        ? preview(previewFiles)
         : prompt()}
     </Container>
   );
