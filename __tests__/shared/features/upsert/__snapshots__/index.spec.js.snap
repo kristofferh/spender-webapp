@@ -15,7 +15,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 
 @media (max-width:767px) {
   .emotion-60 {
-    padding: 15px;
+    padding: 16px;
   }
 }
 
@@ -562,7 +562,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 
 @media (max-width:767px) {
   .emotion-62 {
-    padding: 15px;
+    padding: 16px;
   }
 }
 
