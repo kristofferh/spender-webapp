@@ -70,7 +70,7 @@ export class Upsert extends Component<Props> {
     this.props.fetchItem(this.props.id);
   }
 
-  handleSubmit = async (values: any) => {
+  handleSubmit = async (values: FormValues) => {
     await this.props.upsertItem({
       ...values,
       amount: Number(values.amount),

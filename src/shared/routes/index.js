@@ -1,7 +1,8 @@
-import Logout from "shared/features/logout";
 import Items from "shared/features/items";
-import Upsert from "shared/features/upsert";
+import Logout from "shared/features/logout";
+import Profile from "shared/features/profile";
 import RequestToken from "shared/features/request-token";
+import Upsert from "shared/features/upsert";
 import Verify from "shared/features/verify";
 
 // APP Routes
@@ -42,6 +43,12 @@ const routes = [
     exact: true,
     component: Verify,
     public: true
+  },
+  {
+    name: "profile",
+    path: "/profile",
+    exact: true,
+    component: Profile
   }
 ];
 

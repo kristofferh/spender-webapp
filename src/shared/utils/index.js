@@ -1,6 +1,10 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
 import Cookies from "js-cookie";
+import React from "react";
+import { Redirect, Route } from "react-router-dom";
+
+export const asyncCatch = promise => {
+  return promise.then(data => [data, null]).catch(error => [null, error]);
+};
 
 // Wrap <Route> and use this everywhere instead, then when
 // sub routes are added to any route it'll work
@@ -74,4 +78,38 @@ const handleResponse = response => {
     // Do something different with Errors?
     return response.json();
   }
+};
+
+export const fileUpload = async file => {
+  const query = `
+    mutation requestUrl($contentType: String, $file: String) {
+      requestUploadURL(contentType: $contentType, file: $file) {
+        url
+        key
+      }
+    }
+  `;
+  const variables = { contentType: file.type, file: file.name };
+  const [data, error] = await asyncCatch(
+    makeRequest(JSON.stringify({ query, variables }))
+  );
+  if (error) {
+    return error;
+  }
+  const {
+    requestUploadURL: { url, key }
+  } = data;
+
+  const response = await fetch(url, {
+    method: "PUT",
+    body: file,
+    headers: {
+      "Content-Type": file.type
+    }
+  });
+
+  if (response.status !== 200) {
+    return error;
+  }
+  return key;
 };
