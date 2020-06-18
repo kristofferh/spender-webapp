@@ -12,7 +12,7 @@ export const black = "#000000";
 export const space = "#101010";
 export const grayishRed = "#c6aeab";
 export const havelockBlue = "#4A90E2";
-export const punch = "#dc3545";
+export const red = "#bd3a47";
 
 export const outlineFormControl = "#66afe965";
 
@@ -21,5 +21,5 @@ export const inputGradient = `linear-gradient(45deg, ${havelockBlue}, ${grayishR
 export const bodyGradient = "linear-gradient(156deg, #e1cad3 6%, #a6a8bc 96%)";
 
 // Aliases
-export const error = punch;
-export const danger = punch;
+export const error = red;
+export const danger = red;
