@@ -1,24 +1,21 @@
-import { Link } from "react-router-dom";
-import styled from "@emotion/styled";
 import { css } from "@emotion/core";
-
+import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "shared/components/icons";
-
 import { hexToRGBA } from "shared/utils/colors";
-
 import {
-  zIndex1,
-  zIndex2,
-  minWidthMd,
-  mainContent,
-  fontSizeSubhead,
-  titleOne,
-  titleTwo,
-  titleThree,
-  logan,
-  white,
   black,
-  space
+  fontSizeSubhead,
+  logan,
+  mainContent,
+  minWidthMd,
+  space,
+  titleOne,
+  titleThree,
+  titleTwo,
+  white,
+  zIndex1,
+  zIndex2
 } from "shared/utils/styles";
 
 export const ItemsList = styled.section`

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-
-import { error } from "shared/utils/styles";
+import { error, fontSizeFootnote, fontWeightBold } from "shared/utils/styles";
 
 export type LabelProps = {
   required?: boolean;
@@ -24,4 +23,11 @@ export const Label = styled.label<LabelProps>`
   &:after {
     content: ${({ required }) => (required ? "'*'" : "''")};
   }
+`;
+
+export const Error = styled.span`
+  font-weight: ${fontWeightBold};
+  font-size: ${fontSizeFootnote};
+  display: block;
+  margin-top: 0.5rem;
 `;

@@ -1,6 +1,5 @@
 import React, { ReactType } from "react";
-
-import { Wrapper, LabelWrapper, Label } from "./styles";
+import { Error, Label, LabelWrapper, Wrapper } from "./styles";
 
 export type WrapperProps = {
   groupClassName?: string;
@@ -48,7 +47,7 @@ const FormWrapper = (WrappedComponent: ReactType) => {
       <Wrapper hasError={displayError} className={groupClassName}>
         {!hideLabelWrapper && labelMarkup}
         <WrappedComponent {...props} />
-        {displayError && <span className="required">{errors[name]}</span>}
+        {displayError && <Error>{errors[name]}</Error>}
       </Wrapper>
     );
   };

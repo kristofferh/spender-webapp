@@ -28,6 +28,14 @@ export const elevation = () => `
   box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1), 
   0 1px 10px 0 rgba(0, 0, 0, 0.1);`;
 
+export const pageContainer = () => `
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+`;
+
 export const mainContainer = () => `
   padding: 0 ${sizeToPx(size)};
   width: 100%;
