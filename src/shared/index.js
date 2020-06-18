@@ -15,13 +15,6 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  background-image: linear-gradient(
-      180deg,
-      transparent 0%,
-      transparent 50%,
-      #fff 50%
-    ),
-    linear-gradient(156deg, #e1cad3 6%, #a6a8bc 50%);
 `;
 
 export class App extends Component {
@@ -33,7 +26,7 @@ export class App extends Component {
   render() {
     const { loggedIn } = this.props;
     return (
-      <>
+      <Container>
         <Nav authenticated={loggedIn} />
         <Switch>
           {routes.map((route, i) => {
@@ -42,7 +35,7 @@ export class App extends Component {
             );
           })}
         </Switch>
-      </>
+      </Container>
     );
   }
 }
