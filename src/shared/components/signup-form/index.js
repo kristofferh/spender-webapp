@@ -1,7 +1,6 @@
 import { Field } from "formik";
 import PropTypes from "prop-types";
 import React from "react";
-import Loader from "shared/components/loader";
 import { black } from "shared/utils/styles";
 import { composedValidators, email, required } from "shared/utils/validators";
 import {
@@ -10,6 +9,7 @@ import {
   Form,
   Header,
   InnerContainer,
+  Loader,
   PageContainer,
   Slide,
   SlideContainer,
@@ -29,7 +29,7 @@ const SignupForm = ({ handleSubmit, invalid, success, isRequesting }) => (
         <SlideContainer success={success}>
           <Slide>
             {isRequesting ? (
-              <Loader color={black} />
+              <Loader showBackground showDashAnimation color={black} />
             ) : (
               <Form onSubmit={handleSubmit}>
                 <Field
