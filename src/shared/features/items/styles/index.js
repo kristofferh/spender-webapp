@@ -1,5 +1,6 @@
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
+import { Loader as Spinner } from "businesskit";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "shared/components/icons";
 import { hexToRGBA } from "shared/utils/colors";
@@ -207,4 +208,8 @@ export const NoItems = styled.div`
   @media (min-width: ${minWidthMd}) {
     padding: 0;
   }
+`;
+
+export const Loader = styled(Spinner)`
+  margin: 10px auto;
 `;

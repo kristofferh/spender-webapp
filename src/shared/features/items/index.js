@@ -7,7 +7,6 @@ import Chart from "shared/components/chart";
 import ChartOverlay from "shared/components/chart-overlay";
 import InfiniteScroll from "shared/components/infinite-scroll";
 import Label from "shared/components/label";
-import Loader from "shared/components/loader";
 import { fetchItems } from "shared/data/items/actions";
 import { groupBy, sum } from "shared/utils/arrays";
 import { toDecimal } from "shared/utils/number";
@@ -27,6 +26,7 @@ import {
   ItemsList,
   LeftArrow,
   ListItem,
+  Loader,
   NoItems,
   RightArrow,
   TagAmount,
@@ -159,7 +159,7 @@ export class Items extends Component {
   };
 
   paginationLoader() {
-    return <Loader color={black} />;
+    return <Loader showDashAnimation showBackground color={black} />;
   }
 
   renderItem(item) {
@@ -338,7 +338,7 @@ export class Items extends Component {
     return (
       <ItemsContainer>
         {isFetching ? (
-          <Loader color={black} />
+          <Loader showDashAnimation showBackground color={black} />
         ) : (
           <Container>
             {this.renderAggregateDetails()}
