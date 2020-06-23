@@ -57,6 +57,7 @@
     "@vx/grid": "^0.0.179",
     "@vx/scale": "^0.0.179",
     "@vx/shape": "^0.0.179",
+    "businesskit": "git+https://5b3155715bb7158347e3aae842975bd2e806ed9f:x-oauth-basic@github.com/kristofferh/businesskit.git",
     "classnames": "^2.2.5",
     "compression": "^1.7.4",
     "express": "^4.17.1",
