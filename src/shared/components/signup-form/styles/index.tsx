@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Loader as Spinner } from "businesskit";
+import { Loader as Spinner } from "@kristofferh/businesskit";
 import { Input } from "shared/components/form-controls";
 import { Guilloche } from "shared/components/guilloche";
 import {

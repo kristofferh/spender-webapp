@@ -1,4 +1,4 @@
-import { Loader } from "businesskit";
+import { Loader } from "@kristofferh/businesskit";
 import React from "react";
 import { white } from "shared/utils/styles";
 import { Button, StateContainer } from "./styles";

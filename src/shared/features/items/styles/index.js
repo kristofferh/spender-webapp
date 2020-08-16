@@ -1,6 +1,6 @@
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
-import { Loader as Spinner } from "businesskit";
+import { Loader as Spinner } from "@kristofferh/businesskit";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "shared/components/icons";
 import { hexToRGBA } from "shared/utils/colors";
