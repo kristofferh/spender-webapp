@@ -13,6 +13,7 @@ interface Props extends FieldProps {
   type: string;
   pattern?: string;
   onChange?: (value: string) => void;
+  onBlur?: (value: string) => void;
 }
 
 export const Input: React.FC<Props> = ({
@@ -24,7 +25,8 @@ export const Input: React.FC<Props> = ({
   placeholder,
   type = "text",
   pattern,
-  onChange
+  onChange,
+  onBlur
 }) => (
   <StyledInput
     {...attributes}
@@ -36,6 +38,13 @@ export const Input: React.FC<Props> = ({
       } else {
         form.setFieldValue(field.name, value);
       }
+    }}
+    onBlur={(event: any) => {
+      const value = event.target.value;
+      if (onBlur) {
+        onBlur(value);
+      }
+      form.handleBlur(event);
     }}
     className={className}
     id={id || field.name}

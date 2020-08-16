@@ -33,6 +33,7 @@ const SignupForm = ({ handleSubmit, invalid, success, isRequesting }) => (
             ) : (
               <Form onSubmit={handleSubmit}>
                 <Field
+                  attributes={{ autoFocus: true }}
                   hideLabelWrapper
                   placeholder="Enter your email"
                   component={StyledInput}

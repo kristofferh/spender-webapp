@@ -1,5 +1,5 @@
+import { Loader } from "businesskit";
 import React from "react";
-import { Loader } from "shared/components/loader";
 import { white } from "shared/utils/styles";
 import { Button, StateContainer } from "./styles";
 
@@ -20,13 +20,7 @@ export const ProgressButton: React.FC<Props> = ({
     {children}
     <StateContainer>
       {state === "loading" ? (
-        <Loader
-          size={20}
-          borderWidth={4}
-          color={white}
-          backgroundColor={"transparent"}
-          style={{ margin: 0 }}
-        />
+        <Loader size={20} borderWidth={2} color={white} />
       ) : null}
     </StateContainer>
   </Button>
