@@ -1,4 +1,5 @@
 import { Field, FormikProps } from "formik";
+import { evaluate } from "mathjs";
 import moment from "moment";
 import React from "react";
 import { ActionButtons, Input, Select } from "shared/components/form-controls";
@@ -21,6 +22,7 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
   deleteCallback,
   status,
   setFieldValue,
+  validateField,
   isSubmitting
 }) => {
   return (
@@ -45,9 +47,18 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
         <Field
           name="amount"
           component={Input}
-          type="number"
-          attributes={{ step: "any" }}
           label="Amount"
+          onBlur={(value: any) => {
+            if (value) {
+              try {
+                const val = evaluate(value);
+                setFieldValue("amount", val);
+                setTimeout(() => {
+                  validateField("amount");
+                }, 10);
+              } catch {}
+            }
+          }}
           validate={composedValidators(required, number)}
         />
       </FormGroup>

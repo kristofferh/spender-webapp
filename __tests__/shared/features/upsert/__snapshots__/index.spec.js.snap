@@ -368,8 +368,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           name="amount"
           onBlur={[Function]}
           onChange={[Function]}
-          step="any"
-          type="number"
+          type="text"
         />
       </div>
     </div>
@@ -925,8 +924,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           name="amount"
           onBlur={[Function]}
           onChange={[Function]}
-          step="any"
-          type="number"
+          type="text"
         />
       </div>
     </div>

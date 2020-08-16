@@ -49,6 +49,7 @@ exports[`Create Input snapshot should render and match snapshot 1`] = `
     className="form-control emotion-4 emotion-5"
     id="test"
     name="test"
+    onBlur={[Function]}
     onChange={[Function]}
     type="text"
   />

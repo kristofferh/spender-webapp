@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Loader as Spinner } from "@kristofferh/businesskit";
 import { Input } from "shared/components/form-controls";
 import { Guilloche } from "shared/components/guilloche";
 import {
@@ -105,4 +106,8 @@ export const StyledGuilloche = styled(Guilloche)`
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
+`;
+
+export const Loader = styled(Spinner)`
+  margin: 10px auto;
 `;
