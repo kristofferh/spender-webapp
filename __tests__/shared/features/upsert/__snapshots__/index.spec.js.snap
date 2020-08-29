@@ -1,552 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
-.emotion-60 {
-  padding: 0 16px;
-  width: 100%;
-}
-
-@media (min-width:768px) {
-  .emotion-60 {
-    max-width: 960px;
-    margin: 48px auto;
-  }
-}
-
-@media (max-width:767px) {
-  .emotion-60 {
-    padding: 16px;
-  }
-}
-
-.emotion-0 {
-  font-family: 'tiempos-head-semibold',georgia,serif;
-  font-size: 28px;
-  line-height: 1.2;
-  margin-top: 0;
-}
-
-.emotion-58 {
-  padding: 0 16px;
-  width: 100%;
-  margin: 0;
-  background: #ffffff;
-  width: auto;
-}
-
-@media (min-width:768px) {
-  .emotion-58 {
-    max-width: 960px;
-    margin: 48px auto;
-  }
-}
-
-@media (min-width:768px) {
-  .emotion-58 {
-    background: #ffffff;
-    box-shadow: 0 2px 5px rgba(17,17,17,0.1);
-    border-radius: 2px;
-    padding: 32px 48px;
-  }
-}
-
-@media (max-width:767px) {
-  .emotion-58 {
-    margin: 0 -16px;
-    padding: 16px;
-  }
-}
-
-.emotion-10 {
-  display: block;
-  margin-bottom: 16px;
-}
-
-.emotion-8 {
-  position: relative;
-  color: inherit;
-}
-
-.emotion-2 {
-  font-weight: bold;
-  display: block;
-}
-
-.emotion-2:after {
-  content: '';
-}
-
-.emotion-6 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid #888;
-  padding: 5px 0;
-  min-height: 40px;
-  font-family: inherit;
-  font-size: inherit;
-}
-
-.emotion-6:focus {
-  outline: none;
-  border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
-}
-
-.emotion-54 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-52 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  min-height: 40px;
-  width: 100%;
-  border: 0;
-  background-color: #101010;
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 4px;
-  -webkit-transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
-  transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  pointer-events: all;
-  margin-left: auto;
-  -webkit-order: 1;
-  -ms-flex-order: 1;
-  order: 1;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  width: auto;
-  padding: 0 50px;
-}
-
-.emotion-52:active,
-.emotion-52:hover {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-.emotion-52:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px #66afe965;
-}
-
-.emotion-49 {
-  width: 20px;
-  height: 20px;
-  margin-right: -30px;
-  margin-left: 10px;
-}
-
-.emotion-44 {
-  position: relative;
-  box-sizing: border-box;
-}
-
-.emotion-43 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: hsl(0,0%,100%);
-  border-color: hsl(0,0%,80%);
-  border-radius: 0;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: none;
-  cursor: default;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  min-height: 40px;
-  outline: 0 !important;
-  position: relative;
-  -webkit-transition: all 100ms;
-  transition: all 100ms;
-  box-sizing: border-box;
-  border: 0;
-  border-bottom: 1px solid #888;
-  padding: 5px 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.emotion-43:hover {
-  border-color: hsl(0,0%,70%);
-}
-
-.emotion-43:hover {
-  border-bottom: 1px solid #888;
-}
-
-.emotion-38 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding: 0;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.emotion-36 {
-  color: hsl(0,0%,50%);
-  margin-left: 2px;
-  margin-right: 2px;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  box-sizing: border-box;
-}
-
-.emotion-37 {
-  margin: 2px;
-  padding-bottom: 2px;
-  padding-top: 2px;
-  visibility: visible;
-  color: hsl(0,0%,20%);
-  box-sizing: border-box;
-}
-
-.emotion-42 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  box-sizing: border-box;
-}
-
-.emotion-39 {
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  background-color: hsl(0,0%,80%);
-  margin-bottom: 8px;
-  margin-top: 8px;
-  width: 1px;
-  box-sizing: border-box;
-}
-
-.emotion-41 {
-  color: hsl(0,0%,80%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 8px;
-  -webkit-transition: color 150ms;
-  transition: color 150ms;
-  box-sizing: border-box;
-}
-
-.emotion-41:hover {
-  color: hsl(0,0%,60%);
-}
-
-.emotion-40 {
-  display: inline-block;
-  fill: currentColor;
-  line-height: 1;
-  stroke: currentColor;
-  stroke-width: 0;
-}
-
-<div
-  className="emotion-60 emotion-61"
->
-  <h1
-    className="emotion-0 emotion-1"
-  >
-    Add
-  </h1>
-  <form
-    className="emotion-58 emotion-59"
-    onSubmit={[Function]}
-  >
-    <div
-      className="emotion-10 emotion-11"
-    >
-      <div
-        className="emotion-8 emotion-9"
-      >
-        <div
-          className="emotion-4 emotion-5"
-        >
-          <label
-            className="emotion-2 emotion-3"
-            htmlFor="date"
-          >
-            Date
-          </label>
-        </div>
-        <input
-          className="form-control emotion-6 emotion-7"
-          id="date"
-          name="date"
-          onBlur={[Function]}
-          onChange={[Function]}
-          type="datetime-local"
-        />
-      </div>
-    </div>
-    <div
-      className="emotion-10 emotion-11"
-    >
-      <div
-        className="emotion-8 emotion-9"
-      >
-        <div
-          className="emotion-4 emotion-5"
-        >
-          <label
-            className="emotion-2 emotion-3"
-            htmlFor="amount"
-          >
-            Amount
-          </label>
-        </div>
-        <input
-          className="form-control emotion-6 emotion-7"
-          id="amount"
-          name="amount"
-          onBlur={[Function]}
-          onChange={[Function]}
-          type="text"
-        />
-      </div>
-    </div>
-    <div
-      className="emotion-10 emotion-11"
-    >
-      <div
-        className="emotion-8 emotion-9"
-      >
-        <div
-          className="emotion-4 emotion-5"
-        >
-          <label
-            className="emotion-2 emotion-3"
-            htmlFor="description"
-          >
-            Description
-          </label>
-        </div>
-        <input
-          className="form-control emotion-6 emotion-7"
-          id="description"
-          name="description"
-          onBlur={[Function]}
-          onChange={[Function]}
-          type="text"
-        />
-      </div>
-    </div>
-    <div
-      className="emotion-10 emotion-11"
-    >
-      <div
-        className="emotion-8 emotion-9"
-      >
-        <div
-          className="emotion-4 emotion-5"
-        >
-          <label
-            className="emotion-2 emotion-3"
-            htmlFor="tags"
-          >
-            Tags
-          </label>
-        </div>
-        <div
-          className="emotion-44"
-          id="tags"
-          onKeyDown={[Function]}
-        >
-          <div
-            className="emotion-43"
-            onMouseDown={[Function]}
-            onTouchEnd={[Function]}
-          >
-            <div
-              className="emotion-38"
-            >
-              <div
-                className="emotion-36"
-              >
-                Select...
-              </div>
-              <div
-                className="emotion-37"
-              >
-                <div
-                  className=""
-                  style={
-                    Object {
-                      "display": "inline-block",
-                    }
-                  }
-                >
-                  <input
-                    aria-autocomplete="list"
-                    autoCapitalize="none"
-                    autoComplete="off"
-                    autoCorrect="off"
-                    disabled={false}
-                    id="react-select-2-input"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    spellCheck="false"
-                    style={
-                      Object {
-                        "background": 0,
-                        "border": 0,
-                        "boxSizing": "content-box",
-                        "color": "inherit",
-                        "fontSize": "inherit",
-                        "label": "input",
-                        "opacity": 1,
-                        "outline": 0,
-                        "padding": 0,
-                        "width": "1px",
-                      }
-                    }
-                    tabIndex="0"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    style={
-                      Object {
-                        "height": 0,
-                        "left": 0,
-                        "overflow": "scroll",
-                        "position": "absolute",
-                        "top": 0,
-                        "visibility": "hidden",
-                        "whiteSpace": "pre",
-                      }
-                    }
-                  >
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="emotion-42"
-            >
-              <span
-                className="emotion-39"
-              />
-              <div
-                aria-hidden="true"
-                className="emotion-41"
-                onMouseDown={[Function]}
-                onTouchEnd={[Function]}
-              >
-                <svg
-                  aria-hidden="true"
-                  className="emotion-40"
-                  focusable="false"
-                  height={20}
-                  viewBox="0 0 20 20"
-                  width={20}
-                >
-                  <path
-                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div>
-            <input
-              name="tags"
-              type="hidden"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer
-      className="emotion-56 emotion-57"
-    >
-      <div
-        className="emotion-54 emotion-55"
-      >
-        <button
-          className="emotion-51 emotion-52 emotion-53"
-        >
-          Submit
-          <div
-            className="emotion-49 emotion-50"
-          />
-        </button>
-      </div>
-    </footer>
-  </form>
-</div>
-`;
-
-exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
 .emotion-62 {
   padding: 0 16px;
   width: 100%;
@@ -606,6 +60,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
 .emotion-10 {
   display: block;
   margin-bottom: 16px;
+  position: relative;
 }
 
 .emotion-8 {
@@ -634,11 +89,28 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   min-height: 40px;
   font-family: inherit;
   font-size: inherit;
+  border-bottom-color: inherit;
 }
 
 .emotion-6:focus {
   outline: none;
   border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
+}
+
+.emotion-20 {
+  border: 0;
+  position: absolute;
+  right: 2px;
+  top: 30px;
+  background: transparent;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.emotion-20:focus {
+  outline: none;
 }
 
 .emotion-56 {
@@ -708,22 +180,12 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   margin-left: 10px;
 }
 
-.emotion-49 {
-  font-size: 15px;
-  cursor: pointer;
-  display: block;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.emotion-44 {
+.emotion-46 {
   position: relative;
   box-sizing: border-box;
 }
 
-.emotion-43 {
+.emotion-45 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -760,15 +222,15 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   appearance: none;
 }
 
-.emotion-43:hover {
+.emotion-45:hover {
   border-color: hsl(0,0%,70%);
 }
 
-.emotion-43:hover {
+.emotion-45:hover {
   border-bottom: 1px solid #888;
 }
 
-.emotion-38 {
+.emotion-40 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -790,7 +252,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-36 {
+.emotion-38 {
   color: hsl(0,0%,50%);
   margin-left: 2px;
   margin-right: 2px;
@@ -802,7 +264,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-37 {
+.emotion-39 {
   margin: 2px;
   padding-bottom: 2px;
   padding-top: 2px;
@@ -811,7 +273,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-42 {
+.emotion-44 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -829,7 +291,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-39 {
+.emotion-41 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -840,7 +302,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-41 {
+.emotion-43 {
   color: hsl(0,0%,80%);
   display: -webkit-box;
   display: -webkit-flex;
@@ -852,11 +314,11 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-41:hover {
+.emotion-43:hover {
   color: hsl(0,0%,60%);
 }
 
-.emotion-40 {
+.emotion-42 {
   display: inline-block;
   fill: currentColor;
   line-height: 1;
@@ -870,7 +332,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   <h1
     className="emotion-0 emotion-1"
   >
-    Edit
+    Add
   </h1>
   <form
     className="emotion-60 emotion-61"
@@ -919,14 +381,35 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           </label>
         </div>
         <input
+          autoFocus={true}
           className="form-control emotion-6 emotion-7"
           id="amount"
+          inputMode="decimal"
           name="amount"
           onBlur={[Function]}
           onChange={[Function]}
           type="text"
         />
       </div>
+      <button
+        className="emotion-20 emotion-21"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          height={24}
+          viewBox="0 0 24 24"
+          width={24}
+        >
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+          <path
+            d="M12 19c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 1c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12-8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-6 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+          />
+        </svg>
+      </button>
     </div>
     <div
       className="emotion-10 emotion-11"
@@ -971,25 +454,620 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           </label>
         </div>
         <div
-          className="emotion-44"
+          className="emotion-46"
           id="tags"
           onKeyDown={[Function]}
         >
           <div
-            className="emotion-43"
+            className="emotion-45"
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
           >
             <div
-              className="emotion-38"
+              className="emotion-40"
             >
               <div
-                className="emotion-36"
+                className="emotion-38"
               >
                 Select...
               </div>
               <div
-                className="emotion-37"
+                className="emotion-39"
+              >
+                <div
+                  className=""
+                  style={
+                    Object {
+                      "display": "inline-block",
+                    }
+                  }
+                >
+                  <input
+                    aria-autocomplete="list"
+                    autoCapitalize="none"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    disabled={false}
+                    id="react-select-2-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    spellCheck="false"
+                    style={
+                      Object {
+                        "background": 0,
+                        "border": 0,
+                        "boxSizing": "content-box",
+                        "color": "inherit",
+                        "fontSize": "inherit",
+                        "label": "input",
+                        "opacity": 1,
+                        "outline": 0,
+                        "padding": 0,
+                        "width": "1px",
+                      }
+                    }
+                    tabIndex="0"
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    style={
+                      Object {
+                        "height": 0,
+                        "left": 0,
+                        "overflow": "scroll",
+                        "position": "absolute",
+                        "top": 0,
+                        "visibility": "hidden",
+                        "whiteSpace": "pre",
+                      }
+                    }
+                  >
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="emotion-44"
+            >
+              <span
+                className="emotion-41"
+              />
+              <div
+                aria-hidden="true"
+                className="emotion-43"
+                onMouseDown={[Function]}
+                onTouchEnd={[Function]}
+              >
+                <svg
+                  aria-hidden="true"
+                  className="emotion-42"
+                  focusable="false"
+                  height={20}
+                  viewBox="0 0 20 20"
+                  width={20}
+                >
+                  <path
+                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div>
+            <input
+              name="tags"
+              type="hidden"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      className="emotion-58 emotion-59"
+    >
+      <div
+        className="emotion-56 emotion-57"
+      >
+        <button
+          className="emotion-53 emotion-54 emotion-55"
+        >
+          Submit
+          <div
+            className="emotion-51 emotion-52"
+          />
+        </button>
+      </div>
+    </footer>
+  </form>
+</div>
+`;
+
+exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
+.emotion-64 {
+  padding: 0 16px;
+  width: 100%;
+}
+
+@media (min-width:768px) {
+  .emotion-64 {
+    max-width: 960px;
+    margin: 48px auto;
+  }
+}
+
+@media (max-width:767px) {
+  .emotion-64 {
+    padding: 16px;
+  }
+}
+
+.emotion-0 {
+  font-family: 'tiempos-head-semibold',georgia,serif;
+  font-size: 28px;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.emotion-62 {
+  padding: 0 16px;
+  width: 100%;
+  margin: 0;
+  background: #ffffff;
+  width: auto;
+}
+
+@media (min-width:768px) {
+  .emotion-62 {
+    max-width: 960px;
+    margin: 48px auto;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-62 {
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(17,17,17,0.1);
+    border-radius: 2px;
+    padding: 32px 48px;
+  }
+}
+
+@media (max-width:767px) {
+  .emotion-62 {
+    margin: 0 -16px;
+    padding: 16px;
+  }
+}
+
+.emotion-10 {
+  display: block;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.emotion-8 {
+  position: relative;
+  color: inherit;
+}
+
+.emotion-2 {
+  font-weight: bold;
+  display: block;
+}
+
+.emotion-2:after {
+  content: '';
+}
+
+.emotion-6 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #888;
+  padding: 5px 0;
+  min-height: 40px;
+  font-family: inherit;
+  font-size: inherit;
+  border-bottom-color: inherit;
+}
+
+.emotion-6:focus {
+  outline: none;
+  border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
+}
+
+.emotion-20 {
+  border: 0;
+  position: absolute;
+  right: 2px;
+  top: 30px;
+  background: transparent;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.emotion-20:focus {
+  outline: none;
+}
+
+.emotion-58 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-56 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 40px;
+  width: 100%;
+  border: 0;
+  background-color: #101010;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
+  transition: background-color 0.2s ease,box-shadow 0.2s ease,color 0.3s ease;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  pointer-events: all;
+  margin-left: auto;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: auto;
+  padding: 0 50px;
+}
+
+.emotion-56:active,
+.emotion-56:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.emotion-56:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #66afe965;
+}
+
+.emotion-53 {
+  width: 20px;
+  height: 20px;
+  margin-right: -30px;
+  margin-left: 10px;
+}
+
+.emotion-51 {
+  font-size: 15px;
+  cursor: pointer;
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.emotion-46 {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.emotion-45 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(0,0%,80%);
+  border-radius: 0;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: none;
+  cursor: default;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  min-height: 40px;
+  outline: 0 !important;
+  position: relative;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid #888;
+  padding: 5px 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.emotion-45:hover {
+  border-color: hsl(0,0%,70%);
+}
+
+.emotion-45:hover {
+  border-bottom: 1px solid #888;
+}
+
+.emotion-40 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.emotion-38 {
+  color: hsl(0,0%,50%);
+  margin-left: 2px;
+  margin-right: 2px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-sizing: border-box;
+}
+
+.emotion-39 {
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  visibility: visible;
+  color: hsl(0,0%,20%);
+  box-sizing: border-box;
+}
+
+.emotion-44 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.emotion-41 {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  background-color: hsl(0,0%,80%);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 1px;
+  box-sizing: border-box;
+}
+
+.emotion-43 {
+  color: hsl(0,0%,80%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px;
+  -webkit-transition: color 150ms;
+  transition: color 150ms;
+  box-sizing: border-box;
+}
+
+.emotion-43:hover {
+  color: hsl(0,0%,60%);
+}
+
+.emotion-42 {
+  display: inline-block;
+  fill: currentColor;
+  line-height: 1;
+  stroke: currentColor;
+  stroke-width: 0;
+}
+
+<div
+  className="emotion-64 emotion-65"
+>
+  <h1
+    className="emotion-0 emotion-1"
+  >
+    Edit
+  </h1>
+  <form
+    className="emotion-62 emotion-63"
+    onSubmit={[Function]}
+  >
+    <div
+      className="emotion-10 emotion-11"
+    >
+      <div
+        className="emotion-8 emotion-9"
+      >
+        <div
+          className="emotion-4 emotion-5"
+        >
+          <label
+            className="emotion-2 emotion-3"
+            htmlFor="date"
+          >
+            Date
+          </label>
+        </div>
+        <input
+          className="form-control emotion-6 emotion-7"
+          id="date"
+          name="date"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="datetime-local"
+        />
+      </div>
+    </div>
+    <div
+      className="emotion-10 emotion-11"
+    >
+      <div
+        className="emotion-8 emotion-9"
+      >
+        <div
+          className="emotion-4 emotion-5"
+        >
+          <label
+            className="emotion-2 emotion-3"
+            htmlFor="amount"
+          >
+            Amount
+          </label>
+        </div>
+        <input
+          autoFocus={true}
+          className="form-control emotion-6 emotion-7"
+          id="amount"
+          inputMode="decimal"
+          name="amount"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+      <button
+        className="emotion-20 emotion-21"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          height={24}
+          viewBox="0 0 24 24"
+          width={24}
+        >
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+          <path
+            d="M12 19c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 1c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12-8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-6 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      className="emotion-10 emotion-11"
+    >
+      <div
+        className="emotion-8 emotion-9"
+      >
+        <div
+          className="emotion-4 emotion-5"
+        >
+          <label
+            className="emotion-2 emotion-3"
+            htmlFor="description"
+          >
+            Description
+          </label>
+        </div>
+        <input
+          className="form-control emotion-6 emotion-7"
+          id="description"
+          name="description"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="emotion-10 emotion-11"
+    >
+      <div
+        className="emotion-8 emotion-9"
+      >
+        <div
+          className="emotion-4 emotion-5"
+        >
+          <label
+            className="emotion-2 emotion-3"
+            htmlFor="tags"
+          >
+            Tags
+          </label>
+        </div>
+        <div
+          className="emotion-46"
+          id="tags"
+          onKeyDown={[Function]}
+        >
+          <div
+            className="emotion-45"
+            onMouseDown={[Function]}
+            onTouchEnd={[Function]}
+          >
+            <div
+              className="emotion-40"
+            >
+              <div
+                className="emotion-38"
+              >
+                Select...
+              </div>
+              <div
+                className="emotion-39"
               >
                 <div
                   className=""
@@ -1047,20 +1125,20 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
               </div>
             </div>
             <div
-              className="emotion-42"
+              className="emotion-44"
             >
               <span
-                className="emotion-39"
+                className="emotion-41"
               />
               <div
                 aria-hidden="true"
-                className="emotion-41"
+                className="emotion-43"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
               >
                 <svg
                   aria-hidden="true"
-                  className="emotion-40"
+                  className="emotion-42"
                   focusable="false"
                   height={20}
                   viewBox="0 0 20 20"
@@ -1083,23 +1161,23 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </div>
     <footer
-      className="emotion-58 emotion-59"
+      className="emotion-60 emotion-61"
     >
       <div
-        className="emotion-56 emotion-57"
+        className="emotion-58 emotion-59"
       >
         <a
-          className="emotion-49 emotion-50"
+          className="emotion-51 emotion-52"
           onClick={[Function]}
         >
           Delete
         </a>
         <button
-          className="emotion-53 emotion-54 emotion-55"
+          className="emotion-55 emotion-56 emotion-57"
         >
           Submit
           <div
-            className="emotion-51 emotion-52"
+            className="emotion-53 emotion-54"
           />
         </button>
       </div>
