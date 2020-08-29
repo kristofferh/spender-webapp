@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
+import { darkGray, fontSizeCaptionTwo, white } from "shared/utils/styles";
 
-import { fontSizeCaptionTwo, white, darkGray } from "shared/utils/styles";
-
-export const Container = styled.span`
+export const Container = styled.span<{ bgColor?: string }>`
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -23,9 +22,21 @@ export const Inner = styled.span`
   text-overflow: ellipsis;
 `;
 
-export const Remove = styled.span`
+export const RemoveContainer = styled.span`
   margin-left: -4px;
   padding: 4px;
   cursor: pointer;
   display: inline-flex;
+`;
+
+export const Remove = styled.button`
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  border: 0;
+  background: transparent;
+
+  &:focus {
+    outline: 2px solid rgb(255, 255, 0);
+  }
 `;
