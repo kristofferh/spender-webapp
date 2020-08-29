@@ -14,6 +14,7 @@ export type WrapperProps = {
     touched: { [prop: string]: boolean };
     errors: { [prop: string]: string };
   };
+  innerRef?: any;
 };
 
 const FormWrapper = (WrappedComponent: ReactType) => {
@@ -27,7 +28,8 @@ const FormWrapper = (WrappedComponent: ReactType) => {
       label,
       required,
       field: { name },
-      form: { touched, errors }
+      form: { touched, errors },
+      innerRef
     } = props;
     const displayError = Boolean(touched[name] && errors[name]);
 
@@ -46,7 +48,7 @@ const FormWrapper = (WrappedComponent: ReactType) => {
     return (
       <Wrapper hasError={displayError} className={groupClassName}>
         {!hideLabelWrapper && labelMarkup}
-        <WrappedComponent {...props} />
+        <WrappedComponent ref={innerRef} {...props} />
         {displayError && <Error>{errors[name]}</Error>}
       </Wrapper>
     );

@@ -27,6 +27,7 @@ exports[`Create Input snapshot should render and match snapshot 1`] = `
   min-height: 40px;
   font-family: inherit;
   font-size: inherit;
+  border-bottom-color: inherit;
 }
 
 .emotion-4:focus {
