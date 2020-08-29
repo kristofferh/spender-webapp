@@ -1,11 +1,12 @@
 import { Field, FormikProps } from "formik";
 import { evaluate } from "mathjs";
 import moment from "moment";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { ActionButtons, Input, Select } from "shared/components/form-controls";
+import { Calculate, Dialpad } from "shared/components/icons";
 import { FormValues, Tag } from "shared/features/upsert";
 import { composedValidators, number, required } from "shared/utils/validators";
-import { Form, FormGroup } from "./styles";
+import { Form, FormGroup, ToggleButton } from "./styles";
 
 export type Props = {
   tags: Tag[];
@@ -25,6 +26,15 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
   validateField,
   isSubmitting
 }) => {
+  const [isDecimal, toggleDecimal] = useState(true);
+  const amountRef = useRef<any>(null);
+  const handleDecimalToggle = () => {
+    toggleDecimal(!isDecimal);
+    if (amountRef && amountRef.current) {
+      amountRef.current.focus();
+    }
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
@@ -45,6 +55,11 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
       </FormGroup>
       <FormGroup>
         <Field
+          attributes={{
+            autoFocus: true,
+            inputMode: isDecimal ? "decimal" : "text"
+          }}
+          innerRef={amountRef}
           name="amount"
           component={Input}
           label="Amount"
@@ -61,6 +76,9 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
           }}
           validate={composedValidators(required, number)}
         />
+        <ToggleButton onClick={handleDecimalToggle} type="button">
+          {isDecimal ? <Dialpad /> : <Calculate />}
+        </ToggleButton>
       </FormGroup>
       <FormGroup>
         <Field

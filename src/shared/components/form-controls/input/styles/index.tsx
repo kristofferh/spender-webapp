@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
+import { error, flatInput } from "shared/utils/styles";
 
-import { flatInput } from "shared/utils/styles/layout";
-
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<{ hasError?: boolean }>`
   ${flatInput()};
+  border-bottom-color: ${({ hasError }) => (hasError ? error : "inherit")};
 `;
