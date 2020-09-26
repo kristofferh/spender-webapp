@@ -9,6 +9,7 @@ import {
   fontSizeSubhead,
   logan,
   mainContent,
+  maxContainerWidthPx,
   minWidthMd,
   space,
   titleOne,
@@ -29,8 +30,8 @@ export const Date = styled.div`
   font-size: ${fontSizeSubhead};
   text-transform: uppercase;
   font-weight: bold;
-  margin: 0 -1rem 10px;
-  padding: 4px 1rem;
+  margin: 0 -1rem 0.75rem;
+  padding: 0.25rem 1rem;
   background: #fafafa;
   border-top: 1px solid ${hexToRGBA(black, 0.1)};
   border-bottom: 1px solid ${hexToRGBA(black, 0.1)};
@@ -41,7 +42,7 @@ export const Date = styled.div`
     position: relative;
     border-top: 0;
     background: transparent;
-    margin: 30px 0 15px;
+    margin: 2rem 0 1rem;
     padding: 0 0 10px;
 
     &:first-child {
@@ -65,18 +66,18 @@ export const Amount = styled.span`
 
 export const Tags = styled.div`
   display: block;
-  margin: 5px 0;
+  margin: 4px 0;
 `;
 
 export const ListItem = styled(Link)`
   display: block;
-  padding-bottom: 10px;
+  padding-bottom: 0.75rem;
   text-decoration: none;
   color: inherit;
 
   & + & {
     border-top: 1px solid #eee;
-    padding-top: 10px;
+    padding-top: 0.75rem;
   }
 `;
 
@@ -89,7 +90,7 @@ export const Container = styled.div``;
 export const TotalAmount = styled.h2`
   ${titleTwo()};
   color: ${white};
-  margin: 0 0 0.25em;
+  margin: 0 0 0.25rem;
 `;
 
 export const AvgAmount = styled.h3`
@@ -106,7 +107,7 @@ export const AggregateDetails = styled.header`
 `;
 
 export const DetailsContainer = styled.div`
-  padding: 15px 30px;
+  padding: 1rem 2rem;
 `;
 
 export const TitleContainer = styled.div`
@@ -118,12 +119,12 @@ export const TitleContainer = styled.div`
 export const CurrentMonth = styled.h1`
   ${titleOne()};
   color: ${white};
-  margin: 0 0 0.25em;
+  margin: 0 0 0.25rem;
 `;
 
 export const Add = styled(Link)`
   position: fixed;
-  bottom: 15px;
+  bottom: 1rem;
   left: 50%;
   display: flex;
   transform: translateX(-50%);
@@ -144,25 +145,23 @@ export const ChartContainer = styled.div``;
 
 export const TagList = styled.div`
   position: relative;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin: auto -50vw;
+  max-width: ${maxContainerWidthPx};
+  margin: 1rem auto;
 `;
 
 export const TagListItem = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
+  padding: 0.5rem 1rem;
   position: relative;
   color: ${white};
 
   &:after {
     content: "";
     position: absolute;
-    width: calc(100% - 15px);
-    left: 15px;
+    width: calc(100% - 1rem);
+    left: 1rem;
     bottom: 0;
     border-bottom: 1px solid ${hexToRGBA(white, 0.2)};
   }
@@ -170,8 +169,8 @@ export const TagListItem = styled.div`
   &:first-child:before {
     content: "";
     position: absolute;
-    width: calc(100% - 15px);
-    left: 15px;
+    width: calc(100% - 1rem);
+    left: 1rem;
     top: 0;
     border-top: 1px solid ${hexToRGBA(white, 0.2)};
   }
@@ -203,7 +202,7 @@ export const RightArrow = styled(ArrowRight)`
 `;
 
 export const NoItems = styled.div`
-  padding: 15px 0;
+  padding: 1rem 0;
 
   @media (min-width: ${minWidthMd}) {
     padding: 0;
@@ -211,5 +210,5 @@ export const NoItems = styled.div`
 `;
 
 export const Loader = styled(Spinner)`
-  margin: 10px auto;
+  margin: 0.75rem auto;
 `;
