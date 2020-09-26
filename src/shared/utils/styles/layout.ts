@@ -11,6 +11,8 @@ export const maxWidthMd = "767px";
 export const minWidthMd = "768px";
 export const maxWitdhLg = "991px";
 export const minWidthLg = "992px";
+export const maxContainerWidth = 960;
+export const maxContainerWidthPx = sizeToPx(maxContainerWidth);
 
 export const borderRadiusSubtle = "2px";
 
@@ -37,11 +39,11 @@ export const pageContainer = () => `
 `;
 
 export const mainContainer = () => `
-  padding: 0 ${sizeToPx(size)};
+  padding: 0 ${sizePx};
   width: 100%;
   
   @media (min-width: ${minWidthMd}) {
-    max-width: 960px;
+    max-width: ${maxContainerWidthPx};
     margin: ${sizeToPx(tripleSize)} auto;
   }
 `;
