@@ -9,7 +9,9 @@ module.exports = env => {
     new webpack.DefinePlugin({
       API_URL: JSON.stringify("https://spender-dev.herokuapp.com"),
       SESSION_COOKIE: JSON.stringify("spender-session"),
-      SECURE_COOKIE: false
+      SECURE_COOKIE: false,
+      S3_BUCKET: JSON.stringify("spender-api"),
+      CLOUDFRONT_URL: JSON.stringify("https://d3hlgnxjqn5bbq.cloudfront.net")
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.ejs",
