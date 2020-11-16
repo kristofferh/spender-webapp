@@ -54,3 +54,9 @@ export const PrimaryNav = styled.nav<PrimaryNavProps>`
   font-size: 12px;
   ${({ active }) => (active ? `${elevation()} transform: translateX(0)` : null)}
 `;
+
+export const Avatar = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`;

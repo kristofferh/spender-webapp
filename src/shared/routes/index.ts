@@ -6,7 +6,7 @@ import Upsert from "shared/features/upsert";
 import Verify from "shared/features/verify";
 
 // APP Routes
-const routes = [
+export const routes = [
   {
     name: "home",
     path: "/",
