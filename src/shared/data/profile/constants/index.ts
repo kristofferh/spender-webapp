@@ -11,3 +11,10 @@ export type ProfileType = {
   firstName?: string;
   lastName?: string;
 };
+
+export type ProfileState = {
+  isFetching: boolean;
+  isSubmitting: boolean;
+  profile: ProfileType;
+  errors?: any;
+};

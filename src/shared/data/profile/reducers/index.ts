@@ -3,24 +3,24 @@ import {
   FETCH_PROFILE_FAILURE,
   FETCH_PROFILE_REQUEST,
   FETCH_PROFILE_SUCCESS,
+  ProfileState,
   UPDATE_PROFILE_FAILURE,
   UPDATE_PROFILE_REQUEST,
   UPDATE_PROFILE_SUCCESS
 } from "../constants";
 
-export default (
-  state = {
-    isFetching: false,
-    isSubmitting: false,
-    profile: {
-      avatar: "",
-      firstName: "",
-      lastName: ""
-    },
-    errors: {}
+const initialState: ProfileState = {
+  isFetching: false,
+  isSubmitting: false,
+  profile: {
+    avatar: "",
+    firstName: "",
+    lastName: ""
   },
-  action: Actions
-) => {
+  errors: {}
+};
+
+export default (state = initialState, action: Actions) => {
   switch (action.type) {
     case UPDATE_PROFILE_REQUEST:
       return {
