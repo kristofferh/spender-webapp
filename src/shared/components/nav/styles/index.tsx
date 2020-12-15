@@ -9,10 +9,6 @@ import {
   zIndex2
 } from "shared/utils/styles";
 
-type PrimaryNavProps = {
-  active?: boolean;
-};
-
 export const Container = styled.nav`
   width: 100%;
   z-index: ${zIndex10};
@@ -24,7 +20,7 @@ export const Inner = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
   position: relative;
   z-index: ${zIndex2};
   background: ${logan};
@@ -32,23 +28,26 @@ export const Inner = styled.div`
 `;
 
 export const MenuWrapper = styled.div`
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const PrimaryNav = styled.nav<PrimaryNavProps>`
+export const PrimaryNav = styled.nav<{ active?: boolean }>`
   position: absolute;
   max-width: 400px;
   width: 90%;
-  height: calc(100vh - 66px);
+  height: calc(100vh - 57px);
   min-width: 320px;
   transform: translateX(-100%);
   transition: transform 0.2s ease;
   background: ${white};
   z-index: ${zIndex1};
-  top: 66px;
+  top: 57px;
   bottom: 0;
-  padding: 16px;
+  padding: 1rem;
   box-sizing: border-box;
   text-transform: uppercase;
   font-size: 12px;
