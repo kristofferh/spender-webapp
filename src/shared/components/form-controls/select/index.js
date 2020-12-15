@@ -1,11 +1,8 @@
-import React from "react";
+import { Badge } from "@kristofferh/businesskit";
 import PropTypes from "prop-types";
+import React from "react";
 import { Creatable } from "react-select";
-
-import Label from "shared/components/label";
-
-import { gray, inputGradient } from "shared/utils/styles";
-
+import { badgeStyles, gray, inputGradient } from "shared/utils/styles";
 import FormWrapper from "../_form-wrapper";
 
 const isValidNewOption = (inputValue, selectValue, selectOptions) => {
@@ -52,14 +49,17 @@ const MultiValue = props => {
     removeProps
   } = props;
   return (
-    <Label
-      isRemovable={true}
-      bgColor={color}
+    <Badge
+      isRemovable
+      sx={{
+        ...badgeStyles,
+        backgroundColor: color
+      }}
       {...props}
       removeProps={removeProps}
     >
       {name}
-    </Label>
+    </Badge>
   );
 };
 
