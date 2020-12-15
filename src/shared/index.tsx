@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Provider as ThemeProvider } from "@kristofferh/businesskit";
 import Cookies from "js-cookie";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,16 +32,22 @@ export const App: React.FC<Props> = () => {
   }, [hasLoginCookie]);
 
   return (
-    <Container>
-      {hasLoginCookie ? <Nav profile={profile} /> : null}
-      <Switch>
-        {routes.map((route, i) => {
-          return (
-            <RouteWithSubRoutes key={i} loggedIn={hasLoginCookie} {...route} />
-          );
-        })}
-      </Switch>
-    </Container>
+    <ThemeProvider>
+      <Container>
+        {hasLoginCookie ? <Nav profile={profile} /> : null}
+        <Switch>
+          {routes.map((route, i) => {
+            return (
+              <RouteWithSubRoutes
+                key={i}
+                loggedIn={hasLoginCookie}
+                {...route}
+              />
+            );
+          })}
+        </Switch>
+      </Container>
+    </ThemeProvider>
   );
 };
 

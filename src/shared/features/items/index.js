@@ -1,3 +1,4 @@
+import { Badge } from "@kristofferh/businesskit";
 import moment from "moment";
 import numeral from "numeral";
 import PropTypes from "prop-types";
@@ -6,11 +7,10 @@ import { connect } from "react-redux";
 import Chart from "shared/components/chart";
 import ChartOverlay from "shared/components/chart-overlay";
 import InfiniteScroll from "shared/components/infinite-scroll";
-import Label from "shared/components/label";
 import { fetchItems } from "shared/data/items/actions";
 import { groupBy, sum } from "shared/utils/arrays";
 import { toDecimal } from "shared/utils/number";
-import { black, white } from "shared/utils/styles";
+import { badgeStyles, black, white } from "shared/utils/styles";
 import {
   Add,
   AggregateDetails,
@@ -179,9 +179,15 @@ export class Items extends Component {
               tagEdges.map(tag => {
                 const { name, color } = tag.node;
                 return (
-                  <Label key={name} bgColor={color}>
+                  <Badge
+                    key={name}
+                    sx={{
+                      ...badgeStyles,
+                      backgroundColor: color
+                    }}
+                  >
                     {name}
-                  </Label>
+                  </Badge>
                 );
               })}
           </Tags>

@@ -1,4 +1,5 @@
 import { gray, inputGradient, white } from "./colors";
+import { fontSizeCaptionTwo } from "./typography";
 
 export const size = 16;
 export const sizePx = sizeToPx(size);
@@ -75,3 +76,9 @@ export const flatInput = () => `
     border-image: ${inputGradient} 2;
   }
 `;
+
+export const badgeStyles = {
+  fontSize: fontSizeCaptionTwo,
+  marginRight: 4,
+  minHeight: 24
+};
