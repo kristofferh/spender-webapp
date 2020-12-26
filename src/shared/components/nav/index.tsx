@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 import Helmet from "react-helmet";
+import { Link } from "react-router-dom";
 import { Menu } from "shared/components/icons";
 import Logo from "shared/components/logo";
 import { ProfileState } from "shared/data/profile/constants";
@@ -41,6 +42,7 @@ export const Nav: React.FC<Props> = ({ profile }) => {
       </Inner>
       <PrimaryNav active={showNav}>
         <nav className="primary-nav__content">Not implemented :(</nav>
+        <Link to="/test">Test</Link>
       </PrimaryNav>
     </Container>
   );

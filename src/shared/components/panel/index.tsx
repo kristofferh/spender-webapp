@@ -9,7 +9,7 @@ type Props = {
   maxWidth?: number | string;
 };
 
-const Panel: React.FC<Props> = ({
+export const Panel: React.FC<Props> = ({
   children,
   direction,
   show,
