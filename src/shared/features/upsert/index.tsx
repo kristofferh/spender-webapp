@@ -107,6 +107,9 @@ export class Upsert extends Component<Props> {
 }
 
 const mapStateToProps = (state: any, ownProps: any) => {
+  if (!ownProps.match) {
+    return;
+  }
   const defaultInitialValues: FormValues = {
     date: "",
     amount: "",
@@ -119,11 +122,12 @@ const mapStateToProps = (state: any, ownProps: any) => {
       errors
     }
   } = state;
+  console.log(ownProps);
   const {
     match: {
       params: { id = undefined }
     }
-  } = ownProps;
+  } = ownProps || {};
 
   const existingTags =
     initialValues.tags && initialValues.tags.edges

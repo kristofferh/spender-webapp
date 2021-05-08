@@ -28,7 +28,8 @@ export const routes = [
     name: "Item",
     path: "/items/:id",
     exact: true,
-    component: Upsert
+    component: Upsert,
+    panel: true
   },
   {
     name: "signup",
@@ -48,7 +49,8 @@ export const routes = [
     name: "profile",
     path: "/profile",
     exact: true,
-    component: Profile
+    component: Profile,
+    panel: true
   }
 ];
 

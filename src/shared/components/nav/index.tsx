@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 import Helmet from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu } from "shared/components/icons";
 import Logo from "shared/components/logo";
 import { ProfileState } from "shared/data/profile/constants";
@@ -14,6 +14,7 @@ interface Props {
 }
 
 export const Nav: React.FC<Props> = ({ profile }) => {
+  let location = useLocation();
   const { profile: profileDetails } = profile || {};
   const [showNav, toggleShowNav] = useState(false);
   const handleMenuClick = () => {
@@ -42,7 +43,16 @@ export const Nav: React.FC<Props> = ({ profile }) => {
       </Inner>
       <PrimaryNav active={showNav}>
         <nav className="primary-nav__content">Not implemented :(</nav>
-        <Link to="/test">Test</Link>
+        <Link
+          to={{
+            pathname: "/test",
+            // This is the trick! This link sets
+            // the `background` in location state.
+            state: { background: location }
+          }}
+        >
+          Test
+        </Link>
       </PrimaryNav>
     </Container>
   );

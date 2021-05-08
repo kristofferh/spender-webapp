@@ -3,13 +3,13 @@ import { Provider as ThemeProvider } from "@kristofferh/businesskit";
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import { ResizeObserverClass } from "shared/components/observer/resize";
 import { fetchProfile } from "shared/data/profile/actions";
 import Nav from "./components/nav";
 import Panel from "./components/panel";
+import { RouteConfig } from "./components/route-config";
 import routes from "./routes";
-import { RouteWithSubRoutes } from "./utils";
 
 interface Props {
   userLoggedin: () => void;
@@ -28,6 +28,7 @@ export const App: React.FC<Props> = () => {
   const { profile } = useSelector((state: any) => state);
   const dispatch = useDispatch();
   const [containerWidth, setContainerWidth] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     if (hasLoginCookie) {
@@ -39,16 +40,19 @@ export const App: React.FC<Props> = () => {
     setContainerWidth(width);
   };
 
+  const background = location.state && location.state.background;
+  console.log(background, location);
   return (
     <ThemeProvider>
       <ResizeObserverClass onResize={handleResize}>
         {resizeRef => (
           <Container ref={resizeRef}>
             {hasLoginCookie ? <Nav profile={profile} /> : null}
-            <Switch>
+            <Switch location={background || location}>
               {routes.map((route, i) => {
                 return (
-                  <RouteWithSubRoutes
+                  <RouteConfig
+                    inPanel={containerWidth > 640 && route.panel}
                     key={i}
                     loggedIn={hasLoginCookie}
                     {...route}
@@ -56,17 +60,6 @@ export const App: React.FC<Props> = () => {
                 );
               })}
             </Switch>
-            <div
-              style={{
-                position: "fixed",
-                zIndex: 10000,
-                background: "red",
-                color: "white",
-                padding: "1rem"
-              }}
-            >
-              {containerWidth > 640 ? "BIG" : "small"}
-            </div>
             {containerWidth > 640 ? (
               <Route
                 path="/test"
