@@ -3,7 +3,7 @@ import { Observer, ObserverInterface } from "../index";
 
 interface Props {
   children: (ref: (e: HTMLElement | null) => void) => ReactNode;
-  onResize: (dimensions: { height: number; width: number }) => void;
+  onResize: (dimensions: DOMRect) => void;
 }
 
 const createResizeObserver = (node: Element, callback: () => void) => {
@@ -24,17 +24,14 @@ export class ResizeObserverClass extends Observer<Props> {
   onResize = () => {
     if (this.childNode !== null) {
       // Eventually use `clientRect` on the `entries[]` returned natively
-      const { height, width } = this.childNode.getBoundingClientRect();
+      const domRect = this.childNode.getBoundingClientRect();
+      const { height, width } = domRect;
       // Check for actual resize event
       if (this.state.height === height && this.state.width === width) {
         return;
       }
 
-      this.props.onResize({
-        height,
-        width
-      });
-      this.setState({ height, width });
+      this.props.onResize(domRect);
     }
   };
 
