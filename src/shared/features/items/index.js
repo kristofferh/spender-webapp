@@ -35,7 +35,7 @@ import {
   TagName,
   Tags,
   TitleContainer,
-  TotalAmount
+  TotalAmount,
 } from "./styles";
 
 export class Items extends Component {
@@ -43,7 +43,7 @@ export class Items extends Component {
     items: [],
     pageInfo: {},
     pageSize: 10,
-    currencyFormat: "$0,0.00"
+    currencyFormat: "$0,0.00",
   };
 
   static propTypes = {
@@ -54,7 +54,7 @@ export class Items extends Component {
       startCursor: PropTypes.string,
       endCursor: PropTypes.string,
       hasNextPage: PropTypes.bool,
-      hasPreviousPage: PropTypes.bool
+      hasPreviousPage: PropTypes.bool,
     }),
     isFetching: PropTypes.bool,
     isPaginating: PropTypes.bool,
@@ -64,14 +64,14 @@ export class Items extends Component {
     aggregateTags: PropTypes.array,
     history: PropTypes.object,
     location: PropTypes.object,
-    currencyFormat: PropTypes.string
+    currencyFormat: PropTypes.string,
   };
 
   state = {
     currentDayOfMonth: "",
     currentMonth: "",
     currentMonthFormatted: "",
-    endOfMonth: ""
+    endOfMonth: "",
   };
 
   componentDidMount() {
@@ -80,7 +80,7 @@ export class Items extends Component {
 
   updateDates() {
     const {
-      location: { search }
+      location: { search },
     } = this.props;
     const params = new URLSearchParams(search);
     const month = params.get("month");
@@ -100,7 +100,7 @@ export class Items extends Component {
     this.props.fetchItems({
       first: this.props.pageSize,
       startDate: this.state.currentMonth,
-      endDate: this.state.endOfMonth
+      endDate: this.state.endOfMonth,
     });
     if (sync) {
       this.syncURL();
@@ -109,7 +109,7 @@ export class Items extends Component {
 
   syncURL() {
     const {
-      history: { push }
+      history: { push },
     } = this.props;
     const month = this.state.date.format("M");
     const year = this.state.date.format("Y");
@@ -141,7 +141,7 @@ export class Items extends Component {
       currentMonth,
       currentDayOfMonth,
       currentMonthFormatted,
-      endOfMonth
+      endOfMonth,
     };
   }
 
@@ -152,7 +152,7 @@ export class Items extends Component {
         first: this.props.pageSize,
         after: endCursor,
         startDate: this.state.currentMonth,
-        endDate: this.state.endOfMonth
+        endDate: this.state.endOfMonth,
       },
       true
     );
@@ -167,7 +167,7 @@ export class Items extends Component {
       id,
       description,
       amount,
-      tags: { edges: tagEdges = [] }
+      tags: { edges: tagEdges = [] },
     } = item;
     return (
       <ListItem to={`/items/${id}`} key={id}>
@@ -176,14 +176,14 @@ export class Items extends Component {
           <Amount>{numeral(amount).format(this.props.currencyFormat)}</Amount>
           <Tags>
             {tagEdges &&
-              tagEdges.map(tag => {
+              tagEdges.map((tag) => {
                 const { name, color } = tag.node;
                 return (
                   <Badge
                     key={name}
                     sx={{
                       ...badgeStyles,
-                      backgroundColor: color
+                      backgroundColor: color,
                     }}
                   >
                     {name}
@@ -198,20 +198,20 @@ export class Items extends Component {
 
   // Group items by day.
   groupItems(items) {
-    const itemList = items.map(item => {
+    const itemList = items.map((item) => {
       const { date } = item.node;
       return {
         ...item.node,
-        date: moment(date).format("MMMM D, YYYY")
+        date: moment(date).format("MMMM D, YYYY"),
       };
     });
     const grouped = groupBy(itemList, "date");
     let newObject = {};
-    Object.keys(grouped).forEach(day => {
+    Object.keys(grouped).forEach((day) => {
       newObject[day] = {};
       newObject[day]["items"] = grouped[day];
       newObject[day]["sum"] = toDecimal(
-        sum(grouped[day].map(item => item.amount))
+        sum(grouped[day].map((item) => item.amount))
       );
     });
     return newObject;
@@ -225,7 +225,7 @@ export class Items extends Component {
     }
 
     const grouped = this.groupItems(items);
-    return Object.keys(grouped).map(group => {
+    return Object.keys(grouped).map((group) => {
       const items = grouped[group]["items"];
       const sum = grouped[group]["sum"];
       return (
@@ -234,7 +234,7 @@ export class Items extends Component {
             {group}
             <Amount>{numeral(sum).format(this.props.currencyFormat)}</Amount>
           </Date>
-          {items.map(item => {
+          {items.map((item) => {
             return this.renderItem(item);
           })}
         </>
@@ -265,35 +265,35 @@ export class Items extends Component {
     const {
       sum: sumValue,
       aggregateDetails = [],
-      aggregateTags = []
+      aggregateTags = [],
     } = this.props;
     // Filter out rent. @todo: this should be a setting.
     const aggregateItems = aggregateDetails
-      .map(item => {
+      .map((item) => {
         const { date } = item.node;
         return {
           ...item.node,
-          day: moment(date).format("MMMM D, YYYY")
+          day: moment(date).format("MMMM D, YYYY"),
         };
       })
-      .filter(item => {
+      .filter((item) => {
         const {
-          tags: { edges: tags }
+          tags: { edges: tags },
         } = item;
         const values = tags.map(({ node: { name } }) => name);
         return !values.includes("rent");
       });
     const groupedItems = groupBy(aggregateItems, "day");
-    const dailySums = Object.keys(groupedItems).map(day => {
+    const dailySums = Object.keys(groupedItems).map((day) => {
       return {
         date: day,
-        sum: toDecimal(sum(groupedItems[day].map(item => item.amount)))
+        sum: toDecimal(sum(groupedItems[day].map((item) => item.amount))),
       };
     });
-    const dailySansRent = toDecimal(sum(dailySums.map(daily => daily.sum)));
+    const dailySansRent = toDecimal(sum(dailySums.map((daily) => daily.sum)));
     const aggregateTagsList = aggregateTags
       .sort((a, b) => b.sumItems - a.sumItems)
-      .filter(tag => tag.countItems)
+      .filter((tag) => tag.countItems)
       .slice(0, 10);
     return (
       <AggregateDetails>
@@ -316,10 +316,10 @@ export class Items extends Component {
         <ChartOverlay>
           <Chart values={dailySums} width={800} height={400} />
           <TagList>
-            {aggregateTagsList.map(tag => {
+            {aggregateTagsList.map((tag) => {
               const {
                 sumItems,
-                node: { name }
+                node: { name },
               } = tag;
               return (
                 <TagListItem key={name}>
@@ -339,7 +339,7 @@ export class Items extends Component {
       items,
       isFetching,
       isPaginating,
-      pageInfo: { hasNextPage }
+      pageInfo: { hasNextPage },
     } = this.props;
     return (
       <ItemsContainer>
@@ -369,7 +369,7 @@ export class Items extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const {
     list: {
       items,
@@ -377,8 +377,8 @@ const mapStateToProps = state => {
       isFetching,
       isPaginating,
       aggregate: { sum, edges: aggregateDetails },
-      aggregateTags: { edges: aggregateTags }
-    }
+      aggregateTags: { edges: aggregateTags },
+    },
   } = state;
   return {
     items,
@@ -387,7 +387,7 @@ const mapStateToProps = state => {
     isPaginating,
     sum,
     aggregateDetails,
-    aggregateTags
+    aggregateTags,
   };
 };
 

@@ -3,24 +3,24 @@ import { makeRequest } from "shared/utils";
 import {
   FETCH_TAGS_REQUEST,
   FETCH_TAGS_SUCCESS,
-  FETCH_TAGS_FAILURE
+  FETCH_TAGS_FAILURE,
 } from "../constants";
 
 export const fetchTagsRequest = () => ({
-  type: FETCH_TAGS_REQUEST
+  type: FETCH_TAGS_REQUEST,
 });
 
-export const fetchTagsSuccess = tags => ({
+export const fetchTagsSuccess = (tags) => ({
   type: FETCH_TAGS_SUCCESS,
-  tags
+  tags,
 });
 
-export const fetchTagsFailure = errors => ({
+export const fetchTagsFailure = (errors) => ({
   type: FETCH_TAGS_FAILURE,
-  errors
+  errors,
 });
 
-export const fetchTags = data => dispatch => {
+export const fetchTags = (data) => (dispatch) => {
   dispatch(fetchTagsRequest());
   const query = `query fetchTags {
     user {
@@ -36,11 +36,11 @@ export const fetchTags = data => dispatch => {
   }`;
 
   return makeRequest(JSON.stringify({ query: query, variables: data }))
-    .then(data => {
+    .then((data) => {
       // Second dispatch: return results.
       return dispatch(fetchTagsSuccess(data.user.tags));
     })
-    .catch(errors => {
+    .catch((errors) => {
       // Or dispatch errors.
       return dispatch(fetchTagsFailure(errors));
     });

@@ -16,7 +16,7 @@ import {
   StyledGuilloche,
   StyledInput,
   Success,
-  Title
+  Title,
 } from "./styles";
 
 const SignupForm = ({ handleSubmit, invalid, success, isRequesting }) => (
@@ -61,7 +61,7 @@ SignupForm.propTypes = {
   handleSubmit: PropTypes.func,
   invalid: PropTypes.bool,
   success: PropTypes.bool,
-  isRequesting: PropTypes.bool
+  isRequesting: PropTypes.bool,
 };
 
 export default SignupForm;

@@ -12,7 +12,7 @@ export default class InfiniteScroll extends Component {
     loadMore: PropTypes.func.isRequired,
     items: PropTypes.array,
     children: PropTypes.any,
-    window: PropTypes.bool
+    window: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -24,7 +24,7 @@ export default class InfiniteScroll extends Component {
     },
     showLoader: true,
     items: [],
-    window: true
+    window: true,
   };
 
   componentDidMount() {
@@ -142,7 +142,7 @@ export default class InfiniteScroll extends Component {
     const items = existingItems.concat(newItems);
 
     return (
-      <div ref={node => (this.el = node)} className={this.props.className}>
+      <div ref={(node) => (this.el = node)} className={this.props.className}>
         {items}
         {this.renderLoader()}
       </div>

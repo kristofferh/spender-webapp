@@ -18,7 +18,7 @@ export const appReducer = combineReducers({
   verifyToken,
   tags,
   user,
-  profile
+  profile,
 });
 
 const rootReducer = (state, action) => {

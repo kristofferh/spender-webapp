@@ -2,7 +2,7 @@ import { USER_LOGGED_IN } from "../constants";
 
 export default (
   state = {
-    loggedIn: false
+    loggedIn: false,
   },
   actions
 ) => {
@@ -10,7 +10,7 @@ export default (
     case USER_LOGGED_IN:
       return {
         ...state,
-        loggedIn: true
+        loggedIn: true,
       };
     default:
       return state;

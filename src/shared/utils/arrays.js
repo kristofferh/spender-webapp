@@ -16,9 +16,8 @@
 export const groupBy = (values, property) => {
   return values.reduce((aggregate, current) => {
     if (aggregate[current[property]]) {
-      aggregate[current[property]] = aggregate[current[property]].concat(
-        current
-      );
+      aggregate[current[property]] =
+        aggregate[current[property]].concat(current);
     } else {
       aggregate[current[property]] = [current];
     }
@@ -26,7 +25,7 @@ export const groupBy = (values, property) => {
   }, {});
 };
 
-export const sum = values => {
+export const sum = (values) => {
   return values.reduce((aggregate, current) => {
     return aggregate + current;
   }, 0);
