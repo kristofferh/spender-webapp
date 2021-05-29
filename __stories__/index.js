@@ -4,7 +4,6 @@ import { Field } from "formik";
 import React from "react";
 import { Input, Textarea } from "../src/shared/components/form-controls";
 import ActionButtons from "../src/shared/components/form-controls/action-buttons";
-import Loader from "../src/shared/components/loader";
 import Portal from "../src/shared/components/portal";
 import { ProgressButton } from "../src/shared/components/progress-button";
 import ToolTip from "../src/shared/components/tooltip";
@@ -71,8 +70,6 @@ storiesOf("Form Controls", module)
       />
     );
   });
-
-storiesOf("Loader", module).add("Loader", () => <Loader />);
 
 storiesOf("Progress Button", module).add("Progress Button", () => {
   const state = select("state", {

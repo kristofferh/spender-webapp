@@ -1,34 +1,7 @@
 import Cookies from "js-cookie";
-import React from "react";
-import { Redirect, Route } from "react-router-dom";
 
 export const asyncCatch = promise => {
   return promise.then(data => [data, null]).catch(error => [null, error]);
-};
-
-// Wrap <Route> and use this everywhere instead, then when
-// sub routes are added to any route it'll work
-export const RouteWithSubRoutes = route => {
-  const { public: publicPath, loggedIn, routes, path } = route;
-  return (
-    <Route
-      path={path}
-      render={props => {
-        if (publicPath || loggedIn) {
-          return <route.component {...props} routes={routes} />;
-        } else {
-          return (
-            <Redirect
-              to={{
-                pathname: "/login"
-              }}
-            />
-          );
-        }
-        // pass the sub-routes down to keep nesting
-      }}
-    />
-  );
 };
 
 export const fetchWrapper = (url, params) => {
