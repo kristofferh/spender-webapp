@@ -18,9 +18,10 @@ export const RouteConfig = (props: Props) => {
     loggedIn,
     routes,
     path,
-    component: Component,
-    inPanel
+    component: Component
   } = props;
+
+  /* eslint-disable react/no-children-prop */
   return (
     <Route
       path={path}
