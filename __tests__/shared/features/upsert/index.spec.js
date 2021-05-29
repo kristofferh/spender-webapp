@@ -1,17 +1,15 @@
-import React from "react";
 import { withFormik } from "formik";
-import { createStore } from "redux";
+import React from "react";
 import { Provider } from "react-redux";
 import renderer from "react-test-renderer";
-import "jest-emotion";
-
+import { createStore } from "redux";
 import { Upsert } from "shared/features/upsert";
 
 const spy = jest.fn();
 const store = createStore(() => ({}));
 
 const Decorated = withFormik({
-  initialValues: { date: "July 12, 2008", amount: 10 }
+  initialValues: { date: "July 12, 2008", amount: 10 },
 })(Upsert);
 
 describe("Create snapshot", () => {
