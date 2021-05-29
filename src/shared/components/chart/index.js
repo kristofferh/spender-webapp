@@ -9,27 +9,27 @@ import { extent, max } from "d3-array";
 import { Container } from "./styles";
 
 // accessors
-const xValue = d => new Date(d.date);
-const yValue = d => d.sum;
+const xValue = (d) => new Date(d.date);
+const yValue = (d) => d.sum;
 
 export default class Chart extends Component {
   static propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     isResponsive: PropTypes.bool,
-    values: PropTypes.array
+    values: PropTypes.array,
   };
 
   static defaultProps = {
     width: 800,
     height: 400,
     isResponsive: true,
-    values: []
+    values: [],
   };
 
   state = {
     render: !this.props.isResponsive,
-    width: this.props.isResponsive ? null : this.props.width
+    width: this.props.isResponsive ? null : this.props.width,
   };
 
   componentDidMount() {
@@ -53,17 +53,17 @@ export default class Chart extends Component {
     // scales
     const xScale = scaleTime({
       range: [0, width],
-      domain: extent(values, xValue)
+      domain: extent(values, xValue),
     });
     const yScale = scaleLinear({
       range: [height, 0],
-      domain: [0, max(values, yValue) + height / 3]
+      domain: [0, max(values, yValue) + height / 3],
     });
 
     return (
-      <Container ref={n => (this.container = n)}>
+      <Container ref={(n) => (this.container = n)}>
         {render ? (
-          <svg ref={s => (this.svg = s)} width={width} height={height}>
+          <svg ref={(s) => (this.svg = s)} width={width} height={height}>
             <LinearGradient
               from="#fff"
               to="#fff"

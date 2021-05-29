@@ -3,7 +3,7 @@ import {
   FETCH_ITEMS_SUCCESS,
   FETCH_ITEMS_FAILURE,
   FETCH_ITEMS_PAGINATION_REQUEST,
-  FETCH_ITEMS_PAGINATION_SUCCESS
+  FETCH_ITEMS_PAGINATION_SUCCESS,
 } from "../constants";
 
 export default (
@@ -14,7 +14,7 @@ export default (
     pageInfo: {},
     aggregate: {},
     aggregateTags: {},
-    errors: {}
+    errors: {},
   },
   action
 ) => {
@@ -22,13 +22,13 @@ export default (
     case FETCH_ITEMS_REQUEST:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       };
     case FETCH_ITEMS_PAGINATION_REQUEST:
       return {
         ...state,
         isFetching: false,
-        isPaginating: true
+        isPaginating: true,
       };
     case FETCH_ITEMS_SUCCESS:
       return {
@@ -38,7 +38,7 @@ export default (
         items: action.items,
         pageInfo: action.pageInfo,
         aggregate: action.aggregate,
-        aggregateTags: action.aggregateTags
+        aggregateTags: action.aggregateTags,
       };
     case FETCH_ITEMS_PAGINATION_SUCCESS:
       return {
@@ -46,14 +46,14 @@ export default (
         isFetching: false,
         isPaginating: false,
         items: state.items.concat(action.items),
-        pageInfo: action.pageInfo
+        pageInfo: action.pageInfo,
       };
     case FETCH_ITEMS_FAILURE:
       return {
         ...state,
         isFetching: false,
         isPaginating: false,
-        errors: action.errors
+        errors: action.errors,
       };
     default:
       return state;

@@ -9,7 +9,7 @@ import {
   FETCH_ITEM_FAILURE,
   DELETE_ITEM_REQUEST,
   DELETE_ITEM_SUCCESS,
-  DELETE_ITEM_FAILURE
+  DELETE_ITEM_FAILURE,
 } from "../constants";
 
 const TAG_FRAGMENT = `
@@ -28,48 +28,48 @@ const ITEM_FRAGMENT = `
 `;
 
 export const upsertItemRequest = () => ({
-  type: UPSERT_ITEM_REQUEST
+  type: UPSERT_ITEM_REQUEST,
 });
 
-export const upsertItemSuccess = item => ({
+export const upsertItemSuccess = (item) => ({
   type: UPSERT_ITEM_SUCCESS,
-  item
+  item,
 });
 
-export const upsertItemFailure = errors => ({
+export const upsertItemFailure = (errors) => ({
   type: UPSERT_ITEM_FAILURE,
-  errors
+  errors,
 });
 
 export const fetchItemRequest = () => ({
-  type: FETCH_ITEM_REQUEST
+  type: FETCH_ITEM_REQUEST,
 });
 
-export const fetchItemSuccess = user => ({
+export const fetchItemSuccess = (user) => ({
   type: FETCH_ITEM_SUCCESS,
-  user
+  user,
 });
 
-export const fetchItemFailure = errors => ({
+export const fetchItemFailure = (errors) => ({
   type: FETCH_ITEM_FAILURE,
-  errors
+  errors,
 });
 
 export const deleteItemRequest = () => ({
-  type: DELETE_ITEM_REQUEST
+  type: DELETE_ITEM_REQUEST,
 });
 
-export const deleteItemSuccess = item => ({
+export const deleteItemSuccess = (item) => ({
   type: DELETE_ITEM_SUCCESS,
-  item
+  item,
 });
 
-export const deleteItemFailure = errors => ({
+export const deleteItemFailure = (errors) => ({
   type: DELETE_ITEM_FAILURE,
-  errors
+  errors,
 });
 
-export const fetchItem = id => dispatch => {
+export const fetchItem = (id) => (dispatch) => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
   dispatch(fetchItemRequest());
@@ -101,20 +101,20 @@ export const fetchItem = id => dispatch => {
   return makeRequest(
     JSON.stringify({
       query: query,
-      variables: { id: id, withItem: Boolean(id) }
+      variables: { id: id, withItem: Boolean(id) },
     })
   )
-    .then(json => {
+    .then((json) => {
       // Second dispatch: return results.
       return dispatch(fetchItemSuccess(json.user));
     })
-    .catch(errors => {
+    .catch((errors) => {
       // Or dispatch errors.
       return dispatch(fetchItemFailure(errors));
     });
 };
 
-export const upsertItem = data => dispatch => {
+export const upsertItem = (data) => (dispatch) => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
   dispatch(upsertItemRequest());
@@ -161,19 +161,19 @@ export const upsertItem = data => dispatch => {
   return makeRequest(
     JSON.stringify({ query: query, variables: { input: data } })
   )
-    .then(json => {
+    .then((json) => {
       // Second dispatch: return results.
       const { addItem, editItem } = json;
       return dispatch(upsertItemSuccess(addItem || editItem));
     })
-    .catch(errors => {
+    .catch((errors) => {
       // Or dispatch errors.
       dispatch(upsertItemFailure(errors));
       throw errors;
     });
 };
 
-export const deleteItem = id => dispatch => {
+export const deleteItem = (id) => (dispatch) => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
   dispatch(deleteItemRequest());
@@ -185,11 +185,11 @@ export const deleteItem = id => dispatch => {
     }
   `;
   return makeRequest(JSON.stringify({ query: query, variables: { id: id } }))
-    .then(json => {
+    .then((json) => {
       // Second dispatch: return results.
       return dispatch(deleteItemSuccess(json.item));
     })
-    .catch(errors => {
+    .catch((errors) => {
       // Or dispatch errors.
       return dispatch(deleteItemFailure(errors));
     });

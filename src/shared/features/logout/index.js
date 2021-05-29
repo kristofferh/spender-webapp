@@ -8,7 +8,7 @@ import { userLogout } from "shared/data/user/actions";
 export class Logout extends Component {
   static propTypes = {
     userLogout: PropTypes.func,
-    history: PropTypes.object
+    history: PropTypes.object,
   };
 
   componentDidMount() {

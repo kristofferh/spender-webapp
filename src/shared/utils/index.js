@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 
-export const asyncCatch = promise => {
-  return promise.then(data => [data, null]).catch(error => [null, error]);
+export const asyncCatch = (promise) => {
+  return promise.then((data) => [data, null]).catch((error) => [null, error]);
 };
 
 export const fetchWrapper = (url, params) => {
@@ -12,8 +12,8 @@ export const fetchWrapper = (url, params) => {
   const commonParams = {
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   };
 
   const mergedParams = { ...commonParams, ...params };
@@ -23,19 +23,19 @@ export const fetchWrapper = (url, params) => {
 export const makeRequest = (query, authorize = true) => {
   let headers = {
     Accept: "application/json",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
   if (authorize) {
     headers = {
       ...headers,
-      Authorization: `Bearer ${Cookies.get(SESSION_COOKIE)}`
+      Authorization: `Bearer ${Cookies.get(SESSION_COOKIE)}`,
     };
   }
   return fetchWrapper(API_URL, {
     method: "POST",
     body: query,
-    headers
-  }).then(json => {
+    headers,
+  }).then((json) => {
     if (json.errors) {
       throw json.errors;
     } else if (json.data) {
@@ -44,7 +44,7 @@ export const makeRequest = (query, authorize = true) => {
   });
 };
 
-const handleResponse = response => {
+const handleResponse = (response) => {
   if (response.ok) {
     return response.json();
   } else {
@@ -53,7 +53,7 @@ const handleResponse = response => {
   }
 };
 
-export const fileUpload = async file => {
+export const fileUpload = async (file) => {
   const query = `
     mutation requestUrl($contentType: String, $file: String) {
       requestUploadURL(contentType: $contentType, file: $file) {
@@ -70,15 +70,15 @@ export const fileUpload = async file => {
     return error;
   }
   const {
-    requestUploadURL: { url, key }
+    requestUploadURL: { url, key },
   } = data;
 
   const response = await fetch(url, {
     method: "PUT",
     body: file,
     headers: {
-      "Content-Type": file.type
-    }
+      "Content-Type": file.type,
+    },
   });
 
   if (response.status !== 200) {

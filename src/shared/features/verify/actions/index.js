@@ -3,24 +3,24 @@ import { makeRequest } from "shared/utils";
 import {
   VERIFY_TOKEN_REQUEST,
   VERIFY_TOKEN_SUCCESS,
-  VERIFY_TOKEN_FAILURE
+  VERIFY_TOKEN_FAILURE,
 } from "../constants";
 
 export const verifyTokenRequest = () => ({
-  type: VERIFY_TOKEN_REQUEST
+  type: VERIFY_TOKEN_REQUEST,
 });
 
-export const verifyTokenSuccess = data => ({
+export const verifyTokenSuccess = (data) => ({
   type: VERIFY_TOKEN_SUCCESS,
-  token: data.token
+  token: data.token,
 });
 
-export const verifyTokenFailure = errors => ({
+export const verifyTokenFailure = (errors) => ({
   type: VERIFY_TOKEN_FAILURE,
-  errors
+  errors,
 });
 
-export const verifyToken = data => dispatch => {
+export const verifyToken = (data) => (dispatch) => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
   dispatch(verifyTokenRequest());
@@ -33,11 +33,11 @@ export const verifyToken = data => dispatch => {
   `;
 
   return makeRequest(JSON.stringify({ query: query, variables: data }), false)
-    .then(data => {
+    .then((data) => {
       // Second dispatch: return results.
       return dispatch(verifyTokenSuccess(data.verifyToken));
     })
-    .catch(errors => {
+    .catch((errors) => {
       // Or dispatch errors.
       dispatch(verifyTokenFailure(errors));
       throw errors;

@@ -7,7 +7,7 @@ import {
   FETCH_ITEM_FAILURE,
   DELETE_ITEM_REQUEST,
   DELETE_ITEM_SUCCESS,
-  DELETE_ITEM_FAILURE
+  DELETE_ITEM_FAILURE,
 } from "../constants";
 
 export default (
@@ -17,7 +17,7 @@ export default (
     isDeleting: false,
     item: {},
     user: {},
-    errors: {}
+    errors: {},
   },
   action
 ) => {
@@ -25,53 +25,53 @@ export default (
     case UPSERT_ITEM_REQUEST:
       return {
         ...state,
-        isSubmitting: true
+        isSubmitting: true,
       };
     case UPSERT_ITEM_SUCCESS:
       return {
         ...state,
         isSubmitting: false,
-        item: action.item
+        item: action.item,
       };
     case UPSERT_ITEM_FAILURE:
       return {
         ...state,
         isSubmitting: false,
-        errors: action.errors
+        errors: action.errors,
       };
     case FETCH_ITEM_REQUEST:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       };
     case FETCH_ITEM_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        user: action.user
+        user: action.user,
       };
     case FETCH_ITEM_FAILURE:
       return {
         ...state,
         isDeleting: false,
-        errors: action.errors
+        errors: action.errors,
       };
     case DELETE_ITEM_REQUEST:
       return {
         ...state,
-        isDeleting: true
+        isDeleting: true,
       };
     case DELETE_ITEM_SUCCESS:
       return {
         ...state,
         isDeleting: false,
-        item: action.item
+        item: action.item,
       };
     case DELETE_ITEM_FAILURE:
       return {
         ...state,
         isDeleting: false,
-        errors: action.errors
+        errors: action.errors,
       };
     default:
       return state;

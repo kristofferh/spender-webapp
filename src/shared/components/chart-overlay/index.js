@@ -8,12 +8,12 @@ import { Overlay, Container, Toggle, Arrow } from "./styles";
 export default class ChartOverlay extends Component {
   static propTypes = {
     initialDisplay: PropTypes.bool,
-    children: PropTypes.any
+    children: PropTypes.any,
   };
 
   state = {
     display: this.props.initialDisplay,
-    height: "auto"
+    height: "auto",
   };
 
   constructor(props) {
@@ -35,19 +35,19 @@ export default class ChartOverlay extends Component {
     const offset = this.container.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     this.setState({
-      height: windowHeight - offset.top
+      height: windowHeight - offset.top,
     });
   };
 
   toggle = () => {
     this.setState({
-      display: !this.state.display
+      display: !this.state.display,
     });
   };
 
   render() {
     return (
-      <Overlay ref={node => (this.container = node)}>
+      <Overlay ref={(node) => (this.container = node)}>
         <Container height={this.state.display ? this.state.height : 0}>
           {this.props.children}
         </Container>

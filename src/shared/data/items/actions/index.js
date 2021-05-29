@@ -5,11 +5,11 @@ import {
   FETCH_ITEMS_PAGINATION_REQUEST,
   FETCH_ITEMS_SUCCESS,
   FETCH_ITEMS_FAILURE,
-  FETCH_ITEMS_PAGINATION_SUCCESS
+  FETCH_ITEMS_PAGINATION_SUCCESS,
 } from "../constants";
 
-export const fetchItemsRequest = pagination => ({
-  type: pagination ? FETCH_ITEMS_PAGINATION_REQUEST : FETCH_ITEMS_REQUEST
+export const fetchItemsRequest = (pagination) => ({
+  type: pagination ? FETCH_ITEMS_PAGINATION_REQUEST : FETCH_ITEMS_REQUEST,
 });
 
 export const fetchItemsSuccess = (json, pagination) => {
@@ -18,16 +18,16 @@ export const fetchItemsSuccess = (json, pagination) => {
     items: json.items.edges,
     pageInfo: json.items.pageInfo,
     aggregate: json.aggregate,
-    aggregateTags: json.aggregateTags
+    aggregateTags: json.aggregateTags,
   };
 };
 
-export const fetchItemsFailure = errors => ({
+export const fetchItemsFailure = (errors) => ({
   type: FETCH_ITEMS_FAILURE,
-  errors
+  errors,
 });
 
-export const fetchItems = (data, pagination) => dispatch => {
+export const fetchItems = (data, pagination) => (dispatch) => {
   // First dispatch: the app state is updated to inform UI
   // that the API call is starting.
   dispatch(fetchItemsRequest(pagination));
@@ -89,15 +89,15 @@ export const fetchItems = (data, pagination) => dispatch => {
   makeRequest(
     JSON.stringify({
       query: query,
-      variables: { ...data, isPaginating: pagination }
+      variables: { ...data, isPaginating: pagination },
     }),
     true
   )
-    .then(data => {
+    .then((data) => {
       // Second dispatch: return results.
       return dispatch(fetchItemsSuccess(data.user, pagination));
     })
-    .catch(errors => {
+    .catch((errors) => {
       // Or dispatch errors.
       return dispatch(fetchItemsFailure(errors));
     });

@@ -18,13 +18,13 @@ const ArrowDown = ({ className, color, size, ...svgProps }) => {
 };
 
 ArrowDown.defaultProps = {
-  size: 24
+  size: 24,
 };
 
 ArrowDown.propTypes = {
   className: PropTypes.string,
   size: PropTypes.number,
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
 export default ArrowDown;
