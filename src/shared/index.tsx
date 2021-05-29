@@ -44,7 +44,7 @@ export const App: React.FC<Props> = () => {
   return (
     <ThemeProvider>
       <ResizeObserverClass onResize={handleResize}>
-        {resizeRef => (
+        {(resizeRef) => (
           <Container ref={resizeRef}>
             {hasLoginCookie ? <Nav profile={profile} /> : null}
             <Switch location={background || location}>

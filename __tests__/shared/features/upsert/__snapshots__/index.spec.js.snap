@@ -1,32 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Create snapshot should render and match the snapshot for adding an item 1`] = `
-.emotion-62 {
+.emotion-0 {
   padding: 0 16px;
   width: 100%;
 }
 
-@media (min-width:768px) {
-  .emotion-62 {
+@media (min-width: 768px) {
+  .emotion-0 {
     max-width: 960px;
     margin: 48px auto;
   }
 }
 
-@media (max-width:767px) {
-  .emotion-62 {
+@media (max-width: 767px) {
+  .emotion-0 {
     padding: 16px;
   }
 }
 
-.emotion-0 {
+.emotion-2 {
   font-family: 'tiempos-head-semibold',georgia,serif;
   font-size: 28px;
   line-height: 1.2;
   margin-top: 0;
 }
 
-.emotion-60 {
+.emotion-4 {
   padding: 0 16px;
   width: 100%;
   margin: 0;
@@ -34,30 +34,30 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   width: auto;
 }
 
-@media (min-width:768px) {
-  .emotion-60 {
+@media (min-width: 768px) {
+  .emotion-4 {
     max-width: 960px;
     margin: 48px auto;
   }
 }
 
-@media (min-width:768px) {
-  .emotion-60 {
+@media (min-width: 768px) {
+  .emotion-4 {
     background: #ffffff;
-    box-shadow: 0 2px 5px rgba(17,17,17,0.1);
+    box-shadow: 0 2px 5px rgba(17, 17, 17, 0.1);
     border-radius: 2px;
     padding: 32px 48px;
   }
 }
 
-@media (max-width:767px) {
-  .emotion-60 {
+@media (max-width: 767px) {
+  .emotion-4 {
     margin: 0 -16px;
     padding: 16px;
   }
 }
 
-.emotion-10 {
+.emotion-6 {
   display: block;
   margin-bottom: 16px;
   position: relative;
@@ -68,18 +68,19 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   color: inherit;
 }
 
-.emotion-2 {
+.emotion-12 {
   font-weight: bold;
   display: block;
 }
 
-.emotion-2:after {
+.emotion-12:after {
   content: '';
 }
 
-.emotion-6 {
+.emotion-14 {
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   border-radius: 0;
   width: 100%;
@@ -92,12 +93,12 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   border-bottom-color: inherit;
 }
 
-.emotion-6:focus {
+.emotion-14:focus {
   outline: none;
-  border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
+  border-image: linear-gradient(45deg, #4A90E2, #c6aeab) 2;
 }
 
-.emotion-20 {
+.emotion-26 {
   border: 0;
   position: absolute;
   right: 2px;
@@ -106,14 +107,161 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   padding: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
 }
 
-.emotion-20:focus {
+.emotion-26:focus {
   outline: none;
 }
 
-.emotion-56 {
+.emotion-46 {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.emotion-47 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(0,0%,80%);
+  border-radius: 0;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: none;
+  cursor: default;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  min-height: 40px;
+  outline: 0!important;
+  position: relative;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid #888;
+  padding: 5px 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.emotion-47:hover {
+  border-color: hsl(0,0%,70%);
+}
+
+.emotion-47:hover {
+  border-bottom: 1px solid #888;
+}
+
+.emotion-48 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.emotion-49 {
+  color: hsl(0,0%,50%);
+  margin-left: 2px;
+  margin-right: 2px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-sizing: border-box;
+}
+
+.emotion-50 {
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  visibility: visible;
+  color: hsl(0,0%,20%);
+  box-sizing: border-box;
+}
+
+.emotion-51 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.emotion-52 {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  background-color: hsl(0,0%,80%);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 1px;
+  box-sizing: border-box;
+}
+
+.emotion-53 {
+  color: hsl(0,0%,80%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px;
+  -webkit-transition: color 150ms;
+  transition: color 150ms;
+  box-sizing: border-box;
+}
+
+.emotion-53:hover {
+  color: hsl(0,0%,60%);
+}
+
+.emotion-54 {
+  display: inline-block;
+  fill: currentColor;
+  line-height: 1;
+  stroke: currentColor;
+  stroke-width: 0;
+}
+
+.emotion-57 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -124,7 +272,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   align-items: center;
 }
 
-.emotion-54 {
+.emotion-60 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -134,8 +282,8 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   min-height: 40px;
   width: 100%;
@@ -162,200 +310,54 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   padding: 0 50px;
 }
 
-.emotion-54:active,
-.emotion-54:hover {
+.emotion-60:active,
+.emotion-60:hover {
   background-color: #000000;
   color: #ffffff;
 }
 
-.emotion-54:focus {
+.emotion-60:focus {
   outline: none;
   box-shadow: 0 0 0 3px #66afe965;
 }
 
-.emotion-51 {
+.emotion-62 {
   width: 20px;
   height: 20px;
   margin-right: -30px;
   margin-left: 10px;
 }
 
-.emotion-46 {
-  position: relative;
-  box-sizing: border-box;
-}
-
-.emotion-45 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: hsl(0,0%,100%);
-  border-color: hsl(0,0%,80%);
-  border-radius: 0;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: none;
-  cursor: default;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  min-height: 40px;
-  outline: 0 !important;
-  position: relative;
-  -webkit-transition: all 100ms;
-  transition: all 100ms;
-  box-sizing: border-box;
-  border: 0;
-  border-bottom: 1px solid #888;
-  padding: 5px 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.emotion-45:hover {
-  border-color: hsl(0,0%,70%);
-}
-
-.emotion-45:hover {
-  border-bottom: 1px solid #888;
-}
-
-.emotion-40 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding: 0;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.emotion-38 {
-  color: hsl(0,0%,50%);
-  margin-left: 2px;
-  margin-right: 2px;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  box-sizing: border-box;
-}
-
-.emotion-39 {
-  margin: 2px;
-  padding-bottom: 2px;
-  padding-top: 2px;
-  visibility: visible;
-  color: hsl(0,0%,20%);
-  box-sizing: border-box;
-}
-
-.emotion-44 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  box-sizing: border-box;
-}
-
-.emotion-41 {
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  background-color: hsl(0,0%,80%);
-  margin-bottom: 8px;
-  margin-top: 8px;
-  width: 1px;
-  box-sizing: border-box;
-}
-
-.emotion-43 {
-  color: hsl(0,0%,80%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 8px;
-  -webkit-transition: color 150ms;
-  transition: color 150ms;
-  box-sizing: border-box;
-}
-
-.emotion-43:hover {
-  color: hsl(0,0%,60%);
-}
-
-.emotion-42 {
-  display: inline-block;
-  fill: currentColor;
-  line-height: 1;
-  stroke: currentColor;
-  stroke-width: 0;
-}
-
 <div
-  className="emotion-62 emotion-63"
+  className="emotion-0 emotion-1"
 >
   <h1
-    className="emotion-0 emotion-1"
+    className="emotion-2 emotion-3"
   >
     Add
   </h1>
   <form
-    className="emotion-60 emotion-61"
+    className="emotion-4 emotion-5"
     onSubmit={[Function]}
   >
     <div
-      className="emotion-10 emotion-11"
+      className="emotion-6 emotion-7"
     >
       <div
         className="emotion-8 emotion-9"
       >
         <div
-          className="emotion-4 emotion-5"
+          className="emotion-10 emotion-11"
         >
           <label
-            className="emotion-2 emotion-3"
+            className="emotion-12 emotion-13"
             htmlFor="date"
           >
             Date
           </label>
         </div>
         <input
-          className="form-control emotion-6 emotion-7"
+          className="form-control emotion-14 emotion-15"
           id="date"
           name="date"
           onBlur={[Function]}
@@ -365,16 +367,16 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </div>
     <div
-      className="emotion-10 emotion-11"
+      className="emotion-6 emotion-7"
     >
       <div
         className="emotion-8 emotion-9"
       >
         <div
-          className="emotion-4 emotion-5"
+          className="emotion-10 emotion-11"
         >
           <label
-            className="emotion-2 emotion-3"
+            className="emotion-12 emotion-13"
             htmlFor="amount"
           >
             Amount
@@ -382,7 +384,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
         </div>
         <input
           autoFocus={true}
-          className="form-control emotion-6 emotion-7"
+          className="form-control emotion-14 emotion-15"
           id="amount"
           inputMode="decimal"
           name="amount"
@@ -392,7 +394,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
         />
       </div>
       <button
-        className="emotion-20 emotion-21"
+        className="emotion-26 emotion-27"
         onClick={[Function]}
         type="button"
       >
@@ -412,23 +414,23 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </button>
     </div>
     <div
-      className="emotion-10 emotion-11"
+      className="emotion-6 emotion-7"
     >
       <div
         className="emotion-8 emotion-9"
       >
         <div
-          className="emotion-4 emotion-5"
+          className="emotion-10 emotion-11"
         >
           <label
-            className="emotion-2 emotion-3"
+            className="emotion-12 emotion-13"
             htmlFor="description"
           >
             Description
           </label>
         </div>
         <input
-          className="form-control emotion-6 emotion-7"
+          className="form-control emotion-14 emotion-15"
           id="description"
           name="description"
           onBlur={[Function]}
@@ -438,16 +440,16 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </div>
     <div
-      className="emotion-10 emotion-11"
+      className="emotion-6 emotion-7"
     >
       <div
         className="emotion-8 emotion-9"
       >
         <div
-          className="emotion-4 emotion-5"
+          className="emotion-10 emotion-11"
         >
           <label
-            className="emotion-2 emotion-3"
+            className="emotion-12 emotion-13"
             htmlFor="tags"
           >
             Tags
@@ -459,23 +461,22 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           onKeyDown={[Function]}
         >
           <div
-            className="emotion-45"
+            className="emotion-47"
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
           >
             <div
-              className="emotion-40"
+              className="emotion-48"
             >
               <div
-                className="emotion-38"
+                className="emotion-49"
               >
                 Select...
               </div>
               <div
-                className="emotion-39"
+                className="emotion-50"
               >
                 <div
-                  className=""
                   style={
                     Object {
                       "display": "inline-block",
@@ -530,20 +531,20 @@ exports[`Create snapshot should render and match the snapshot for adding an item
               </div>
             </div>
             <div
-              className="emotion-44"
+              className="emotion-51"
             >
               <span
-                className="emotion-41"
+                className="emotion-52"
               />
               <div
                 aria-hidden="true"
-                className="emotion-43"
+                className="emotion-53"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
               >
                 <svg
                   aria-hidden="true"
-                  className="emotion-42"
+                  className="emotion-54"
                   focusable="false"
                   height={20}
                   viewBox="0 0 20 20"
@@ -566,17 +567,17 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       </div>
     </div>
     <footer
-      className="emotion-58 emotion-59"
+      className="emotion-55 emotion-56"
     >
       <div
-        className="emotion-56 emotion-57"
+        className="emotion-57 emotion-58"
       >
         <button
-          className="emotion-53 emotion-54 emotion-55"
+          className="emotion-59 emotion-60 emotion-61"
         >
           Submit
           <div
-            className="emotion-51 emotion-52"
+            className="emotion-62 emotion-63"
           />
         </button>
       </div>
@@ -586,32 +587,32 @@ exports[`Create snapshot should render and match the snapshot for adding an item
 `;
 
 exports[`Create snapshot should render and match the snapshot for editing an item 1`] = `
-.emotion-64 {
+.emotion-0 {
   padding: 0 16px;
   width: 100%;
 }
 
-@media (min-width:768px) {
-  .emotion-64 {
+@media (min-width: 768px) {
+  .emotion-0 {
     max-width: 960px;
     margin: 48px auto;
   }
 }
 
-@media (max-width:767px) {
-  .emotion-64 {
+@media (max-width: 767px) {
+  .emotion-0 {
     padding: 16px;
   }
 }
 
-.emotion-0 {
+.emotion-2 {
   font-family: 'tiempos-head-semibold',georgia,serif;
   font-size: 28px;
   line-height: 1.2;
   margin-top: 0;
 }
 
-.emotion-62 {
+.emotion-4 {
   padding: 0 16px;
   width: 100%;
   margin: 0;
@@ -619,30 +620,30 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   width: auto;
 }
 
-@media (min-width:768px) {
-  .emotion-62 {
+@media (min-width: 768px) {
+  .emotion-4 {
     max-width: 960px;
     margin: 48px auto;
   }
 }
 
-@media (min-width:768px) {
-  .emotion-62 {
+@media (min-width: 768px) {
+  .emotion-4 {
     background: #ffffff;
-    box-shadow: 0 2px 5px rgba(17,17,17,0.1);
+    box-shadow: 0 2px 5px rgba(17, 17, 17, 0.1);
     border-radius: 2px;
     padding: 32px 48px;
   }
 }
 
-@media (max-width:767px) {
-  .emotion-62 {
+@media (max-width: 767px) {
+  .emotion-4 {
     margin: 0 -16px;
     padding: 16px;
   }
 }
 
-.emotion-10 {
+.emotion-6 {
   display: block;
   margin-bottom: 16px;
   position: relative;
@@ -653,18 +654,19 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   color: inherit;
 }
 
-.emotion-2 {
+.emotion-12 {
   font-weight: bold;
   display: block;
 }
 
-.emotion-2:after {
+.emotion-12:after {
   content: '';
 }
 
-.emotion-6 {
+.emotion-14 {
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
   border-radius: 0;
   width: 100%;
@@ -677,12 +679,12 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   border-bottom-color: inherit;
 }
 
-.emotion-6:focus {
+.emotion-14:focus {
   outline: none;
-  border-image: linear-gradient(45deg,#4A90E2,#c6aeab) 2;
+  border-image: linear-gradient(45deg, #4A90E2, #c6aeab) 2;
 }
 
-.emotion-20 {
+.emotion-26 {
   border: 0;
   position: absolute;
   right: 2px;
@@ -691,14 +693,161 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   padding: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
 }
 
-.emotion-20:focus {
+.emotion-26:focus {
   outline: none;
 }
 
-.emotion-58 {
+.emotion-46 {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.emotion-47 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(0,0%,80%);
+  border-radius: 0;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: none;
+  cursor: default;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  min-height: 40px;
+  outline: 0!important;
+  position: relative;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid #888;
+  padding: 5px 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.emotion-47:hover {
+  border-color: hsl(0,0%,70%);
+}
+
+.emotion-47:hover {
+  border-bottom: 1px solid #888;
+}
+
+.emotion-48 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.emotion-49 {
+  color: hsl(0,0%,50%);
+  margin-left: 2px;
+  margin-right: 2px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-sizing: border-box;
+}
+
+.emotion-50 {
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  visibility: visible;
+  color: hsl(0,0%,20%);
+  box-sizing: border-box;
+}
+
+.emotion-51 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.emotion-52 {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  background-color: hsl(0,0%,80%);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 1px;
+  box-sizing: border-box;
+}
+
+.emotion-53 {
+  color: hsl(0,0%,80%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px;
+  -webkit-transition: color 150ms;
+  transition: color 150ms;
+  box-sizing: border-box;
+}
+
+.emotion-53:hover {
+  color: hsl(0,0%,60%);
+}
+
+.emotion-54 {
+  display: inline-block;
+  fill: currentColor;
+  line-height: 1;
+  stroke: currentColor;
+  stroke-width: 0;
+}
+
+.emotion-57 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -709,7 +858,17 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   align-items: center;
 }
 
-.emotion-56 {
+.emotion-59 {
+  font-size: 15px;
+  cursor: pointer;
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.emotion-62 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -719,8 +878,8 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   min-height: 40px;
   width: 100%;
@@ -747,210 +906,54 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   padding: 0 50px;
 }
 
-.emotion-56:active,
-.emotion-56:hover {
+.emotion-62:active,
+.emotion-62:hover {
   background-color: #000000;
   color: #ffffff;
 }
 
-.emotion-56:focus {
+.emotion-62:focus {
   outline: none;
   box-shadow: 0 0 0 3px #66afe965;
 }
 
-.emotion-53 {
+.emotion-64 {
   width: 20px;
   height: 20px;
   margin-right: -30px;
   margin-left: 10px;
 }
 
-.emotion-51 {
-  font-size: 15px;
-  cursor: pointer;
-  display: block;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.emotion-46 {
-  position: relative;
-  box-sizing: border-box;
-}
-
-.emotion-45 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: hsl(0,0%,100%);
-  border-color: hsl(0,0%,80%);
-  border-radius: 0;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: none;
-  cursor: default;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  min-height: 40px;
-  outline: 0 !important;
-  position: relative;
-  -webkit-transition: all 100ms;
-  transition: all 100ms;
-  box-sizing: border-box;
-  border: 0;
-  border-bottom: 1px solid #888;
-  padding: 5px 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.emotion-45:hover {
-  border-color: hsl(0,0%,70%);
-}
-
-.emotion-45:hover {
-  border-bottom: 1px solid #888;
-}
-
-.emotion-40 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding: 0;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.emotion-38 {
-  color: hsl(0,0%,50%);
-  margin-left: 2px;
-  margin-right: 2px;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  box-sizing: border-box;
-}
-
-.emotion-39 {
-  margin: 2px;
-  padding-bottom: 2px;
-  padding-top: 2px;
-  visibility: visible;
-  color: hsl(0,0%,20%);
-  box-sizing: border-box;
-}
-
-.emotion-44 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  box-sizing: border-box;
-}
-
-.emotion-41 {
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  background-color: hsl(0,0%,80%);
-  margin-bottom: 8px;
-  margin-top: 8px;
-  width: 1px;
-  box-sizing: border-box;
-}
-
-.emotion-43 {
-  color: hsl(0,0%,80%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 8px;
-  -webkit-transition: color 150ms;
-  transition: color 150ms;
-  box-sizing: border-box;
-}
-
-.emotion-43:hover {
-  color: hsl(0,0%,60%);
-}
-
-.emotion-42 {
-  display: inline-block;
-  fill: currentColor;
-  line-height: 1;
-  stroke: currentColor;
-  stroke-width: 0;
-}
-
 <div
-  className="emotion-64 emotion-65"
+  className="emotion-0 emotion-1"
 >
   <h1
-    className="emotion-0 emotion-1"
+    className="emotion-2 emotion-3"
   >
     Edit
   </h1>
   <form
-    className="emotion-62 emotion-63"
+    className="emotion-4 emotion-5"
     onSubmit={[Function]}
   >
     <div
-      className="emotion-10 emotion-11"
+      className="emotion-6 emotion-7"
     >
       <div
         className="emotion-8 emotion-9"
       >
         <div
-          className="emotion-4 emotion-5"
+          className="emotion-10 emotion-11"
         >
           <label
-            className="emotion-2 emotion-3"
+            className="emotion-12 emotion-13"
             htmlFor="date"
           >
             Date
           </label>
         </div>
         <input
-          className="form-control emotion-6 emotion-7"
+          className="form-control emotion-14 emotion-15"
           id="date"
           name="date"
           onBlur={[Function]}
@@ -960,16 +963,16 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </div>
     <div
-      className="emotion-10 emotion-11"
+      className="emotion-6 emotion-7"
     >
       <div
         className="emotion-8 emotion-9"
       >
         <div
-          className="emotion-4 emotion-5"
+          className="emotion-10 emotion-11"
         >
           <label
-            className="emotion-2 emotion-3"
+            className="emotion-12 emotion-13"
             htmlFor="amount"
           >
             Amount
@@ -977,7 +980,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
         </div>
         <input
           autoFocus={true}
-          className="form-control emotion-6 emotion-7"
+          className="form-control emotion-14 emotion-15"
           id="amount"
           inputMode="decimal"
           name="amount"
@@ -987,7 +990,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
         />
       </div>
       <button
-        className="emotion-20 emotion-21"
+        className="emotion-26 emotion-27"
         onClick={[Function]}
         type="button"
       >
@@ -1007,23 +1010,23 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </button>
     </div>
     <div
-      className="emotion-10 emotion-11"
+      className="emotion-6 emotion-7"
     >
       <div
         className="emotion-8 emotion-9"
       >
         <div
-          className="emotion-4 emotion-5"
+          className="emotion-10 emotion-11"
         >
           <label
-            className="emotion-2 emotion-3"
+            className="emotion-12 emotion-13"
             htmlFor="description"
           >
             Description
           </label>
         </div>
         <input
-          className="form-control emotion-6 emotion-7"
+          className="form-control emotion-14 emotion-15"
           id="description"
           name="description"
           onBlur={[Function]}
@@ -1033,16 +1036,16 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </div>
     <div
-      className="emotion-10 emotion-11"
+      className="emotion-6 emotion-7"
     >
       <div
         className="emotion-8 emotion-9"
       >
         <div
-          className="emotion-4 emotion-5"
+          className="emotion-10 emotion-11"
         >
           <label
-            className="emotion-2 emotion-3"
+            className="emotion-12 emotion-13"
             htmlFor="tags"
           >
             Tags
@@ -1054,23 +1057,22 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           onKeyDown={[Function]}
         >
           <div
-            className="emotion-45"
+            className="emotion-47"
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
           >
             <div
-              className="emotion-40"
+              className="emotion-48"
             >
               <div
-                className="emotion-38"
+                className="emotion-49"
               >
                 Select...
               </div>
               <div
-                className="emotion-39"
+                className="emotion-50"
               >
                 <div
-                  className=""
                   style={
                     Object {
                       "display": "inline-block",
@@ -1125,20 +1127,20 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
               </div>
             </div>
             <div
-              className="emotion-44"
+              className="emotion-51"
             >
               <span
-                className="emotion-41"
+                className="emotion-52"
               />
               <div
                 aria-hidden="true"
-                className="emotion-43"
+                className="emotion-53"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
               >
                 <svg
                   aria-hidden="true"
-                  className="emotion-42"
+                  className="emotion-54"
                   focusable="false"
                   height={20}
                   viewBox="0 0 20 20"
@@ -1161,23 +1163,23 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
       </div>
     </div>
     <footer
-      className="emotion-60 emotion-61"
+      className="emotion-55 emotion-56"
     >
       <div
-        className="emotion-58 emotion-59"
+        className="emotion-57 emotion-58"
       >
         <a
-          className="emotion-51 emotion-52"
+          className="emotion-59 emotion-60"
           onClick={[Function]}
         >
           Delete
         </a>
         <button
-          className="emotion-55 emotion-56 emotion-57"
+          className="emotion-61 emotion-62 emotion-63"
         >
           Submit
           <div
-            className="emotion-53 emotion-54"
+            className="emotion-64 emotion-65"
           />
         </button>
       </div>

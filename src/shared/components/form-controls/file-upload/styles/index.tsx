@@ -1,4 +1,4 @@
-import { css, keyframes } from "@emotion/core";
+import { css, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import rgba from "polished/lib/color/rgba";
 import { shadowBox } from "shared/utils/styles";
@@ -47,7 +47,7 @@ export const Container = styled.div<ContainerProps>`
     outline: none;
   }
 
-  ${props =>
+  ${(props) =>
     props.isDragAccept
       ? defaultActiveStyles
       : props.isDragReject

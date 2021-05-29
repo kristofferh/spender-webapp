@@ -1,4 +1,4 @@
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Loader as Spinner } from "@kristofferh/businesskit";
 import { Link } from "react-router-dom";
