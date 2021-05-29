@@ -17,7 +17,7 @@ import {
   titleTwo,
   white,
   zIndex1,
-  zIndex2
+  zIndex2,
 } from "shared/utils/styles";
 
 export const ItemsList = styled.section`

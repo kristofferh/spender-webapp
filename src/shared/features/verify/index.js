@@ -16,11 +16,11 @@ export class Verify extends Component {
     isRequesting: PropTypes.bool,
     history: PropTypes.object,
     userLoggedIn: PropTypes.func,
-    userToken: PropTypes.string
+    userToken: PropTypes.string,
   };
 
   static defaultProps = {
-    isRequesting: true
+    isRequesting: true,
   };
 
   componentDidMount() {
@@ -36,7 +36,7 @@ export class Verify extends Component {
         // @todo: set name and expiry in constants / environment variables.
         Cookies.set(SESSION_COOKIE, token, {
           secure: SECURE_COOKIE,
-          expires: 7
+          expires: 7,
         });
         this.props.history.push("/");
       })
@@ -61,7 +61,7 @@ export class Verify extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { verifyToken, user } = state;
   return { ...verifyToken, userToken: user.token };
 };

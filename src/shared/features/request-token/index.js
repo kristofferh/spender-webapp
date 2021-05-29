@@ -10,11 +10,11 @@ import { requestToken } from "./actions";
 const SignupWrapper = withFormik({
   enableReinitialize: true,
   mapPropsToValues: () => ({
-    email: ""
+    email: "",
   }),
   handleSubmit: (values, { props: { onSubmit } }) => {
     onSubmit(values);
-  }
+  },
 })(SignupForm);
 
 export class RequestToken extends Component {
@@ -22,10 +22,10 @@ export class RequestToken extends Component {
     requestToken: PropTypes.func,
     success: PropTypes.bool,
     isRequesting: PropTypes.bool,
-    errors: PropTypes.array
+    errors: PropTypes.array,
   };
 
-  handleSubmit = values => {
+  handleSubmit = (values) => {
     this.props.requestToken({ delivery: values.email, deliveryType: "email" });
   };
 
@@ -34,7 +34,7 @@ export class RequestToken extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { requestToken } = state;
   return { ...requestToken };
 };

@@ -17,7 +17,7 @@ export const Textarea = ({ attributes, className, field, id, placeholder }) => (
 
 Textarea.defaultProps = {
   showPlaceholder: false,
-  className: "form-control"
+  className: "form-control",
 };
 
 Textarea.propTypes = {
@@ -27,7 +27,7 @@ Textarea.propTypes = {
   id: PropTypes.string,
   label: PropTypes.node,
   showPlaceholder: PropTypes.bool,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
 };
 
 export default FormWrapper(Textarea);

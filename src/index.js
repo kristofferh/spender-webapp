@@ -11,12 +11,12 @@ app.use(compression());
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 // Start web server
-app.listen(port, error => {
+app.listen(port, (error) => {
   if (error) {
     console.error("ERROR - Unable to start server."); // eslint-disable-line no-console
   } else {

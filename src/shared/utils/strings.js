@@ -6,7 +6,7 @@ export const htmlIdGenerator = (prefix = "") => {
   return `${idPrefix}${uuid}`;
 };
 
-export const kebabToCamel = string =>
+export const kebabToCamel = (string) =>
   string
     .trim()
     .toLowerCase()
@@ -19,7 +19,7 @@ export const kebabToCamel = string =>
       return $1.toUpperCase();
     });
 
-export const cssToJs = css =>
+export const cssToJs = (css) =>
   css
     .trim()
     .replace(/;$/, "")

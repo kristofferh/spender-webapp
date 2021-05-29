@@ -8,7 +8,7 @@ import FormWrapper from "../_form-wrapper";
 const isValidNewOption = (inputValue, selectValue, selectOptions) => {
   if (
     inputValue.trim().length === 0 ||
-    selectOptions.find(option => option.name === inputValue)
+    selectOptions.find((option) => option.name === inputValue)
   ) {
     return false;
   }
@@ -27,33 +27,33 @@ const customStyles = {
     boxShadow: "none",
     borderImage: menuIsOpen ? `${inputGradient} 2` : null,
     ":hover": {
-      borderBottom: `1px solid ${gray}`
-    }
+      borderBottom: `1px solid ${gray}`,
+    },
   }),
-  menu: styles => {
+  menu: (styles) => {
     return {
       ...styles,
       borderRadius: 2,
-      boxShadow: "0 1px 1px 1px rgba(17, 17, 17, 0.2)"
+      boxShadow: "0 1px 1px 1px rgba(17, 17, 17, 0.2)",
     };
   },
-  valueContainer: styles => ({
+  valueContainer: (styles) => ({
     ...styles,
-    padding: 0
-  })
+    padding: 0,
+  }),
 };
 
-const MultiValue = props => {
+const MultiValue = (props) => {
   const {
     data: { name, color },
-    removeProps
+    removeProps,
   } = props;
   return (
     <Badge
       isRemovable
       sx={{
         ...badgeStyles,
-        backgroundColor: color
+        backgroundColor: color,
       }}
       {...props}
       removeProps={removeProps}
@@ -65,7 +65,7 @@ const MultiValue = props => {
 
 MultiValue.propTypes = {
   data: PropTypes.object,
-  removeProps: PropTypes.object
+  removeProps: PropTypes.object,
 };
 
 // @todo: check if https://github.com/JedWatson/react-select/pull/2659/files
@@ -77,22 +77,22 @@ export const Select = ({
   form,
   id,
   placeholder,
-  options
+  options,
 }) => (
   <Creatable
     {...attributes}
     {...field}
     components={{
-      MultiValue
+      MultiValue,
     }}
     isValidNewOption={isValidNewOption}
     getNewOptionData={(inputValue, optionLabel) => ({
-      name: optionLabel
+      name: optionLabel,
     })}
-    getOptionValue={option => option.name}
-    getOptionLabel={option => option.name}
+    getOptionValue={(option) => option.name}
+    getOptionLabel={(option) => option.name}
     onBlur={() => form.setFieldTouched(field.name, true)}
-    onChange={value => form.setFieldValue(field.name, value)}
+    onChange={(value) => form.setFieldValue(field.name, value)}
     isMulti
     id={id || field.name}
     placeholder={placeholder}
@@ -110,7 +110,7 @@ Select.propTypes = {
   id: PropTypes.string,
   label: PropTypes.node,
   showPlaceholder: PropTypes.bool,
-  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default FormWrapper(Select);
