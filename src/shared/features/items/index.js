@@ -92,7 +92,6 @@ export class Items extends Component {
   componentDidUpdate(prevProps) {
     const locationChanged = this.props.location !== prevProps.location;
     if (locationChanged) {
-      console.log(locationChanged, this.props.location);
       this.updateDates();
     }
   }

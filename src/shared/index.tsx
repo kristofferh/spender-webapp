@@ -41,7 +41,6 @@ export const App: React.FC<Props> = () => {
   };
 
   const background = location.state && location.state.background;
-  console.log(background, location);
   return (
     <ThemeProvider>
       <ResizeObserverClass onResize={handleResize}>
@@ -61,9 +60,10 @@ export const App: React.FC<Props> = () => {
               })}
             </Switch>
             {containerWidth > 640 ? (
+              /* eslint-disable react/no-children-prop */
               <Route
                 path="/test"
-                children={({ match, ...rest }) => {
+                children={({ match }: any) => {
                   return <Panel show={Boolean(match)}>hi</Panel>;
                 }}
               />

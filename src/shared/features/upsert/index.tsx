@@ -122,7 +122,7 @@ const mapStateToProps = (state: any, ownProps: any) => {
       errors
     }
   } = state;
-  console.log(ownProps);
+
   const {
     match: {
       params: { id = undefined }
