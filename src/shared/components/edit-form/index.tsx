@@ -24,7 +24,7 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
   status,
   setFieldValue,
   validateField,
-  isSubmitting
+  isSubmitting,
 }) => {
   const [isDecimal, toggleDecimal] = useState(true);
   const amountRef = useRef<any>(null);
@@ -39,25 +39,9 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
     <Form onSubmit={handleSubmit}>
       <FormGroup>
         <Field
-          name="date"
-          component={Input}
-          type="datetime-local"
-          label="Date"
-          onChange={(value: any) => {
-            if (value) {
-              setFieldValue(
-                "date",
-                moment(value).format(moment.HTML5_FMT.DATETIME_LOCAL)
-              );
-            }
-          }}
-        />
-      </FormGroup>
-      <FormGroup>
-        <Field
           attributes={{
             autoFocus: true,
-            inputMode: isDecimal ? "decimal" : "text"
+            inputMode: isDecimal ? "decimal" : "text",
           }}
           innerRef={amountRef}
           name="amount"
@@ -76,7 +60,7 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
           }}
           validate={composedValidators(required, number)}
         />
-        <ToggleButton onClick={handleDecimalToggle} type="button">
+        <ToggleButton onClick={handleDecimalToggle} type="button" tabIndex={-1}>
           {isDecimal ? <Dialpad /> : <Calculate />}
         </ToggleButton>
       </FormGroup>
@@ -91,6 +75,22 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
       <FormGroup>
         <Field label="Tags" name="tags" options={tags} component={Select} />
       </FormGroup>
+      <FormGroup>
+        <Field
+          name="date"
+          component={Input}
+          type="datetime-local"
+          label="Date"
+          onChange={(value: any) => {
+            if (value) {
+              setFieldValue(
+                "date",
+                moment(value).format(moment.HTML5_FMT.DATETIME_LOCAL)
+              );
+            }
+          }}
+        />
+      </FormGroup>
       <ActionButtons
         secondaryAction={showDelete}
         secondaryActionLabel="Delete"
@@ -103,7 +103,7 @@ const EditForm: React.FC<Props & FormikProps<FormValues>> = ({
 };
 
 EditForm.defaultProps = {
-  deleteCallback: () => {}
+  deleteCallback: () => {},
 };
 
 export default EditForm;

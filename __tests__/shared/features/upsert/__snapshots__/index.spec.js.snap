@@ -98,7 +98,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   border-image: linear-gradient(45deg, #4A90E2, #c6aeab) 2;
 }
 
-.emotion-26 {
+.emotion-16 {
   border: 0;
   position: absolute;
   right: 2px;
@@ -111,16 +111,16 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   appearance: none;
 }
 
-.emotion-26:focus {
+.emotion-16:focus {
   outline: none;
 }
 
-.emotion-46 {
+.emotion-36 {
   position: relative;
   box-sizing: border-box;
 }
 
-.emotion-47 {
+.emotion-37 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -157,15 +157,15 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   appearance: none;
 }
 
-.emotion-47:hover {
+.emotion-37:hover {
   border-color: hsl(0,0%,70%);
 }
 
-.emotion-47:hover {
+.emotion-37:hover {
   border-bottom: 1px solid #888;
 }
 
-.emotion-48 {
+.emotion-38 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -187,7 +187,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-49 {
+.emotion-39 {
   color: hsl(0,0%,50%);
   margin-left: 2px;
   margin-right: 2px;
@@ -199,7 +199,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-50 {
+.emotion-40 {
   margin: 2px;
   padding-bottom: 2px;
   padding-top: 2px;
@@ -208,7 +208,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-51 {
+.emotion-41 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -226,7 +226,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-52 {
+.emotion-42 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -237,7 +237,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-53 {
+.emotion-43 {
   color: hsl(0,0%,80%);
   display: -webkit-box;
   display: -webkit-flex;
@@ -249,11 +249,11 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   box-sizing: border-box;
 }
 
-.emotion-53:hover {
+.emotion-43:hover {
   color: hsl(0,0%,60%);
 }
 
-.emotion-54 {
+.emotion-44 {
   display: inline-block;
   fill: currentColor;
   line-height: 1;
@@ -351,32 +351,6 @@ exports[`Create snapshot should render and match the snapshot for adding an item
         >
           <label
             className="emotion-12 emotion-13"
-            htmlFor="date"
-          >
-            Date
-          </label>
-        </div>
-        <input
-          className="form-control emotion-14 emotion-15"
-          id="date"
-          name="date"
-          onBlur={[Function]}
-          onChange={[Function]}
-          type="datetime-local"
-        />
-      </div>
-    </div>
-    <div
-      className="emotion-6 emotion-7"
-    >
-      <div
-        className="emotion-8 emotion-9"
-      >
-        <div
-          className="emotion-10 emotion-11"
-        >
-          <label
-            className="emotion-12 emotion-13"
             htmlFor="amount"
           >
             Amount
@@ -394,8 +368,9 @@ exports[`Create snapshot should render and match the snapshot for adding an item
         />
       </div>
       <button
-        className="emotion-26 emotion-27"
+        className="emotion-16 emotion-17"
         onClick={[Function]}
+        tabIndex={-1}
         type="button"
       >
         <svg
@@ -456,25 +431,25 @@ exports[`Create snapshot should render and match the snapshot for adding an item
           </label>
         </div>
         <div
-          className="emotion-46"
+          className="emotion-36"
           id="tags"
           onKeyDown={[Function]}
         >
           <div
-            className="emotion-47"
+            className="emotion-37"
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
           >
             <div
-              className="emotion-48"
+              className="emotion-38"
             >
               <div
-                className="emotion-49"
+                className="emotion-39"
               >
                 Select...
               </div>
               <div
-                className="emotion-50"
+                className="emotion-40"
               >
                 <div
                   style={
@@ -531,20 +506,20 @@ exports[`Create snapshot should render and match the snapshot for adding an item
               </div>
             </div>
             <div
-              className="emotion-51"
+              className="emotion-41"
             >
               <span
-                className="emotion-52"
+                className="emotion-42"
               />
               <div
                 aria-hidden="true"
-                className="emotion-53"
+                className="emotion-43"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
               >
                 <svg
                   aria-hidden="true"
-                  className="emotion-54"
+                  className="emotion-44"
                   focusable="false"
                   height={20}
                   viewBox="0 0 20 20"
@@ -564,6 +539,32 @@ exports[`Create snapshot should render and match the snapshot for adding an item
             />
           </div>
         </div>
+      </div>
+    </div>
+    <div
+      className="emotion-6 emotion-7"
+    >
+      <div
+        className="emotion-8 emotion-9"
+      >
+        <div
+          className="emotion-10 emotion-11"
+        >
+          <label
+            className="emotion-12 emotion-13"
+            htmlFor="date"
+          >
+            Date
+          </label>
+        </div>
+        <input
+          className="form-control emotion-14 emotion-15"
+          id="date"
+          name="date"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="datetime-local"
+        />
       </div>
     </div>
     <footer
@@ -684,7 +685,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   border-image: linear-gradient(45deg, #4A90E2, #c6aeab) 2;
 }
 
-.emotion-26 {
+.emotion-16 {
   border: 0;
   position: absolute;
   right: 2px;
@@ -697,16 +698,16 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   appearance: none;
 }
 
-.emotion-26:focus {
+.emotion-16:focus {
   outline: none;
 }
 
-.emotion-46 {
+.emotion-36 {
   position: relative;
   box-sizing: border-box;
 }
 
-.emotion-47 {
+.emotion-37 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -743,15 +744,15 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   appearance: none;
 }
 
-.emotion-47:hover {
+.emotion-37:hover {
   border-color: hsl(0,0%,70%);
 }
 
-.emotion-47:hover {
+.emotion-37:hover {
   border-bottom: 1px solid #888;
 }
 
-.emotion-48 {
+.emotion-38 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -773,7 +774,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-49 {
+.emotion-39 {
   color: hsl(0,0%,50%);
   margin-left: 2px;
   margin-right: 2px;
@@ -785,7 +786,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-50 {
+.emotion-40 {
   margin: 2px;
   padding-bottom: 2px;
   padding-top: 2px;
@@ -794,7 +795,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-51 {
+.emotion-41 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -812,7 +813,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-52 {
+.emotion-42 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -823,7 +824,7 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-53 {
+.emotion-43 {
   color: hsl(0,0%,80%);
   display: -webkit-box;
   display: -webkit-flex;
@@ -835,11 +836,11 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
   box-sizing: border-box;
 }
 
-.emotion-53:hover {
+.emotion-43:hover {
   color: hsl(0,0%,60%);
 }
 
-.emotion-54 {
+.emotion-44 {
   display: inline-block;
   fill: currentColor;
   line-height: 1;
@@ -947,32 +948,6 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
         >
           <label
             className="emotion-12 emotion-13"
-            htmlFor="date"
-          >
-            Date
-          </label>
-        </div>
-        <input
-          className="form-control emotion-14 emotion-15"
-          id="date"
-          name="date"
-          onBlur={[Function]}
-          onChange={[Function]}
-          type="datetime-local"
-        />
-      </div>
-    </div>
-    <div
-      className="emotion-6 emotion-7"
-    >
-      <div
-        className="emotion-8 emotion-9"
-      >
-        <div
-          className="emotion-10 emotion-11"
-        >
-          <label
-            className="emotion-12 emotion-13"
             htmlFor="amount"
           >
             Amount
@@ -990,8 +965,9 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
         />
       </div>
       <button
-        className="emotion-26 emotion-27"
+        className="emotion-16 emotion-17"
         onClick={[Function]}
+        tabIndex={-1}
         type="button"
       >
         <svg
@@ -1052,25 +1028,25 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
           </label>
         </div>
         <div
-          className="emotion-46"
+          className="emotion-36"
           id="tags"
           onKeyDown={[Function]}
         >
           <div
-            className="emotion-47"
+            className="emotion-37"
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
           >
             <div
-              className="emotion-48"
+              className="emotion-38"
             >
               <div
-                className="emotion-49"
+                className="emotion-39"
               >
                 Select...
               </div>
               <div
-                className="emotion-50"
+                className="emotion-40"
               >
                 <div
                   style={
@@ -1127,20 +1103,20 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
               </div>
             </div>
             <div
-              className="emotion-51"
+              className="emotion-41"
             >
               <span
-                className="emotion-52"
+                className="emotion-42"
               />
               <div
                 aria-hidden="true"
-                className="emotion-53"
+                className="emotion-43"
                 onMouseDown={[Function]}
                 onTouchEnd={[Function]}
               >
                 <svg
                   aria-hidden="true"
-                  className="emotion-54"
+                  className="emotion-44"
                   focusable="false"
                   height={20}
                   viewBox="0 0 20 20"
@@ -1160,6 +1136,32 @@ exports[`Create snapshot should render and match the snapshot for editing an ite
             />
           </div>
         </div>
+      </div>
+    </div>
+    <div
+      className="emotion-6 emotion-7"
+    >
+      <div
+        className="emotion-8 emotion-9"
+      >
+        <div
+          className="emotion-10 emotion-11"
+        >
+          <label
+            className="emotion-12 emotion-13"
+            htmlFor="date"
+          >
+            Date
+          </label>
+        </div>
+        <input
+          className="form-control emotion-14 emotion-15"
+          id="date"
+          name="date"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="datetime-local"
+        />
       </div>
     </div>
     <footer

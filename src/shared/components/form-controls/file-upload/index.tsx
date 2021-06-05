@@ -10,11 +10,11 @@ import {
   PreviewImg,
   PreviewText,
   Prompt,
-  Reject
+  Reject,
 } from "./styles";
 
 interface Props extends FieldProps {
-  attributes?: object;
+  attributes?: Object;
   className?: string;
   id?: string;
   label?: React.ReactNode;
@@ -99,7 +99,7 @@ export const FileUpload: React.FC<Props> = ({
   onDrop: onDropCallback,
   onUploadStart,
   onUploadComplete,
-  previewFiles = []
+  previewFiles = [],
 }) => {
   const [acceptedFiles, setAcceptedFiles] = useState(previewFiles);
   const [rejectedFiles, setRejectedFiles] = useState([]);
@@ -128,11 +128,11 @@ export const FileUpload: React.FC<Props> = ({
     getInputProps,
     isDragActive,
     isDragAccept,
-    isDragReject
+    isDragReject,
   } = useDropzone({
     accept,
     multiple,
-    onDrop
+    onDrop,
   });
   const { name, onBlur, onChange } = field;
   return (
