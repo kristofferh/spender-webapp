@@ -2,6 +2,7 @@ import { Badge } from "@kristofferh/businesskit";
 import PropTypes from "prop-types";
 import React from "react";
 import { Creatable } from "react-select";
+import { randomColor } from "shared/utils/colors";
 import { badgeStyles, gray, inputGradient } from "shared/utils/styles";
 import FormWrapper from "../_form-wrapper";
 
@@ -86,9 +87,12 @@ export const Select = ({
       MultiValue,
     }}
     isValidNewOption={isValidNewOption}
-    getNewOptionData={(inputValue, optionLabel) => ({
-      name: optionLabel,
-    })}
+    getNewOptionData={(inputValue, optionLabel) => {
+      return {
+        name: optionLabel,
+        color: randomColor(),
+      };
+    }}
     getOptionValue={(option) => option.name}
     getOptionLabel={(option) => option.name}
     onBlur={() => form.setFieldTouched(field.name, true)}

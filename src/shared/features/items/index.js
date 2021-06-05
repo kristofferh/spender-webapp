@@ -267,7 +267,8 @@ export class Items extends Component {
       aggregateDetails = [],
       aggregateTags = [],
     } = this.props;
-    // Filter out rent. @todo: this should be a setting.
+    // Filter out rent.
+    // @todo: this should be a setting.
     const aggregateItems = aggregateDetails
       .map((item) => {
         const { date } = item.node;
@@ -294,7 +295,7 @@ export class Items extends Component {
     const aggregateTagsList = aggregateTags
       .sort((a, b) => b.sumItems - a.sumItems)
       .filter((tag) => tag.countItems)
-      .slice(0, 10);
+      .slice(0, 20);
     return (
       <AggregateDetails>
         <DetailsContainer>
