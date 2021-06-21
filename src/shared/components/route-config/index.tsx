@@ -1,11 +1,12 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import Panel from "shared/components/panel";
 
 export interface Props {
   public?: boolean;
   loggedIn: boolean;
   routes?: any;
-  path: string;
+  path?: string;
   component: any;
   inPanel?: boolean;
 }
@@ -18,24 +19,32 @@ export const RouteConfig = (props: Props) => {
     loggedIn,
     routes,
     path,
-    component: Component
+    component: Component,
+    inPanel,
   } = props;
 
   /* eslint-disable react/no-children-prop */
   return (
     <Route
       path={path}
-      children={childrenProps => {
+      children={(childrenProps) => {
         if (!Component) {
           return null;
         }
         if (publicPath || loggedIn) {
+          if (inPanel) {
+            return (
+              <Panel show={Boolean(childrenProps.match)}>
+                <Component {...childrenProps} routes={routes} />
+              </Panel>
+            );
+          }
           return <Component {...childrenProps} routes={routes} />;
         } else {
           return (
             <Redirect
               to={{
-                pathname: "/login"
+                pathname: "/login",
               }}
             />
           );

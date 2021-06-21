@@ -13,7 +13,7 @@ interface Props {
   profile?: ProfileState;
 }
 
-export const Nav: React.FC<Props> = ({ profile }) => {
+export const Nav: React.FC<Props> = ({ profile }: Props) => {
   let location = useLocation();
   const { profile: profileDetails } = profile || {};
   const [showNav, toggleShowNav] = useState(false);
@@ -23,7 +23,7 @@ export const Nav: React.FC<Props> = ({ profile }) => {
   const avatarUrl =
     profileDetails && profileDetails.avatar
       ? imageUrl(profileDetails.avatar, {
-          resize: { width: 80, height: 80, fit: "cover" }
+          resize: { width: 80, height: 80, fit: "cover" },
         })
       : undefined;
   return (
@@ -36,23 +36,22 @@ export const Nav: React.FC<Props> = ({ profile }) => {
           <Menu color={white} />
         </MenuWrapper>
         <Logo />
-        <Avatar
-          src={avatarUrl}
-          alt={`${profileDetails?.firstName} ${profileDetails?.lastName}`}
-        />
+        <Link
+          to={{
+            pathname: "/profile",
+            // This is the trick! This link sets
+            // the `background` in location state.
+            state: { background: location },
+          }}
+        >
+          <Avatar
+            src={avatarUrl}
+            alt={`${profileDetails?.firstName} ${profileDetails?.lastName}`}
+          />
+        </Link>
       </Inner>
       <PrimaryNav active={showNav}>
         <nav className="primary-nav__content">Not implemented :(</nav>
-        <Link
-          to={{
-            pathname: "/test",
-            // This is the trick! This link sets
-            // the `background` in location state.
-            state: { background: location }
-          }}
-        >
-          Test
-        </Link>
       </PrimaryNav>
     </Container>
   );

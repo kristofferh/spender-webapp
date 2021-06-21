@@ -80,9 +80,11 @@ export class Items extends Component {
 
   updateDates() {
     const {
-      location: { search },
+      location: { search, state },
     } = this.props;
-    const params = new URLSearchParams(search);
+    const searchParams =
+      state && state.background ? state.background.search : search;
+    const params = new URLSearchParams(searchParams);
     const month = params.get("month");
     const year = params.get("year");
     const date = this.formatDates(month, year);
