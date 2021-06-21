@@ -1,3 +1,4 @@
+import { NotFound } from "shared/components/not-found";
 import Items from "shared/features/items";
 import Logout from "shared/features/logout";
 import Profile from "shared/features/profile";
@@ -11,47 +12,50 @@ export const routes = [
     name: "home",
     path: "/",
     exact: true,
-    component: Items
+    component: Items,
   },
   {
     name: "logout",
     path: "/logout",
     component: Logout,
-    public: true
+    public: true,
   },
   {
     name: "create",
     path: "/items/create",
-    component: Upsert
+    component: Upsert,
   },
   {
-    name: "Item",
+    name: "item",
     path: "/items/:id",
     exact: true,
     component: Upsert,
-    panel: true
   },
   {
     name: "signup",
     path: "/login",
     exact: true,
     component: RequestToken,
-    public: true
+    public: true,
   },
   {
     name: "verify",
     path: "/verify",
     exact: true,
     component: Verify,
-    public: true
+    public: true,
   },
   {
     name: "profile",
     path: "/profile",
     exact: true,
     component: Profile,
-    panel: true
-  }
+    panel: true,
+  },
+  {
+    name: "not-found",
+    component: NotFound,
+  },
 ];
 
 export default routes;

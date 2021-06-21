@@ -1,7 +1,8 @@
 import { withFormik } from "formik";
 import moment from "moment";
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import EditForm, { Props as EditFormProps } from "shared/components/edit-form";
 import { deleteItem, fetchItem, upsertItem } from "shared/data/item/actions";
 import { omit } from "shared/utils/object";
@@ -58,76 +59,67 @@ const EditWrapper = withFormik<FormProps & EditFormProps, FormValues>({
     } catch {
       setStatus("Something went weird.");
     }
-  }
+  },
 })(EditForm);
 
-export class Upsert extends Component<Props> {
-  static defaultProps = {
-    tags: []
-  };
+export const Upsert: React.FC<Props> = (props) => {
+  const { id } = useParams() as any;
 
-  componentDidMount() {
-    this.props.fetchItem(this.props.id);
-  }
+  useEffect(() => {
+    props.fetchItem(id);
+  }, []);
 
-  handleSubmit = async (values: FormValues) => {
-    await this.props.upsertItem({
+  const handleSubmit = async (values: FormValues) => {
+    await props.upsertItem({
       ...values,
       amount: Number(values.amount),
-      id: this.props.id
+      id,
     });
-    this.props.history.push("/");
+    props.history.push("/");
   };
 
-  handleDelete = async () => {
+  const handleDelete = async () => {
     try {
-      await this.props.deleteItem(this.props.id);
-      this.props.history.push("/");
+      await props.deleteItem(id);
+      props.history.push("/");
     } catch (errors) {
       console.log("something went weird", errors); // eslint-disable-line no-console
     }
   };
 
-  render() {
-    const { id, tags, initialValues, isSubmitting } = this.props;
-    return (
-      <Container>
-        <Title>{id ? "Edit" : "Add"}</Title>
-        <EditWrapper
-          onSubmit={this.handleSubmit}
-          tags={tags}
-          showDelete={id ? true : false}
-          deleteCallback={this.handleDelete}
-          initialValues={initialValues}
-          isSubmitting={isSubmitting}
-        />
-      </Container>
-    );
-  }
-}
+  const { tags, initialValues, isSubmitting } = props;
+  return (
+    <Container>
+      <Title>{id ? "Edit" : "Add"}</Title>
+      <EditWrapper
+        onSubmit={handleSubmit}
+        tags={tags}
+        showDelete={id ? true : false}
+        deleteCallback={handleDelete}
+        initialValues={initialValues}
+        isSubmitting={isSubmitting}
+      />
+    </Container>
+  );
+};
 
-const mapStateToProps = (state: any, ownProps: any) => {
-  if (!ownProps.match) {
-    return;
-  }
+Upsert.defaultProps = {
+  tags: [],
+};
+
+const mapStateToProps = (state: any) => {
   const defaultInitialValues: FormValues = {
     date: "",
     amount: "",
     description: "",
-    tags: []
+    tags: [],
   };
   const {
     item: {
       user: { item: initialValues = defaultInitialValues, tags },
-      errors
-    }
+      errors,
+    },
   } = state;
-
-  const {
-    match: {
-      params: { id = undefined }
-    }
-  } = ownProps || {};
 
   const existingTags =
     initialValues.tags && initialValues.tags.edges
@@ -142,12 +134,11 @@ const mapStateToProps = (state: any, ownProps: any) => {
     tags: availableTags,
     initialValues: { ...initialValues, tags: existingTags },
     errors,
-    id
   };
 };
 
 export default connect(mapStateToProps, {
   upsertItem,
   fetchItem,
-  deleteItem
+  deleteItem,
 })(Upsert);
