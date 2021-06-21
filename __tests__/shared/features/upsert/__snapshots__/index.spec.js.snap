@@ -272,7 +272,17 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   align-items: center;
 }
 
-.emotion-60 {
+.emotion-59 {
+  font-size: 15px;
+  cursor: pointer;
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.emotion-62 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -310,18 +320,18 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   padding: 0 50px;
 }
 
-.emotion-60:active,
-.emotion-60:hover {
+.emotion-62:active,
+.emotion-62:hover {
   background-color: #000000;
   color: #ffffff;
 }
 
-.emotion-60:focus {
+.emotion-62:focus {
   outline: none;
   box-shadow: 0 0 0 3px #66afe965;
 }
 
-.emotion-62 {
+.emotion-64 {
   width: 20px;
   height: 20px;
   margin-right: -30px;
@@ -334,7 +344,7 @@ exports[`Create snapshot should render and match the snapshot for adding an item
   <h1
     className="emotion-2 emotion-3"
   >
-    Add
+    Edit
   </h1>
   <form
     className="emotion-4 emotion-5"
@@ -573,12 +583,18 @@ exports[`Create snapshot should render and match the snapshot for adding an item
       <div
         className="emotion-57 emotion-58"
       >
+        <a
+          className="emotion-59 emotion-60"
+          onClick={[Function]}
+        >
+          Delete
+        </a>
         <button
-          className="emotion-59 emotion-60 emotion-61"
+          className="emotion-61 emotion-62 emotion-63"
         >
           Submit
           <div
-            className="emotion-62 emotion-63"
+            className="emotion-64 emotion-65"
           />
         </button>
       </div>

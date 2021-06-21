@@ -8,6 +8,10 @@ import { Upsert } from "shared/features/upsert";
 const spy = jest.fn();
 const store = createStore(() => ({}));
 
+jest.mock("react-router", () => ({
+  useParams: jest.fn().mockReturnValue({ id: "123" }),
+}));
+
 const Decorated = withFormik({
   initialValues: { date: "July 12, 2008", amount: 10 },
 })(Upsert);
@@ -30,7 +34,7 @@ describe("Create snapshot", () => {
     const tree = renderer
       .create(
         <Provider store={store}>
-          <Decorated onSubmit={spy} id={5} fetchItem={spy} fetchTags={spy} />
+          <Decorated onSubmit={spy} fetchItem={spy} fetchTags={spy} />
         </Provider>
       )
       .toJSON();
